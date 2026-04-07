@@ -34,33 +34,33 @@ INSERT INTO SPECIALIZATION (name, description) VALUES
 ('General Physician', 'General health');
 
 -- =========================
--- DOCTOR (SMART FK)
+-- DOCTOR (password added)
 -- =========================
-INSERT INTO DOCTOR (name, experience, phone, email, specialization_id) VALUES
+INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password) VALUES
 ('Dr. Amit Sharma', 10, '9876543210', 'amit@hospital.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Cardiology')),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Cardiology'), NULL),
 
 ('Dr. Priya Mehta', 7, '9876543211', 'priya@hospital.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Neurology')),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Neurology'), NULL),
 
 ('Dr. Raj Patel', 5, '9876543212', 'raj@hospital.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Orthopedic')),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Orthopedic'), NULL),
 
 ('Dr. Neha Singh', 8, '9876543213', 'neha@hospital.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Dermatology')),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'Dermatology'), NULL),
 
 ('Dr. Karan Verma', 12, '9876543214', 'karan@hospital.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'General Physician'));
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name = 'General Physician'), NULL);
 
 -- =========================
--- PATIENT
+-- PATIENT (password added)
 -- =========================
-INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id) VALUES
+INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) VALUES
 ('Rahul Patel', 25, 'Male', '9000000001', 'rahul@gmail.com',
- (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'A+')),
+ (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'A+'), NULL),
 
 ('Anita Shah', 30, 'Female', '9000000002', 'anita@gmail.com',
- (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'B+'));
+ (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'B+'), NULL);
 
 -- =========================
 -- APPOINTMENT
@@ -100,28 +100,34 @@ SELECT * FROM DOCTOR;
 SELECT * FROM APPOINTMENT;
 SELECT * FROM LAB_REPORT;
 
-
-INSERT INTO DOCTOR (name, experience, phone, email, specialization_id)
+-- =========================
+-- EXTRA DOCTORS
+-- =========================
+INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password)
 SELECT 
     CONCAT('Dr. Doctor ', n),
     FLOOR(3 + RAND()*15),
     CONCAT('98', FLOOR(10000000 + RAND()*89999999)),
     CONCAT('doctor', n, '@hospital.com'),
-    (SELECT specialization_id FROM SPECIALIZATION ORDER BY RAND() LIMIT 1)
+    (SELECT specialization_id FROM SPECIALIZATION ORDER BY RAND() LIMIT 1),
+    NULL
 FROM (
     SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5
     UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10
 ) AS temp;
 
-
-INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id)
+-- =========================
+-- EXTRA PATIENTS
+-- =========================
+INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password)
 SELECT 
     CONCAT('Patient ', n),
     FLOOR(18 + RAND()*50),
     IF(RAND()>0.5, 'Male', 'Female'),
     CONCAT('9', FLOOR(100000000 + RAND()*899999999)),
     CONCAT('patient', n, '@gmail.com'),
-    (SELECT blood_group_id FROM BLOOD_GROUP ORDER BY RAND() LIMIT 1)
+    (SELECT blood_group_id FROM BLOOD_GROUP ORDER BY RAND() LIMIT 1),
+    NULL
 FROM (
     SELECT 1 n UNION SELECT 2 UNION SELECT 3 UNION SELECT 4 UNION SELECT 5
     UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10
@@ -140,4 +146,4 @@ FROM (
     UNION SELECT 6 UNION SELECT 7 UNION SELECT 8 UNION SELECT 9 UNION SELECT 10
 ) AS temp;
 
-SELECT * FROM appointment
+SELECT * FROM appointment;
