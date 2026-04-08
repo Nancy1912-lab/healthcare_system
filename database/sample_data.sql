@@ -551,11 +551,530 @@ INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) 
 -- APPOINTMENT
 -- =========================
 INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_time, status) VALUES
-(
- (SELECT patient_id FROM PATIENT WHERE name = 'Rahul Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name = 'Dr. Amit Sharma'),
- '2026-04-10', '10:00:00', 'completed'
-);
+
+((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel'),
+ '2026-04-01','10:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sourav Das'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah'),
+ '2026-04-02','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta'),
+ '2026-04-03','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai'),
+ '2026-04-04','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Trudeep Dave'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi'),
+ '2026-04-05','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Veerabhadra Rotte'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi'),
+ '2026-04-06','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
+ '2026-04-07','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Navneet Khanna'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah'),
+ '2026-04-08','09:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Nimisha Agarwal'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Vyas'),
+ '2026-04-09','10:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Nishant Sharma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sandeep Patel'),
+ '2026-04-10','11:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='P L Ramkumar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jinal Shah'),
+ '2026-04-11','12:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Prakash A Dabhi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Parth Mehta'),
+ '2026-04-12','10:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Pramod Bhingole'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Darshan Patel'),
+ '2026-04-13','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Prasun Chandra Tripathi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Meet Shah'),
+ '2026-04-14','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Pravin Jadhav'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Desai'),
+ '2026-04-15','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Priyesh Chauhan'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harsh Vyas'),
+ '2026-04-16','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Raghavendra H Bhalerao'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Joshi'),
+ '2026-04-17','11:45:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rahul Kumar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Patel'),
+ '2026-04-18','12:15:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ram Narayan Yadav'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhumi Shah'),
+ '2026-04-19','09:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ravi Bhandari'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ronak Mehta'),
+ '2026-04-20','10:00:00','booked');
+
+((SELECT patient_id FROM PATIENT WHERE name='Ravi Kashikar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Yash Desai'),
+ '2026-04-21','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rohan Kar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi'),
+ '2026-04-22','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Saurabh Sinha'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Dhruv Patel'),
+ '2026-04-23','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jiten Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jigar Shah'),
+ '2026-04-24','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kamlesh Joshi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Mehta'),
+ '2026-04-25','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kannan Iyer'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Viral Desai'),
+ '2026-04-26','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Krupa Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ankit Joshi'),
+ '2026-04-27','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kshitij Bhargava'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajiv Patel'),
+ '2026-04-28','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kumar Abhishek'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neel Shah'),
+ '2026-04-29','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='M K Barua'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Mehta'),
+ '2026-04-30','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mahesh Mungule'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tushar Desai'),
+ '2026-05-01','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mahuya Bandyopadhyay'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hemal Patel'),
+ '2026-05-02','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mamta Sharma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ritesh Shah'),
+ '2026-05-03','11:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Manjunath K'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vimal Mehta'),
+ '2026-05-04','12:15:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Manoj Choudhuri'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai'),
+ '2026-05-05','09:45:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Meera A Vasani'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajay Patel'),
+ '2026-05-06','10:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mithilesh K Dikshit'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pankaj Shah'),
+ '2026-05-07','11:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mohit Kumar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sagar Mehta'),
+ '2026-05-08','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Abhishek Rawat'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahesh Desai'),
+ '2026-05-09','09:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'),
+ '2026-05-10','10:00:00','completed');
+
+((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar Parwani'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah'),
+ '2026-05-11','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Anand Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Mehta'),
+ '2026-05-12','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ashish Soni'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Heena Desai'),
+ '2026-05-13','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Axaykumar Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel'),
+ '2026-05-14','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ayyanna Habal'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah'),
+ '2026-05-15','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Brajesh Tiwari'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta'),
+ '2026-05-16','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Dharmendra Sadhwani'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai'),
+ '2026-05-17','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Dileep Gupta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel'),
+ '2026-05-18','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Dipankar Deb'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah'),
+ '2026-05-19','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ganesh Iyer'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta'),
+ '2026-05-20','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Gautam Borisagar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai'),
+ '2026-05-21','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Himanshu Sharma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel'),
+ '2026-05-22','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='I Watitula Longkumer'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah'),
+ '2026-05-23','11:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jaidevi Jeyaraman'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta'),
+ '2026-05-24','12:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Aarav Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai'),
+ '2026-05-25','09:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Vivaan Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel'),
+ '2026-05-26','10:45:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Aditya Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah'),
+ '2026-05-27','11:15:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Krish Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta'),
+ '2026-05-28','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ishaan Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai'),
+ '2026-05-29','09:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Diya Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel'),
+ '2026-05-30','10:00:00','completed');
+
+((SELECT patient_id FROM PATIENT WHERE name='Ananya Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah'),
+ '2026-05-31','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Riya Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta'),
+ '2026-06-01','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kavya Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai'),
+ '2026-06-02','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sneha Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel'),
+ '2026-06-03','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rahul Verma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah'),
+ '2026-06-04','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Amit Kumar'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta'),
+ '2026-06-05','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sandeep Yadav'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai'),
+ '2026-06-06','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Vikas Singh'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel'),
+ '2026-06-07','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rohit Sharma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah'),
+ '2026-06-08','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Pooja Verma'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiral Mehta'),
+ '2026-06-09','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Neha Gupta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sneha Desai'),
+ '2026-06-10','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Swati Mishra'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Anil Patel'),
+ '2026-06-11','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kiran Yadav'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nitin Shah'),
+ '2026-06-12','11:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Anjali Singh'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jay Mehta'),
+ '2026-06-13','12:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Arjun Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai'),
+ '2026-06-14','09:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Harsh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel'),
+ '2026-06-15','10:45:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jay Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Shah'),
+ '2026-06-16','11:15:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Nirav Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vivek Mehta'),
+ '2026-06-17','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Parth Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mehul Desai'),
+ '2026-06-18','09:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rohit Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tapan Patel'),
+ '2026-06-19','10:00:00','completed');
+
+((SELECT patient_id FROM PATIENT WHERE name='Tushar Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Shah'),
+ '2026-06-20','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kunal Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harish Mehta'),
+ '2026-06-21','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Dhruv Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai'),
+ '2026-06-22','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jatin Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jitesh Patel'),
+ '2026-06-23','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sejal Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Suresh Shah'),
+ '2026-06-24','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Bhumi Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rohan Mehta'),
+ '2026-06-25','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mansi Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Desai'),
+ '2026-06-26','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rina Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikhil Patel'),
+ '2026-06-27','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Heena Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Shah'),
+ '2026-06-28','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Yash Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Mehta'),
+ '2026-06-29','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Meet Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Shah'),
+ '2026-06-30','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ronak Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavesh Patel'),
+ '2026-07-01','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Chirag Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nilesh Desai'),
+ '2026-07-02','11:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Tejas Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Amit Trivedi'),
+ '2026-07-03','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Vivek Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Shah'),
+ '2026-07-04','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mehul Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
+ '2026-07-05','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kishan Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hardik Joshi'),
+ '2026-07-06','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Alpesh Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Milan Patel'),
+ '2026-07-07','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Hitesh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Shah'),
+ '2026-07-08','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rakesh Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neha Patel'),
+ '2026-07-09','10:30:00','booked');
+
+((SELECT patient_id FROM PATIENT WHERE name='Nilesh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah'),
+ '2026-07-10','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ketan Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah'),
+ '2026-07-11','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Bhavesh Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
+ '2026-07-12','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jignesh Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'),
+ '2026-07-13','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Devang Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah'),
+ '2026-07-14','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Parth Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel'),
+ '2026-07-15','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Dhaval Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah'),
+ '2026-07-16','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Niraj Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta'),
+ '2026-07-17','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ankit Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai'),
+ '2026-07-18','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Bhavik Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel'),
+ '2026-07-19','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jatin Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah'),
+ '2026-07-20','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Krunal Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta'),
+ '2026-07-21','10:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Tapan Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai'),
+ '2026-07-22','11:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Viral Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel'),
+ '2026-07-23','12:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sagar Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah'),
+ '2026-07-24','09:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta'),
+ '2026-07-25','10:45:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Rohan Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai'),
+ '2026-07-26','11:15:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Manish Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel'),
+ '2026-07-27','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Deepak Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah'),
+ '2026-07-28','09:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Prakash Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta'),
+ '2026-07-29','10:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Naresh Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai'),
+ '2026-07-30','11:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kirit Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel'),
+ '2026-07-31','12:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Paresh Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah'),
+ '2026-08-01','09:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Mahendra Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta'),
+ '2026-08-02','10:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Bhavin Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai'),
+ '2026-08-03','11:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Jignesh Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel'),
+ '2026-08-04','12:30:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Kalpesh Mehta'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah'),
+ '2026-08-05','09:00:00','cancelled'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Bharat Desai'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta'),
+ '2026-08-06','10:15:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Ramesh Trivedi'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai'),
+ '2026-08-07','11:45:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Nayan Shah'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel'),
+ '2026-08-08','12:00:00','completed'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Tejas Patel'),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah'),
+ '2026-08-09','09:30:00','completed');
 
 -- =========================
 -- LAB
