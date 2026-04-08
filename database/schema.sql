@@ -20,7 +20,7 @@ CREATE TABLE DOCTOR (
     name VARCHAR(100),
     experience INT,
     phone VARCHAR(15),
-    email VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
     password VARCHAR(255),
     specialization_id INT,
     FOREIGN KEY (specialization_id) REFERENCES SPECIALIZATION(specialization_id)
