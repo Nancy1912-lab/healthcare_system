@@ -1080,7 +1080,13 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 -- LAB
 -- =========================
 INSERT INTO LAB (name, location, contact, email) VALUES
-('City Lab', 'Ahmedabad', '7777777777', 'lab@gmail.com');
+
+('KD Hospital Lab', 'Ahmedabad', '7777777701', 'kdlab@hospital.com'),
+('City Lab', 'Ahmedabad', '7777777702', 'citylab@gmail.com'),
+('Apollo Diagnostics', 'Ahmedabad', '7777777703', 'apollo@diagnostics.com'),
+('SRL Diagnostics', 'Ahmedabad', '7777777704', 'srl@diagnostics.com'),
+('Thyrocare Lab', 'Ahmedabad', '7777777705', 'thyrocare@lab.com'),
+('Advanced Path Lab', 'Ahmedabad', '7777777706', 'advancedpath@lab.com');
 
 -- =========================
 -- TEST
