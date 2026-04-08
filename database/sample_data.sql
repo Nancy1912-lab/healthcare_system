@@ -27,11 +27,44 @@ INSERT INTO BLOOD_GROUP (type) VALUES
 -- SPECIALIZATION
 -- =========================
 INSERT INTO SPECIALIZATION (name, description) VALUES
-('Cardiology', 'Heart related issues'),
-('Neurology', 'Brain and nerves'),
-('Orthopedic', 'Bones and joints'),
-('Dermatology', 'Skin related'),
-('General Physician', 'General health');
+
+('Cardiology', 'Heart and cardiovascular system'),
+('Cardiothoracic & Vascular Surgery', 'Heart and chest surgeries'),
+('Neurology', 'Brain and nervous system'),
+('Neurosurgery', 'Surgical treatment of brain and nerves'),
+('Nephrology & Dialysis', 'Kidney related diseases and dialysis'),
+('Urology', 'Urinary tract and male reproductive system'),
+('Gastroenterology', 'Digestive system and liver'),
+
+('General Surgery', 'General surgical procedures'),
+('Laparoscopic Surgery', 'Minimally invasive surgeries'),
+('Bariatric Surgery', 'Weight loss surgeries'),
+('Surgical Oncology', 'Surgical treatment of cancer'),
+('Medical Oncology', 'Cancer treatment using medicines'),
+('Radiation Oncology', 'Cancer treatment using radiation'),
+('Orthopaedic & Joint Replacement', 'Bones, joints and replacement surgeries'),
+('Spine Surgery', 'Spine related surgical procedures'),
+('Plastic & Reconstructive Surgery', 'Cosmetic and reconstructive procedures'),
+
+('Obstetrics', 'Pregnancy and childbirth care'),
+('Gynaecology', 'Women reproductive health'),
+('Neonatology', 'Newborn baby care'),
+('Paediatrics', 'Child healthcare'),
+
+('Ophthalmology', 'Eye related diseases'),
+('ENT', 'Ear, nose and throat'),
+('Dermatology', 'Skin, hair and nail care'),
+
+('Radiology', 'Medical imaging and scans'),
+('Laboratory Medicine', 'Diagnostic lab services'),
+('Pathology', 'Disease diagnosis through lab tests'),
+('Physiotherapy', 'Physical therapy and rehabilitation'),
+('Rehabilitation Medicine', 'Recovery and rehabilitation care'),
+
+('Liver Transplant', 'Liver transplant procedures'),
+('Kidney Transplant', 'Kidney transplant procedures'),
+('Heart Transplant', 'Heart transplant procedures'),
+('Lung Transplant', 'Lung transplant procedures');
 
 -- =========================
 -- DOCTOR (password added)
