@@ -1841,3 +1841,47 @@ INSERT INTO LAB_REPORT (appointment_id, test_id, lab_id, result, report_date, st
  'Normal', '2026-07-19', 'completed'
 );
 
+-- =========================
+-- Symptoms
+-- =========================
+
+INSERT INTO SYMPTOM (name) VALUES
+
+-- 🩺 GENERAL
+('Fever'),
+('Fatigue'),
+('Weakness'),
+
+-- 🤧 RESPIRATORY
+('Cough'),
+('Cold'),
+('Shortness of Breath'),
+
+-- ❤️ CARDIAC
+('Chest Pain'),
+('Palpitations'),
+
+-- 🧠 NEUROLOGICAL
+('Headache'),
+('Dizziness'),
+
+-- 🍽️ GASTROINTESTINAL
+('Abdominal Pain'),
+('Nausea'),
+('Vomiting'),
+
+-- 🦴 ORTHOPEDIC
+('Back Pain'),
+('Joint Pain'),
+
+-- 🧴 DERMATOLOGY
+('Skin Rash'),
+('Allergy'),
+
+-- 🩸 CHRONIC CONDITIONS
+('High Blood Pressure'),
+('Low Blood Pressure'),
+
+-- 🤰 GYNECOLOGY
+('Pregnancy Symptoms');
+
