@@ -318,12 +318,235 @@ INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password)
 -- PATIENT (password added)
 -- =========================
 INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) VALUES
-('Rahul Patel', 25, 'Male', '9000000001', 'rahul@gmail.com',
- (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'A+'), NULL),
 
-('Anita Shah', 30, 'Female', '9000000002', 'anita@gmail.com',
- (SELECT blood_group_id FROM BLOOD_GROUP WHERE type = 'B+'), NULL);
+('Shukkoor T', 42, 'Male', '9100002001', 'shukkoor@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Sourav Das', 39, 'Male', '9100002002', 'sourav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Sudhakar Chaudhary', 45, 'Male', '9100002003', 'sudhakar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Sumit Tripathi', 38, 'Male', '9100002004', 'sumit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Trudeep Dave', 41, 'Male', '9100002005', 'trudeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Veerabhadra Rotte', 43, 'Male', '9100002006', 'veerabhadra@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Yogesh Shah', 40, 'Male', '9100002007', 'yogesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
 
+('Jiten Shah', 45, 'Male', '9100002008', 'jiten@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Kamlesh Joshi', 44, 'Male', '9100002009', 'kamlesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Kannan Iyer', 46, 'Male', '9100002010', 'kannan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Krupa Shah', 34, 'Female', '9100002011', 'krupa@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+
+('Kshitij Bhargava', 37, 'Male', '9100002012', 'kshitij@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Kumar Abhishek', 39, 'Male', '9100002013', 'abhishek@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('M K Barua', 50, 'Male', '9100002014', 'barua@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Mahesh Mungule', 41, 'Male', '9100002015', 'mahesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Mahuya Bandyopadhyay', 45, 'Female', '9100002016', 'mahuya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Mamta Sharma', 38, 'Female', '9100002017', 'mamta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Manjunath K', 40, 'Male', '9100002018', 'manjunath@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Manoj Choudhuri', 44, 'Male', '9100002019', 'manoj@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+
+('Meera A Vasani', 39, 'Female', '9100002020', 'meera@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Mithilesh K Dikshit', 42, 'Male', '9100002021', 'mithilesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Mohit Kumar', 37, 'Male', '9100002022', 'mohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+
+('Navneet Khanna', 36, 'Male', '9100002023', 'navneet@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Nimisha Agarwal', 34, 'Female', '9100002024', 'nimisha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Nishant Sharma', 35, 'Male', '9100002025', 'nishant@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('PL Ramkumar', 43, 'Male', '9100002026', 'ramkumar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Prakash A Dabhi', 46, 'Male', '9100002027', 'prakash@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Pramod Bhingole', 42, 'Male', '9100002028', 'pramod@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Prasun Chandra Tripathi', 35, 'Male', '9100002029', 'prasun@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Pravin Jadhav', 39, 'Male', '9100002030', 'pravin@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+
+('Aarav Patel', 28, 'Male', '9100003001', 'aarav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Vivaan Shah', 31, 'Male', '9100003002', 'vivaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Aditya Mehta', 35, 'Male', '9100003003', 'aditya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Krish Desai', 29, 'Male', '9100003004', 'krish@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Ishaan Trivedi', 33, 'Male', '9100003005', 'ishaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Diya Shah', 27, 'Female', '9100003006', 'diya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Ananya Patel', 30, 'Female', '9100003007', 'ananya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Riya Mehta', 26, 'Female', '9100003008', 'riya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Kavya Desai', 32, 'Female', '9100003009', 'kavya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Sneha Shah', 34, 'Female', '9100003010', 'sneha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Rahul Verma', 38, 'Male', '9100003011', 'rahul.verma@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Amit Kumar', 40, 'Male', '9100003012', 'amit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Sandeep Yadav', 36, 'Male', '9100003013', 'sandeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Vikas Singh', 37, 'Male', '9100003014', 'vikas@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Rohit Sharma', 35, 'Male', '9100003015', 'rohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Pooja Verma', 29, 'Female', '9100003016', 'pooja@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Neha Gupta', 33, 'Female', '9100003017', 'neha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Swati Mishra', 31, 'Female', '9100003018', 'swati@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Kiran Yadav', 34, 'Female', '9100003019', 'kiran@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Anjali Singh', 28, 'Female', '9100003020', 'anjali@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL);
+
+('Arjun Patel', 29, 'Male', '9100003021', 'arjun.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Harsh Shah', 34, 'Male', '9100003022', 'harsh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Jay Mehta', 31, 'Male', '9100003023', 'jay.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Nirav Desai', 36, 'Male', '9100003024', 'nirav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Parth Trivedi', 28, 'Male', '9100003025', 'parth.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Rohit Shah', 32, 'Male', '9100003026', 'rohit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Kunal Patel', 35, 'Male', '9100003027', 'kunal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Dhruv Mehta', 30, 'Male', '9100003028', 'dhruv.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Jatin Desai', 37, 'Male', '9100003029', 'jatin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Tushar Shah', 39, 'Male', '9100003030', 'tushar.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Hiral Patel', 27, 'Female', '9100003031', 'hiral.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Pinal Shah', 33, 'Female', '9100003032', 'pinal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Jinal Mehta', 29, 'Female', '9100003033', 'jinal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Komal Desai', 31, 'Female', '9100003034', 'komal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Rupal Trivedi', 35, 'Female', '9100003035', 'rupal.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Sejal Shah', 28, 'Female', '9100003036', 'sejal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Bhumi Patel', 32, 'Female', '9100003037', 'bhumi.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Mansi Mehta', 30, 'Female', '9100003038', 'mansi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Rina Desai', 34, 'Female', '9100003039', 'rina.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Heena Shah', 29, 'Female', '9100003040', 'heena.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL);
+
+('Yash Patel', 29, 'Male', '9100003041', 'yash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Meet Shah', 33, 'Male', '9100003042', 'meet.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Ronak Mehta', 31, 'Male', '9100003043', 'ronak.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Chirag Desai', 36, 'Male', '9100003044', 'chirag.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Tejas Trivedi', 28, 'Male', '9100003045', 'tejas.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Vivek Shah', 35, 'Male', '9100003046', 'vivek.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Mehul Patel', 32, 'Male', '9100003047', 'mehul.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Kishan Mehta', 30, 'Male', '9100003048', 'kishan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Alpesh Desai', 37, 'Male', '9100003049', 'alpesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Hitesh Shah', 39, 'Male', '9100003050', 'hitesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Rakesh Patel', 41, 'Male', '9100003051', 'rakesh.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Nilesh Shah', 38, 'Male', '9100003052', 'nilesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Ketan Mehta', 34, 'Male', '9100003053', 'ketan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Bhavesh Desai', 36, 'Male', '9100003054', 'bhavesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Jignesh Trivedi', 40, 'Male', '9100003055', 'jignesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Devang Shah', 31, 'Male', '9100003056', 'devang.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Parth Patel', 28, 'Male', '9100003057', 'parth.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Dhaval Mehta', 33, 'Male', '9100003058', 'dhaval.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Niraj Desai', 35, 'Male', '9100003059', 'niraj.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Ankit Shah', 29, 'Male', '9100003060', 'ankit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+
+('Bhavik Patel', 32, 'Male', '9100003061', 'bhavik.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Jatin Shah', 34, 'Male', '9100003062', 'jatin.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Krunal Mehta', 30, 'Male', '9100003063', 'krunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Tapan Desai', 37, 'Male', '9100003064', 'tapan.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Viral Shah', 36, 'Male', '9100003065', 'viral.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+
+('Hiral Patel', 28, 'Female', '9100003066', 'hiral.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Pooja Shah', 31, 'Female', '9100003067', 'pooja.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Riya Mehta', 27, 'Female', '9100003068', 'riya.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Kavita Desai', 33, 'Female', '9100003069', 'kavita.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Neha Shah', 35, 'Female', '9100003070', 'neha.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+
+('Sagar Patel', 34, 'Male', '9100003071', 'sagar.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Yogesh Shah', 38, 'Male', '9100003072', 'yogesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Rohan Mehta', 29, 'Male', '9100003073', 'rohan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Manish Desai', 36, 'Male', '9100003074', 'manish.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Deepak Trivedi', 41, 'Male', '9100003075', 'deepak.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Prakash Shah', 45, 'Male', '9100003076', 'prakash.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Naresh Patel', 40, 'Male', '9100003077', 'naresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Kirit Mehta', 37, 'Male', '9100003078', 'kirit.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Paresh Desai', 42, 'Male', '9100003079', 'paresh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Mahendra Shah', 46, 'Male', '9100003080', 'mahendra.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Bhavin Patel', 31, 'Male', '9100003081', 'bhavin.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Jignesh Shah', 35, 'Male', '9100003082', 'jignesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Kalpesh Mehta', 33, 'Male', '9100003083', 'kalpesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Bharat Desai', 39, 'Male', '9100003084', 'bharat.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Ramesh Trivedi', 47, 'Male', '9100003085', 'ramesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Nayan Shah', 32, 'Male', '9100003086', 'nayan.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Tejas Patel', 30, 'Male', '9100003087', 'tejas.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Krunal Shah', 34, 'Male', '9100003088', 'krunal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Milan Mehta', 36, 'Male', '9100003089', 'milan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Hiren Desai', 41, 'Male', '9100003090', 'hiren.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+
+('Nisha Patel', 29, 'Female', '9100003091', 'nisha.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Pinal Shah', 33, 'Female', '9100003092', 'pinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Jinal Mehta', 28, 'Female', '9100003093', 'jinal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Heena Desai', 35, 'Female', '9100003094', 'heena.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Komal Shah', 31, 'Female', '9100003095', 'komal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+
+('Bhumi Patel', 30, 'Female', '9100003096', 'bhumi.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Rupal Shah', 34, 'Female', '9100003097', 'rupal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Sejal Mehta', 29, 'Female', '9100003098', 'sejal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Aarti Desai', 32, 'Female', '9100003099', 'aarti.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Mansi Shah', 33, 'Female', '9100003100', 'mansi.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+
+('Akash Patel', 30, 'Male', '9100003101', 'akash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Vimal Shah', 35, 'Male', '9100003102', 'vimal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Suresh Mehta', 42, 'Male', '9100003103', 'suresh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Ravindra Desai', 39, 'Male', '9100003104', 'ravindra.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Mahesh Trivedi', 44, 'Male', '9100003105', 'mahesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Kishor Shah', 47, 'Male', '9100003106', 'kishor.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Arvind Patel', 41, 'Male', '9100003107', 'arvind.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Dinesh Mehta', 38, 'Male', '9100003108', 'dinesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Nitin Desai', 36, 'Male', '9100003109', 'nitin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Sanjay Shah', 45, 'Male', '9100003110', 'sanjay.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Paresh Patel', 37, 'Male', '9100003111', 'paresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Jayesh Shah', 40, 'Male', '9100003112', 'jayesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Mukesh Mehta', 43, 'Male', '9100003113', 'mukesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Kirit Desai', 39, 'Male', '9100003114', 'kirit.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Bipin Trivedi', 46, 'Male', '9100003115', 'bipin.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Ramesh Shah', 48, 'Male', '9100003116', 'ramesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Jagdish Patel', 50, 'Male', '9100003117', 'jagdish.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Bhupendra Mehta', 47, 'Male', '9100003118', 'bhupendra.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Raghav Desai', 35, 'Male', '9100003119', 'raghav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Pradeep Trivedi', 44, 'Male', '9100003120', 'pradeep.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+
+('Nikita Shah', 29, 'Female', '9100003121', 'nikita.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Shruti Patel', 31, 'Female', '9100003122', 'shruti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Riddhi Mehta', 28, 'Female', '9100003123', 'riddhi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Vaishali Desai', 34, 'Female', '9100003124', 'vaishali.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Bhavna Shah', 36, 'Female', '9100003125', 'bhavna.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+
+('Minal Patel', 33, 'Female', '9100003126', 'minal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Hiral Mehta', 30, 'Female', '9100003127', 'hiral.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Pooja Desai', 32, 'Female', '9100003128', 'pooja.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Komal Patel', 29, 'Female', '9100003129', 'komal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Jinal Shah', 35, 'Female', '9100003130', 'jinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+
+('Amit Patel', 34, 'Male', '9100003131', 'amit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Rohit Shah', 37, 'Male', '9100003132', 'rohit.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Kunal Mehta', 31, 'Male', '9100003133', 'kunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Jay Desai', 29, 'Male', '9100003134', 'jay.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Nirav Trivedi', 36, 'Male', '9100003135', 'nirav.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+
+('Parth Shah', 30, 'Male', '9100003136', 'parth.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Dhruv Patel', 28, 'Male', '9100003137', 'dhruv.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Tushar Mehta', 35, 'Male', '9100003138', 'tushar.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Harsh Desai', 32, 'Male', '9100003139', 'harsh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Vikas Shah', 39, 'Male', '9100003140', 'vikas.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+
+('Ankit Patel', 33, 'Male', '9100003141', 'ankit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Bhavesh Shah', 38, 'Male', '9100003142', 'bhavesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Jatin Mehta', 34, 'Male', '9100003143', 'jatin.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Krunal Desai', 31, 'Male', '9100003144', 'krunal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Tapan Shah', 40, 'Male', '9100003145', 'tapan.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+
+('Rina Patel', 29, 'Female', '9100003146', 'rina.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Heena Shah', 35, 'Female', '9100003147', 'heena.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Komal Mehta', 30, 'Female', '9100003148', 'komal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Pooja Desai', 33, 'Female', '9100003149', 'pooja.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Jinal Patel', 28, 'Female', '9100003150', 'jinal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+
+('Bhumi Shah', 32, 'Female', '9100003151', 'bhumi.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Mansi Mehta', 31, 'Female', '9100003152', 'mansi.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Rupal Desai', 34, 'Female', '9100003153', 'rupal.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Sejal Shah', 29, 'Female', '9100003154', 'sejal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
+('Aarti Patel', 36, 'Female', '9100003155', 'aarti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+
+('Neha Shah', 33, 'Female', '9100003156', 'neha.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Kavya Mehta', 27, 'Female', '9100003157', 'kavya.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Riya Patel', 26, 'Female', '9100003158', 'riya.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Sneha Desai', 35, 'Female', '9100003159', 'sneha.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Pinal Shah', 30, 'Female', '9100003160', 'pinal.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
 -- =========================
 -- APPOINTMENT
 -- =========================
