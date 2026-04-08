@@ -378,7 +378,7 @@ INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) 
 ('Neha Gupta', 33, 'Female', '9100003017', 'neha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
 ('Swati Mishra', 31, 'Female', '9100003018', 'swati@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
 ('Kiran Yadav', 34, 'Female', '9100003019', 'kiran@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Anjali Singh', 28, 'Female', '9100003020', 'anjali@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL);
+('Anjali Singh', 28, 'Female', '9100003020', 'anjali@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
 
 ('Arjun Patel', 29, 'Male', '9100003021', 'arjun.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
 ('Harsh Shah', 34, 'Male', '9100003022', 'harsh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
@@ -510,7 +510,7 @@ INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) 
 ('Hiral Mehta', 30, 'Female', '9100003127', 'hiral.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
 ('Pooja Desai', 32, 'Female', '9100003128', 'pooja.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
 ('Komal Patel', 29, 'Female', '9100003129', 'komal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Jinal Shah', 35, 'Female', '9100003130', 'jinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+('Jinal Shah', 35, 'Female', '9100003130', 'jinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL)
 
 ('Amit Patel', 34, 'Male', '9100003131', 'amit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
 ('Rohit Shah', 37, 'Male', '9100003132', 'rohit.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
@@ -630,7 +630,7 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 
 ((SELECT patient_id FROM PATIENT WHERE name='Ravi Bhandari'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ronak Mehta'),
- '2026-04-20','10:00:00','booked');
+ '2026-04-20','10:00:00','booked'),
 
 ((SELECT patient_id FROM PATIENT WHERE name='Ravi Kashikar'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Yash Desai'),
@@ -710,7 +710,7 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 
 ((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'),
- '2026-05-10','10:00:00','completed');
+ '2026-05-10','10:00:00','completed'),
 
 ((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar Parwani'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah'),
@@ -790,7 +790,7 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 
 ((SELECT patient_id FROM PATIENT WHERE name='Diya Shah'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel'),
- '2026-05-30','10:00:00','completed');
+ '2026-05-30','10:00:00','completed'),
 
 ((SELECT patient_id FROM PATIENT WHERE name='Ananya Patel'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah'),
@@ -950,7 +950,7 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 
 ((SELECT patient_id FROM PATIENT WHERE name='Rakesh Patel'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neha Patel'),
- '2026-07-09','10:30:00','booked');
+ '2026-07-09','10:30:00','booked'),
 
 ((SELECT patient_id FROM PATIENT WHERE name='Nilesh Shah'),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah'),
@@ -1842,7 +1842,7 @@ INSERT INTO LAB_REPORT (appointment_id, test_id, lab_id, result, report_date, st
 );
 
 -- =========================
--- Symptoms
+-- SYMPTOM
 -- =========================
 
 INSERT INTO SYMPTOM (name) VALUES
@@ -1884,4 +1884,189 @@ INSERT INTO SYMPTOM (name) VALUES
 
 -- 🤰 GYNECOLOGY
 ('Pregnancy Symptoms');
+
+-- =========================
+-- APPOINTMENT_SYMPTOM
+-- =========================
+
+INSERT INTO APPOINTMENT_SYMPTOM (appointment_id, symptom_id) VALUES
+
+(1,1),(1,4),
+(2,2),
+(3,1),(3,5),
+(4,4),
+(5,7),
+
+(6,6),
+(7,1),
+(8,3),
+(9,8),
+
+(10,7),(10,6),
+(11,9),
+(12,10),
+(13,11),
+
+(14,12),
+(15,13),
+(16,14),
+(17,15),
+(18,16),
+(19,17),
+(20,20),
+
+(21,1),(21,2),
+(22,3),
+(23,4),
+(24,5),(24,6),
+(25,7),
+
+(26,8),
+(27,9),
+(28,10),(28,11),
+(29,12),
+
+(30,13),
+(31,14),
+(32,15),
+(33,16),
+(34,17),
+(35,18),
+(36,19),
+(37,20),
+
+(38,1),
+(39,2),
+(40,3),
+(41,4),
+(42,5),
+(43,6),
+(44,7),
+(45,8),
+(46,9),
+(47,10),
+(48,11),
+(49,12),
+(50,13),
+ 
+(51,14),
+(52,15),
+(53,16),
+(54,17),
+(55,18),
+
+(56,19),
+(57,20),
+(58,1),(58,3),
+(59,2),
+
+(60,4),
+(61,5),
+(62,6),
+(63,7),(63,8),
+(64,9),
+
+(65,10),
+(66,11),
+(67,12),
+(68,13),
+(69,14),
+
+(70,15),
+(71,16),
+(72,17),
+(73,18),
+(74,19),
+
+(75,20),
+(76,1),
+(77,2),
+(78,3),
+(79,4),
+
+(80,5),
+(81,6),
+(82,7),
+(83,8),
+(84,9),
+
+(85,10),
+(86,11),
+(87,12),
+(88,13),
+(89,14),
+
+(90,15),
+(91,16),
+(92,17),
+(93,18),
+(94,19),
+
+(95,20),
+(96,1),
+(97,2),
+(98,3),
+(99,4),
+(100,5),
+
+(101,6),
+(102,7),
+(103,8),
+(104,9),
+(105,10),
+
+(106,11),
+(107,12),
+(108,13),
+(109,14),
+(110,15),
+
+(111,16),
+(112,17),
+(113,18),
+(114,19),
+(115,20),
+
+(116,1),
+(117,2),
+(118,3),
+(119,4),
+(120,5),
+
+(121,6),
+(122,7),
+(123,8),
+(124,9),
+(125,10),
+
+(126,11),
+(127,12),
+(128,13),
+(129,14),
+(130,15),
+
+(131,16),
+(132,17),
+(133,18),
+(134,19),
+(135,20),
+
+(136,1),(136,2),
+(137,3),
+(138,4),
+(139,5),
+(140,6),
+
+(141,7),
+(142,8),
+(143,9),
+(144,10),
+(145,11),
+
+(146,12),
+(147,13),
+(148,14),
+(149,15),
+(150,16);
+
 
