@@ -1133,10 +1133,711 @@ INSERT INTO TEST (test_name, cost, description) VALUES
 -- LAB REPORT
 -- =========================
 INSERT INTO LAB_REPORT (appointment_id, test_id, lab_id, result, report_date, status) VALUES
+
 (
- (SELECT appointment_id FROM APPOINTMENT LIMIT 1),
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 0),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
  'Normal', '2026-04-10', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 1),
+ (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-04-11', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 2),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'High', '2026-04-12', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 3),
+ (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-04-13', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 4),
+ (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Critical', '2026-04-14', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 5),
+ (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-04-15', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 6),
+ (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'High', '2026-04-16', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 7),
+ (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-04-17', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 8),
+ (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-04-18', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 9),
+ (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Critical', '2026-04-19', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 10),
+ (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-04-20', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 11),
+ (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'High', '2026-04-21', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 12),
+ (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-04-22', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 13),
+ (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-04-23', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 14),
+ (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Low', '2026-04-24', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 15),
+ (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Positive', '2026-04-25', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 16),
+ (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Negative', '2026-04-26', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 17),
+ (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Positive', '2026-04-27', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 18),
+ (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Positive', '2026-04-28', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 19),
+ (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'High', '2026-04-29', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 20),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-04-30', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 21),
+ (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-05-01', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 22),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'High', '2026-05-02', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 23),
+ (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-05-03', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 24),
+ (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Critical', '2026-05-04', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 25),
+ (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-05-05', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 26),
+ (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'High', '2026-05-06', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 27),
+ (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-05-07', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 28),
+ (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-05-08', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 29),
+ (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Critical', '2026-05-09', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 30),
+ (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-05-10', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 31),
+ (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'High', '2026-05-11', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 32),
+ (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-05-12', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 33),
+ (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-05-13', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 34),
+ (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Low', '2026-05-14', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 35),
+ (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Negative', '2026-05-15', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 36),
+ (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Positive', '2026-05-16', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 37),
+ (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Negative', '2026-05-17', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 38),
+ (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Negative', '2026-05-18', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 39),
+ (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-05-19', 'completed'
+),
+ 
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 40),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-05-20', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 41),
+ (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-05-21', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 42),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'High', '2026-05-22', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 43),
+ (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-05-23', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 44),
+ (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Critical', '2026-05-24', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 45),
+ (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-05-25', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 46),
+ (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'High', '2026-05-26', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 47),
+ (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-05-27', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 48),
+ (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-05-28', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 49),
+ (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Critical', '2026-05-29', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 50),
+ (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-05-30', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 51),
+ (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'High', '2026-05-31', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 52),
+ (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-06-01', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 53),
+ (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-06-02', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 54),
+ (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Low', '2026-06-03', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 55),
+ (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Negative', '2026-06-04', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 56),
+ (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Positive', '2026-06-05', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 57),
+ (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Negative', '2026-06-06', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 58),
+ (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Positive', '2026-06-07', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 59),
+ (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'High', '2026-06-08', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 60),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-06-09', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 61),
+ (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-06-10', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 62),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'High', '2026-06-11', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 63),
+ (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-06-12', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 64),
+ (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Critical', '2026-06-13', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 65),
+ (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-06-14', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 66),
+ (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'High', '2026-06-15', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 67),
+ (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-06-16', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 68),
+ (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-06-17', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 69),
+ (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Critical', '2026-06-18', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 70),
+ (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-06-19', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 71),
+ (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'High', '2026-06-20', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 72),
+ (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-06-21', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 73),
+ (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-06-22', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 74),
+ (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Low', '2026-06-23', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 75),
+ (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Negative', '2026-06-24', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 76),
+ (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Positive', '2026-06-25', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 77),
+ (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Negative', '2026-06-26', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 78),
+ (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Positive', '2026-06-27', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 79),
+ (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'High', '2026-06-28', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 80),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-06-29', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 81),
+ (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-06-30', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 82),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'High', '2026-07-01', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 83),
+ (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Normal', '2026-07-02', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 84),
+ (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Critical', '2026-07-03', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 85),
+ (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Normal', '2026-07-04', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 86),
+ (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'High', '2026-07-05', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 87),
+ (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-07-06', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 88),
+ (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-07-07', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 89),
+ (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Critical', '2026-07-08', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 90),
+ (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Normal', '2026-07-09', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 91),
+ (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'High', '2026-07-10', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 92),
+ (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Normal', '2026-07-11', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 93),
+ (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'Normal', '2026-07-12', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 94),
+ (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Low', '2026-07-13', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 95),
+ (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
+ 'Negative', '2026-07-14', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 96),
+ (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
+ 'Positive', '2026-07-15', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 97),
+ (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
+ 'Negative', '2026-07-16', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 98),
+ (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
+ 'Positive', '2026-07-17', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 99),
+ (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
+ 'High', '2026-07-18', 'completed'
+),
+
+(
+ (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 100),
+ (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
+ (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
+ 'Normal', '2026-07-19', 'completed'
 );
 
