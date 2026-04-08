@@ -2069,4 +2069,292 @@ INSERT INTO APPOINTMENT_SYMPTOM (appointment_id, symptom_id) VALUES
 (149,15),
 (150,16);
 
+-- =========================
+-- PRESCRIPTION
+-- =========================
+
+INSERT INTO PRESCRIPTION (appointment_id, medicine, dosage, duration) VALUES
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 0),'Paracetamol','500mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 1),'Ibuprofen','400mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 2),'Azithromycin','250mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 3),'Amoxicillin','500mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 4),'Cetirizine','10mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 5),'Metformin','500mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 6),'Amlodipine','5mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 7),'Pantoprazole','40mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 8),'Omeprazole','20mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 9),'Dolo 650','650mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 10),'Crocin','500mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 11),'Augmentin','625mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 12),'Telmisartan','40mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 13),'Losartan','50mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 14),'Atorvastatin','10mg','30 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 15),'Levocetirizine','5mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 16),'Montelukast','10mg','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 17),'Diclofenac','50mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 18),'Ranitidine','150mg','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 19),'Ciprofloxacin','500mg','7 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 20),'Doxycycline','100mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 21),'Clarithromycin','500mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 22),'Insulin','10 units','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 23),'Salbutamol','2 puffs','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 24),'Hydroxyzine','25mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 25),'Fexofenadine','120mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 26),'Glimepiride','2mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 27),'Ramipril','5mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 28),'Esomeprazole','40mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 29),'Domperidone','10mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 30),'Naproxen','250mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 31),'Ketorolac','10mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 32),'Prednisolone','10mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 33),'Methylprednisolone','8mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 34),'Chlorpheniramine','4mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 35),'Glibenclamide','5mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 36),'Pioglitazone','15mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 37),'Atenolol','50mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 38),'Bisoprolol','5mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 39),'Rosuvastatin','10mg','30 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 40),'Loratadine','10mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 41),'Desloratadine','5mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 42),'Meloxicam','7.5mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 43),'Aceclofenac','100mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 44),'Famotidine','20mg','10 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 45),'Levofloxacin','500mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 46),'Ofloxacin','200mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 47),'Linezolid','600mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 48),'Meropenem','1g','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 49),'Amikacin','500mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 50),'Vitamin D3','60000 IU','4 weeks'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 51),'Calcium Carbonate','500mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 52),'Iron Folic Acid','100mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 53),'Zinc','50mg','15 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 54),'Multivitamin','1 tablet','30 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 55),'Ondansetron','4mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 56),'Metoclopramide','10mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 57),'Loperamide','2mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 58),'ORS','1 sachet','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 59),'Probiotic','1 capsule','7 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 60),'Etoricoxib','60mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 61),'Tramadol','50mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 62),'Codeine','30mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 63),'Dexamethasone','4mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 64),'Hydrocortisone','10mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 65),'Empagliflozin','10mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 66),'Sitagliptin','100mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 67),'Carvedilol','6.25mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 68),'Clopidogrel','75mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 69),'Simvastatin','20mg','30 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 70),'Diphenhydramine','25mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 71),'Brompheniramine','4mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 72),'Indomethacin','25mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 73),'Piroxicam','20mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 74),'Cimetidine','400mg','10 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 75),'Cefixime','200mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 76),'Ceftriaxone','1g','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 77),'Vancomycin','500mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 78),'Tigecycline','50mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 79),'Colistin','150mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 80),'Vitamin B12','500mcg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 81),'Folic Acid','5mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 82),'Magnesium','250mg','15 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 83),'Potassium','20mEq','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 84),'Electrolyte Solution','1 bottle','3 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 85),'Domperidone','10mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 86),'Rabeprazole','20mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 87),'Sucralfate','1g','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 88),'Hyoscine','10mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 89),'Dicycloverine','10mg','5 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 90),'Ketoconazole','200mg','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 91),'Fluconazole','150mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 92),'Acyclovir','400mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 93),'Oseltamivir','75mg','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 94),'Ivermectin','12mg','3 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 95),'Methotrexate','7.5mg','weekly'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 96),'Cyclosporine','50mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 97),'Tacrolimus','2mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 98),'Mycophenolate','500mg','14 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 99),'Azathioprine','50mg','14 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 100),'Sertraline','50mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 101),'Fluoxetine','20mg','30 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 102),'Clonazepam','0.5mg','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 103),'Alprazolam','0.5mg','10 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 104),'Escitalopram','10mg','30 days'),
+
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 105),'Lactulose','15ml','7 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 106),'Bisacodyl','5mg','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 107),'Senna','2 tablets','5 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 108),'Glycerin Suppository','1 unit','3 days'),
+((SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 109),'Psyllium Husk','1 spoon','7 days');
+
+
+-- =========================
+-- MEDICAL_HISTORY
+-- ========================
+
+INSERT INTO MEDICAL_HISTORY (patient_id, disease, diagnosis_date, status) VALUES
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 0),'Diabetes','2021-05-10','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 1),'Hypertension','2020-03-15','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 2),'Asthma','2019-08-20','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 3),'Migraine','2022-01-12','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 4),'Thyroid Disorder','2021-11-05','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 5),'Anemia','2023-02-18','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 6),'Arthritis','2020-07-10','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 7),'Depression','2022-04-22','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 8),'Allergy','2021-09-30','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 9),'Bronchitis','2020-12-11','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 10),'Diabetes','2019-06-25','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 11),'Hypertension','2021-01-14','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 12),'Asthma','2020-10-05','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 13),'Migraine','2023-03-17','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 14),'Thyroid Disorder','2022-08-09','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 15),'Anemia','2021-02-28','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 16),'Arthritis','2020-06-19','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 17),'Depression','2022-09-11','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 18),'Allergy','2023-01-25','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 19),'Bronchitis','2021-04-03','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 20),'Diabetes','2020-07-22','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 21),'Hypertension','2019-11-30','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 22),'Asthma','2021-06-18','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 23),'Migraine','2022-12-05','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 24),'Thyroid Disorder','2020-09-27','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 25),'Anemia','2023-02-10','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 26),'Arthritis','2021-03-08','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 27),'Depression','2022-05-21','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 28),'Allergy','2020-10-14','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 29),'Bronchitis','2021-12-19','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 30),'Heart Disease','2020-02-14','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 31),'Kidney Stones','2021-06-10','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 32),'Liver Disorder','2019-09-25','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 33),'Skin Allergy','2022-03-18','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 34),'Sinusitis','2021-12-05','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 35),'Diabetes','2020-08-21','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 36),'Hypertension','2019-04-11','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 37),'Asthma','2021-07-09','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 38),'Migraine','2023-02-13','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 39),'Thyroid Disorder','2022-06-22','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 40),'Anemia','2021-01-30','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 41),'Arthritis','2020-05-15','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 42),'Depression','2022-10-08','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 43),'Allergy','2023-03-02','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 44),'Bronchitis','2021-08-27','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 45),'Heart Disease','2020-11-12','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 46),'Kidney Infection','2021-09-19','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 47),'Liver Disorder','2019-12-07','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 48),'Skin Allergy','2022-04-25','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 49),'Sinusitis','2021-10-14','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 50),'Diabetes','2020-03-11','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 51),'Hypertension','2019-07-29','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 52),'Asthma','2021-02-17','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 53),'Migraine','2022-11-06','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 54),'Thyroid Disorder','2020-05-23','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 55),'Anemia','2023-01-09','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 56),'Arthritis','2021-06-30','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 57),'Depression','2022-08-15','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 58),'Allergy','2020-09-03','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 59),'Bronchitis','2021-11-21','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 60),'Tuberculosis','2018-06-14','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 61),'Epilepsy','2020-01-22','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 62),'Gastritis','2021-03-19','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 63),'Ulcer','2019-07-11','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 64),'Pneumonia','2022-02-08','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 65),'Diabetes','2020-09-10','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 66),'Hypertension','2019-12-05','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 67),'Asthma','2021-04-18','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 68),'Migraine','2023-01-28','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 69),'Thyroid Disorder','2022-07-16','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 70),'Anxiety Disorder','2021-02-25','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 71),'Osteoporosis','2020-10-30','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 72),'Back Pain','2022-05-13','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 73),'Neck Pain','2021-08-09','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 74),'Sciatica','2020-11-17','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 75),'Heart Disease','2019-03-21','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 76),'Kidney Stones','2021-09-14','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 77),'Liver Disorder','2020-06-06','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 78),'Skin Infection','2022-12-12','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 79),'Sinusitis','2021-01-04','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 80),'Diabetes','2020-04-07','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 81),'Hypertension','2019-08-19','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 82),'Asthma','2021-06-23','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 83),'Migraine','2022-10-10','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 84),'Thyroid Disorder','2020-02-27','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 85),'Anemia','2023-03-05','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 86),'Arthritis','2021-07-29','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 87),'Depression','2022-09-02','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 88),'Allergy','2020-11-13','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 89),'Bronchitis','2021-05-26','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 90),'Chickenpox','2018-04-12','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 91),'Dengue','2021-09-18','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 92),'Malaria','2020-07-25','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 93),'COVID-19','2021-05-10','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 94),'Typhoid','2019-11-03','cured'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 95),'Psoriasis','2020-03-14','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 96),'Eczema','2021-06-21','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 97),'Acne','2022-02-17','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 98),'Fungal Infection','2021-08-29','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 99),'Dermatitis','2020-12-05','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 100),'Obesity','2022-01-11','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 101),'Sleep Apnea','2021-04-27','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 102),'Insomnia','2023-03-06','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 103),'Anxiety Disorder','2022-07-19','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 104),'Panic Disorder','2021-10-30','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 105),'Heart Disease','2019-06-08','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 106),'Stroke','2020-02-22','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 107),'High Cholesterol','2021-11-15','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 108),'Coronary Artery Disease','2018-09-09','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 109),'Arrhythmia','2022-05-13','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 110),'Kidney Failure','2020-01-17','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 111),'Urinary Infection','2022-06-04','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 112),'Gallstones','2021-03-12','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 113),'Pancreatitis','2020-08-26','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 114),'Hepatitis B','2019-07-07','ongoing'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 115),'Fracture','2022-09-14','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 116),'Sprain','2021-12-01','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 117),'Ligament Tear','2020-10-18','cured'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 118),'Joint Pain','2022-04-03','ongoing'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 119),'Osteoarthritis','2021-07-25','ongoing');
 
