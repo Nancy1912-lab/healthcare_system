@@ -1092,7 +1092,42 @@ INSERT INTO LAB (name, location, contact, email) VALUES
 -- TEST
 -- =========================
 INSERT INTO TEST (test_name, cost, description) VALUES
-('Blood Test', 500, 'Basic test');
+
+-- 🩸 BASIC & BLOOD TESTS
+('Blood Test', 500, 'Basic blood analysis'),
+('Complete Blood Count (CBC)', 800, 'Measures different components of blood'),
+('Blood Sugar Test', 300, 'Checks glucose level'),
+('Lipid Profile', 900, 'Measures cholesterol levels'),
+
+-- 🧪 ORGAN FUNCTION TESTS
+('Liver Function Test (LFT)', 1000, 'Checks liver health'),
+('Kidney Function Test (KFT)', 950, 'Evaluates kidney performance'),
+('Thyroid Test (TSH)', 700, 'Checks thyroid hormone levels'),
+
+-- 🚽 ROUTINE TESTS
+('Urine Test', 400, 'Routine urine examination'),
+
+-- 🫀 HEART RELATED TESTS
+('ECG', 600, 'Measures electrical activity of heart'),
+('2D Echo', 1500, 'Ultrasound imaging of heart'),
+
+-- 🧠 IMAGING TESTS
+('X-Ray', 1200, 'Radiographic imaging'),
+('MRI Scan', 5000, 'Detailed internal imaging'),
+('CT Scan', 4500, 'Cross-sectional imaging'),
+('Ultrasound', 1300, 'Imaging of internal organs'),
+
+-- 🦠 DISEASE TESTS
+('Covid-19 Test', 800, 'Detects coronavirus infection'),
+('Dengue Test', 900, 'Detects dengue virus'),
+('Malaria Test', 700, 'Detects malaria infection'),
+
+-- 💊 VITAMIN / GENERAL HEALTH
+('Vitamin D Test', 1200, 'Checks vitamin D levels'),
+
+-- 🤰 GYNECOLOGY / OBSTETRICS
+('Pregnancy Test', 600, 'Detects pregnancy'),
+('Beta hCG Test', 1200, 'Measures pregnancy hormone level');
 
 -- =========================
 -- LAB REPORT
