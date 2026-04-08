@@ -14,21 +14,16 @@ CREATE TABLE SPECIALIZATION (
     description TEXT
 );
 
--- TEST
-CREATE TABLE TEST (
-    test_id INT PRIMARY KEY AUTO_INCREMENT,
-    test_name VARCHAR(100),
-    cost DECIMAL(10,2),
-    description TEXT
-);
-
--- LAB
-CREATE TABLE LAB (
-    lab_id INT PRIMARY KEY AUTO_INCREMENT,
+-- DOCTOR
+CREATE TABLE DOCTOR (
+    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
-    location VARCHAR(150),
-    contact VARCHAR(15),
-    email VARCHAR(100)
+    experience INT,
+    phone VARCHAR(15),
+    email VARCHAR(100),
+    password VARCHAR(255),
+    specialization_id INT,
+    FOREIGN KEY (specialization_id) REFERENCES SPECIALIZATION(specialization_id)
 );
 
 -- PATIENT
@@ -44,16 +39,13 @@ CREATE TABLE PATIENT (
     FOREIGN KEY (blood_group_id) REFERENCES BLOOD_GROUP(blood_group_id)
 );
 
--- DOCTOR
-CREATE TABLE DOCTOR (
-    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    experience INT,
-    phone VARCHAR(15),
-    email VARCHAR(100),
-    password VARCHAR(255),
-    specialization_id INT,
-    FOREIGN KEY (specialization_id) REFERENCES SPECIALIZATION(specialization_id)
+-- MEDICAL HISTORY
+CREATE TABLE MEDICAL_HISTORY (
+    history_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    details TEXT,
+    record_date DATE,
+    FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id)
 );
 
 -- APPOINTMENT
@@ -68,6 +60,15 @@ CREATE TABLE APPOINTMENT (
     FOREIGN KEY (doctor_id) REFERENCES DOCTOR(doctor_id)
 );
 
+-- SYMPTOM
+CREATE TABLE SYMPTOM (
+    symptom_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT,
+    description TEXT,
+    date_recorded DATE,
+    FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id)
+);
+
 -- PRESCRIPTION
 CREATE TABLE PRESCRIPTION (
     prescription_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -78,22 +79,21 @@ CREATE TABLE PRESCRIPTION (
     FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(appointment_id)
 );
 
--- MEDICAL HISTORY
-CREATE TABLE MEDICAL_HISTORY (
-    history_id INT PRIMARY KEY AUTO_INCREMENT,
-    patient_id INT,
-    details TEXT,
-    record_date DATE,
-    FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id)
+-- LAB
+CREATE TABLE LAB (
+    lab_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    location VARCHAR(150),
+    contact VARCHAR(15),
+    email VARCHAR(100)
 );
 
--- SYMPTOM
-CREATE TABLE SYMPTOM (
-    symptom_id INT PRIMARY KEY AUTO_INCREMENT,
-    patient_id INT,
-    description TEXT,
-    date_recorded DATE,
-    FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id)
+-- TEST
+CREATE TABLE TEST (
+    test_id INT PRIMARY KEY AUTO_INCREMENT,
+    test_name VARCHAR(100),
+    cost DECIMAL(10,2),
+    description TEXT
 );
 
 -- LAB REPORT
