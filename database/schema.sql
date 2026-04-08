@@ -17,7 +17,7 @@ CREATE TABLE SPECIALIZATION (
 -- DOCTOR
 CREATE TABLE DOCTOR (
     doctor_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
+    name VARCHAR(100) NOT NULL,
     experience INT,
     phone VARCHAR(15),
     email VARCHAR(100) UNIQUE,
@@ -29,7 +29,7 @@ CREATE TABLE DOCTOR (
 -- PATIENT
 CREATE TABLE PATIENT (
     patient_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
+    name VARCHAR(100) NOT NULL,
     age INT CHECK (age > 0),
     gender VARCHAR(10),
     phone VARCHAR(15),
@@ -55,7 +55,7 @@ CREATE TABLE APPOINTMENT (
     doctor_id INT,
     appointment_date DATE,
     appointment_time TIME,
-    status VARCHAR(20),
+    status ENUM('booked','completed','cancelled'),
     FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id),
     FOREIGN KEY (doctor_id) REFERENCES DOCTOR(doctor_id)
 );
@@ -82,7 +82,7 @@ CREATE TABLE PRESCRIPTION (
 -- LAB
 CREATE TABLE LAB (
     lab_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
+    name VARCHAR(100) NOT NULL,
     location VARCHAR(150),
     contact VARCHAR(15),
     email VARCHAR(100)
@@ -91,7 +91,7 @@ CREATE TABLE LAB (
 -- TEST
 CREATE TABLE TEST (
     test_id INT PRIMARY KEY AUTO_INCREMENT,
-    test_name VARCHAR(100),
+    test_name VARCHAR(100) NOT NULL,
     cost DECIMAL(10,2),
     description TEXT
 );
@@ -104,7 +104,7 @@ CREATE TABLE LAB_REPORT (
     lab_id INT,
     result TEXT,
     report_date DATE,
-    status VARCHAR(20),
+    status ENUM('pending','completed'),
     FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(appointment_id),
     FOREIGN KEY (test_id) REFERENCES TEST(test_id),
     FOREIGN KEY (lab_id) REFERENCES LAB(lab_id)
