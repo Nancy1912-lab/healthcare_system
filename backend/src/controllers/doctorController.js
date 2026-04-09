@@ -1,11 +1,16 @@
 import db from "../config/db.js";
 
-// ➕ Add Doctor
+
+// ➕ ADD DOCTOR
 export const addDoctor = (req, res) => {
   const { name, experience, phone, email, password, specialization_id } = req.body;
 
+  if (!name || !email || !specialization_id) {
+    return res.status(400).json({ error: "Required fields missing" });
+  }
+
   const sql = `
-    INSERT INTO DOCTOR (name, experience, phone, email, password, specialization_id)
+    INSERT INTO doctor (name, experience, phone, email, password, specialization_id)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
 
@@ -31,53 +36,86 @@ export const addDoctor = (req, res) => {
   );
 };
 
-// 📥 Get All Doctors
+
+
+// 📥 GET ALL DOCTORS (NO PASSWORD)
 export const getAllDoctors = (req, res) => {
-  db.query("SELECT * FROM DOCTOR", (err, results) => {
+  const sql = `
+    SELECT 
+      d.doctor_id,
+      d.name,
+      d.experience,
+      d.phone,
+      d.email,
+      s.name AS specialization
+    FROM doctor d
+    LEFT JOIN specialization s 
+    ON d.specialization_id = s.specialization_id
+  `;
+
+  db.query(sql, (err, results) => {
     if (err) {
+      console.error(err);
       return res.status(500).json({ error: "Database error" });
     }
+
     res.json(results);
   });
 };
 
-// 📄 Get Single Doctor
+
+
+// 📄 GET SINGLE DOCTOR (NO PASSWORD)
 export const getDoctor = (req, res) => {
   const { id } = req.params;
 
-  db.query(
-    "SELECT * FROM DOCTOR WHERE doctor_id = ?",
-    [id],
-    (err, results) => {
-      if (err) {
-        return res.status(500).json({ error: "Database error" });
-      }
+  const sql = `
+    SELECT 
+      d.doctor_id,
+      d.name,
+      d.experience,
+      d.phone,
+      d.email,
+      s.name AS specialization
+    FROM doctor d
+    LEFT JOIN specialization s 
+    ON d.specialization_id = s.specialization_id
+    WHERE d.doctor_id = ?
+  `;
 
-      if (results.length === 0) {
-        return res.status(404).json({ message: "Doctor not found" });
-      }
-
-      res.json(results[0]);
+  db.query(sql, [id], (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Database error" });
     }
-  );
+
+    if (results.length === 0) {
+      return res.status(404).json({ message: "Doctor not found" });
+    }
+
+    res.json(results[0]);
+  });
 };
 
-// ✏️ Update Doctor
+
+
+// ✏️ UPDATE DOCTOR
 export const updateDoctor = (req, res) => {
   const { id } = req.params;
   const { name, experience, phone, email, password, specialization_id } = req.body;
 
   const sql = `
-    UPDATE DOCTOR
-    SET name=?, experience=?, phone=?, email=?, password=?, specialization_id=?
-    WHERE doctor_id=?
+    UPDATE doctor
+    SET name = ?, experience = ?, phone = ?, email = ?, password = ?, specialization_id = ?
+    WHERE doctor_id = ?
   `;
 
   db.query(
     sql,
     [name, experience, phone, email, password, specialization_id, id],
-    (err) => {
+    (err, result) => {
       if (err) {
+        console.error(err);
         return res.status(500).json({ error: "Database error" });
       }
 
@@ -86,15 +124,18 @@ export const updateDoctor = (req, res) => {
   );
 };
 
-// ❌ Delete Doctor
+
+
+// ❌ DELETE DOCTOR
 export const deleteDoctor = (req, res) => {
   const { id } = req.params;
 
   db.query(
-    "DELETE FROM DOCTOR WHERE doctor_id = ?",
+    "DELETE FROM doctor WHERE doctor_id = ?",
     [id],
-    (err) => {
+    (err, result) => {
       if (err) {
+        console.error(err);
         return res.status(500).json({ error: "Database error" });
       }
 
