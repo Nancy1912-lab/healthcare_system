@@ -1,68 +1,104 @@
 import db from "../config/db.js";
-import bcrypt from "bcrypt";
-import { generateToken } from "../utils/generateToken.js";
 
-// 🔹 DOCTOR REGISTER
-export const registerDoctor = (req, res) => {
+// ➕ Add Doctor
+export const addDoctor = (req, res) => {
   const { name, experience, phone, email, password, specialization_id } = req.body;
 
-  const checkUser = "SELECT * FROM DOCTOR WHERE email = ?";
+  const sql = `
+    INSERT INTO DOCTOR (name, experience, phone, email, password, specialization_id)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
 
-  db.query(checkUser, [email], async (err, result) => {
-    if (err) return res.status(500).json(err);
+  db.query(
+    sql,
+    [name, experience, phone, email, password, specialization_id],
+    (err, result) => {
+      if (err) {
+        console.error(err);
 
-    if (result.length > 0) {
-      return res.status(400).json({ message: "Doctor already exists" });
-    }
+        if (err.code === "ER_DUP_ENTRY") {
+          return res.status(400).json({ error: "Email already exists" });
+        }
 
-    // 🔐 HASH PASSWORD
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const sql = `
-      INSERT INTO DOCTOR (name, experience, phone, email, password, specialization_id)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
-
-    db.query(
-      sql,
-      [name, experience, phone, email, hashedPassword, specialization_id],
-      (err) => {
-        if (err) return res.status(500).json(err);
-
-        res.json({ message: "Doctor registered successfully ✅" });
+        return res.status(500).json({ error: "Database error" });
       }
-    );
+
+      res.json({
+        message: "Doctor added successfully",
+        doctor_id: result.insertId
+      });
+    }
+  );
+};
+
+// 📥 Get All Doctors
+export const getAllDoctors = (req, res) => {
+  db.query("SELECT * FROM DOCTOR", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: "Database error" });
+    }
+    res.json(results);
   });
 };
 
-// 🔹 DOCTOR LOGIN
-export const loginDoctor = (req, res) => {
-  const { email, password } = req.body;
+// 📄 Get Single Doctor
+export const getDoctor = (req, res) => {
+  const { id } = req.params;
 
-  const sql = "SELECT * FROM DOCTOR WHERE email = ?";
+  db.query(
+    "SELECT * FROM DOCTOR WHERE doctor_id = ?",
+    [id],
+    (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: "Database error" });
+      }
 
-  db.query(sql, [email], async (err, result) => {
-    if (err) return res.status(500).json(err);
+      if (results.length === 0) {
+        return res.status(404).json({ message: "Doctor not found" });
+      }
 
-    if (result.length === 0) {
-      return res.status(401).json({ message: "Invalid credentials ❌" });
+      res.json(results[0]);
     }
+  );
+};
 
-    const user = result[0];
+// ✏️ Update Doctor
+export const updateDoctor = (req, res) => {
+  const { id } = req.params;
+  const { name, experience, phone, email, password, specialization_id } = req.body;
 
-    // 🔐 COMPARE PASSWORD
-    const isMatch = await bcrypt.compare(password, user.password);
+  const sql = `
+    UPDATE DOCTOR
+    SET name=?, experience=?, phone=?, email=?, password=?, specialization_id=?
+    WHERE doctor_id=?
+  `;
 
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials ❌" });
+  db.query(
+    sql,
+    [name, experience, phone, email, password, specialization_id, id],
+    (err) => {
+      if (err) {
+        return res.status(500).json({ error: "Database error" });
+      }
+
+      res.json({ message: "Doctor updated successfully" });
     }
+  );
+};
 
-    const token = generateToken(user);
+// ❌ Delete Doctor
+export const deleteDoctor = (req, res) => {
+  const { id } = req.params;
 
-res.json({
-  message: "Doctor login successful ✅",
-  token,
-  user
-});
-  });
+  db.query(
+    "DELETE FROM DOCTOR WHERE doctor_id = ?",
+    [id],
+    (err) => {
+      if (err) {
+        return res.status(500).json({ error: "Database error" });
+      }
+
+      res.json({ message: "Doctor deleted successfully" });
+    }
+  );
 };
