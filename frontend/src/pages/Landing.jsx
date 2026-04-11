@@ -261,9 +261,6 @@ function useReveal() {
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
-
-
-
 const SERVICES = [
   {
     icon: <CalendarCheck size={20} />,
@@ -299,34 +296,6 @@ const SERVICES = [
 
 
 
-// const STEPS = [
-//   {
-//     num: "01",
-//     icon: <Search size={20} />,
-//     title: "Search",
-//     sub: "Enter doctor or symptoms"
-//   },
-//   {
-//     num: "02",
-//     icon: <CalendarCheck size={20} />,
-//     title: "Book Slot",
-//     sub: "Pick your time"
-//   },
-//   {
-//     num: "03",
-//     icon: <MessageCircle size={20} />,
-//     title: "Consult",
-//     sub: "In-person or video"
-//   },
-//   {
-//     num: "04",
-//     icon: <FileText size={20} />,
-//     title: "Get Records",
-//     sub: "Reports online"
-//   }
-// ];
-
-
 const STEPS = [
   {
     num: "01",
@@ -353,26 +322,47 @@ const STEPS = [
     sub: "Reports online"
   }
 ];
+
+
 const SPECS = [
-  { e:"❤️", n:"Cardiology",       s:"Heart & Vascular" },
-  { e:"🧠", n:"Neurology",        s:"Brain & Nerves" },
-  { e:"🦴", n:"Orthopedics",      s:"Bone & Joints", feat:true },
-  { e:"👶", n:"Pediatrics",       s:"Child Health" },
-  { e:"🔬", n:"Oncology",         s:"Cancer Care" },
-  { e:"👁️", n:"Ophthalmology",    s:"Eye Care" },
-  { e:"🦷", n:"Dentistry",        s:"Oral Health" },
-  { e:"🫁", n:"Pulmonology",      s:"Lung & Chest" },
-  { e:"🩺", n:"General Medicine", s:"Primary Care" },
-  { e:"🧬", n:"Genetics",         s:"Hereditary" },
+  { n: "Cardiology",    s: "Heart & Vascular", img: "https://i.pinimg.com/736x/f4/01/16/f40116a0f9791c413745df048d00bd6a.jpg" },
+  { n: "Neurology",     s: "Brain & Nerves",   img: "https://i.pinimg.com/736x/66/97/47/6697472cb4b31e52f580095c5662d8b5.jpg" },
+  { n: "Orthopedics",   s: "Bone & Joints",    img: "https://i.pinimg.com/1200x/76/64/49/766449a0016240421c95c63d89015946.jpg" },
+  { n: "Pediatrics",    s: "Child Health",     img: "https://i.pinimg.com/1200x/21/f0/e0/21f0e0be76deb4239981066cae12780f.jpg" },
+  { n: "Oncology",      s: "Cancer Care",      img: "https://i.pinimg.com/1200x/b6/2c/90/b62c906fb930c7c9ff178073300c14da.jpg" },
+  { n: "Ophthalmology", s: "Eye Care",         img: "https://i.pinimg.com/1200x/ff/06/5d/ff065deb7a9ab0d932ff2f4a0ed99724.jpg" },
+  { n: "Dentistry",     s: "Oral Health",      img: "https://i.pinimg.com/1200x/33/26/4b/33264b881fea66390fd0a86eb2bf3c70.jpg" },
+  { n: "Pulmonology",   s: "Lung & Chest",     img: "https://i.pinimg.com/736x/01/8b/e6/018be610093e798e4660eda1603b01a1.jpg" },
 ];
 
 const DOCS = [
-  { ini:"PM", name:"Dr. Priya Mehta",  sp:"Cardiologist", exp:"18 yrs", rat:"4.9", av:"Available Today",    bg:"#B4CDD9" },
-  { ini:"AS", name:"Dr. Arjun Shah",   sp:"Neurologist",  exp:"14 yrs", rat:"4.8", av:"Available Tomorrow", bg:"#9DC0D2", feat:true },
-  { ini:"KN", name:"Dr. Kavya Nair",   sp:"Pediatrician", exp:"11 yrs", rat:"4.9", av:"Available Today",    bg:"#B4CDD9" },
-  { ini:"RP", name:"Dr. Rohan Patel",  sp:"Orthopedist",  exp:"16 yrs", rat:"4.7", av:"Available Wed",      bg:"#C4D9E4" },
-];
+  {
+    ini:"PM", name:"Dr. Priya Mehta", sp:"Cardiologist",
+   
+    exp:"18 yrs", rat:"4.9", av:"Available Today", avSoon:false,
+    img:"https://i.pinimg.com/736x/1b/52/fd/1b52fd81c2282b432b85dc6a8a01f13d.jpg",
+    patients:"1.2k+", satisfaction:"98%", awards:"18",
+  },
+  {
+    ini:"AS", name:"Dr. Arjun Shah", sp:"Neurologist",
+   
+    exp:"14 yrs", rat:"4.8", av:"Available Tomorrow", avSoon:true,
+    img:"https://i.pinimg.com/736x/9d/c7/01/9dc7016b0c700c0b307e00d2af763934.jpg",
+    feat:true,
+    patients:"980+", satisfaction:"96%", awards:"12",
+  },
+  {
+    ini:"KN", name:"Dr. Kavya Nair", sp:"Pediatrician",
+    
+    exp:"11 yrs", rat:"4.9", av:"Available Today", avSoon:false,
+    img:"https://i.pinimg.com/1200x/ea/1a/73/ea1a73d3a525741093432da7d4391532.jpg",
+    patients:"850+", satisfaction:"99%", awards:"9",
+  },
+  
+  
 
+  
+];
 const TESTS = [
   { n:"Rahul Desai",  c:"Ahmedabad", t:"Found the perfect cardiologist in under 2 minutes. The booking experience was seamless and completely stress-free." },
   { n:"Meena Joshi",  c:"Surat",     t:"Having all my reports in one place is a game changer. No more carrying physical files to every appointment!" },
@@ -602,89 +592,73 @@ function Services() {
 
       <div className="sg" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.2rem"}}>
         {SERVICES.map(s=>(
-          <div key={s.title} className={`wcard rev`} style={{
-            padding:"2rem",cursor:"pointer",
-            background: s.hi ? "linear-gradient(145deg,#EAF4FB,#D4ECF7)" : "#fff",
-            border: s.hi ? "1px solid #A9D4EC" : "1px solid #E3EDF4",
-          }}>
-            <div style={{
-              width:52,height:52,borderRadius:"14px",
-              background: s.hi ? "rgba(46,134,193,0.11)" : "#F2F8FB",
-              display:"flex",alignItems:"center",justifyContent:"center",
-              fontSize:"1.45rem",marginBottom:"1.2rem",
-            }}>{s.icon}</div>
-            <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.22rem",fontWeight:700,color:"var(--text-dark)",marginBottom:".55rem"}}>{s.title}</h3>
-            <p style={{color:"var(--text-mid)",fontSize:".87rem",lineHeight:1.78}}>{s.desc}</p>
-          </div>
+         
+          <div
+  key={s.title}
+  className="wcard rev"
+  style={{
+    padding: "2rem",
+    cursor: "pointer",
+    background: "linear-gradient(135deg, #ffffff 0%, #f4f8fb 60%, #e6eff5 100%)",
+border: "1px solid rgba(86,124,141,0.15)",
+boxShadow: "0 10px 30px rgba(46,134,193,0.08)",
+    
+    borderRadius: "20px",
+    display: "flex",          
+    alignItems: "flex-start", 
+    gap: "1.2rem",            
+  }}
+>
+
+  {/* ICON */}
+  <div style={{
+    width: 70,
+    height: 70,
+    borderRadius: "18px",
+    background: "rgba(46,134,193,0.11)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+  }}>
+    {s.icon}
+  </div>
+
+  {/* TEXT CONTENT */}
+  <div>
+
+    <h3 style={{
+      fontFamily: "'Cormorant Garamond',serif",
+      fontSize: "1.6rem",
+      fontWeight: 700,
+      color: "var(--text-dark)",
+      marginBottom: ".4rem"
+    }}>
+      {s.title}
+    </h3>
+
+    <p style={{
+      color: "var(--text-mid)",
+      fontSize: ".9rem",
+      lineHeight: 1.7
+    }}>
+      {s.desc}
+    </p>
+
+  </div>
+
+</div>
         ))}
       </div>
     </section>
   );
 }
 
+
+
 /* ─────────────────────────────────────────────
    HOW IT WORKS
 ───────────────────────────────────────────── */
-// function HowItWorks() {
-//   return (
-//     <section id="how-it-works" style={{
-//       backgroundImage:"url('/public/search-bg.jpg')",
-//       background:"linear-gradient(135deg,#1A5276 0%,#2E86C1 50%,#5B9DB8 100%)",
-//       padding:"6.5rem 5vw",position:"relative",overflow:"hidden",
-//     }}>
-//        {/* Glass Overlay */}
-//       <div className="hero-glass-overlay"/>
-//       <div className="blob" style={{position:"absolute",top:"-14%",right:"-4%",width:300,height:300,background:"rgba(196,218,232,0.08)",borderRadius:"50%",pointerEvents:"none"}}/>
-
-     
-
-//       <div className="rev" style={{textAlign:"center",marginBottom:"3.5rem",position:"relative",zIndex:2}}>
-//         <span style={{
-//           display:"inline-block",background:"rgba(255,255,255,0.14)",backdropFilter:"blur(8px)",
-//           border:"1px solid rgba(255,255,255,0.24)",borderRadius:"100px",
-//           padding:"6px 20px",fontSize:".72rem",fontWeight:700,letterSpacing:".12em",
-//           textTransform:"uppercase",color:"rgba(255,255,255,0.85)",marginBottom:"1.4rem",
-//         }}>How It Works</span>
-//         <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(2.2rem,4vw,3.2rem)",fontWeight:700,color:"#fff",lineHeight:1.1}}>
-//           Healthcare in 4 <em style={{color:"#C4DAE8"}}>Simple Steps</em>
-//         </h2>
-//         <p style={{color:"rgba(255,255,255,0.63)",fontSize:".91rem",marginTop:".8rem"}}>Powered by AI, designed for humans.</p>
-//       </div>
-
-//       {/* Timeline */}
-//       <div className="rev" style={{
-//         display:"flex",alignItems:"flex-start",justifyContent:"center",
-//         maxWidth:860,margin:"0 auto",position:"relative",zIndex:2,
-//       }}>
-//         {STEPS.map((s,i)=>(
-//           <div key={s.num} style={{display:"flex",alignItems:"flex-start",flex:1,minWidth:0}}>
-//             <div style={{display:"flex",flexDirection:"column",alignItems:"center",flex:1}}>
-//               <div className="pulse" style={{
-//                 width:60,height:60,borderRadius:"50%",
-//                 background: i===0 ? "#fff" : "rgba(255,255,255,0.16)",
-//                 backdropFilter:"blur(8px)",
-//                 border:"1px solid rgba(255,255,255,0.28)",
-//                 display:"flex",alignItems:"center",justifyContent:"center",
-//                 fontSize:"1.35rem",marginBottom:".9rem",flexShrink:0,
-//               }}>{s.icon}</div>
-//               <div style={{color:"rgba(255,255,255,0.50)",fontSize:".7rem",fontWeight:600,marginBottom:".25rem"}}>{s.num}</div>
-//               <div style={{color:"#fff",fontSize:".92rem",fontWeight:700,marginBottom:".25rem"}}>{s.title}</div>
-//               <div style={{color:"rgba(255,255,255,0.58)",fontSize:".76rem",textAlign:"center"}}>{s.sub}</div>
-//             </div>
-//             {i<STEPS.length-1 && (
-//               <div style={{alignSelf:"flex-start",marginTop:30,height:"1px",background:"rgba(255,255,255,0.22)",flex:"0 0 1px",width:"100%",minWidth:20}}/>
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-
-
-
-
 const BACKGROUNDS = [
   "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
   "https://i.pinimg.com/1200x/a4/02/b0/a402b016289466ff0953a81fc82a6db3.jpg",
@@ -693,9 +667,19 @@ const BACKGROUNDS = [
   "https://i.pinimg.com/1200x/5c/83/3d/5c833d5888f1ff276880d119a636a02e.jpg",
 ]
 
-
 function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+   useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEPS.length);
+    }, 3000); 
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section className="relative min-h-[600px] overflow-hidden py-28 px-[5vw] flex items-center justify-center">
@@ -724,41 +708,54 @@ function HowItWorks() {
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
 
         {/* HEADER */}
-        <div className="mb-16 flex flex-col items-center">
+        <div className="mb-20 flex flex-col items-center px-6 py-8 gap-4">
+       
           
-          <span className="inline-block bg-white/15 backdrop-blur-md border border-white/25 rounded-full px-8 py-3 text-xs font-semibold tracking-widest uppercase text-white/85 mb-8">
-            How It Works
-          </span>
+          <div style={{
+          display:"inline-flex",alignItems:"center",gap:8,
+          background:"rgba(255,255,255,0.15)",backdropFilter:"blur(12px)",
+          border:"1px solid rgba(255,255,255,0.28)",
+          borderRadius:"100px",padding:"6px 16px",
+          fontSize:".76rem",fontWeight:600,letterSpacing:".1em",textTransform:"uppercase",
+          color:"rgba(255,255,255,0.92)",marginBottom:"1.6rem",
+        }}>
+          <span style={{width:7,height:7,borderRadius:"50%",background:"#4ade80",display:"inline-block"}}/>
+            How It Works     
+        </div>
 
-          <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-bold text-white leading-tight max-w-2xl">
+          <h2 className="font-serif text-[clamp(2.2rem,4vw,3.2rem)] font-bold text-white leading-tight max-w-2xl" style={{ fontFamily: "'Cormorant Garamond', serif" }}>  
             Healthcare in 4{" "}
             <em className="text-[#C4DAE8] not-italic">Simple Steps</em>
           </h2>
 
           <p className="text-white/70 text-sm mt-4 max-w-md">
             Powered by AI, designed for humans.
+            <br />
+            .
           </p>
         </div>
 
         {/* STEPS */}
-        <div className="flex items-start justify-center gap-4">
+        <div className="flex items-center justify-center gap-8 mt-10"
+         onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}>
 
           {STEPS.map((step, index) => {
             const Icon = step.icon;
             const isActive = activeStep === index;
 
             return (
-              <div key={step.num} className="flex items-center flex-1">
+              <div key={step.num} className="flex items-center flex-1 ">
 
                 {/* STEP */}
-                <div className="flex flex-col items-center flex-1 text-center">
+                <div className="flex flex-col items-center flex-6 text-center gap-3 ">
 
                   {/* ICON */}
                   <button
                     onClick={() => setActiveStep(index)}
                     className={`
                       w-[64px] h-[64px] rounded-full flex items-center justify-center
-                      transition-all duration-300 mb-4
+                      transition-all duration-300 mb-3 
                       ${isActive
                         ? "bg-white scale-110 shadow-xl"
                         : "bg-white/15 backdrop-blur-md border border-white/30 hover:bg-white/25"
@@ -774,12 +771,12 @@ function HowItWorks() {
                   </button>
 
                   {/* NUMBER */}
-                  <div className="text-xs font-semibold text-white/60 mb-1">
+                  <div className="text-xs font-semibold text-white/60 mb-2">
                     {step.num}
                   </div>
 
                   {/* TITLE */}
-                  <div className="text-sm font-bold text-white mb-1">
+                  <div className="text-sm font-bold text-white mb-2">
                     {step.title}
                   </div>
 
@@ -814,87 +811,265 @@ function HowItWorks() {
 /* ─────────────────────────────────────────────
    SPECIALTIES
 ───────────────────────────────────────────── */
-function Specialties() {
+
+const THEMES = [
+  { slash: "from-[#2F4156]/90 to-[#1e3048]/97",   corner: "bg-[#2F4156]/50", btn: "bg-[#2F4156]/55" },
+  { slash: "from-[#567C8D]/90 to-[#385c6e]/97",   corner: "bg-[#567C8D]/48", btn: "bg-[#567C8D]/55" },
+  { slash: "from-[#98b2d2]/90 to-[#6487af]/97",   corner: "bg-[#CBD8E6]/55", btn: "bg-[#98b2d2]/60" },
+  { slash: "from-[#1e3048]/95 to-[#2F4156]/90",   corner: "bg-[#1e3048]/50", btn: "bg-[#1e3048]/60" },
+  { slash: "from-[#385c6e]/94 to-[#567C8D]/90",   corner: "bg-[#385c6e]/48", btn: "bg-[#385c6e]/60" },
+  { slash: "from-[#789ec4]/90 to-[#a5c3dc]/88",   corner: "bg-[#789ec4]/50", btn: "bg-[#789ec4]/60" },
+  { slash: "from-[#2F4156]/90 to-[#567C8D]/92",   corner: "bg-[#2F4156]/44", btn: "bg-[#435e72]/60" },
+  { slash: "from-[#567C8D]/90 to-[#b4cee1]/88",   corner: "bg-[#567C8D]/44", btn: "bg-[#567C8D]/60" },
+];
+
+function SpecCard({ s, index }) {
+  const t = THEMES[index % THEMES.length];
+  const num = String((index % SPECS.length) + 1).padStart(2, "0");
+
   return (
-    <section id="specialties" style={{background:"var(--beige)",padding:"7rem 5vw"}}>
-      <div className="rev" style={{textAlign:"center",marginBottom:"3.5rem"}}>
-        <span className="badge">Specialties</span>
-        <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(2.2rem,4vw,3.3rem)",fontWeight:700,color:"var(--text-dark)"}}>
-          30+ <em style={{color:"var(--teal)"}}>Medical</em> Specialties
-        </h2>
-        <p style={{color:"var(--text-mid)",fontSize:".91rem",marginTop:".8rem"}}>World-class care across every discipline of modern medicine.</p>
+    <div className="group relative w-[340px] h-[480px] rounded-[20px] overflow-hidden flex-shrink-0 cursor-pointer shadow-[0_4px_22px_rgba(47,65,86,0.13)] hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-[0_24px_50px_rgba(47,65,86,0.22)] transition-all duration-300 ease-out">
+
+      {/* Photo */}
+      <img src={s.img} alt={s.n}
+        className="absolute inset-0 w-full h-[340px] object-cover group-hover:scale-[1.08] transition-transform duration-500" />
+
+      {/* Dark scrim */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#2F4156]/10 to-[#2F4156]/68 z-[1]" />
+
+      {/* Diagonal slash */}
+      <div className={`absolute -bottom-0.5 -left-0.5 -right-0.5 h-[195px] z-[2] bg-gradient-to-br ${t.slash}`}
+        style={{ clipPath: "polygon(0 55px, 100% 0, 100% 100%, 0 100%)" }} />
+
+      {/* Corner triangle */}
+      <div className={`absolute top-0 right-0 w-[75px] h-[75px] z-[2] ${t.corner}`}
+        style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }} />
+
+      {/* Frosted pill */}
+      <div className="absolute top-3.5 left-3.5 z-[4] bg-white/20 backdrop-blur border border-white/35 rounded-full px-3 py-[3px] text-[0.58rem] font-bold tracking-[0.1em] text-white uppercase">
+        {s.s}
       </div>
 
-      <div className="sg" style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"1rem"}}>
-        {SPECS.map(s=>(
-          <div key={s.n} className="spec rev" style={{
-            transform: s.feat?"translateY(-8px)":undefined,
-            boxShadow: s.feat?"0 16px 36px rgba(46,134,193,0.13)":undefined,
-            border: s.feat?"1px solid var(--sky)":undefined,
-          }}>
-            <div style={{fontSize:"2rem",marginBottom:".85rem"}}>{s.e}</div>
-            <div style={{fontWeight:700,fontSize:".92rem",color:"var(--text-dark)",marginBottom:".22rem"}}>{s.n}</div>
-            <div style={{color:"var(--text-light)",fontSize:".76rem"}}>{s.s}</div>
-          </div>
-        ))}
+      {/* Text */}
+      <div className="absolute bottom-12 left-4 right-0 z-[4] p-5">
+        <div className="text-[0.58rem] font-bold tracking-[0.13em] text-white/50 mb-1 uppercase">
+          {num} / 30+
+        </div>
+        <div className="text-[1.6rem] font-bold text-white leading-tight drop-shadow-md mb-0.5"
+          style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          {s.n}
+        </div>
+        <div className="text-[0.68rem] text-white/72 font-medium tracking-[0.07em] uppercase">
+          {s.s}
+        </div>
       </div>
+
+      {/* Arrow */}
+      <div className={`absolute bottom-4 right-4 z-[5] w-8 h-8 rounded-full flex items-center justify-center border border-white/55 ${t.btn} opacity-0 scale-50 rotate-[-45deg] group-hover:opacity-100 group-hover:scale-100 group-hover:rotate-0 transition-all duration-300`}>
+        <svg className="w-3.5 h-3.5" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 16 16">
+          <line x1="3" y1="13" x2="13" y2="3"/><polyline points="6,3 13,3 13,10"/>
+        </svg>
+      </div>
+    </div>
+  );
+}
+import { useRef } from "react";
+
+function Specialties() {
+  const trackRef = useRef(null);
+
+  return (
+    <section id="specialties" style={{ background: "var(--beige)", padding: "7rem 0" }}>
+      <div className="rev" style={{ textAlign: "center", marginBottom: "3.5rem", padding: "0 5vw" }}>
+        <span className="badge">Specialties</span>
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
+          fontWeight: 700,
+          color: "var(--text-dark)",
+          margin: "0 0 0.6rem",
+        }}>
+          30+ <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Medical</em> Specialties
+        </h2>
+        <p style={{ color: "var(--text-mid)", fontSize: ".91rem", marginTop: ".8rem" }}>
+          World-class care across every discipline of modern medicine.
+        </p>
+      </div>
+
+      <div style={{ overflow: "hidden", width: "100%", position: "relative" }}>
+        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: 80, zIndex: 2, pointerEvents: "none", background: "linear-gradient(to right, var(--beige), transparent)" }} />
+        <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: 80, zIndex: 2, pointerEvents: "none", background: "linear-gradient(to left, var(--beige), transparent)" }} />
+
+        <div
+          ref={trackRef}
+          className="flex gap-[1.3rem] w-max py-6 px-4"
+          style={{ animation: "specScroll 34s linear infinite" }}
+          onMouseEnter={e => e.currentTarget.style.animationPlayState = "paused"}
+          onMouseLeave={e => e.currentTarget.style.animationPlayState = "running"}
+        >
+          {[...SPECS, ...SPECS].map((s, i) => (
+            <SpecCard key={i} s={s} index={i} />
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes specScroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 }
-
 /* ─────────────────────────────────────────────
    DOCTORS
 ───────────────────────────────────────────── */
+
+function DoctorCard({ d }) {
+  const [imgFailed, setImgFailed] = useState(!d.img);
+
+  return (
+    <div className={`w-[420px] h-[560px] rounded-[22px] overflow-hidden bg-white border transition-all duration-300 cursor-pointer flex flex-col
+      hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(47,65,86,0.13)]
+      ${d.feat
+        ? "-translate-y-3 shadow-[0_28px_64px_rgba(86,124,141,0.22)] border-[#567C8D]/40"
+        : "border-[#567C8D]/15"
+      }`}
+    >
+      {/* ── Photo ── */}
+      <div className="relative h-[350px] overflow-hidden flex-shrink-0 group">
+        {!imgFailed ? (
+          <img
+            src={d.img} alt={d.name}
+            onError={() => setImgFailed(true)}
+            className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div
+            className="w-full h-full flex items-center justify-center bg-[#CBD9E6]"
+            style={{ fontFamily:"'Cormorant Garamond',serif", fontSize:"3rem", fontWeight:700, color:"#2F4156" }}
+          >{d.ini}</div>
+        )}
+
+        {/* gradient */}
+        <div className="absolute inset-0" style={{ background:"linear-gradient(to top,rgba(20,38,54,.72) 0%,transparent 55%)" }} />
+
+        {/* specialty — centred at bottom */}
+        <span className="absolute bottom-3 left-15.5 -translate-x-1/2 text-[10px] font-bold tracking-[.14em] uppercase text-white/90 whitespace-nowrap">
+          {d.sp}
+        </span>
+
+        {d.feat && (
+          <span className="absolute top-3.5 right-3.5 bg-[#2F4156] text-white text-[9px] font-bold tracking-[.1em] uppercase px-3 py-1.5 rounded-full">
+            ★ Top Rated
+          </span>
+        )}
+      </div>
+
+      {/* ── Body — fully centred ── */}
+      <div className="flex flex-col items-center text-center px-6 pt-7 pb-7 flex-1 gap-1.5 ">
+
+        <h3 style={{ fontFamily:"'Cormorant Garamond',serif" }}
+          className="text-[1.9rem] font-bold text-[#1A2E3D] leading-tight mb-1">
+          {d.name}
+        </h3>
+        <p className="text-[11.5px] text-[#9AB0BC] tracking-wide mb-4 leading-relaxed max-w-[260px]">{d.tagline}</p>
+
+        {/* pills */}
+        <div className="flex gap-2 justify-center flex-wrap mt-2">
+          <span className=" text-[12px] font-medium bg-[#EEF4F7] text-[#3E7A92] px-3 py-3 rounded-full">
+            {d.exp} experience
+          </span>
+          <span className="text-[12px] font-medium bg-[#FFF8EC] text-[#A86C0A] px-3 py-3 rounded-full">
+            ★ {d.rat}
+          </span>
+        </div>
+
+        {/* availability */}
+        <div className={`flex items-center justify-center gap-2 text-[11px] font-semibold mb-4
+          ${d.avSoon ? "text-amber-700" : "text-green-700"}`}>
+          <span className={`w-2 h-2 rounded-full ${d.avSoon ? "bg-amber-400" : "bg-green-500"}`} />
+          {d.av}
+        </div>
+
+        <div className="w-full h-px bg-[#567C8D]/10 mb-4" />
+        {/*
+  Book Appointment
+</button> */}
+<button className="btn-white" style={{width:"80%",padding:"8px",fontSize:".83rem",borderRadius:"12px",border: "none",
+    background: "linear-gradient(135deg,#2F4156,#567C8D)",
+    color: "#fff"}}>
+              Book Appointment
+             </button>
+
+        {/* stats */}
+        <div className="flex w-full mt-6 pt-6 border-t border-[#567C8D]/10">
+
+  {[
+    { val: d.patients, lbl: "Patients" },
+    { val: d.satisfaction, lbl: "Satisfaction" },
+    { val: d.awards, lbl: "Awards" },
+  ].map((s, i) => (
+    <>
+      {i > 0 && <div className="w-px bg-[#567C8D]/15 mx-3" />}
+
+      <div className="flex-1 flex flex-col items-center gap-1">
+
+        <span
+          style={{ fontFamily:"'Cormorant Garamond',serif" }}
+          className="text-[1.4rem] font-bold text-[#1A2E3D]"
+        >
+          {s.val}
+        </span>
+
+        <span className="text-[10px] uppercase tracking-[0.12em] text-[#8FA5B2]">
+          {s.lbl}
+        </span>
+
+      </div>
+    </>
+  ))}
+
+</div>
+      </div>
+    </div>
+  );
+}
 function Doctors() {
   return (
-    <section id="doctors" style={{background:"#F8F4F0",padding:"7rem 5vw"}}>
-      <div className="rev" style={{textAlign:"center",marginBottom:"3.5rem"}}>
+    <section id="doctors" style={{ background:"#F8F4F0", padding:"7rem 5vw" }}>
+      
+      <div className="rev" style={{ textAlign:"center", marginBottom:"3.5rem" }}>
         <span className="badge">Our Specialists</span>
-        <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(2.2rem,4vw,3.3rem)",fontWeight:700,color:"var(--text-dark)"}}>
+
+        <h2 style={{
+          fontFamily:"'Cormorant Garamond',serif",
+          fontSize:"clamp(2.2rem,4vw,3.3rem)",
+          fontWeight:700,
+          color:"var(--text-dark)"
+        }}>
           Meet Our <em style={{color:"var(--teal)"}}>Expert Doctors</em>
         </h2>
-        <p style={{color:"var(--text-mid)",fontSize:".91rem",marginTop:".8rem"}}>Board-certified specialists with decades of combined experience.</p>
+
+        <p style={{
+          color:"var(--text-mid)",
+          fontSize:".91rem",
+          marginTop:".8rem"
+        }}>
+          Board-certified specialists with decades of combined experience.
+        </p>
       </div>
 
-      <div className="sg" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem"}}>
-        {DOCS.map(d=>(
-          <div key={d.name} className="doccard rev" style={{
-            transform: d.feat?"translateY(-8px)":undefined,
-            boxShadow: d.feat?"0 20px 42px rgba(46,134,193,0.14)":undefined,
-          }}>
-            {/* Avatar */}
-            <div className="pulse" style={{
-              width:70,height:70,borderRadius:"50%",
-              background:d.bg,
-              display:"flex",alignItems:"center",justifyContent:"center",
-              margin:"0 auto 1.2rem",
-              fontFamily:"'DM Sans',sans-serif",fontSize:"1.05rem",fontWeight:700,
-              color:"#1A3A52",
-            }}>{d.ini}</div>
-
-            <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"1.12rem",fontWeight:700,color:"var(--text-dark)",marginBottom:".2rem"}}>{d.name}</h3>
-            <p style={{color:"var(--text-light)",fontSize:".8rem",marginBottom:"1rem"}}>{d.sp}</p>
-
-            <div style={{display:"flex",gap:".55rem",justifyContent:"center",marginBottom:".9rem"}}>
-              <span style={{background:"#F0F4F8",color:"var(--text-mid)",padding:"4px 11px",borderRadius:"100px",fontSize:".73rem",fontWeight:500}}>💬 {d.exp}</span>
-              <span style={{background:"#FFF7E6",color:"#d97706",padding:"4px 11px",borderRadius:"100px",fontSize:".73rem",fontWeight:500}}>⭐ {d.rat}</span>
-            </div>
-
-            <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,marginBottom:"1.2rem",color:"#16a34a",fontSize:".78rem",fontWeight:600}}>
-              <span style={{width:8,height:8,borderRadius:"50%",background:"#22c55e",display:"inline-block"}}/>
-              {d.av}
-            </div>
-
-            <button className="btn-white" style={{width:"100%",padding:"11px",fontSize:".83rem",borderRadius:"12px",border:"1px solid #DCE8F0"}}>
-              Book Appointment
-            </button>
-          </div>
+      <div className="grid grid-cols-3 gap-12 justify-center justify-items-center">
+        {DOCS.map(d => (
+          <DoctorCard key={d.name} d={d} />
         ))}
       </div>
+
     </section>
   );
 }
-
 /* ─────────────────────────────────────────────
    ABOUT + STATS
 ───────────────────────────────────────────── */
