@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS healthcare_db;
 CREATE DATABASE healthcare_db;
 USE healthcare_db;
 
@@ -43,8 +44,10 @@ CREATE TABLE PATIENT (
 CREATE TABLE MEDICAL_HISTORY (
     history_id INT PRIMARY KEY AUTO_INCREMENT,
     patient_id INT,
+    disease VARCHAR(100),
+    diagnosis_date DATE,
+    status ENUM('ongoing','cured'),
     details TEXT,
-    record_date DATE,
     FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id)
 );
 
@@ -60,17 +63,6 @@ CREATE TABLE APPOINTMENT (
     FOREIGN KEY (doctor_id) REFERENCES DOCTOR(doctor_id)
 );
 
-CREATE TABLE APPOINTMENT_LOG (
-    log_id INT AUTO_INCREMENT PRIMARY KEY,
-    appointment_id INT,
-    patient_id INT,
-    doctor_id INT,
-    appointment_date DATE,
-    appointment_time TIME,
-    status VARCHAR(20),
-    deleted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
 -- SYMPTOM
 CREATE TABLE SYMPTOM (
     symptom_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -83,10 +75,10 @@ CREATE TABLE SYMPTOM (
 -- PRESCRIPTION
 CREATE TABLE PRESCRIPTION (
     prescription_id INT PRIMARY KEY AUTO_INCREMENT,
-    appointment_id INT UNIQUE,
-    diagnosis TEXT,
-    medicines TEXT,
-    notes TEXT,
+    appointment_id INT,
+    medicine VARCHAR(100),
+    dosage VARCHAR(50),
+    duration VARCHAR(50),
     FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(appointment_id)
 );
 
