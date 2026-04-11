@@ -317,7 +317,7 @@ INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password)
 -- =========================
 -- PATIENT (password added)
 -- =========================
-INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) VALUES
+INSERT INTO patient (name, age, gender, phone, email, blood_group_id, password) VALUES
 
 ('Shukkoor T', 42, 'Male', '9100002001', 'shukkoor@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
 ('Sourav Das', 39, 'Male', '9100002002', 'sourav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
