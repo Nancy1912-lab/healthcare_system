@@ -13,6 +13,13 @@ app.use(cors());
 app.use("/api/patient", patientRoutes);
 app.use("/api/doctor", doctorRoutes);
 
+// app.get("/api/patients", (req, res) => {
+//   db.query("SELECT * FROM PATIENT", (err, result) => {
+//     if (err) return res.send(err);
+//     res.json(result);
+//   });
+// });
+
 app.get("/api/protected", verifyToken, (req, res) => {
   res.json({
     message: "Access granted ✅",
