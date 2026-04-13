@@ -484,7 +484,13 @@ function PatientReg({ onSwitch, role, setRole }) {
         {/* Row 1 — Name + Phone */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 12px" }}>
             <Field icon={I.User} label="Full Name" placeholder="Rahul Desai" value={f.name} onChange={u("name")} />
-            <Field icon={I.Phone} label="Phone" type="tel" placeholder="+91 98765" value={f.phone} onChange={u("phone")} />
+            <Field icon={I.Phone} label="Phone" type="tel" placeholder="+91 98765" value={f.phone} onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, ""); // only digits
+
+                if (val.length <= 10) {
+                    u("phone")({ target: { value: val } });
+                }
+            }} />
         </div>
 
         {/* Email */}
@@ -571,10 +577,10 @@ function DoctorReg({ onSwitch, role, setRole }) {
         "Lung Transplant"];
 
     // ── experience options ──
-    const EXPERIENCE = [
-        "0–1 year", "1–3 years", "3–5 years",
-        "5–10 years", "10–15 years", "15–20 years", "20+ years"
-    ];
+    // const EXPERIENCE = [
+    //     "0–1 year", "1–3 years", "3–5 years",
+    //     "5–10 years", "10–15 years", "15–20 years", "20+ years"
+    // ];
 
     const [f, setF] = useState({ name: "", email: "", phone: "", spec: "", experience: "", pass: "" });
     const u = k => e => setF(p => ({ ...p, [k]: e.target.value }));
@@ -607,19 +613,33 @@ function DoctorReg({ onSwitch, role, setRole }) {
         <RoleToggle role={role} setRole={setRole} />
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 12px" }}>
             <Field icon={I.User} label="Full Name" placeholder="Dr. Arjun Shah" value={f.name} onChange={u("name")} />
-            <Field icon={I.Phone} label="Phone" type="tel" placeholder="+91 98765" value={f.phone} onChange={u("phone")} />
+            <Field icon={I.Phone} label="Phone" type="tel" placeholder="+91 98765" value={f.phone} onChange={(e) => {
+                const val = e.target.value.replace(/\D/g, ""); // only digits
+
+                if (val.length <= 10) {
+                    u("phone")({ target: { value: val } });
+                }
+            }} />
         </div>
         <Field icon={I.Mail} label="Email" type="email" placeholder="doctor@hospital.com" value={f.email} onChange={u("email")} />
         <SelField icon={I.Steth} label="Specialization" options={specs} value={f.spec} onChange={u("spec")} placeholder="Select specialization..." />
 
         {/* ── Experience dropdown (NEW) ── */}
-        <SelField
+        <Field
             icon={I.Award}
             label="Experience"
-            options={EXPERIENCE}
-            value={f.experience}
-            onChange={u("experience")}
+            type="text"
+            inputMode="numeric"
             placeholder="Years of experience..."
+            value={f.experience}
+            onChange={(e) => {
+                const val = e.target.value;
+
+                // allow only 0–99
+                if (val.length <= 2) {
+                    u("experience")(e);
+                }
+            }}
         />
 
         <PwdField label="Password" value={f.pass} onChange={u("pass")} />
