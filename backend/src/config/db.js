@@ -3,8 +3,9 @@ import mysql from "mysql2";
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "", // XAMPP has no password
-  database: "healthcare_db"
+  password: "pushti1910", // XAMPP has no password
+  database: "healthcare_db",
+  port: 3306
 });
 
 db.connect((err) => {

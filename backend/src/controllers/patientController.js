@@ -1,62 +1,25 @@
 import db from "../config/db.js";
-import bcrypt from "bcrypt";
-import { generateToken } from "../utils/generateToken.js";
 
-// REGISTER PATIENT
-export const registerPatient = async (req, res) => {
-  const { name, age, gender, phone, email, password } = req.body;
+// GET PATIENT PROFILE
+export const getPatientProfile = (req, res) => {
+  const userId = req.user.id; // from JWT
 
-  const checkUser = "SELECT * FROM PATIENT WHERE email = ?";
+  const sql = `
+    SELECT p.patient_id, p.name, p.email, p.phone, p.age, p.gender,
+           b.type AS blood_group
+    FROM PATIENT p
+    LEFT JOIN BLOOD_GROUP b
+    ON p.blood_group_id = b.blood_group_id
+    WHERE p.patient_id = ?
+  `;
 
-  db.query(checkUser, [email], async (err, result) => {
-    if (err) return res.status(500).json(err);
-
-    if (result.length > 0) {
-      return res.status(400).json({ message: "Patient already exists" });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const sql = `
-      INSERT INTO PATIENT (name, age, gender, phone, email, password)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
-
-    db.query(sql, [name, age, gender, phone, email, hashedPassword], (err) => {
-      if (err) return res.status(500).json(err);
-
-      res.json({ message: "Patient registered successfully ✅" });
-    });
-  });
-};
-
-// LOGIN PATIENT
-export const loginPatient = (req, res) => {
-  const { email, password } = req.body;
-
-  const sql = "SELECT * FROM PATIENT WHERE email = ?";
-
-  db.query(sql, [email], async (err, result) => {
+  db.query(sql, [userId], (err, result) => {
     if (err) return res.status(500).json(err);
 
     if (result.length === 0) {
-      return res.status(401).json({ message: "Invalid credentials ❌" });
+      return res.status(404).json({ message: "Patient not found ❌" });
     }
 
-    const user = result[0];
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials ❌" });
-    }
-
-    const token = generateToken(user);
-
-res.json({
-  message: "Patient login successful ✅",
-  token,
-  user
-});
+    res.json(result[0]);
   });
 };
