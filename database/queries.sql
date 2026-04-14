@@ -188,7 +188,7 @@ SELECT
     appointment_id,
     status,
     CASE
-        WHEN status = 'Scheduled' THEN 'Upcoming'
+        WHEN status = 'booked' THEN 'Upcoming'
         WHEN status = 'Completed' THEN 'Done'
         WHEN status = 'Cancelled' THEN 'Not Done'
     END AS status_meaning
@@ -247,7 +247,6 @@ SELECT * FROM PATIENT LIMIT 5 OFFSET 5;
 -- ========================================
 -- VIEW (OPTIONAL BUT IMPRESSIVE 💯)
 -- ========================================
-DROP VIEW patient_doctor_view;
 CREATE VIEW patient_doctor_view AS
 SELECT 
     p.name AS patient,
@@ -291,8 +290,8 @@ SELECT
     d.name,
     COUNT(a.appointment_id) AS total,
     CASE
-        WHEN COUNT(a.appointment_id) > 20 THEN 'Very Busy'
-        WHEN COUNT(a.appointment_id) > 10 THEN 'Moderate'
+        WHEN COUNT(a.appointment_id) > 2 THEN 'Very Busy'
+        WHEN COUNT(a.appointment_id) > 1 THEN 'Moderate'
         ELSE 'Low'
     END AS workload
 FROM DOCTOR d
