@@ -703,59 +703,59 @@ INSERT INTO MEDICAL_HISTORY (patient_id, disease, diagnosis_date, status) VALUES
 -- =========================
 INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_time, status) VALUES
 
-((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 0),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
  '2026-04-01','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sourav Das' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 1),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah' LIMIT 1),
  '2026-04-02','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 2),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta' LIMIT 1),
  '2026-04-03','12:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 3),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
  '2026-04-04','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Trudeep Dave' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 4),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi' LIMIT 1),
  '2026-04-05','10:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Veerabhadra Rotte' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 5),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
  '2026-04-06','11:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 6),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
  '2026-04-07','12:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Navneet Khanna' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 7),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah' LIMIT 1),
  '2026-04-08','09:15:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nimisha Agarwal' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 8),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Vyas' LIMIT 1),
  '2026-04-09','10:45:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nishant Sharma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 9),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sandeep Patel' LIMIT 1),
  '2026-04-10','11:15:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='P L Ramkumar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 10),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jinal Shah' LIMIT 1),
  '2026-04-11','12:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prakash A Dabhi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 11),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Parth Mehta' LIMIT 1),
  '2026-04-12','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Pramod Bhingole' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 12),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Darshan Patel' LIMIT 1),
  '2026-04-13','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prasun Chandra Tripathi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 13),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Meet Shah' LIMIT 1),
  '2026-04-14','12:00:00','completed'),
 
@@ -763,63 +763,63 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Desai' LIMIT 1),
  '2026-04-15','09:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Priyesh Chauhan' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 14),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harsh Vyas' LIMIT 1),
  '2026-04-16','10:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Raghavendra H Bhalerao' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 15),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Joshi'LIMIT 1),
  '2026-04-17','11:45:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rahul Kumar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 16),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Patel' LIMIT 1),
  '2026-04-18','12:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ram Narayan Yadav' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 17),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhumi Shah'LIMIT 1),
  '2026-04-19','09:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ravi Bhandari' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 18),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ronak Mehta'LIMIT 1),
  '2026-04-20','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ravi Kashikar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 19),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Yash Desai'LIMIT 1),
  '2026-04-21','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohan Kar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 20),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi' LIMIT 1),
  '2026-04-22','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Saurabh Sinha'LIMIT 1),
+((SELECT patient_id FROM PATIENT WHERE name='Parth Shah'LIMIT 1),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Dhruv Patel' LIMIT 1),
  '2026-04-23','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jiten Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 21),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jigar Shah'LIMIT 1),
  '2026-04-24','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kamlesh Joshi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 22),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Mehta' LIMIT 1),
  '2026-04-25','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kannan Iyer' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 23),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Viral Desai' LIMIT 1),
  '2026-04-26','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krupa Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 24),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ankit Joshi' LIMIT 1),
  '2026-04-27','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kshitij Bhargava' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 25),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajiv Patel' LIMIT 1),
  '2026-04-28','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kumar Abhishek' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 26),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neel Shah' LIMIT 1),
  '2026-04-29','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='M K Barua' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 27),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Mehta' LIMIT 1),
  '2026-04-30','12:00:00','booked'),
 
@@ -831,7 +831,7 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hemal Patel'LIMIT 1),
  '2026-05-02','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mamta Sharma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 28),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ritesh Shah'LIMIT 1),
  '2026-05-03','11:30:00','booked'),
 
@@ -839,87 +839,87 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vimal Mehta' LIMIT 1),
  '2026-05-04','12:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Manoj Choudhuri' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 29),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai' LIMIT 1),
  '2026-05-05','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Meera A Vasani' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 30),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajay Patel' LIMIT 1),
  '2026-05-06','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mithilesh K Dikshit' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 31),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pankaj Shah' LIMIT 1),
  '2026-05-07','11:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mohit Kumar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 32),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sagar Mehta' LIMIT 1),
  '2026-05-08','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Abhishek Rawat' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 33),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahesh Desai' LIMIT 1),
  '2026-05-09','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 34),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel' LIMIT 1),
  '2026-05-10','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar Parwani' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 35),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah' LIMIT 1),
  '2026-05-11','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Anand Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 36),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Mehta' LIMIT 1),
  '2026-05-12','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ashish Soni' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 37),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Heena Desai' LIMIT 1),
  '2026-05-13','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Axaykumar Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 38),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel' LIMIT 1),
  '2026-05-14','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ayyanna Habal' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 39),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-05-15','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Brajesh Tiwari' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 40),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta' LIMIT 1),
  '2026-05-16','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dharmendra Sadhwani' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 41),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai' LIMIT 1),
  '2026-05-17','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dileep Gupta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 42),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel' LIMIT 1),
  '2026-05-18','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dipankar Deb' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 43),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah' LIMIT 1),
  '2026-05-19','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ganesh Iyer' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 44),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta' LIMIT 1),
  '2026-05-20','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Gautam Borisagar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 45),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai' LIMIT 1),
  '2026-05-21','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Himanshu Sharma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 46),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel' LIMIT 1),
  '2026-05-22','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='I Watitula Longkumer' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 47),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah' LIMIT 1),
  '2026-05-23','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jaidevi Jeyaraman' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 48),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
  '2026-05-24','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Aarav Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 49),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
  '2026-05-25','09:45:00','booked'),
 
@@ -927,303 +927,303 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel' LIMIT 1),
  '2026-05-26','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Aditya Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 50),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
  '2026-05-27','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krish Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 51),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta' LIMIT 1),
  '2026-05-28','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ishaan Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 52),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai' LIMIT 1),
  '2026-05-29','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Diya Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 53),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel' LIMIT 1),
  '2026-05-30','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ananya Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 54),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah' LIMIT 1),
  '2026-05-31','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Riya Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 55),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta' LIMIT 1),
  '2026-06-01','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kavya Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 56),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai' LIMIT 1),
  '2026-06-02','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sneha Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 57),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel' LIMIT 1),
  '2026-06-03','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rahul Verma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 58),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah' LIMIT 1),
  '2026-06-04','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Amit Kumar' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 59),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta' LIMIT 1),
  '2026-06-05','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sandeep Yadav' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 60),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai' LIMIT 1),
  '2026-06-06','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Vikas Singh' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 61),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel' LIMIT 1),
  '2026-06-07','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohit Sharma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 62),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah' LIMIT 1),
  '2026-06-08','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Pooja Verma' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 63),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiral Mehta'LIMIT 1),
  '2026-06-09','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Neha Gupta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 64),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sneha Desai' LIMIT 1),
  '2026-06-10','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Swati Mishra' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 65),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Anil Patel' LIMIT 1),
  '2026-06-11','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kiran Yadav' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 66),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nitin Shah' LIMIT 1),
  '2026-06-12','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Anjali Singh' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 67),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jay Mehta' LIMIT 1),
  '2026-06-13','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Arjun Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 68),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai' LIMIT 1),
  '2026-06-14','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Harsh Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 69),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel' LIMIT 1),
  '2026-06-15','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jay Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 70),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Shah' LIMIT 1),
  '2026-06-16','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nirav Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 71),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vivek Mehta' LIMIT 1),
  '2026-06-17','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Parth Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 72),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mehul Desai' LIMIT 1),
  '2026-06-18','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohit Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 73),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tapan Patel' LIMIT 1),
  '2026-06-19','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tushar Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 74),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Shah' LIMIT 1),
  '2026-06-20','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kunal Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 75),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harish Mehta' LIMIT 1),
  '2026-06-21','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dhruv Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 76),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
  '2026-06-22','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jatin Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 77),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jitesh Patel' LIMIT 1),
  '2026-06-23','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sejal Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 78),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Suresh Shah' LIMIT 1),
  '2026-06-24','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhumi Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 79),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rohan Mehta' LIMIT 1),
  '2026-06-25','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mansi Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 80),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Desai' LIMIT 1),
  '2026-06-26','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rina Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 81),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikhil Patel' LIMIT 1),
  '2026-06-27','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Heena Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 82),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Shah' LIMIT 1),
  '2026-06-28','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yash Patel' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 83),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
  '2026-06-29','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Meet Shah' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 84),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
  '2026-06-30','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ronak Mehta' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavesh Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 85),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
  '2026-07-01','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Chirag Desai' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nilesh Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 86),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
  '2026-07-02','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tejas Trivedi' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Amit Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 87),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi' LIMIT 1),
  '2026-07-03','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Vivek Shah' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 88),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-07-04','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mehul Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 89),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
  '2026-07-05','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kishan Mehta' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hardik Joshi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 90),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
  '2026-07-06','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Alpesh Desai' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Milan Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 91),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel' LIMIT 1),
  '2026-07-07','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Hitesh Shah' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 92),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-07-08','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rakesh Patel' LIMIT 1),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neha Patel'LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 93),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'LIMIT 1),
  '2026-07-09','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nilesh Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 94),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah' LIMIT 1),
  '2026-07-10','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ketan Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 95),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah' LIMIT 1),
  '2026-07-11','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavesh Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 96),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
  '2026-07-12','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jignesh Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 97),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel' LIMIT 1),
  '2026-07-13','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Devang Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 98),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah' LIMIT 1),
  '2026-07-14','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Parth Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 99),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel' LIMIT 1),
  '2026-07-15','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dhaval Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 100),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-07-16','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Niraj Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 101),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta' LIMIT 1),
  '2026-07-17','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ankit Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 102),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai' LIMIT 1),
  '2026-07-18','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavik Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 103),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel' LIMIT 1),
  '2026-07-19','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jatin Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 104),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah' LIMIT 1),
  '2026-07-20','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krunal Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 105),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta' LIMIT 1),
  '2026-07-21','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tapan Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 106),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai' LIMIT 1),
  '2026-07-22','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Viral Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 107),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel' LIMIT 1),
  '2026-07-23','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sagar Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 108),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah' LIMIT 1),
  '2026-07-24','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 109),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
  '2026-07-25','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohan Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 110),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
  '2026-07-26','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Manish Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 111),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel' LIMIT 1),
  '2026-07-27','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Deepak Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 112),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
  '2026-07-28','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prakash Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 113),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta' LIMIT 1),
  '2026-07-29','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Naresh Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 114),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai' LIMIT 1),
  '2026-07-30','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kirit Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 115),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel' LIMIT 1),
  '2026-07-31','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Paresh Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 116),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah' LIMIT 1),
  '2026-08-01','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mahendra Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 117),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta' LIMIT 1),
  '2026-08-02','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavin Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 118),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai' LIMIT 1),
  '2026-08-03','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jignesh Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 119),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel' LIMIT 1),
  '2026-08-04','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kalpesh Mehta' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 120),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah' LIMIT 1),
  '2026-08-05','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bharat Desai' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 121),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta' LIMIT 1),
  '2026-08-06','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ramesh Trivedi' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 122),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai' LIMIT 1),
  '2026-08-07','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nayan Shah' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 123),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel' LIMIT 1),
  '2026-08-08','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tejas Patel' LIMIT 1),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 124),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah' LIMIT 1),
  '2026-08-09','09:30:00','booked');
 
