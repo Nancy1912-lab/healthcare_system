@@ -6,8 +6,14 @@ import {
   updateDoctor,
   deleteDoctor
 } from "../controllers/doctorController.js";
+import { registerDoctor, loginDoctor } from "../controllers/doctorAuthController.js";
 
 const router = express.Router();
+
+// AUTH
+router.post("/register", registerDoctor);
+router.post("/login", loginDoctor);
+
 
 // CREATE
 router.post("/", addDoctor);

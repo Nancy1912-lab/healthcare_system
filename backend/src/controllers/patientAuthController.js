@@ -19,9 +19,6 @@ export const registerPatient = async (req, res) => {
     age--;
   }
 
-  if (!dob) {
-  return res.status(400).json({ message: "DOB is required ❌" });
-}
 
   const checkUser = "SELECT * FROM PATIENT WHERE email = ?";
 
