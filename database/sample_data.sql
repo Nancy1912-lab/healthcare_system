@@ -1,3 +1,4 @@
+USE healthcare_db;
 -- =========================
 -- CLEAN RESET
 -- =========================
@@ -312,7 +313,9 @@ INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password)
 ('Dr. Nikhil Patel', 11, '9876500092', 'nikhil.patel@nexora.com',
  (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 ('Dr. Tejas Shah', 9, '9876500093', 'tejas.shah@nexora.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK');
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Ramesh Gupta', 10, '9876500094', 'ramesh.gupta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK');
 
 -- =========================
 -- PATIENT (password added)
@@ -1225,7 +1228,43 @@ INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_ti
 
 ((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 124),
  (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah' LIMIT 1),
- '2026-08-09','09:30:00','booked');
+ '2026-08-09','09:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
+ '2026-04-01','14:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah' LIMIT 1),
+ '2026-08-11','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sourav Das' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta' LIMIT 1),
+ '2026-04-02','14:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sourav Das' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
+ '2026-04-02','15:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi' LIMIT 1),
+ '2026-08-14','10:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
+ '2026-08-15','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
+ '2026-08-16','10:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah' LIMIT 1),
+ '2026-08-17','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Gupta' LIMIT 1),
+ '2026-01-15','09:00:00','completed');
 
 -- =========================
 -- SYMPTOM
