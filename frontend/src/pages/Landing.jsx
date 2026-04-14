@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
 import {
   Building2,
   Siren,
@@ -409,6 +410,7 @@ function Navbar() {
    HERO
 ───────────────────────────────────────────── */
 function Hero() {
+  const navigate = useNavigate();
   return (
     <section style={{
       minHeight:"100vh",
@@ -485,7 +487,7 @@ function Hero() {
         </p>
 
         <div style={{display:"flex",gap:"1rem",marginBottom:"2.2rem",flexWrap:"wrap"}}>
-          <button className="btn-white" style={{padding:"13px 26px",fontSize:".94rem"}}>Book Appointment</button>
+          <button className="btn-white" style={{padding:"13px 26px",fontSize:".94rem"} } onClick={() => navigate("/login")}  >Book Appointment</button>
          
         </div>
 
@@ -940,6 +942,7 @@ function About() {
    TESTIMONIALS + CTA
 ───────────────────────────────────────────── */
 function Testimonials() {
+  const navigate = useNavigate();
   return (
     <section id="testimonials" style={{background:"#F8F4F0",padding:"7rem 5vw"}}>
       <div className="rev" style={{textAlign:"center",marginBottom:"3.5rem"}}>
@@ -978,7 +981,7 @@ function Testimonials() {
           <p style={{color:"rgba(255,255,255,0.68)",fontSize:".88rem"}}>Book your appointment in under 2 minutes. No paperwork, no waiting.</p>
         </div>
         <div style={{display:"flex",gap:"1rem",flexShrink:0,position:"relative",zIndex:1}}>
-          <button className="btn-white" style={{padding:"14px 26px",fontSize:".91rem",whiteSpace:"nowrap"}}>📅 Book Appointment</button>
+          <button className="btn-white" style={{padding:"14px 26px",fontSize:".91rem",whiteSpace:"nowrap"}} onClick={() => navigate("/login")}>📅 Book Appointment</button>
           <button className="btn-ghost" style={{padding:"14px 22px",fontSize:".91rem",whiteSpace:"nowrap"}}>📞 +91 79 2600 1234</button>
         </div>
       </div>
