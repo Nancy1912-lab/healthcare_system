@@ -1,3 +1,4 @@
+USE healthcare_db;
 -- =========================
 -- CLEAN RESET
 -- =========================
@@ -72,481 +73,483 @@ INSERT INTO SPECIALIZATION (name, description) VALUES
 INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password) VALUES
 
 -- CARDIOLOGY (5)
-('Dr. Rakesh Patel', 15, '9876500001', 'rakesh.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), NULL),
-('Dr. Nidhi Shah', 12, '9876500002', 'nidhi.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), NULL),
-('Dr. Mihir Mehta', 10, '9876500003', 'mihir.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), NULL),
-('Dr. Kunal Desai', 9, '9876500004', 'kunal.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), NULL),
-('Dr. Bhavik Trivedi', 14, '9876500005', 'bhavik.trivedi@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), NULL),
+('Dr. Rakesh Patel', 15, '9876500001', 'rakesh.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Nidhi Shah', 12, '9876500002', 'nidhi.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Mihir Mehta', 10, '9876500003', 'mihir.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Kunal Desai', 9, '9876500004', 'kunal.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Bhavik Trivedi', 14, '9876500005', 'bhavik.trivedi@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- NEUROLOGY (4)
-('Dr. Aakash Joshi', 13, '9876500006', 'aakash.joshi@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), NULL),
-('Dr. Pooja Mehta', 9, '9876500007', 'pooja.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), NULL),
-('Dr. Hiren Shah', 11, '9876500008', 'hiren.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), NULL),
-('Dr. Rupal Vyas', 8, '9876500009', 'rupal.vyas@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), NULL),
+('Dr. Aakash Joshi', 13, '9876500006', 'aakash.joshi@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Pooja Mehta', 9, '9876500007', 'pooja.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Hiren Shah', 11, '9876500008', 'hiren.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Rupal Vyas', 8, '9876500009', 'rupal.vyas@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
 -- NEUROSURGERY (3)
-('Dr. Sandeep Patel', 16, '9876500010', 'sandeep.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), NULL),
-('Dr. Jinal Shah', 10, '9876500011', 'jinal.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), NULL),
-('Dr. Parth Mehta', 12, '9876500012', 'parth.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), NULL),
+('Dr. Sandeep Patel', 16, '9876500010', 'sandeep.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Jinal Shah', 10, '9876500011', 'jinal.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Parth Mehta', 12, '9876500012', 'parth.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurosurgery'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- ORTHOPAEDIC & JOINT REPLACEMENT (5)
-('Dr. Darshan Patel', 14, '9876500013', 'darshan.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), NULL),
-('Dr. Meet Shah', 11, '9876500014', 'meet.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), NULL),
-('Dr. Krunal Desai', 9, '9876500015', 'krunal.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), NULL),
-('Dr. Harsh Vyas', 8, '9876500016', 'harsh.vyas@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), NULL),
-('Dr. Tejas Joshi', 13, '9876500017', 'tejas.joshi@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), NULL),
+('Dr. Darshan Patel', 14, '9876500013', 'darshan.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Meet Shah', 11, '9876500014', 'meet.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Krunal Desai', 9, '9876500015', 'krunal.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Harsh Vyas', 8, '9876500016', 'harsh.vyas@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Tejas Joshi', 13, '9876500017', 'tejas.joshi@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- GASTROENTEROLOGY (5)
-('Dr. Ketan Patel', 12, '9876500018', 'ketan.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), NULL),
-('Dr. Bhumi Shah', 9, '9876500019', 'bhumi.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), NULL),
-('Dr. Ronak Mehta', 10, '9876500020', 'ronak.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), NULL),
-('Dr. Yash Desai', 7, '9876500021', 'yash.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), NULL),
-('Dr. Nikunj Trivedi', 11, '9876500022', 'nikunj.trivedi@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), NULL),
+('Dr. Ketan Patel', 12, '9876500018', 'ketan.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Bhumi Shah', 9, '9876500019', 'bhumi.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Ronak Mehta', 10, '9876500020', 'ronak.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Yash Desai', 7, '9876500021', 'yash.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Nikunj Trivedi', 11, '9876500022', 'nikunj.trivedi@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- UROLOGY (5)
-('Dr. Dhruv Patel', 13, '9876500023', 'dhruv.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), NULL),
-('Dr. Jigar Shah', 10, '9876500024', 'jigar.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), NULL),
-('Dr. Chirag Mehta', 9, '9876500025', 'chirag.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), NULL),
-('Dr. Viral Desai', 8, '9876500026', 'viral.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), NULL),
-('Dr. Ankit Joshi', 12, '9876500027', 'ankit.joshi@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), NULL);
+('Dr. Dhruv Patel', 13, '9876500023', 'dhruv.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Jigar Shah', 10, '9876500024', 'jigar.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Chirag Mehta', 9, '9876500025', 'chirag.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Viral Desai', 8, '9876500026', 'viral.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Ankit Joshi', 12, '9876500027', 'ankit.joshi@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Urology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- SURGICAL ONCOLOGY (4)
-('Dr. Rajiv Patel', 15, '9876500028', 'rajiv.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), NULL),
-('Dr. Neel Shah', 11, '9876500029', 'neel.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), NULL),
-('Dr. Paresh Mehta', 13, '9876500030', 'paresh.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), NULL),
-('Dr. Tushar Desai', 9, '9876500031', 'tushar.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), NULL),
+('Dr. Rajiv Patel', 15, '9876500028', 'rajiv.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Neel Shah', 11, '9876500029', 'neel.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Paresh Mehta', 13, '9876500030', 'paresh.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Tushar Desai', 9, '9876500031', 'tushar.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
 
 -- MEDICAL ONCOLOGY (4)
-('Dr. Hemal Patel', 14, '9876500032', 'hemal.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), NULL),
-('Dr. Ritesh Shah', 10, '9876500033', 'ritesh.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), NULL),
-('Dr. Vimal Mehta', 12, '9876500034', 'vimal.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), NULL),
-('Dr. Kiran Desai', 8, '9876500035', 'kiran.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), NULL),
+('Dr. Hemal Patel', 14, '9876500032', 'hemal.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Ritesh Shah', 10, '9876500033', 'ritesh.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Vimal Mehta', 12, '9876500034', 'vimal.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Kiran Desai', 8, '9876500035', 'kiran.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Medical Oncology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- RADIATION ONCOLOGY (4)
-('Dr. Ajay Patel', 13, '9876500036', 'ajay.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), NULL),
-('Dr. Pankaj Shah', 11, '9876500037', 'pankaj.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), NULL),
-('Dr. Sagar Mehta', 10, '9876500038', 'sagar.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), NULL),
-('Dr. Mahesh Desai', 9, '9876500039', 'mahesh.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), NULL),
+('Dr. Ajay Patel', 13, '9876500036', 'ajay.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Pankaj Shah', 11, '9876500037', 'pankaj.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Sagar Mehta', 10, '9876500038', 'sagar.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Mahesh Desai', 9, '9876500039', 'mahesh.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiation Oncology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
 -- OBSTETRICS (4)
-('Dr. Nisha Patel', 12, '9876500040', 'nisha.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), NULL),
-('Dr. Komal Shah', 9, '9876500041', 'komal.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), NULL),
-('Dr. Rina Mehta', 11, '9876500042', 'rina.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), NULL),
-('Dr. Heena Desai', 8, '9876500043', 'heena.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), NULL),
+('Dr. Nisha Patel', 12, '9876500040', 'nisha.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Komal Shah', 9, '9876500041', 'komal.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Rina Mehta', 11, '9876500042', 'rina.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Heena Desai', 8, '9876500043', 'heena.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Obstetrics'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
 
 -- GYNAECOLOGY (4)
-('Dr. Bhavna Patel', 13, '9876500044', 'bhavna.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), NULL),
-('Dr. Pinal Shah', 10, '9876500045', 'pinal.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), NULL),
-('Dr. Minal Mehta', 9, '9876500046', 'minal.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), NULL),
-('Dr. Rupal Desai', 11, '9876500047', 'rupal.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), NULL),
+('Dr. Bhavna Patel', 13, '9876500044', 'bhavna.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Pinal Shah', 10, '9876500045', 'pinal.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Minal Mehta', 9, '9876500046', 'minal.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Rupal Desai', 11, '9876500047', 'rupal.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynaecology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- PAEDIATRICS (4)
-('Dr. Khyati Patel', 10, '9876500048', 'khyati.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), NULL),
-('Dr. Janki Shah', 8, '9876500049', 'janki.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), NULL),
-('Dr. Sejal Mehta', 9, '9876500050', 'sejal.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), NULL),
-('Dr. Aarti Desai', 7, '9876500051', 'aarti.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), NULL);
+('Dr. Khyati Patel', 10, '9876500048', 'khyati.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Janki Shah', 8, '9876500049', 'janki.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Sejal Mehta', 9, '9876500050', 'sejal.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Aarti Desai', 7, '9876500051', 'aarti.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Paediatrics'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
 
 -- OPHTHALMOLOGY (4)
-('Dr. Devang Patel', 11, '9876500052', 'devang.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), NULL),
-('Dr. Nayan Shah', 9, '9876500053', 'nayan.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), NULL),
-('Dr. Rakesh Mehta', 12, '9876500054', 'rakesh.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), NULL),
-('Dr. Hitesh Desai', 8, '9876500055', 'hitesh.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), NULL),
+('Dr. Devang Patel', 11, '9876500052', 'devang.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Nayan Shah', 9, '9876500053', 'nayan.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Rakesh Mehta', 12, '9876500054', 'rakesh.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Hitesh Desai', 8, '9876500055', 'hitesh.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Ophthalmology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- ENT (4)
-('Dr. Jignesh Patel', 10, '9876500056', 'jignesh.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), NULL),
-('Dr. Ketan Shah', 9, '9876500057', 'ketan.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), NULL),
-('Dr. Mayur Mehta', 11, '9876500058', 'mayur.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), NULL),
-('Dr. Alpesh Desai', 8, '9876500059', 'alpesh.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), NULL),
+('Dr. Jignesh Patel', 10, '9876500056', 'jignesh.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Ketan Shah', 9, '9876500057', 'ketan.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Mayur Mehta', 11, '9876500058', 'mayur.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Alpesh Desai', 8, '9876500059', 'alpesh.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='ENT'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
 -- DERMATOLOGY (4)
-('Dr. Nisha Patel', 9, '9876500060', 'nisha2.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), NULL),
-('Dr. Ruchi Shah', 7, '9876500061', 'ruchi.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), NULL),
-('Dr. Pooja Mehta', 8, '9876500062', 'pooja2.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), NULL),
-('Dr. Heena Desai', 6, '9876500063', 'heena2.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), NULL),
+('Dr. Nisha Patel', 9, '9876500060', 'nisha2.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Ruchi Shah', 7, '9876500061', 'ruchi.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Pooja Mehta', 8, '9876500062', 'pooja2.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Heena Desai', 6, '9876500063', 'heena2.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
 
 -- GENERAL SURGERY (2)
-('Dr. Bharat Patel', 14, '9876500064', 'bharat.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), NULL),
-('Dr. Kalpesh Shah', 10, '9876500065', 'kalpesh.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), NULL),
+('Dr. Bharat Patel', 14, '9876500064', 'bharat.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Kalpesh Shah', 10, '9876500065', 'kalpesh.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- LAPAROSCOPIC SURGERY (2)
-('Dr. Vipul Mehta', 11, '9876500066', 'vipul.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laparoscopic Surgery'), NULL),
-('Dr. Sanjay Desai', 13, '9876500067', 'sanjay.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laparoscopic Surgery'), NULL),
+('Dr. Vipul Mehta', 11, '9876500066', 'vipul.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laparoscopic Surgery'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Sanjay Desai', 13, '9876500067', 'sanjay.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laparoscopic Surgery'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- BARIATRIC SURGERY (2)
-('Dr. Pravin Patel', 12, '9876500068', 'pravin.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Bariatric Surgery'), NULL),
-('Dr. Mahendra Shah', 15, '9876500069', 'mahendra.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Bariatric Surgery'), NULL),
+('Dr. Pravin Patel', 12, '9876500068', 'pravin.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Bariatric Surgery'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Mahendra Shah', 15, '9876500069', 'mahendra.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Bariatric Surgery'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
 -- SPINE SURGERY (2)
-('Dr. Ajit Mehta', 11, '9876500070', 'ajit.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Spine Surgery'), NULL),
-('Dr. Ramesh Desai', 13, '9876500071', 'ramesh.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Spine Surgery'), NULL),
+('Dr. Ajit Mehta', 11, '9876500070', 'ajit.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Spine Surgery'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Ramesh Desai', 13, '9876500071', 'ramesh.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Spine Surgery'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
 
 -- PLASTIC SURGERY (2)
-('Dr. Chirag Patel', 9, '9876500072', 'chirag.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Plastic & Reconstructive Surgery'), NULL),
-('Dr. Deepak Shah', 10, '9876500073', 'deepak.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Plastic & Reconstructive Surgery'), NULL),
+('Dr. Chirag Patel', 9, '9876500072', 'chirag.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Plastic & Reconstructive Surgery'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Deepak Shah', 10, '9876500073', 'deepak.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Plastic & Reconstructive Surgery'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
 
 -- NEONATOLOGY (2)
-('Dr. Hiral Mehta', 8, '9876500074', 'hiral.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neonatology'), NULL),
-('Dr. Sneha Desai', 7, '9876500075', 'sneha.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neonatology'), NULL),
+('Dr. Hiral Mehta', 8, '9876500074', 'hiral.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neonatology'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Sneha Desai', 7, '9876500075', 'sneha.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neonatology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- RADIOLOGY (2)
-('Dr. Anil Patel', 12, '9876500076', 'anil.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiology'), NULL),
-('Dr. Nitin Shah', 10, '9876500077', 'nitin.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiology'), NULL),
+('Dr. Anil Patel', 12, '9876500076', 'anil.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Nitin Shah', 10, '9876500077', 'nitin.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Radiology'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
 -- LABORATORY MEDICINE (2)
-('Dr. Jay Mehta', 11, '9876500078', 'jay.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laboratory Medicine'), NULL),
-('Dr. Kiran Desai', 9, '9876500079', 'kiran2.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laboratory Medicine'), NULL),
+('Dr. Jay Mehta', 11, '9876500078', 'jay.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laboratory Medicine'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Kiran Desai', 9, '9876500079', 'kiran2.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Laboratory Medicine'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
 -- PATHOLOGY (2)
-('Dr. Manoj Patel', 13, '9876500080', 'manoj.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pathology'), NULL),
-('Dr. Rajesh Shah', 11, '9876500081', 'rajesh2.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pathology'), NULL),
+('Dr. Manoj Patel', 13, '9876500080', 'manoj.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pathology'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Rajesh Shah', 11, '9876500081', 'rajesh2.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pathology'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
 
 -- PHYSIOTHERAPY (2)
-('Dr. Vivek Mehta', 8, '9876500082', 'vivek.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Physiotherapy'), NULL),
-('Dr. Mehul Desai', 7, '9876500083', 'mehul.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Physiotherapy'), NULL),
+('Dr. Vivek Mehta', 8, '9876500082', 'vivek.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Physiotherapy'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Mehul Desai', 7, '9876500083', 'mehul.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Physiotherapy'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
 
 -- REHABILITATION MEDICINE (2)
-('Dr. Tapan Patel', 9, '9876500084', 'tapan.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Rehabilitation Medicine'), NULL),
-('Dr. Paresh Shah', 10, '9876500085', 'paresh.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Rehabilitation Medicine'), NULL),
+('Dr. Tapan Patel', 9, '9876500084', 'tapan.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Rehabilitation Medicine'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
+('Dr. Paresh Shah', 10, '9876500085', 'paresh.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Rehabilitation Medicine'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
 
 -- TRANSPLANT (2 EACH)
-('Dr. Harish Mehta', 14, '9876500086', 'harish.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Liver Transplant'), NULL),
-('Dr. Kunal Desai', 12, '9876500087', 'kunal2.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Liver Transplant'), NULL),
+('Dr. Harish Mehta', 14, '9876500086', 'harish.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Liver Transplant'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
+('Dr. Kunal Desai', 12, '9876500087', 'kunal2.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Liver Transplant'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
 
-('Dr. Jitesh Patel', 13, '9876500088', 'jitesh.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Kidney Transplant'), NULL),
-('Dr. Suresh Shah', 11, '9876500089', 'suresh.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Kidney Transplant'), NULL),
+('Dr. Jitesh Patel', 13, '9876500088', 'jitesh.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Kidney Transplant'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Suresh Shah', 11, '9876500089', 'suresh.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Kidney Transplant'), '$2b$10$huGEtitX2FmYuPAtG0bE9uMzpt3rT/5CESuGRfbrqzPlQfyqYmLE.'),
 
-('Dr. Rohan Mehta', 12, '9876500090', 'rohan.mehta@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Heart Transplant'), NULL),
-('Dr. Bharat Desai', 10, '9876500091', 'bharat.desai@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Heart Transplant'), NULL),
+('Dr. Rohan Mehta', 12, '9876500090', 'rohan.mehta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Heart Transplant'), '$2b$10$7ZfoPYIgL/gqzoVFZtq9pOOhOP6odK/L42iiJ/g5XNRCcEyw1uYDW'),
+('Dr. Bharat Desai', 10, '9876500091', 'bharat.desai@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Heart Transplant'), '$2b$10$De2xg5iWBAqnrcjZ4h8lTug91xJDtWzfM6OMUM6zvD2J9ZLFxOOiS'),
 
-('Dr. Nikhil Patel', 11, '9876500092', 'nikhil.patel@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), NULL),
-('Dr. Tejas Shah', 9, '9876500093', 'tejas.shah@kd.com',
- (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), NULL);
+('Dr. Nikhil Patel', 11, '9876500092', 'nikhil.patel@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), '$2b$10$gcVmllLMeOJnF/tDBcsHq..C2HS2u/xI2dhV8e1eeQDm6nJ/WfFne'),
+('Dr. Tejas Shah', 9, '9876500093', 'tejas.shah@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Lung Transplant'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK'),
+('Dr. Ramesh Gupta', 10, '9876500094', 'ramesh.gupta@nexora.com',
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Surgery'), '$2b$10$En3GZ.9LEpZIuG90M3GORu1vNASij9AVsxM73BKlBkhg.RPR6fnOK');
 
 -- =========================
 -- PATIENT (password added)
 -- =========================
-INSERT INTO PATIENT (name, age, gender, phone, email, blood_group_id, password) VALUES
+INSERT INTO patient (name, age, gender, phone, email, blood_group_id, password) VALUES
 
-('Shukkoor T', 42, 'Male', '9100002001', 'shukkoor@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Sourav Das', 39, 'Male', '9100002002', 'sourav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Sudhakar Chaudhary', 45, 'Male', '9100002003', 'sudhakar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Sumit Tripathi', 38, 'Male', '9100002004', 'sumit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Trudeep Dave', 41, 'Male', '9100002005', 'trudeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Veerabhadra Rotte', 43, 'Male', '9100002006', 'veerabhadra@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Yogesh Shah', 40, 'Male', '9100002007', 'yogesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Shukkoor T', 42, 'Male', '9100002001', 'shukkoor@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sourav Das', 39, 'Male', '9100002002', 'sourav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sudhakar Chaudhary', 45, 'Male', '9100002003', 'sudhakar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sumit Tripathi', 38, 'Male', '9100002004', 'sumit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Trudeep Dave', 41, 'Male', '9100002005', 'trudeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Veerabhadra Rotte', 43, 'Male', '9100002006', 'veerabhadra@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Yogesh Shah', 40, 'Male', '9100002007', 'yogesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Jiten Shah', 45, 'Male', '9100002008', 'jiten@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Kamlesh Joshi', 44, 'Male', '9100002009', 'kamlesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Kannan Iyer', 46, 'Male', '9100002010', 'kannan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Krupa Shah', 34, 'Female', '9100002011', 'krupa@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Jiten Shah', 45, 'Male', '9100002008', 'jiten@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kamlesh Joshi', 44, 'Male', '9100002009', 'kamlesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kannan Iyer', 46, 'Male', '9100002010', 'kannan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Krupa Shah', 34, 'Female', '9100002011', 'krupa@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Kshitij Bhargava', 37, 'Male', '9100002012', 'kshitij@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Kumar Abhishek', 39, 'Male', '9100002013', 'abhishek@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('M K Barua', 50, 'Male', '9100002014', 'barua@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Mahesh Mungule', 41, 'Male', '9100002015', 'mahesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Kshitij Bhargava', 37, 'Male', '9100002012', 'kshitij@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kumar Abhishek', 39, 'Male', '9100002013', 'abhishek@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('M K Barua', 50, 'Male', '9100002014', 'barua@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mahesh Mungule', 41, 'Male', '9100002015', 'mahesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Mahuya Bandyopadhyay', 45, 'Female', '9100002016', 'mahuya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Mamta Sharma', 38, 'Female', '9100002017', 'mamta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Manjunath K', 40, 'Male', '9100002018', 'manjunath@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Manoj Choudhuri', 44, 'Male', '9100002019', 'manoj@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
+('Mahuya Bandyopadhyay', 45, 'Female', '9100002016', 'mahuya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mamta Sharma', 38, 'Female', '9100002017', 'mamta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Manjunath K', 40, 'Male', '9100002018', 'manjunath@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Manoj Choudhuri', 44, 'Male', '9100002019', 'manoj@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Meera A Vasani', 39, 'Female', '9100002020', 'meera@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Mithilesh K Dikshit', 42, 'Male', '9100002021', 'mithilesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Mohit Kumar', 37, 'Male', '9100002022', 'mohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
+('Meera A Vasani', 39, 'Female', '9100002020', 'meera@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mithilesh K Dikshit', 42, 'Male', '9100002021', 'mithilesh@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mohit Kumar', 37, 'Male', '9100002022', 'mohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Navneet Khanna', 36, 'Male', '9100002023', 'navneet@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Nimisha Agarwal', 34, 'Female', '9100002024', 'nimisha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Nishant Sharma', 35, 'Male', '9100002025', 'nishant@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('PL Ramkumar', 43, 'Male', '9100002026', 'ramkumar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Navneet Khanna', 36, 'Male', '9100002023', 'navneet@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nimisha Agarwal', 34, 'Female', '9100002024', 'nimisha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nishant Sharma', 35, 'Male', '9100002025', 'nishant@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('PL Ramkumar', 43, 'Male', '9100002026', 'ramkumar@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Prakash A Dabhi', 46, 'Male', '9100002027', 'prakash@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Pramod Bhingole', 42, 'Male', '9100002028', 'pramod@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Prasun Chandra Tripathi', 35, 'Male', '9100002029', 'prasun@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Pravin Jadhav', 39, 'Male', '9100002030', 'pravin@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+('Prakash A Dabhi', 46, 'Male', '9100002027', 'prakash@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pramod Bhingole', 42, 'Male', '9100002028', 'pramod@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Prasun Chandra Tripathi', 35, 'Male', '9100002029', 'prasun@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pravin Jadhav', 39, 'Male', '9100002030', 'pravin@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Aarav Patel', 28, 'Male', '9100003001', 'aarav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Vivaan Shah', 31, 'Male', '9100003002', 'vivaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Aditya Mehta', 35, 'Male', '9100003003', 'aditya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Krish Desai', 29, 'Male', '9100003004', 'krish@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Ishaan Trivedi', 33, 'Male', '9100003005', 'ishaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Aarav Patel', 28, 'Male', '9100003001', 'aarav@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Vivaan Shah', 31, 'Male', '9100003002', 'vivaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Aditya Mehta', 35, 'Male', '9100003003', 'aditya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Krish Desai', 29, 'Male', '9100003004', 'krish@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ishaan Trivedi', 33, 'Male', '9100003005', 'ishaan@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Diya Shah', 27, 'Female', '9100003006', 'diya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Ananya Patel', 30, 'Female', '9100003007', 'ananya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Riya Mehta', 26, 'Female', '9100003008', 'riya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Kavya Desai', 32, 'Female', '9100003009', 'kavya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Sneha Shah', 34, 'Female', '9100003010', 'sneha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Diya Shah', 27, 'Female', '9100003006', 'diya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ananya Patel', 30, 'Female', '9100003007', 'ananya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Riya Mehta', 26, 'Female', '9100003008', 'riya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kavya Desai', 32, 'Female', '9100003009', 'kavya@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sneha Shah', 34, 'Female', '9100003010', 'sneha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Rahul Verma', 38, 'Male', '9100003011', 'rahul.verma@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Amit Kumar', 40, 'Male', '9100003012', 'amit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Sandeep Yadav', 36, 'Male', '9100003013', 'sandeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Vikas Singh', 37, 'Male', '9100003014', 'vikas@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Rohit Sharma', 35, 'Male', '9100003015', 'rohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Rahul Verma', 38, 'Male', '9100003011', 'rahul.verma@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Amit Kumar', 40, 'Male', '9100003012', 'amit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sandeep Yadav', 36, 'Male', '9100003013', 'sandeep@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Vikas Singh', 37, 'Male', '9100003014', 'vikas@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rohit Sharma', 35, 'Male', '9100003015', 'rohit@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Pooja Verma', 29, 'Female', '9100003016', 'pooja@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Neha Gupta', 33, 'Female', '9100003017', 'neha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Swati Mishra', 31, 'Female', '9100003018', 'swati@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Kiran Yadav', 34, 'Female', '9100003019', 'kiran@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Anjali Singh', 28, 'Female', '9100003020', 'anjali@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Pooja Verma', 29, 'Female', '9100003016', 'pooja@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Neha Gupta', 33, 'Female', '9100003017', 'neha@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Swati Mishra', 31, 'Female', '9100003018', 'swati@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kiran Yadav', 34, 'Female', '9100003019', 'kiran@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Anjali Singh', 28, 'Female', '9100003020', 'anjali@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Arjun Patel', 29, 'Male', '9100003021', 'arjun.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Harsh Shah', 34, 'Male', '9100003022', 'harsh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Jay Mehta', 31, 'Male', '9100003023', 'jay.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Nirav Desai', 36, 'Male', '9100003024', 'nirav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Parth Trivedi', 28, 'Male', '9100003025', 'parth.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Arjun Patel', 29, 'Male', '9100003021', 'arjun.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Harsh Shah', 34, 'Male', '9100003022', 'harsh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jay Mehta', 31, 'Male', '9100003023', 'jay.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nirav Desai', 36, 'Male', '9100003024', 'nirav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Parth Trivedi', 28, 'Male', '9100003025', 'parth.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Rohit Shah', 32, 'Male', '9100003026', 'rohit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Kunal Patel', 35, 'Male', '9100003027', 'kunal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Dhruv Mehta', 30, 'Male', '9100003028', 'dhruv.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Jatin Desai', 37, 'Male', '9100003029', 'jatin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Tushar Shah', 39, 'Male', '9100003030', 'tushar.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Rohit Shah', 32, 'Male', '9100003026', 'rohit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kunal Patel', 35, 'Male', '9100003027', 'kunal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Dhruv Mehta', 30, 'Male', '9100003028', 'dhruv.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jatin Desai', 37, 'Male', '9100003029', 'jatin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tushar Shah', 39, 'Male', '9100003030', 'tushar.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Hiral Patel', 27, 'Female', '9100003031', 'hiral.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Pinal Shah', 33, 'Female', '9100003032', 'pinal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Jinal Mehta', 29, 'Female', '9100003033', 'jinal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Komal Desai', 31, 'Female', '9100003034', 'komal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Rupal Trivedi', 35, 'Female', '9100003035', 'rupal.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Hiral Patel', 27, 'Female', '9100003031', 'hiral.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pinal Shah', 33, 'Female', '9100003032', 'pinal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jinal Mehta', 29, 'Female', '9100003033', 'jinal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Komal Desai', 31, 'Female', '9100003034', 'komal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rupal Trivedi', 35, 'Female', '9100003035', 'rupal.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Sejal Shah', 28, 'Female', '9100003036', 'sejal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Bhumi Patel', 32, 'Female', '9100003037', 'bhumi.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Mansi Mehta', 30, 'Female', '9100003038', 'mansi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Rina Desai', 34, 'Female', '9100003039', 'rina.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Heena Shah', 29, 'Female', '9100003040', 'heena.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL);
+('Sejal Shah', 28, 'Female', '9100003036', 'sejal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bhumi Patel', 32, 'Female', '9100003037', 'bhumi.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mansi Mehta', 30, 'Female', '9100003038', 'mansi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rina Desai', 34, 'Female', '9100003039', 'rina.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Heena Shah', 29, 'Female', '9100003040', 'heena.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Yash Patel', 29, 'Male', '9100003041', 'yash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Meet Shah', 33, 'Male', '9100003042', 'meet.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Ronak Mehta', 31, 'Male', '9100003043', 'ronak.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Chirag Desai', 36, 'Male', '9100003044', 'chirag.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Tejas Trivedi', 28, 'Male', '9100003045', 'tejas.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Yash Patel', 29, 'Male', '9100003041', 'yash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Meet Shah', 33, 'Male', '9100003042', 'meet.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ronak Mehta', 31, 'Male', '9100003043', 'ronak.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Chirag Desai', 36, 'Male', '9100003044', 'chirag.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tejas Trivedi', 28, 'Male', '9100003045', 'tejas.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Vivek Shah', 35, 'Male', '9100003046', 'vivek.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Mehul Patel', 32, 'Male', '9100003047', 'mehul.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Kishan Mehta', 30, 'Male', '9100003048', 'kishan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Alpesh Desai', 37, 'Male', '9100003049', 'alpesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Hitesh Shah', 39, 'Male', '9100003050', 'hitesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Vivek Shah', 35, 'Male', '9100003046', 'vivek.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mehul Patel', 32, 'Male', '9100003047', 'mehul.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kishan Mehta', 30, 'Male', '9100003048', 'kishan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Alpesh Desai', 37, 'Male', '9100003049', 'alpesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Hitesh Shah', 39, 'Male', '9100003050', 'hitesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Rakesh Patel', 41, 'Male', '9100003051', 'rakesh.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Nilesh Shah', 38, 'Male', '9100003052', 'nilesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Ketan Mehta', 34, 'Male', '9100003053', 'ketan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Bhavesh Desai', 36, 'Male', '9100003054', 'bhavesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Jignesh Trivedi', 40, 'Male', '9100003055', 'jignesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Rakesh Patel', 41, 'Male', '9100003051', 'rakesh.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nilesh Shah', 38, 'Male', '9100003052', 'nilesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ketan Mehta', 34, 'Male', '9100003053', 'ketan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bhavesh Desai', 36, 'Male', '9100003054', 'bhavesh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jignesh Trivedi', 40, 'Male', '9100003055', 'jignesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Devang Shah', 31, 'Male', '9100003056', 'devang.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Parth Patel', 28, 'Male', '9100003057', 'parth.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Dhaval Mehta', 33, 'Male', '9100003058', 'dhaval.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Niraj Desai', 35, 'Male', '9100003059', 'niraj.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Ankit Shah', 29, 'Male', '9100003060', 'ankit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Devang Shah', 31, 'Male', '9100003056', 'devang.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Parth Patel', 28, 'Male', '9100003057', 'parth.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Dhaval Mehta', 33, 'Male', '9100003058', 'dhaval.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Niraj Desai', 35, 'Male', '9100003059', 'niraj.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ankit Shah', 29, 'Male', '9100003060', 'ankit.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Bhavik Patel', 32, 'Male', '9100003061', 'bhavik.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Jatin Shah', 34, 'Male', '9100003062', 'jatin.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Krunal Mehta', 30, 'Male', '9100003063', 'krunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Tapan Desai', 37, 'Male', '9100003064', 'tapan.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Viral Shah', 36, 'Male', '9100003065', 'viral.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Bhavik Patel', 32, 'Male', '9100003061', 'bhavik.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jatin Shah', 34, 'Male', '9100003062', 'jatin.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Krunal Mehta', 30, 'Male', '9100003063', 'krunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tapan Desai', 37, 'Male', '9100003064', 'tapan.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Viral Shah', 36, 'Male', '9100003065', 'viral.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Hiral Patel', 28, 'Female', '9100003066', 'hiral.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Pooja Shah', 31, 'Female', '9100003067', 'pooja.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Riya Mehta', 27, 'Female', '9100003068', 'riya.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Kavita Desai', 33, 'Female', '9100003069', 'kavita.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Neha Shah', 35, 'Female', '9100003070', 'neha.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+('Hiral Patel', 28, 'Female', '9100003066', 'hiral.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pooja Shah', 31, 'Female', '9100003067', 'pooja.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Riya Mehta', 27, 'Female', '9100003068', 'riya.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kavita Desai', 33, 'Female', '9100003069', 'kavita.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Neha Shah', 35, 'Female', '9100003070', 'neha.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Sagar Patel', 34, 'Male', '9100003071', 'sagar.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Yogesh Shah', 38, 'Male', '9100003072', 'yogesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Rohan Mehta', 29, 'Male', '9100003073', 'rohan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Manish Desai', 36, 'Male', '9100003074', 'manish.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Deepak Trivedi', 41, 'Male', '9100003075', 'deepak.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Sagar Patel', 34, 'Male', '9100003071', 'sagar.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Yogesh Shah', 38, 'Male', '9100003072', 'yogesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rohan Mehta', 29, 'Male', '9100003073', 'rohan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Manish Desai', 36, 'Male', '9100003074', 'manish.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Deepak Trivedi', 41, 'Male', '9100003075', 'deepak.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Prakash Shah', 45, 'Male', '9100003076', 'prakash.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Naresh Patel', 40, 'Male', '9100003077', 'naresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Kirit Mehta', 37, 'Male', '9100003078', 'kirit.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Paresh Desai', 42, 'Male', '9100003079', 'paresh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Mahendra Shah', 46, 'Male', '9100003080', 'mahendra.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Prakash Shah', 45, 'Male', '9100003076', 'prakash.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Naresh Patel', 40, 'Male', '9100003077', 'naresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kirit Mehta', 37, 'Male', '9100003078', 'kirit.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Paresh Desai', 42, 'Male', '9100003079', 'paresh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mahendra Shah', 46, 'Male', '9100003080', 'mahendra.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Bhavin Patel', 31, 'Male', '9100003081', 'bhavin.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Jignesh Shah', 35, 'Male', '9100003082', 'jignesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Kalpesh Mehta', 33, 'Male', '9100003083', 'kalpesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Bharat Desai', 39, 'Male', '9100003084', 'bharat.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Ramesh Trivedi', 47, 'Male', '9100003085', 'ramesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Bhavin Patel', 31, 'Male', '9100003081', 'bhavin.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jignesh Shah', 35, 'Male', '9100003082', 'jignesh.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kalpesh Mehta', 33, 'Male', '9100003083', 'kalpesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bharat Desai', 39, 'Male', '9100003084', 'bharat.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ramesh Trivedi', 47, 'Male', '9100003085', 'ramesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Nayan Shah', 32, 'Male', '9100003086', 'nayan.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Tejas Patel', 30, 'Male', '9100003087', 'tejas.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Krunal Shah', 34, 'Male', '9100003088', 'krunal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Milan Mehta', 36, 'Male', '9100003089', 'milan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Hiren Desai', 41, 'Male', '9100003090', 'hiren.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Nayan Shah', 32, 'Male', '9100003086', 'nayan.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tejas Patel', 30, 'Male', '9100003087', 'tejas.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Krunal Shah', 34, 'Male', '9100003088', 'krunal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Milan Mehta', 36, 'Male', '9100003089', 'milan.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Hiren Desai', 41, 'Male', '9100003090', 'hiren.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Nisha Patel', 29, 'Female', '9100003091', 'nisha.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Pinal Shah', 33, 'Female', '9100003092', 'pinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Jinal Mehta', 28, 'Female', '9100003093', 'jinal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Heena Desai', 35, 'Female', '9100003094', 'heena.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Komal Shah', 31, 'Female', '9100003095', 'komal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Nisha Patel', 29, 'Female', '9100003091', 'nisha.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pinal Shah', 33, 'Female', '9100003092', 'pinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jinal Mehta', 28, 'Female', '9100003093', 'jinal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Heena Desai', 35, 'Female', '9100003094', 'heena.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Komal Shah', 31, 'Female', '9100003095', 'komal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Bhumi Patel', 30, 'Female', '9100003096', 'bhumi.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Rupal Shah', 34, 'Female', '9100003097', 'rupal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Sejal Mehta', 29, 'Female', '9100003098', 'sejal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Aarti Desai', 32, 'Female', '9100003099', 'aarti.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Mansi Shah', 33, 'Female', '9100003100', 'mansi.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+('Bhumi Patel', 30, 'Female', '9100003096', 'bhumi.patel2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rupal Shah', 34, 'Female', '9100003097', 'rupal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sejal Mehta', 29, 'Female', '9100003098', 'sejal.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Aarti Desai', 32, 'Female', '9100003099', 'aarti.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mansi Shah', 33, 'Female', '9100003100', 'mansi.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Akash Patel', 30, 'Male', '9100003101', 'akash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Vimal Shah', 35, 'Male', '9100003102', 'vimal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Suresh Mehta', 42, 'Male', '9100003103', 'suresh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Ravindra Desai', 39, 'Male', '9100003104', 'ravindra.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Mahesh Trivedi', 44, 'Male', '9100003105', 'mahesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Akash Patel', 30, 'Male', '9100003101', 'akash.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Vimal Shah', 35, 'Male', '9100003102', 'vimal.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Suresh Mehta', 42, 'Male', '9100003103', 'suresh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Ravindra Desai', 39, 'Male', '9100003104', 'ravindra.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mahesh Trivedi', 44, 'Male', '9100003105', 'mahesh.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Kishor Shah', 47, 'Male', '9100003106', 'kishor.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Arvind Patel', 41, 'Male', '9100003107', 'arvind.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Dinesh Mehta', 38, 'Male', '9100003108', 'dinesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Nitin Desai', 36, 'Male', '9100003109', 'nitin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Sanjay Shah', 45, 'Male', '9100003110', 'sanjay.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Kishor Shah', 47, 'Male', '9100003106', 'kishor.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Arvind Patel', 41, 'Male', '9100003107', 'arvind.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Dinesh Mehta', 38, 'Male', '9100003108', 'dinesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nitin Desai', 36, 'Male', '9100003109', 'nitin.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sanjay Shah', 45, 'Male', '9100003110', 'sanjay.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Paresh Patel', 37, 'Male', '9100003111', 'paresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Jayesh Shah', 40, 'Male', '9100003112', 'jayesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Mukesh Mehta', 43, 'Male', '9100003113', 'mukesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Kirit Desai', 39, 'Male', '9100003114', 'kirit.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Bipin Trivedi', 46, 'Male', '9100003115', 'bipin.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Paresh Patel', 37, 'Male', '9100003111', 'paresh.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jayesh Shah', 40, 'Male', '9100003112', 'jayesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mukesh Mehta', 43, 'Male', '9100003113', 'mukesh.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kirit Desai', 39, 'Male', '9100003114', 'kirit.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bipin Trivedi', 46, 'Male', '9100003115', 'bipin.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Ramesh Shah', 48, 'Male', '9100003116', 'ramesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Jagdish Patel', 50, 'Male', '9100003117', 'jagdish.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Bhupendra Mehta', 47, 'Male', '9100003118', 'bhupendra.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Raghav Desai', 35, 'Male', '9100003119', 'raghav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Pradeep Trivedi', 44, 'Male', '9100003120', 'pradeep.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Ramesh Shah', 48, 'Male', '9100003116', 'ramesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jagdish Patel', 50, 'Male', '9100003117', 'jagdish.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bhupendra Mehta', 47, 'Male', '9100003118', 'bhupendra.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Raghav Desai', 35, 'Male', '9100003119', 'raghav.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pradeep Trivedi', 44, 'Male', '9100003120', 'pradeep.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Nikita Shah', 29, 'Female', '9100003121', 'nikita.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Shruti Patel', 31, 'Female', '9100003122', 'shruti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Riddhi Mehta', 28, 'Female', '9100003123', 'riddhi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Vaishali Desai', 34, 'Female', '9100003124', 'vaishali.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Bhavna Shah', 36, 'Female', '9100003125', 'bhavna.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Nikita Shah', 29, 'Female', '9100003121', 'nikita.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Shruti Patel', 31, 'Female', '9100003122', 'shruti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Riddhi Mehta', 28, 'Female', '9100003123', 'riddhi.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Vaishali Desai', 34, 'Female', '9100003124', 'vaishali.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bhavna Shah', 36, 'Female', '9100003125', 'bhavna.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Minal Patel', 33, 'Female', '9100003126', 'minal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Hiral Mehta', 30, 'Female', '9100003127', 'hiral.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Pooja Desai', 32, 'Female', '9100003128', 'pooja.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Komal Patel', 29, 'Female', '9100003129', 'komal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Jinal Shah', 35, 'Female', '9100003130', 'jinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL)
+('Minal Patel', 33, 'Female', '9100003126', 'minal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Hiral Mehta', 30, 'Female', '9100003127', 'hiral.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pooja Desai', 32, 'Female', '9100003128', 'pooja.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Komal Patel', 29, 'Female', '9100003129', 'komal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jinal Shah', 35, 'Female', '9100003130', 'jinal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Amit Patel', 34, 'Male', '9100003131', 'amit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Rohit Shah', 37, 'Male', '9100003132', 'rohit.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Kunal Mehta', 31, 'Male', '9100003133', 'kunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Jay Desai', 29, 'Male', '9100003134', 'jay.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Nirav Trivedi', 36, 'Male', '9100003135', 'nirav.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
+('Amit Patel', 34, 'Male', '9100003131', 'amit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rohit Shah', 37, 'Male', '9100003132', 'rohit.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kunal Mehta', 31, 'Male', '9100003133', 'kunal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jay Desai', 29, 'Male', '9100003134', 'jay.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Nirav Trivedi', 36, 'Male', '9100003135', 'nirav.trivedi@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Parth Shah', 30, 'Male', '9100003136', 'parth.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Dhruv Patel', 28, 'Male', '9100003137', 'dhruv.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Tushar Mehta', 35, 'Male', '9100003138', 'tushar.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Harsh Desai', 32, 'Male', '9100003139', 'harsh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Vikas Shah', 39, 'Male', '9100003140', 'vikas.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
+('Parth Shah', 30, 'Male', '9100003136', 'parth.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Dhruv Patel', 28, 'Male', '9100003137', 'dhruv.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tushar Mehta', 35, 'Male', '9100003138', 'tushar.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Harsh Desai', 32, 'Male', '9100003139', 'harsh.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Vikas Shah', 39, 'Male', '9100003140', 'vikas.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Ankit Patel', 33, 'Male', '9100003141', 'ankit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Bhavesh Shah', 38, 'Male', '9100003142', 'bhavesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Jatin Mehta', 34, 'Male', '9100003143', 'jatin.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Krunal Desai', 31, 'Male', '9100003144', 'krunal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Tapan Shah', 40, 'Male', '9100003145', 'tapan.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
+('Ankit Patel', 33, 'Male', '9100003141', 'ankit.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Bhavesh Shah', 38, 'Male', '9100003142', 'bhavesh.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jatin Mehta', 34, 'Male', '9100003143', 'jatin.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Krunal Desai', 31, 'Male', '9100003144', 'krunal.desai@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Tapan Shah', 40, 'Male', '9100003145', 'tapan.shah@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Rina Patel', 29, 'Female', '9100003146', 'rina.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Heena Shah', 35, 'Female', '9100003147', 'heena.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
-('Komal Mehta', 30, 'Female', '9100003148', 'komal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Pooja Desai', 33, 'Female', '9100003149', 'pooja.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Jinal Patel', 28, 'Female', '9100003150', 'jinal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
+('Rina Patel', 29, 'Female', '9100003146', 'rina.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Heena Shah', 35, 'Female', '9100003147', 'heena.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Komal Mehta', 30, 'Female', '9100003148', 'komal.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pooja Desai', 33, 'Female', '9100003149', 'pooja.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Jinal Patel', 28, 'Female', '9100003150', 'jinal.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Bhumi Shah', 32, 'Female', '9100003151', 'bhumi.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Mansi Mehta', 31, 'Female', '9100003152', 'mansi.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL),
-('Rupal Desai', 34, 'Female', '9100003153', 'rupal.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), NULL),
-('Sejal Shah', 29, 'Female', '9100003154', 'sejal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), NULL),
-('Aarti Patel', 36, 'Female', '9100003155', 'aarti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), NULL),
+('Bhumi Shah', 32, 'Female', '9100003151', 'bhumi.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Mansi Mehta', 31, 'Female', '9100003152', 'mansi.mehta2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Rupal Desai', 34, 'Female', '9100003153', 'rupal.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sejal Shah', 29, 'Female', '9100003154', 'sejal.shah2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Aarti Patel', 36, 'Female', '9100003155', 'aarti.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
 
-('Neha Shah', 33, 'Female', '9100003156', 'neha.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), NULL),
-('Kavya Mehta', 27, 'Female', '9100003157', 'kavya.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), NULL),
-('Riya Patel', 26, 'Female', '9100003158', 'riya.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), NULL),
-('Sneha Desai', 35, 'Female', '9100003159', 'sneha.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), NULL),
-('Pinal Shah', 30, 'Female', '9100003160', 'pinal.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), NULL);
+('Neha Shah', 33, 'Female', '9100003156', 'neha.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Kavya Mehta', 27, 'Female', '9100003157', 'kavya.mehta@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='O+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Riya Patel', 26, 'Female', '9100003158', 'riya.patel@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='AB+'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Sneha Desai', 35, 'Female', '9100003159', 'sneha.desai2@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='A-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK'),
+('Pinal Shah', 30, 'Female', '9100003160', 'pinal.shah3@patient.com',(SELECT blood_group_id FROM BLOOD_GROUP WHERE type='B-'), '$2b$10$Nzfzd0yNG4hRCul.QArAX.FQvE/qeoGkoAUgcNkeu1zPlKdJNC.cK');
 
 -- =========================
 -- MEDICAL_HISTORY
@@ -703,529 +706,565 @@ INSERT INTO MEDICAL_HISTORY (patient_id, disease, diagnosis_date, status) VALUES
 -- =========================
 INSERT INTO APPOINTMENT (patient_id, doctor_id, appointment_date, appointment_time, status) VALUES
 
-((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 0),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
  '2026-04-01','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sourav Das'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah'),
- '2026-04-02','11:00:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah' LIMIT 1),
+ '2026-04-02','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 2),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta' LIMIT 1),
  '2026-04-03','12:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 3),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
  '2026-04-04','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Trudeep Dave'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 4),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi' LIMIT 1),
  '2026-04-05','10:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Veerabhadra Rotte'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi'),
- '2026-04-06','11:30:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 5),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
+ '2026-04-06','11:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 6),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
  '2026-04-07','12:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Navneet Khanna'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 7),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah' LIMIT 1),
  '2026-04-08','09:15:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nimisha Agarwal'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Vyas'),
- '2026-04-09','10:45:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 8),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Vyas' LIMIT 1),
+ '2026-04-09','10:45:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nishant Sharma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sandeep Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 9),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sandeep Patel' LIMIT 1),
  '2026-04-10','11:15:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='P L Ramkumar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jinal Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 10),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jinal Shah' LIMIT 1),
  '2026-04-11','12:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prakash A Dabhi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Parth Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 11),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Parth Mehta' LIMIT 1),
  '2026-04-12','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Pramod Bhingole'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Darshan Patel'),
- '2026-04-13','11:00:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 12),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Darshan Patel' LIMIT 1),
+ '2026-04-13','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prasun Chandra Tripathi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Meet Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 13),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Meet Shah' LIMIT 1),
  '2026-04-14','12:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Pravin Jadhav'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Desai'),
+((SELECT patient_id FROM PATIENT WHERE name='Pravin Jadhav'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Desai' LIMIT 1),
  '2026-04-15','09:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Priyesh Chauhan'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harsh Vyas'),
- '2026-04-16','10:30:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 14),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harsh Vyas' LIMIT 1),
+ '2026-04-16','10:30:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Raghavendra H Bhalerao'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Joshi'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 15),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Joshi'LIMIT 1),
  '2026-04-17','11:45:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rahul Kumar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 16),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Patel' LIMIT 1),
  '2026-04-18','12:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ram Narayan Yadav'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhumi Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 17),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhumi Shah'LIMIT 1),
  '2026-04-19','09:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ravi Bhandari'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ronak Mehta'),
- '2026-04-20','10:00:00','booked'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 18),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ronak Mehta'LIMIT 1),
+ '2026-04-20','10:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ravi Kashikar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Yash Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 19),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Yash Desai'LIMIT 1),
  '2026-04-21','11:00:00','completed'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohan Kar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 20),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi' LIMIT 1),
  '2026-04-22','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Saurabh Sinha'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Dhruv Patel'),
- '2026-04-23','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT WHERE name='Parth Shah'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Dhruv Patel' LIMIT 1),
+ '2026-04-23','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jiten Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jigar Shah'),
- '2026-04-24','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 21),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jigar Shah'LIMIT 1),
+ '2026-04-24','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kamlesh Joshi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 22),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Mehta' LIMIT 1),
  '2026-04-25','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kannan Iyer'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Viral Desai'),
- '2026-04-26','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 23),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Viral Desai' LIMIT 1),
+ '2026-04-26','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krupa Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ankit Joshi'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 24),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ankit Joshi' LIMIT 1),
  '2026-04-27','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kshitij Bhargava'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajiv Patel'),
- '2026-04-28','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 25),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajiv Patel' LIMIT 1),
+ '2026-04-28','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kumar Abhishek'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neel Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 26),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neel Shah' LIMIT 1),
  '2026-04-29','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='M K Barua'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Mehta'),
- '2026-04-30','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 27),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Mehta' LIMIT 1),
+ '2026-04-30','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mahesh Mungule'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tushar Desai'),
- '2026-05-01','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT WHERE name='Mahesh Mungule'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tushar Desai' LIMIT 1),
+ '2026-05-01','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mahuya Bandyopadhyay'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hemal Patel'),
+((SELECT patient_id FROM PATIENT WHERE name='Mahuya Bandyopadhyay'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hemal Patel'LIMIT 1),
  '2026-05-02','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mamta Sharma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ritesh Shah'),
- '2026-05-03','11:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 28),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ritesh Shah'LIMIT 1),
+ '2026-05-03','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Manjunath K'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vimal Mehta'),
+((SELECT patient_id FROM PATIENT WHERE name='Manjunath K'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vimal Mehta' LIMIT 1),
  '2026-05-04','12:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Manoj Choudhuri'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai'),
- '2026-05-05','09:45:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 29),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai' LIMIT 1),
+ '2026-05-05','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Meera A Vasani'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajay Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 30),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajay Patel' LIMIT 1),
  '2026-05-06','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mithilesh K Dikshit'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pankaj Shah'),
- '2026-05-07','11:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 31),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pankaj Shah' LIMIT 1),
+ '2026-05-07','11:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mohit Kumar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sagar Mehta'),
- '2026-05-08','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 32),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sagar Mehta' LIMIT 1),
+ '2026-05-08','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Abhishek Rawat'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 33),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahesh Desai' LIMIT 1),
  '2026-05-09','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'),
- '2026-05-10','10:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 34),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel' LIMIT 1),
+ '2026-05-10','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ajit Kumar Parwani'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah'),
- '2026-05-11','11:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 35),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah' LIMIT 1),
+ '2026-05-11','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Anand Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 36),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Mehta' LIMIT 1),
  '2026-05-12','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ashish Soni'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Heena Desai'),
- '2026-05-13','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 37),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Heena Desai' LIMIT 1),
+ '2026-05-13','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Axaykumar Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel'),
- '2026-05-14','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 38),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel' LIMIT 1),
+ '2026-05-14','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ayyanna Habal'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 39),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-05-15','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Brajesh Tiwari'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta'),
- '2026-05-16','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 40),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta' LIMIT 1),
+ '2026-05-16','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dharmendra Sadhwani'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 41),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai' LIMIT 1),
  '2026-05-17','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dileep Gupta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel'),
- '2026-05-18','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 42),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel' LIMIT 1),
+ '2026-05-18','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dipankar Deb'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 43),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah' LIMIT 1),
  '2026-05-19','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ganesh Iyer'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta'),
- '2026-05-20','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 44),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta' LIMIT 1),
+ '2026-05-20','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Gautam Borisagar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai'),
- '2026-05-21','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 45),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai' LIMIT 1),
+ '2026-05-21','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Himanshu Sharma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 46),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel' LIMIT 1),
  '2026-05-22','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='I Watitula Longkumer'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah'),
- '2026-05-23','11:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 47),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah' LIMIT 1),
+ '2026-05-23','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jaidevi Jeyaraman'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta'),
- '2026-05-24','12:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 48),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
+ '2026-05-24','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Aarav Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 49),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
  '2026-05-25','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Vivaan Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel'),
- '2026-05-26','10:45:00','completed'),
+((SELECT patient_id FROM PATIENT WHERE name='Vivaan Shah'LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel' LIMIT 1),
+ '2026-05-26','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Aditya Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 50),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
  '2026-05-27','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krish Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta'),
- '2026-05-28','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 51),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta' LIMIT 1),
+ '2026-05-28','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ishaan Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 52),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai' LIMIT 1),
  '2026-05-29','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Diya Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel'),
- '2026-05-30','10:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 53),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel' LIMIT 1),
+ '2026-05-30','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ananya Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah'),
- '2026-05-31','11:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 54),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah' LIMIT 1),
+ '2026-05-31','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Riya Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 55),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta' LIMIT 1),
  '2026-06-01','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kavya Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai'),
- '2026-06-02','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 56),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai' LIMIT 1),
+ '2026-06-02','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sneha Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel'),
- '2026-06-03','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 57),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel' LIMIT 1),
+ '2026-06-03','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rahul Verma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 58),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah' LIMIT 1),
  '2026-06-04','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Amit Kumar'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta'),
- '2026-06-05','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 59),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta' LIMIT 1),
+ '2026-06-05','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sandeep Yadav'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 60),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai' LIMIT 1),
  '2026-06-06','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Vikas Singh'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel'),
- '2026-06-07','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 61),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel' LIMIT 1),
+ '2026-06-07','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohit Sharma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 62),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah' LIMIT 1),
  '2026-06-08','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Pooja Verma'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiral Mehta'),
- '2026-06-09','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 63),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiral Mehta'LIMIT 1),
+ '2026-06-09','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Neha Gupta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sneha Desai'),
- '2026-06-10','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 64),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sneha Desai' LIMIT 1),
+ '2026-06-10','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Swati Mishra'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Anil Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 65),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Anil Patel' LIMIT 1),
  '2026-06-11','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kiran Yadav'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nitin Shah'),
- '2026-06-12','11:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 66),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nitin Shah' LIMIT 1),
+ '2026-06-12','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Anjali Singh'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jay Mehta'),
- '2026-06-13','12:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 67),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jay Mehta' LIMIT 1),
+ '2026-06-13','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Arjun Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 68),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Desai' LIMIT 1),
  '2026-06-14','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Harsh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel'),
- '2026-06-15','10:45:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 69),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel' LIMIT 1),
+ '2026-06-15','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jay Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 70),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Shah' LIMIT 1),
  '2026-06-16','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nirav Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vivek Mehta'),
- '2026-06-17','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 71),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vivek Mehta' LIMIT 1),
+ '2026-06-17','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Parth Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mehul Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 72),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mehul Desai' LIMIT 1),
  '2026-06-18','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohit Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tapan Patel'),
- '2026-06-19','10:00:00','completed');
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 73),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tapan Patel' LIMIT 1),
+ '2026-06-19','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tushar Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Shah'),
- '2026-06-20','11:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 74),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Paresh Shah' LIMIT 1),
+ '2026-06-20','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kunal Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harish Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 75),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Harish Mehta' LIMIT 1),
  '2026-06-21','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dhruv Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai'),
- '2026-06-22','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 76),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
+ '2026-06-22','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jatin Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jitesh Patel'),
- '2026-06-23','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 77),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jitesh Patel' LIMIT 1),
+ '2026-06-23','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sejal Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Suresh Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 78),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Suresh Shah' LIMIT 1),
  '2026-06-24','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhumi Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rohan Mehta'),
- '2026-06-25','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 79),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rohan Mehta' LIMIT 1),
+ '2026-06-25','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mansi Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 80),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Desai' LIMIT 1),
  '2026-06-26','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rina Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikhil Patel'),
- '2026-06-27','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 81),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikhil Patel' LIMIT 1),
+ '2026-06-27','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Heena Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 82),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Tejas Shah' LIMIT 1),
  '2026-06-28','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yash Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rajesh Mehta'),
- '2026-06-29','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 83),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
+ '2026-06-29','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Meet Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kiran Shah'),
- '2026-06-30','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 84),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
+ '2026-06-30','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ronak Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavesh Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 85),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
  '2026-07-01','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Chirag Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nilesh Desai'),
- '2026-07-02','11:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 86),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
+ '2026-07-02','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tejas Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Amit Trivedi'),
- '2026-07-03','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 87),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nikunj Trivedi' LIMIT 1),
+ '2026-07-03','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Vivek Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rina Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 88),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-07-04','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mehul Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
- '2026-07-05','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 89),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
+ '2026-07-05','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kishan Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hardik Joshi'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 90),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
  '2026-07-06','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Alpesh Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Milan Patel'),
- '2026-07-07','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 91),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Manoj Patel' LIMIT 1),
+ '2026-07-07','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Hitesh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Krunal Shah'),
- '2026-07-08','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 92),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
+ '2026-07-08','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rakesh Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Neha Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 93),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'LIMIT 1),
  '2026-07-09','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nilesh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah'),
- '2026-07-10','11:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 94),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah' LIMIT 1),
+ '2026-07-10','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ketan Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 95),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ruchi Shah' LIMIT 1),
  '2026-07-11','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavesh Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta'),
- '2026-07-12','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 96),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
+ '2026-07-12','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jignesh Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel'),
- '2026-07-13','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 97),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nisha Patel' LIMIT 1),
+ '2026-07-13','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Devang Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 98),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Komal Shah' LIMIT 1),
  '2026-07-14','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Parth Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel'),
- '2026-07-15','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 99),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavna Patel' LIMIT 1),
+ '2026-07-15','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Dhaval Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 100),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pinal Shah' LIMIT 1),
  '2026-07-16','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Niraj Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta'),
- '2026-07-17','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 101),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Minal Mehta' LIMIT 1),
+ '2026-07-17','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ankit Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 102),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rupal Desai' LIMIT 1),
  '2026-07-18','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavik Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel'),
- '2026-07-19','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 103),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Khyati Patel' LIMIT 1),
+ '2026-07-19','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jatin Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah'),
- '2026-07-20','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 104),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Janki Shah' LIMIT 1),
+ '2026-07-20','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Krunal Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 105),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sejal Mehta' LIMIT 1),
  '2026-07-21','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tapan Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai'),
- '2026-07-22','11:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 106),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aarti Desai' LIMIT 1),
+ '2026-07-22','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Viral Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel'),
- '2026-07-23','12:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 107),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Devang Patel' LIMIT 1),
+ '2026-07-23','12:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Sagar Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 108),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nayan Shah' LIMIT 1),
  '2026-07-24','09:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Yogesh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta'),
- '2026-07-25','10:45:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 109),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Mehta' LIMIT 1),
+ '2026-07-25','10:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Rohan Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 110),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hitesh Desai' LIMIT 1),
  '2026-07-26','11:15:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Manish Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel'),
- '2026-07-27','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 111),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Jignesh Patel' LIMIT 1),
+ '2026-07-27','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Deepak Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 112),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ketan Shah' LIMIT 1),
  '2026-07-28','09:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Prakash Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta'),
- '2026-07-29','10:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 113),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mayur Mehta' LIMIT 1),
+ '2026-07-29','10:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Naresh Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai'),
- '2026-07-30','11:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 114),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Alpesh Desai' LIMIT 1),
+ '2026-07-30','11:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kirit Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 115),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bharat Patel' LIMIT 1),
  '2026-07-31','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Paresh Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah'),
- '2026-08-01','09:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 116),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kalpesh Shah' LIMIT 1),
+ '2026-08-01','09:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Mahendra Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta'),
- '2026-08-02','10:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 117),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Vipul Mehta' LIMIT 1),
+ '2026-08-02','10:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bhavin Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 118),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Sanjay Desai' LIMIT 1),
  '2026-08-03','11:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Jignesh Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel'),
- '2026-08-04','12:30:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 119),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pravin Patel' LIMIT 1),
+ '2026-08-04','12:30:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Kalpesh Mehta'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 120),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mahendra Shah' LIMIT 1),
  '2026-08-05','09:00:00','cancelled'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Bharat Desai'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta'),
- '2026-08-06','10:15:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 121),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ajit Mehta' LIMIT 1),
+ '2026-08-06','10:15:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Ramesh Trivedi'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 122),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Desai' LIMIT 1),
  '2026-08-07','11:45:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Nayan Shah'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel'),
- '2026-08-08','12:00:00','completed'),
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 123),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Chirag Patel' LIMIT 1),
+ '2026-08-08','12:00:00','booked'),
 
-((SELECT patient_id FROM PATIENT WHERE name='Tejas Patel'),
- (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah'),
- '2026-08-09','09:30:00','completed');
+((SELECT patient_id FROM PATIENT LIMIT 1 OFFSET 124),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Deepak Shah' LIMIT 1),
+ '2026-08-09','09:30:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Rakesh Patel' LIMIT 1),
+ '2026-04-01','14:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Shukkoor T' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Nidhi Shah' LIMIT 1),
+ '2026-08-11','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sourav Das' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Mihir Mehta' LIMIT 1),
+ '2026-04-02','14:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sourav Das' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Kunal Desai' LIMIT 1),
+ '2026-04-02','15:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Bhavik Trivedi' LIMIT 1),
+ '2026-08-14','10:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sudhakar Chaudhary' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Aakash Joshi' LIMIT 1),
+ '2026-08-15','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Pooja Mehta' LIMIT 1),
+ '2026-08-16','10:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT WHERE name='Sumit Tripathi' LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Hiren Shah' LIMIT 1),
+ '2026-08-17','11:00:00','booked'),
+
+((SELECT patient_id FROM PATIENT LIMIT 1),
+ (SELECT doctor_id FROM DOCTOR WHERE name='Dr. Ramesh Gupta' LIMIT 1),
+ '2026-01-15','09:00:00','completed');
 
 -- =========================
 -- SYMPTOM
@@ -1549,719 +1588,712 @@ INSERT INTO TEST (test_name, cost, description) VALUES
 -- =========================
 -- LAB REPORT
 -- =========================
+
 INSERT INTO LAB_REPORT (appointment_id, test_id, lab_id, result, report_date, status) VALUES
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 0),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-04-10', 'completed'
+ 'Normal', '2026-04-03', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 1),
  (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-04-11', 'completed'
+ 'Normal', '2026-04-03', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 2),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'High', '2026-04-12', 'completed'
+ 'High', '2026-04-04', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 3),
  (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-04-13', 'completed'
+ 'Normal', '2026-04-06', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 4),
  (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Critical', '2026-04-14', 'completed'
+ 'Critical', '2026-04-05', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 5),
  (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-04-15', 'completed'
+ 'Normal', '2026-04-08', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 6),
  (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'High', '2026-04-16', 'completed'
+ 'High', '2026-04-08', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 7),
  (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-04-17', 'completed'
+ 'Normal', '2026-04-10', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 8),
  (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-04-18', 'completed'
+ 'Normal', '2026-04-09', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 9),
  (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Critical', '2026-04-19', 'completed'
+ 'Critical', '2026-04-10', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 10),
  (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-04-20', 'completed'
+ 'Normal', '2026-04-11', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 11),
  (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'High', '2026-04-21', 'completed'
+ 'High', '2026-04-14', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 12),
  (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-04-22', 'completed'
+ 'Normal', '2026-04-13', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 13),
  (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-04-23', 'completed'
+ 'Normal', '2026-04-16', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 14),
  (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Low', '2026-04-24', 'completed'
+ 'Normal', '2026-04-15', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 15),
  (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Positive', '2026-04-25', 'completed'
+ 'Negative', '2026-04-17', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 16),
  (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Negative', '2026-04-26', 'completed'
+ 'Negative', '2026-04-18', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 17),
  (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Positive', '2026-04-27', 'completed'
+ 'Positive', '2026-04-18', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 18),
  (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Positive', '2026-04-28', 'completed'
+ 'Positive', '2026-04-21', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 19),
  (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'High', '2026-04-29', 'completed'
+ 'Pending', '2026-04-22', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 20),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-04-30', 'completed'
+ 'Normal', '2026-04-21', 'completed'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 21),
  (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-05-01', 'completed'
+ 'Pending', '2026-04-23', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 22),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'High', '2026-05-02', 'completed'
+ 'Pending', '2026-04-24', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 23),
  (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-05-03', 'completed'
+ 'Pending', '2026-04-25', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 24),
  (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Critical', '2026-05-04', 'completed'
+ 'Pending', '2026-04-27', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 25),
  (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-05-05', 'completed'
+ 'Pending', '2026-04-28', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 26),
  (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'High', '2026-05-06', 'completed'
+ 'Pending', '2026-04-29', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 27),
  (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-05-07', 'completed'
+ 'Pending', '2026-04-30', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 28),
  (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-05-08', 'completed'
+ 'Pending', '2026-04-29', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 29),
  (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Critical', '2026-05-09', 'completed'
+ 'Pending', '2026-05-02', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 30),
  (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-05-10', 'completed'
+ 'Pending', '2026-05-01', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 31),
  (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'High', '2026-05-11', 'completed'
+ 'Pending', '2026-05-02', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 32),
  (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-05-12', 'completed'
+ 'Pending', '2026-05-05', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 33),
  (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-05-13', 'completed'
+ 'Pending', '2026-05-04', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 34),
  (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Low', '2026-05-14', 'completed'
+ 'Pending', '2026-05-06', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 35),
  (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Negative', '2026-05-15', 'completed'
+ 'Pending', '2026-05-07', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 36),
  (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Positive', '2026-05-16', 'completed'
+ 'Pending', '2026-05-09', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 37),
  (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Negative', '2026-05-17', 'completed'
+ 'Pending', '2026-05-08', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 38),
  (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Negative', '2026-05-18', 'completed'
+ 'Pending', '2026-05-11', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 39),
  (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-05-19', 'completed'
+ 'Pending', '2026-05-11', 'pending'
 ),
  
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 40),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-05-20', 'completed'
+ 'Pending', '2026-05-12', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 41),
  (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-05-21', 'completed'
+ 'Pending', '2026-05-12', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 42),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'High', '2026-05-22', 'completed'
+ 'Pending', '2026-05-13', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 43),
  (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-05-23', 'completed'
+ 'Pending', '2026-05-14', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 44),
  (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Critical', '2026-05-24', 'completed'
+ 'Pending', '2026-05-17', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 45),
  (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-05-25', 'completed'
+ 'Pending', '2026-05-16', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 46),
  (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'High', '2026-05-26', 'completed'
+ 'Pending', '2026-05-19', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 47),
  (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-05-27', 'completed'
+ 'Pending', '2026-05-19', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 48),
  (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-05-28', 'completed'
+ 'Pending', '2026-05-20', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 49),
  (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Critical', '2026-05-29', 'completed'
+ 'Pending', '2026-05-21', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 50),
  (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-05-30', 'completed'
+ 'Pending', '2026-05-21', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 51),
  (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'High', '2026-05-31', 'completed'
+ 'Pending', '2026-05-23', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 52),
  (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-06-01', 'completed'
+ 'Pending', '2026-05-23', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 53),
  (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-06-02', 'completed'
+ 'Pending', '2026-05-26', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 54),
  (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Low', '2026-06-03', 'completed'
+ 'Pending', '2026-05-27', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 55),
  (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Negative', '2026-06-04', 'completed'
+ 'Pending', '2026-05-27', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 56),
  (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Positive', '2026-06-05', 'completed'
+ 'Pending', '2026-05-29', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 57),
  (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Negative', '2026-06-06', 'completed'
+ 'Pending', '2026-05-28', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 58),
  (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Positive', '2026-06-07', 'completed'
+ 'Pending', '2026-05-29', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 59),
  (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'High', '2026-06-08', 'completed'
+ 'Pending', '2026-06-01', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 60),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-06-09', 'completed'
+ 'Pending', '2026-05-31', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 61),
  (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-06-10', 'completed'
+ 'Pending', '2026-06-03', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 62),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'High', '2026-06-11', 'completed'
+ 'Pending', '2026-06-02', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 63),
  (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-06-12', 'completed'
+ 'Pending', '2026-06-04', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 64),
  (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Critical', '2026-06-13', 'completed'
+ 'Pending', '2026-06-04', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 65),
  (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-06-14', 'completed'
+ 'Pending', '2026-06-05', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 66),
  (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'High', '2026-06-15', 'completed'
+ 'Pending', '2026-06-08', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 67),
  (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-06-16', 'completed'
+ 'Pending', '2026-06-09', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 68),
  (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-06-17', 'completed'
+ 'Pending', '2026-06-10', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 69),
  (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Critical', '2026-06-18', 'completed'
+ 'Pending', '2026-06-11', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 70),
  (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-06-19', 'completed'
+ 'Pending', '2026-06-11', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 71),
  (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'High', '2026-06-20', 'completed'
+ 'Pending', '2026-06-13', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 72),
  (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-06-21', 'completed'
+ 'Pending', '2026-06-13', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 73),
  (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-06-22', 'completed'
+ 'Pending', '2026-06-14', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 74),
  (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Low', '2026-06-23', 'completed'
+ 'Pending', '2026-06-14', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 75),
  (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Negative', '2026-06-24', 'completed'
+ 'Pending', '2026-06-17', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 76),
  (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Positive', '2026-06-25', 'completed'
+ 'Pending', '2026-06-18', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 77),
  (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Negative', '2026-06-26', 'completed'
+ 'Pending', '2026-06-17', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 78),
  (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Positive', '2026-06-27', 'completed'
+ 'Pending', '2026-06-20', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 79),
  (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'High', '2026-06-28', 'completed'
+ 'Pending', '2026-06-19', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 80),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-06-29', 'completed'
+ 'Pending', '2026-06-22', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 81),
  (SELECT test_id FROM TEST WHERE test_name = 'Complete Blood Count (CBC)'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-06-30', 'completed'
+ 'Pending', '2026-06-23', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 82),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Sugar Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'High', '2026-07-01', 'completed'
+ 'Pending', '2026-06-22', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 83),
  (SELECT test_id FROM TEST WHERE test_name = 'Lipid Profile'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Normal', '2026-07-02', 'completed'
+ 'Pending', '2026-06-23', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 84),
  (SELECT test_id FROM TEST WHERE test_name = 'Liver Function Test (LFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Critical', '2026-07-03', 'completed'
+ 'Pending', '2026-06-25', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 85),
  (SELECT test_id FROM TEST WHERE test_name = 'Kidney Function Test (KFT)'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Normal', '2026-07-04', 'completed'
+ 'Pending', '2026-06-27', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 86),
  (SELECT test_id FROM TEST WHERE test_name = 'Thyroid Test (TSH)'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'High', '2026-07-05', 'completed'
+ 'Pending', '2026-06-28', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 87),
  (SELECT test_id FROM TEST WHERE test_name = 'Urine Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-07-06', 'completed'
+ 'Pending', '2026-06-27', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 88),
  (SELECT test_id FROM TEST WHERE test_name = 'X-Ray'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-07-07', 'completed'
+ 'Pending', '2026-06-28', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 89),
  (SELECT test_id FROM TEST WHERE test_name = 'MRI Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Critical', '2026-07-08', 'completed'
+ 'Pending', '2026-06-29', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 90),
  (SELECT test_id FROM TEST WHERE test_name = 'CT Scan'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Normal', '2026-07-09', 'completed'
+ 'Pending', '2026-07-01', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 91),
  (SELECT test_id FROM TEST WHERE test_name = 'ECG'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'High', '2026-07-10', 'completed'
+ 'Pending', '2026-07-02', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 92),
  (SELECT test_id FROM TEST WHERE test_name = '2D Echo'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Normal', '2026-07-11', 'completed'
+ 'Pending', '2026-07-03', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 93),
  (SELECT test_id FROM TEST WHERE test_name = 'Ultrasound'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'Normal', '2026-07-12', 'completed'
+ 'Pending', '2026-07-05', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 94),
  (SELECT test_id FROM TEST WHERE test_name = 'Vitamin D Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Low', '2026-07-13', 'completed'
+ 'Pending', '2026-07-04', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 95),
  (SELECT test_id FROM TEST WHERE test_name = 'Covid-19 Test'),
  (SELECT lab_id FROM LAB WHERE name = 'KD Hospital Lab'),
- 'Negative', '2026-07-14', 'completed'
+ 'Pending', '2026-07-06', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 96),
  (SELECT test_id FROM TEST WHERE test_name = 'Dengue Test'),
  (SELECT lab_id FROM LAB WHERE name = 'City Lab'),
- 'Positive', '2026-07-15', 'completed'
+ 'Pending', '2026-07-06', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 97),
  (SELECT test_id FROM TEST WHERE test_name = 'Malaria Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Apollo Diagnostics'),
- 'Negative', '2026-07-16', 'completed'
+ 'Pending', '2026-07-07', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 98),
  (SELECT test_id FROM TEST WHERE test_name = 'Pregnancy Test'),
  (SELECT lab_id FROM LAB WHERE name = 'SRL Diagnostics'),
- 'Positive', '2026-07-17', 'completed'
+ 'Pending', '2026-07-10', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 99),
  (SELECT test_id FROM TEST WHERE test_name = 'Beta hCG Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Thyrocare Lab'),
- 'High', '2026-07-18', 'completed'
+ 'Pending', '2026-07-11', 'pending'
 ),
 
 (
  (SELECT appointment_id FROM APPOINTMENT LIMIT 1 OFFSET 100),
  (SELECT test_id FROM TEST WHERE test_name = 'Blood Test'),
  (SELECT lab_id FROM LAB WHERE name = 'Advanced Path Lab'),
- 'Normal', '2026-07-19', 'completed'
+ 'Pending', '2026-07-10', 'pending'
 );
-
-
-
-
-
-
-
-

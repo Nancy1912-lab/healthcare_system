@@ -4,6 +4,7 @@ import db from "./src/config/db.js";
 import patientRoutes from "./src/routes/patientRoutes.js";
 import doctorRoutes from "./src/routes/doctorRoutes.js";
 import { verifyToken } from "./src/middleware/authMiddleware.js";
+import appointmentRoutes from "./src/routes/appointmentRoutes.js";
 
 const app = express();
 
@@ -12,6 +13,14 @@ app.use(cors());
 
 app.use("/api/patient", patientRoutes);
 app.use("/api/doctor", doctorRoutes);
+app.use("/api/appointment", appointmentRoutes);
+
+// app.get("/api/patients", (req, res) => {
+//   db.query("SELECT * FROM PATIENT", (err, result) => {
+//     if (err) return res.send(err);
+//     res.json(result);
+//   });
+// });
 
 app.get("/api/protected", verifyToken, (req, res) => {
   res.json({
