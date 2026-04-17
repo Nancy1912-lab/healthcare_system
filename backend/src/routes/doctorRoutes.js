@@ -4,9 +4,11 @@ import {
   getAllDoctors,
   getDoctor,
   updateDoctor,
-  deleteDoctor
+  deleteDoctor,
+  getDoctorsBySpecialization 
 } from "../controllers/doctorController.js";
 import { registerDoctor, loginDoctor } from "../controllers/doctorAuthController.js";
+
 
 const router = express.Router();
 
@@ -20,6 +22,9 @@ router.post("/", addDoctor);
 
 // READ ALL
 router.get("/", getAllDoctors);
+
+// 🔥 ADD HERE
+router.get("/specialization/:id", getDoctorsBySpecialization);
 
 // READ ONE
 router.get("/:id", getDoctor);

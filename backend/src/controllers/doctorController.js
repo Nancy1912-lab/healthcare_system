@@ -143,3 +143,28 @@ export const deleteDoctor = (req, res) => {
     }
   );
 };
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+export const getDoctorsBySpecialization = (req, res) => {
+  const { id } = req.params;
+
+  const sql = `
+    SELECT * FROM DOCTOR 
+    WHERE specialization_id = ?
+  `;
+
+  db.query(sql, [id], (err, result) => {
+    if (err) return res.status(500).json(err);
+
+    if (result.length === 0) {
+      return res.status(404).json({ message: "No doctors found" });
+    }
+
+    res.json(result);
+  });
+};
