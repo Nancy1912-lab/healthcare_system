@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import PatientDashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<PatientDashboard />} />
       </Routes>
 
     </Router>
