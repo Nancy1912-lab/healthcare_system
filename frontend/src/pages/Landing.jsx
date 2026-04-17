@@ -416,7 +416,7 @@ function Hero() {
       minHeight:"100vh",
       position:"relative",overflow:"hidden",
       display:"flex",alignItems:"center",
-      padding:"100px 5vw 120px",gap:"4vw",
+      padding:"140px 5vw 140px",gap:"4vw",
     }}>
       {/* Background Image */}
       <div style={{
@@ -1028,8 +1028,11 @@ export default function KDCareLanding() {
   useReveal();
   return (
     <>
+    <div className="pt-32">
+
+    
       <G />
-      <Navbar />
+     
       <Hero />
       <Services />
       <HowItWorks />
@@ -1038,6 +1041,7 @@ export default function KDCareLanding() {
       <About />
       <Testimonials />
       <Footer />
+    </div>
     </>
   );
 }

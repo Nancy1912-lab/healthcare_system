@@ -416,7 +416,9 @@ function Login({ role, setRole, onSwitch }) {
         }
     };
 
+    
     return <>
+    
         <Logo />
         <div style={{ textAlign: "center", marginBottom: 22 }}>
             <h3 style={{
@@ -440,7 +442,9 @@ function Login({ role, setRole, onSwitch }) {
             <span style={{ fontSize: 13, color: `${C.teal}bb` }}>Don't have an account? </span>
             <span onClick={onSwitch} style={{ fontSize: 13, color: C.dark, fontWeight: 700, cursor: "pointer", textDecoration: "underline" }}>Register now</span>
         </div>
+        
     </>;
+    
 }
 
 function PatientReg({ onSwitch, role, setRole }) {
@@ -673,7 +677,7 @@ export default function App() {
         <div style={{
             minHeight: "100vh", fontFamily: "'DM Sans',sans-serif",
             display: "flex", alignItems: "center", justifyContent: "center",
-            position: "relative", padding: "20px", boxSizing: "border-box"
+            position: "relative", padding: "20px", boxSizing: "border-box", paddingTop:"80px"
         }}>
             <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
