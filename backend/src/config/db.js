@@ -3,9 +3,12 @@ import mysql from "mysql2";
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "pushti1910", // XAMPP has no password
+
+  password: "shaif@121006", // XAMPP has no password
   database: "healthcare_db",
   port: 3306
+
+
 });
 
 db.connect((err) => {
