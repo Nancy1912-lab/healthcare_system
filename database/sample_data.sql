@@ -68,6 +68,111 @@ INSERT INTO SPECIALIZATION (name, description) VALUES
 ('Lung Transplant', 'Lung transplant procedures');
 
 -- =========================
+-- SYMPTOM_MASTER
+-- =========================
+INSERT IGNORE INTO SYMPTOM_MASTER (name) VALUES
+('Fever'),
+('Fatigue'),
+('Cough'),
+('Headache'),
+('Dizziness'),
+('Cold'),
+('Chest Pain'),
+('Palpitations'),
+('Weakness'),
+('Abdominal Pain'),
+('Nausea'),
+('Vomiting'),
+('Back Pain'),
+('Joint Pain'),
+('Skin Rash'),
+('Allergy'),
+('High Blood Pressure'),
+('Low Blood Pressure'),
+('Pregnancy Symptoms'),
+('Shortness of Breath'),
+('Unexplained Weight Loss'),
+('Lump or Swelling'),
+('Persistent Pain'),
+('Chronic Fatigue'),
+('Blood in Stool'),
+('Unusual Bleeding');
+
+-- =========================
+-- SYMPTOM_SPECIALIZATION
+-- =========================
+INSERT INTO SYMPTOM_SPECIALIZATION (symptom_id, specialization_id) VALUES
+
+-- Neurology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Headache'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Dizziness'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Neurology')),
+
+-- Cardiology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Chest Pain'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Palpitations'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='High Blood Pressure'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Low Blood Pressure'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Cardiology')),
+
+-- Orthopaedic
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Back Pain'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Joint Pain'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Orthopaedic & Joint Replacement')),
+
+-- Dermatology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Skin Rash'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Allergy'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Dermatology')),
+
+-- Gastroenterology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Abdominal Pain'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Nausea'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Vomiting'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gastroenterology')),
+
+-- Pulmonology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Cough'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pulmonology')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Shortness of Breath'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Pulmonology')),
+
+-- General Medicine
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Fever'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Medicine')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Fatigue'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Medicine')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Cold'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Medicine')),
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Weakness'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='General Medicine')),
+
+-- Gynecology
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Pregnancy Symptoms'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Gynecology')),
+ 
+-- SURGICAL ONCOLOGY
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Lump or Swelling'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology')),
+
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Persistent Pain'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology')),
+
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Blood in Stool'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology')),
+
+((SELECT symptom_id FROM SYMPTOM_MASTER WHERE name='Unusual Bleeding'),
+ (SELECT specialization_id FROM SPECIALIZATION WHERE name='Surgical Oncology'));
+
+-- =========================
 -- DOCTOR (password added)
 -- =========================
 INSERT INTO DOCTOR (name, experience, phone, email, specialization_id, password) VALUES
