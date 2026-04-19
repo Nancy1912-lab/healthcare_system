@@ -6,7 +6,9 @@ import doctorRoutes from "./src/routes/doctorRoutes.js";
 import { verifyToken } from "./src/middleware/authMiddleware.js";
 import appointmentRoutes from "./src/routes/appointmentRoutes.js";
 import prescriptionRoutes from "./src/routes/prescriptionRoutes.js";
-import symptomRoutes from "./src/routes/symptomRoutes.js";
+import labRoutes from "./src/routes/labRoutes.js";
+
+
 
 const app = express();
 
@@ -17,7 +19,9 @@ app.use("/api/patient", patientRoutes);
 app.use("/api/doctor", doctorRoutes);
 app.use("/api/appointment", appointmentRoutes);
 app.use("/api/prescription", prescriptionRoutes);
-app.use("/api/symptom", symptomRoutes);
+app.use("/api/lab", labRoutes);
+
+
 
 // app.get("/api/patients", (req, res) => {
 //   db.query("SELECT * FROM PATIENT", (err, result) => {
