@@ -1,14 +1,21 @@
 import db from "../config/db.js";
 
-// 🔹 BOOK APPOINTMENT
+
 export const bookAppointment = (req, res) => {
-  const { patient_id, doctor_id, appointment_date, appointment_time } = req.body;
+  const {
+    patient_id,
+    doctor_id,
+    appointment_date,
+    appointment_time,
+    symptoms   // ✅ NEW
+  } = req.body;
 
   // ✅ validation
   if (!patient_id || !doctor_id || !appointment_date || !appointment_time) {
     return res.status(400).json({ message: "All fields required ❌" });
   }
 
+  // 1️⃣ Insert appointment
   const sql = `
     INSERT INTO APPOINTMENT 
     (patient_id, doctor_id, appointment_date, appointment_time, status)
@@ -24,9 +31,70 @@ export const bookAppointment = (req, res) => {
         return res.status(500).json({ message: "Database error ❌" });
       }
 
-      res.json({
-        message: "Appointment booked successfully ✅",
-        appointment_id: result.insertId
+      const appointmentId = result.insertId;
+
+      // ❗ If no symptoms, just return
+      if (!symptoms || symptoms.length === 0) {
+        return res.json({
+          message: "Appointment booked successfully ✅",
+          appointment_id: appointmentId
+        });
+      }
+
+      // 2️⃣ Handle symptoms
+      let completed = 0;
+
+      symptoms.forEach((symptomName) => {
+
+        // check if symptom exists
+        db.query(
+          "SELECT symptom_id FROM SYMPTOM_MASTER WHERE name = ?",
+          [symptomName],
+          (err, rows) => {
+
+            if (err) {
+              console.error(err);
+              return;
+            }
+
+            const insertMapping = (symptomId) => {
+              db.query(
+                "INSERT INTO APPOINTMENT_SYMPTOM (appointment_id, symptom_id) VALUES (?, ?)",
+                [appointmentId, symptomId],
+                (err) => {
+                  if (err) console.error(err);
+
+                  completed++;
+
+                  // when all done → send response
+                  if (completed === symptoms.length) {
+                    res.json({
+                      message: "Appointment booked with symptoms ✅",
+                      appointment_id: appointmentId
+                    });
+                  }
+                }
+              );
+            };
+
+            if (rows.length === 0) {
+              // insert new symptom
+              db.query(
+                "INSERT INTO SYMPTOM_MASTER (name) VALUES (?)",
+                [symptomName],
+                (err, newSymptom) => {
+                  if (err) {
+                    console.error(err);
+                    return;
+                  }
+                  insertMapping(newSymptom.insertId);
+                }
+              );
+            } else {
+              insertMapping(rows[0].symptom_id);
+            }
+          }
+        );
       });
     }
   );
@@ -83,5 +151,26 @@ export const updateAppointmentStatus = (req, res) => {
     if (err) return res.status(500).json(err);
 
     res.json({ message: "Status updated successfully ✅" });
+  });
+};
+
+export const getDoctorsBySymptom = (req, res) => {
+  const { symptom_id } = req.params;
+
+  const sql = `
+    SELECT d.*
+    FROM DOCTOR d
+    JOIN SYMPTOM_SPECIALIZATION ss 
+      ON d.specialization_id = ss.specialization_id
+    WHERE ss.symptom_id = ?
+  `;
+
+  db.query(sql, [symptom_id], (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error fetching doctors ❌" });
+    }
+
+    res.json(result);
   });
 };

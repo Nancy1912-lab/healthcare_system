@@ -332,8 +332,8 @@ const SPECS = [
   { n: "Pediatrics",    s: "Child Health",     img: "https://i.pinimg.com/1200x/21/f0/e0/21f0e0be76deb4239981066cae12780f.jpg" },
   { n: "Oncology",      s: "Cancer Care",      img: "https://i.pinimg.com/1200x/b6/2c/90/b62c906fb930c7c9ff178073300c14da.jpg" },
   { n: "Ophthalmology", s: "Eye Care",         img: "https://i.pinimg.com/1200x/ff/06/5d/ff065deb7a9ab0d932ff2f4a0ed99724.jpg" },
-  { n: "Dentistry",     s: "Oral Health",      img: "https://i.pinimg.com/1200x/33/26/4b/33264b881fea66390fd0a86eb2bf3c70.jpg" },
-  { n: "Pulmonology",   s: "Lung & Chest",     img: "https://i.pinimg.com/736x/01/8b/e6/018be610093e798e4660eda1603b01a1.jpg" },
+  { n: "Gynaecology",     s: "Women reproductive health",      img: "https://i.pinimg.com/1200x/33/26/4b/33264b881fea66390fd0a86eb2bf3c70.jpg" },
+  { n: "Lung Transplant",   s: "Lung ",     img: "https://i.pinimg.com/736x/01/8b/e6/018be610093e798e4660eda1603b01a1.jpg" },
 ];
 
 const DOCS = [
@@ -402,7 +402,7 @@ function Navbar() {
 function Hero() {
   const navigate = useNavigate();
   return (
-    <section style={{
+    <section id="home" style={{
       minHeight:"100vh",
       position:"relative",overflow:"hidden",
       display:"flex",alignItems:"center",
@@ -684,7 +684,7 @@ function HowItWorks() {
   }, [isPaused]);
 
   return (
-    <section className="relative min-h-[600px] overflow-hidden py-28 px-[5vw] flex items-center justify-center">
+    <section id="how-it-works" className="relative min-h-[600px] overflow-hidden py-28 px-[5vw] flex items-center justify-center">
 
       {/* Background */}
       <div className="absolute inset-0">
@@ -828,9 +828,13 @@ const THEMES = [
 function SpecCard({ s, index }) {
   const t = THEMES[index % THEMES.length];
   const num = String((index % SPECS.length) + 1).padStart(2, "0");
+  const navigate = useNavigate();
 
   return (
-    <div className="group relative w-[340px] h-[480px] rounded-[20px] overflow-hidden flex-shrink-0 cursor-pointer shadow-[0_4px_22px_rgba(47,65,86,0.13)] hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-[0_24px_50px_rgba(47,65,86,0.22)] transition-all duration-300 ease-out">
+    <div 
+  className="group relative w-[340px] h-[480px] rounded-[20px] overflow-hidden flex-shrink-0 cursor-pointer shadow-[0_4px_22px_rgba(47,65,86,0.13)] hover:-translate-y-2.5 hover:scale-[1.03] hover:shadow-[0_24px_50px_rgba(47,65,86,0.22)] transition-all duration-300 ease-out"
+  onClick={() => navigate(`/specialities/${encodeURIComponent(s.n)}`)}
+>
 
       {/* Photo */}
       <img src={s.img} alt={s.n}
@@ -879,11 +883,18 @@ import { useRef } from "react";
 
 function Specialties() {
   const trackRef = useRef(null);
+  const navigate = useNavigate();
 
   return (
     <section id="specialties" style={{ background: "var(--beige)", padding: "7rem 0" }}>
       <div className="rev" style={{ textAlign: "center", marginBottom: "3.5rem", padding: "0 5vw" }}>
-        <span className="badge">Specialties</span>
+        <span 
+  className="badge"
+  onClick={() => navigate("/specialities")}
+  style={{ cursor: "pointer", position: "relative", zIndex: 10 }}
+>
+  Specialties
+</span>
         <h2 style={{
           fontFamily: "'Cormorant Garamond', serif",
           fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
@@ -1119,7 +1130,7 @@ function About() {
 function Testimonials() {
   const navigate = useNavigate();
   return (
-    <section id="testimonials" style={{background:"#F8F4F0",padding:"7rem 5vw"}}>
+    <section id="reviews" style={{background:"#F8F4F0",padding:"7rem 5vw"}}>
       <div className="rev" style={{textAlign:"center",marginBottom:"3.5rem"}}>
         <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(2.2rem,4vw,3.3rem)",fontWeight:700,color:"var(--text-dark)"}}>
           What Our <em style={{color:"var(--teal)"}}>Patients Say</em>
