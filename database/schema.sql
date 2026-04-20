@@ -37,8 +37,9 @@ CREATE TABLE DOCTOR (
     experience INT,
     phone VARCHAR(15),
     email VARCHAR(100) UNIQUE,
-    password VARCHAR(255),
     specialization_id INT,
+    password VARCHAR(255),
+    available_time VARCHAR(255),
     FOREIGN KEY (specialization_id) REFERENCES SPECIALIZATION(specialization_id)
 );
 
@@ -100,6 +101,8 @@ CREATE TABLE SYMPTOM (
 CREATE TABLE PRESCRIPTION (
     prescription_id INT PRIMARY KEY AUTO_INCREMENT,
     appointment_id INT,
+    diagnosis VARCHAR(255),
+    notes TEXT,
     medicine VARCHAR(100),
     dosage VARCHAR(50),
     duration VARCHAR(50),
