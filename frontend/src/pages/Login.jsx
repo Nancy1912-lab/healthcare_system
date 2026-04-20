@@ -1,7 +1,7 @@
 import { useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
-
+import { useAuth } from "../context/AuthContext"; 
 /*
   PALETTE
   --blue:      #2E86C1
@@ -402,6 +402,7 @@ function Logo() {
    FORM SCREENS
 ══════════════════════════════════════════ */
 function Login({ role, setRole, onSwitch }) {
+    const { login } = useAuth()
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
     const navigate = useNavigate(); 
@@ -414,6 +415,8 @@ function Login({ role, setRole, onSwitch }) {
             // ✅ STORE USER + TOKEN
         localStorage.setItem("user", JSON.stringify(res.data.user));
         localStorage.setItem("token", res.data.token);
+
+        login(res.data.user);
            
              // ✅ REDIRECT BASED ON ROLE
         if (res.data.user.role === "doctor") {

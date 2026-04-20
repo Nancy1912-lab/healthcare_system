@@ -13,6 +13,7 @@
 import { useState, useRef } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   Users, CalendarCheck, FileText, FlaskConical,
   MessageCircle, Clock, ChevronLeft, ChevronRight,
@@ -253,6 +254,7 @@ function AddLabModal({ onClose, onAdd }) {
 
 /* ─── MAIN DASHBOARD ─── */
 export default function DoctorDashboard() {
+    const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
     const doctorId = user?.doctor_id;
 
@@ -627,7 +629,7 @@ const formatTime = (time) => {
               <p className="text-slate-500 text-sm font-light max-w-md">Manage diagnostic results — import patient reports and track their status seamlessly.</p>
             </div>
             <div className="flex gap-3 justify-start lg:justify-end">
-              <button onClick={()=>setShowAddLab(true)} className="hover-lift flex items-center gap-2 px-5 py-3 rounded-2xl text-white font-semibold text-sm border-none cursor-pointer"
+              <button onClick={() => navigate("/labreports")} className="hover-lift flex items-center gap-2 px-5 py-3 rounded-2xl text-white font-semibold text-sm border-none cursor-pointer"
                 style={{ background:`linear-gradient(135deg,${C.primary},${C.teal})`,fontFamily:"'Poppins',sans-serif" }}>
                 <PlusCircle size={16}/> Add Report
               </button>

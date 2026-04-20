@@ -7,6 +7,8 @@ import HospitalSpecialities from "./pages/Specialities";
 import DoctorDashboard from "./pages/DoctorDashboard";
 import PatientDashboard from "./pages/Dashboard";
 import AppointmentsPage from "./pages/Appointment";
+import LabReportsPage from "./pages/labreport";
+import Patientlabreport from "./pages/patientlabreport";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/doctordashboard" element={<DoctorDashboard/>}/>
         <Route path="/dashboard" element={<PatientDashboard/>}/>
        <Route path="/appointments" element={<AppointmentsPage />} />
+       <Route path="/labreports" element={<LabReportsPage />} />
+       <Route path="/patientlabreport" element={<Patientlabreport />} />
       </Routes>
 
     </Router>
