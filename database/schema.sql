@@ -101,6 +101,8 @@ CREATE TABLE SYMPTOM (
 CREATE TABLE PRESCRIPTION (
     prescription_id INT PRIMARY KEY AUTO_INCREMENT,
     appointment_id INT,
+    diagnosis VARCHAR(255),
+    notes TEXT,
     medicine VARCHAR(100),
     dosage VARCHAR(50),
     duration VARCHAR(50),
