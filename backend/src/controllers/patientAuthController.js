@@ -98,7 +98,10 @@ export const loginPatient = (req, res) => {
     res.json({
       message: "Patient login successful ✅",
       token,
-      user
+      user: {
+    ...user,
+    role: "patient"
+  }
     });
   });
 };

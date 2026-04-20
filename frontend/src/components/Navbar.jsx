@@ -16,6 +16,7 @@ import {
   FiStar,
   FiHeart,
   FiSearch,
+  FiPackage,
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -52,95 +53,172 @@ const NexoraLogo = () => (
   </svg>
 );
 
-/* ── DESKTOP NAV LINK WITH UNDERLINE ── */
 /* ── DESKTOP NAV LINK WITH CENTER-EXPANDING UNDERLINE ── */
-const NavItem = ({ link, isActive, onClick }) => (
-  <Link
-    to={link.path}
-    onClick={onClick}
-    className="relative flex items-center gap-1.5 px-3.5 py-2.5 text-base font-medium transition-colors duration-300 group"
-    style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
-  >
-    <span
-      className="transition-colors duration-300 flex-shrink-0"
-      style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}
+const NavItem = ({ link, isActive }) => {
+  const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    // Handle anchor/hash links for landing page sections
+    if (link.path.startsWith('/#')) {
+      e.preventDefault();
+      const sectionId = link.path.replace('/#', '');
+      if (location.pathname === '/') {
+        // Already on landing page — just scroll
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Navigate to landing page then scroll after render
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+      return;
+    }
+
+    if (link.label === 'Home') {
+      e.preventDefault();
+      if (user) {
+        navigate(`/${user.role}/dashboard`);
+        return;
+      }
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+    }
+  };
+
+  return (
+    <Link
+      to={link.path}
+      onClick={handleClick}
+      className="relative flex items-center gap-1.5 px-3.5 py-2.5 text-base font-medium transition-colors duration-300 group"
+      style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
     >
-      {link.icon}
-    </span>
+      <span
+        className="transition-colors duration-300 flex-shrink-0"
+        style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}
+      >
+        {link.icon}
+      </span>
 
-    <span className="group-hover:text-[#2E86C1] transition-colors duration-300 whitespace-nowrap">
-      {link.label}
-    </span>
+      <span className="group-hover:text-[#2E86C1] transition-colors duration-300 whitespace-nowrap">
+        {link.label}
+      </span>
 
-    {/* Active underline — animates from center outward */}
-    {/* Active underline */}
-<span
-  className="absolute -bottom-1 left-1/2 w-[70%] h-[3px] rounded-full transition-transform duration-300 ease-out"
-  style={{
-    background: 'linear-gradient(90deg, #2E86C1, #1A5C85)',
-    transform: isActive ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
-    transformOrigin: 'center',
-  }}
-/>
+      {/* Active underline */}
+      <span
+        className="absolute -bottom-1 left-1/2 w-[70%] h-[3px] rounded-full transition-transform duration-300 ease-out"
+        style={{
+          background: 'linear-gradient(90deg, #2E86C1, #1A5C85)',
+          transform: isActive ? 'translateX(-50%) scaleX(1)' : 'translateX(-50%) scaleX(0)',
+          transformOrigin: 'center',
+        }}
+      />
 
-{/* Hover underline */}
-{!isActive && (
-  <span
-  className={`absolute -bottom-1 left-1/2 w-[70%] h-[3px] rounded-full transition-all duration-300 ${
-    isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-  }`}
-  style={{
-    background: 'linear-gradient(90deg, #2E86C1, #1A5C85)',
-    transform: 'translateX(-50%) ',
-    transformOrigin: 'center',
-  }}
-
-/>
-)}
-  </Link>
-);
+      {!isActive && (
+        <span
+          className={`absolute -bottom-1 left-1/2 w-[70%] h-[3px] rounded-full transition-all duration-300 ${
+            isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+          }`}
+          style={{
+            background: 'linear-gradient(90deg, #2E86C1, #1A5C85)',
+            transform: 'translateX(-50%)',
+            transformOrigin: 'center',
+          }}
+        />
+      )}
+    </Link>
+  );
+};
 
 /* ── MOBILE NAV LINK WITH UNDERLINE ── */
-const MobileNavItem = ({ link, isActive, onClick }) => (
-  <Link
-    to={link.path}
-    onClick={onClick}
-    className="relative flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all duration-300 group"
-    style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
-  >
-    <span style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}>
-      {link.icon}
-    </span>
-    <span className="group-hover:text-[#2E86C1] transition-colors duration-300">
-      {link.label}
-    </span>
+const MobileNavItem = ({ link, isActive, onClick }) => {
+  const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    {/* Left-side active indicator */}
-    {isActive && (
-      <motion.span
-        layoutId="mobile-nav-indicator"
-        className="absolute left-0 top-5bottom-2 w-[3px] rounded-r-full"
-        style={{
-          background: 'linear-gradient(180deg, #2E86C1, #5B9DB8)',
-        }}
-        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-      />
-    )}
+  const handleClick = (e) => {
+    if (link.path.startsWith('/#')) {
+      e.preventDefault();
+      const sectionId = link.path.replace('/#', '');
+      onClick(); // close mobile menu
+      if (location.pathname === '/') {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+      return;
+    }
 
-    {/* Bottom underline on hover (non-active) */}
-    {!isActive && (
-      <span
-        className="absolute bottom-1 left-4 right-4 h-[1.5px] rounded-full bg-[#124b62] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-      />
-    )}
-  </Link>
-);
+    if (link.label === 'Home') {
+      e.preventDefault();
+      if (user) {
+        navigate(`/${user.role}/dashboard`);
+      } else if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+      }
+      onClick();
+      return;
+    }
+
+    onClick();
+  };
+
+  return (
+    <Link
+      to={link.path}
+      onClick={handleClick}
+      className="relative flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all duration-300 group"
+      style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
+    >
+      <span style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}>
+        {link.icon}
+      </span>
+      <span className="group-hover:text-[#2E86C1] transition-colors duration-300">
+        {link.label}
+      </span>
+
+      {/* Left-side active indicator */}
+      {isActive && (
+        <motion.span
+          layoutId="mobile-nav-indicator"
+          className="absolute left-0 top-5 bottom-2 w-[3px] rounded-r-full"
+          style={{
+            background: 'linear-gradient(180deg, #2E86C1, #5B9DB8)',
+          }}
+          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        />
+      )}
+
+      {/* Bottom underline on hover (non-active) */}
+      {!isActive && (
+        <span
+          className="absolute bottom-1 left-4 right-4 h-[1.5px] rounded-full bg-[#124b62] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+        />
+      )}
+    </Link>
+  );
+};
 
 /* ── NAVBAR ── */
 const Navbar = () => {
   const { user, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -157,27 +235,45 @@ const Navbar = () => {
   };
 
   /* ── BUILD NAV LINKS ── */
-  const navLinks = user
-    ? user.role === 'patient'
-      ? [
-          { path: '/patient/dashboard', label: 'Dashboard', icon: <FiHome size={15} /> },
-          { path: '/patient/symptoms', label: 'Find Doctor', icon: <FiSearch size={15} /> },
-          { path: '/patient/appointments', label: 'Appointments', icon: <FiCalendar size={15} /> },
-          { path: '/patient/prescriptions', label: 'Prescriptions', icon: <FiFileText size={15} /> },
-          { path: '/patient/lab-reports', label: 'Lab Reports', icon: <FiClipboard size={15} /> },
-        ]
-      : [
-          { path: '/doctor/dashboard', label: 'Dashboard', icon: <FiHome size={15} /> },
-          { path: '/doctor/appointments', label: 'Appointments', icon: <FiCalendar size={15} /> },
-          { path: '/doctor/prescriptions', label: 'Prescriptions', icon: <FiFileText size={15} /> },
-          { path: '/doctor/schedule', label: 'Schedule', icon: <FiClock size={15} /> },
-        ]
-    : [
+  const navLinks = (() => {
+    // 🔴 LANDING PAGE (not logged in)
+    if (location.pathname === '/' && !user) {
+      return [
         { path: '/', label: 'Home', icon: <FiHome size={15} /> },
         { path: '/#how-it-works', label: 'How It Works', icon: <FiInfo size={15} /> },
         { path: '/#specializations', label: 'Specializations', icon: <FiHeart size={15} /> },
         { path: '/#reviews', label: 'Reviews', icon: <FiStar size={15} /> },
       ];
+    }
+
+    // 🔴 LOGIN / REGISTER PAGE (not logged in)
+    if (!user) {
+      return [
+        { path: '/', label: 'Home', icon: <FiHome size={15} /> },
+      ];
+    }
+
+    // 🔵 PATIENT
+    if (user.role === 'patient') {
+      return [
+        { path: '/patient/dashboard', label: 'Home', icon: <FiHome size={15} /> },
+        { path: '/patient/health-packages', label: 'Health Packages', icon: <FiPackage size={15} /> },
+        { path: '/patient/specialities', label: 'Specialities', icon: <FiHeart size={15} /> },
+        { path: '/patient/book-appointment', label: 'Book Appointment', icon: <FiCalendar size={15} /> },
+      ];
+    }
+
+    // 🔵 DOCTOR
+    if (user.role === 'doctor') {
+      return [
+        { path: '/doctor/dashboard', label: 'Home', icon: <FiHome size={15} /> },
+        { path: '/doctor/appointments', label: 'Appointments', icon: <FiCalendar size={15} /> },
+        { path: '/doctor/lab-reports', label: 'Lab Reports', icon: <FiClipboard size={15} /> },
+      ];
+    }
+
+    return [];
+  })();
 
   return (
     <motion.nav
@@ -187,10 +283,10 @@ const Navbar = () => {
         WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(20px)',
       }}
       className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 rounded-2xl px-10 transition-all duration-500 w-[calc(100%-32px)] max-w-9xl`}
-  style={{
-    height: '55px',           // ← explicit fixed height
-    display: 'flex',
-    alignItems: 'center',  
+      style={{
+        height: '55px',
+        display: 'flex',
+        alignItems: 'center',
         background: isScrolled
           ? 'rgba(255, 255, 255, 0.82)'
           : 'rgba(255, 255, 255, 0.55)',
@@ -210,12 +306,12 @@ const Navbar = () => {
           to={user ? `/${user.role}/dashboard` : '/'}
           className="flex items-center gap-4 group select-none translate-x-5"
         >
-          <div >
+          <div>
             <NexoraLogo />
           </div>
-          <div className="hidden sm:flex flex-col leading-none ">
+          <div className="hidden sm:flex flex-col leading-none">
             <span
-              className="text-[1.8rem] font-bold tracking-wide "
+              className="text-[1.8rem] font-bold tracking-wide"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 background: 'linear-gradient(135deg, #1A5C85 0%, #2E86C1 50%, #5B9DB8 100%)',
@@ -297,24 +393,6 @@ const Navbar = () => {
                   style={{ background: 'rgba(46, 134, 193, 0.08)' }}
                 />
               </Link>
-              {/* <Link
-                to="/register"
-                className="relative px-5 py-2 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-                style={{
-                  background: 'linear-gradient(135deg, #2E86C1 0%, #1A5C85 100%)',
-                  boxShadow: '0 4px 15px rgba(46, 134, 193, 0.35)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    '0 6px 25px rgba(46, 134, 193, 0.5)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    '0 4px 15px rgba(46, 134, 193, 0.35)';
-                }}
-              >
-                Get Started
-              </Link> */}
             </div>
           )}
         </div>
