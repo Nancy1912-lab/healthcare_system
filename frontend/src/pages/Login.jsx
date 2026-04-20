@@ -1,5 +1,6 @@
 import { useState } from "react";
 import API from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 /*
   PALETTE
@@ -403,14 +404,24 @@ function Logo() {
 function Login({ role, setRole, onSwitch }) {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
+    const navigate = useNavigate(); 
 
     const handleLogin = async () => {
         try {
             const endpoint = role === "patient" ? "/patient/login" : "/doctor/login";
             const res = await API.post(endpoint, { email, password: pass });
             console.log(res.data);
-            localStorage.setItem("token", res.data.token);
-            alert("Login Successful ✅");
+            // ✅ STORE USER + TOKEN
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        localStorage.setItem("token", res.data.token);
+           
+             // ✅ REDIRECT BASED ON ROLE
+        if (res.data.user.role === "doctor") {
+            navigate("/doctordashboard");
+        } else {
+            navigate("/dashboard");
+        }
+
         } catch (err) {
             alert(err.response?.data?.message || "Error");
         }
@@ -590,6 +601,7 @@ function DoctorReg({ onSwitch, role, setRole }) {
     const u = k => e => setF(p => ({ ...p, [k]: e.target.value }));
 
     const handleDoctorRegister = async () => {
+       
         try {
             const res = await API.post("/doctor/register", {
                 name: f.name,
@@ -599,7 +611,18 @@ function DoctorReg({ onSwitch, role, setRole }) {
                 specialization: f.spec,
                 experience: f.experience,
             });
-            alert("Doctor Registered (Pending Approval) ⏳");
+             // 🔥 AUTO LOGIN AFTER REGISTER
+        const loginRes = await API.post("/doctor/login", {
+            email: f.email,
+            password: f.pass
+        });
+
+        // ✅ STORE USER
+        localStorage.setItem("user", JSON.stringify(loginRes.data.user));
+        localStorage.setItem("token", loginRes.data.token);
+
+        // ✅ REDIRECT
+        navigate("/doctordashboard");
         } catch (err) {
             alert(err.response?.data?.message || "Error");
         }

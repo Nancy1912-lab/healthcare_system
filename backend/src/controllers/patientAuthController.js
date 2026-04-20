@@ -4,11 +4,10 @@ import { generateToken } from "../utils/generateToken.js";
 
 // REGISTER PATIENT
 export const registerPatient = async (req, res) => {
-  const { name, dob, gender, phone, email, password, blood_group } = req.body; // ✅ using dob
+  const { name, dob, gender, phone, email, password, blood_group } = req.body; 
 
-  console.log("REQ BODY:", req.body); // 🔍 debug
+  console.log("REQ BODY:", req.body); 
 
-  // 🔥 STEP 1: Convert DOB → AGE
   const birthDate = new Date(dob);
   const today = new Date();
 
@@ -18,7 +17,6 @@ export const registerPatient = async (req, res) => {
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
-
 
   const checkUser = "SELECT * FROM PATIENT WHERE email = ?";
 
@@ -31,7 +29,6 @@ export const registerPatient = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 🔥 STEP 2: Convert blood_group → id
     const findBloodGroup = `
       SELECT blood_group_id 
       FROM BLOOD_GROUP 
@@ -40,8 +37,6 @@ export const registerPatient = async (req, res) => {
 
     db.query(findBloodGroup, [blood_group], (err, bgResult) => {
       if (err) return res.status(500).json(err);
-
-      console.log("BG RESULT:", bgResult); // 🔍 debug
 
       if (bgResult.length === 0) {
         return res.status(400).json({ message: "Invalid blood group ❌" });
@@ -57,14 +52,11 @@ export const registerPatient = async (req, res) => {
       db.query(
         sql,
         [name, age, gender, phone, email, hashedPassword, blood_group_id],
-        (err, insertResult) => {   // ✅ FIXED variable name
+        (err, insertResult) => {
           if (err) {
             console.log("INSERT ERROR:", err);
             return res.status(500).json(err);
           }
-
-          console.log("INSERT RESULT:", insertResult); // ✅ correct log
-
           res.json({ message: "Patient registered successfully ✅" });
         }
       );
@@ -72,14 +64,22 @@ export const registerPatient = async (req, res) => {
   });
 };
 
-// LOGIN PATIENT (UNCHANGED)
+// LOGIN PATIENT (FIXED BLOOD GROUP JOIN)
 export const loginPatient = (req, res) => {
   const { email, password } = req.body;
 
-  const sql = "SELECT * FROM PATIENT WHERE email = ?";
+  const sql = `
+    SELECT p.*, bg.type AS blood_group 
+    FROM PATIENT p 
+    LEFT JOIN BLOOD_GROUP bg ON p.blood_group_id = bg.blood_group_id 
+    WHERE p.email = ?
+  `;
 
   db.query(sql, [email], async (err, result) => {
-    if (err) return res.status(500).json(err);
+    if (err) {
+      console.error("LOGIN ERROR:", err);
+      return res.status(500).json(err);
+    }
 
     if (result.length === 0) {
       return res.status(401).json({ message: "Invalid credentials ❌" });
@@ -98,7 +98,10 @@ export const loginPatient = (req, res) => {
     res.json({
       message: "Patient login successful ✅",
       token,
-      user
+      user: {
+    ...user,
+    role: "patient"
+  }
     });
   });
 };
