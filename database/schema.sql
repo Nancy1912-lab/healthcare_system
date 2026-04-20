@@ -21,7 +21,7 @@ CREATE TABLE SYMPTOM_MASTER (
     name VARCHAR(100) UNIQUE
 );
 
---SYMPTOM_SPECIALIZATION
+-- SYMPTOM_SPECIALIZATION
 CREATE TABLE SYMPTOM_SPECIALIZATION (
     id INT PRIMARY KEY AUTO_INCREMENT,
     symptom_id INT,
@@ -37,8 +37,9 @@ CREATE TABLE DOCTOR (
     experience INT,
     phone VARCHAR(15),
     email VARCHAR(100) UNIQUE,
-    password VARCHAR(255),
     specialization_id INT,
+    password VARCHAR(255),
+    available_time VARCHAR(255),
     FOREIGN KEY (specialization_id) REFERENCES SPECIALIZATION(specialization_id)
 );
 
@@ -76,6 +77,15 @@ CREATE TABLE APPOINTMENT (
     status ENUM('booked','completed','cancelled'),
     FOREIGN KEY (patient_id) REFERENCES PATIENT(patient_id),
     FOREIGN KEY (doctor_id) REFERENCES DOCTOR(doctor_id)
+);
+
+-- APPOINTMENT_SYMPTOM
+CREATE TABLE APPOINTMENT_SYMPTOM (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    appointment_id INT,
+    symptom_id INT,
+    FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(appointment_id),
+    FOREIGN KEY (symptom_id) REFERENCES SYMPTOM_MASTER(symptom_id)
 );
 
 -- SYMPTOM
