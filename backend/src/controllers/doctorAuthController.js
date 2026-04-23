@@ -73,7 +73,12 @@ export const loginDoctor = (req, res) => {
   console.log("LOGIN API HIT");
   console.log("Incoming body:", req.body);
 
-  const sql = "SELECT * FROM DOCTOR WHERE email = ?";
+  const sql = `
+    SELECT d.*, s.name as specialization_name 
+    FROM DOCTOR d
+    LEFT JOIN SPECIALIZATION s ON d.specialization_id = s.specialization_id
+    WHERE d.email = ?
+  `;
 
   db.query(sql, [email], async (err, result) => {
     if (err) {

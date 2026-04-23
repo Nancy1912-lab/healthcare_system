@@ -19,6 +19,7 @@ import {
   FiPackage,
   FiBriefcase,
   FiUsers,
+  FiShield ,
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -31,7 +32,6 @@ const NexoraLogo = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {/* Outer circle with gradient */}
     <defs>
       <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
         <stop offset="0%" stopColor="#2E86C1" />
@@ -40,10 +40,8 @@ const NexoraLogo = () => (
       </linearGradient>
     </defs>
     <rect x="2" y="2" width="36" height="36" rx="10" fill="url(#logoGrad)" />
-    {/* Medical cross */}
     <rect x="16" y="9" width="8" height="22" rx="2" fill="white" />
     <rect x="9" y="16" width="22" height="8" rx="2" fill="white" />
-    {/* Heartbeat accent */}
     <path
       d="M11 20h4l2-4 3 8 2-4h7"
       stroke="rgba(46,134,193,0.5)"
@@ -86,23 +84,21 @@ const NavItem = ({ link, isActive }) => {
   const { user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const hasIcon = !!link.icon;
 
   const handleClick = (e) => {
-    // Handle anchor/hash links for landing page sections
     if (link.scrollTo) {
       e.preventDefault();
       scrollToSection(link.scrollTo, navigate, location);
       return;
     }
-
-    // Handle "Home" for logged-in users
     if (link.label === 'Home' && user) {
       e.preventDefault();
-      if (user.role === "doctor") {
-  navigate("/doctordashboard");
-} else {
-  navigate("/dashboard");
-}
+      if (user.role === 'doctor') {
+        navigate('/doctordashboard');
+      } else {
+        navigate('/dashboard');
+      }
       return;
     }
   };
@@ -111,66 +107,58 @@ const NavItem = ({ link, isActive }) => {
     <Link
       to={link.path}
       onClick={handleClick}
-      className="relative flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors duration-300 group"
+      className={`relative flex items-center ${hasIcon ? 'gap-2 px-5' : 'gap-0 px-4'} py-3 text-sm font-medium transition-colors duration-300 group`}
       style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
     >
-      {/* Icon */}
-      <span
-        className="transition-colors duration-300"
-        style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}
-      >
-        {link.icon}
-      </span>
+      {hasIcon && (
+        <span
+          className="transition-colors duration-300"
+          style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}
+        >
+          {link.icon}
+        </span>
+      )}
 
-      {/* Label */}
-      <span className="group-hover:text-[#2E86C1] transition-colors duration-300">
+      <span className="group-hover:text-[#2E86C1] transition-colors duration-300 whitespace-nowrap">
         {link.label}
       </span>
 
-      {/* Animated underline */}
       {isActive && (
         <motion.span
           layoutId="nav-underline"
-          className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
-          style={{
-            background: 'linear-gradient(90deg, #2E86C1, #5B9DB8)',
-          }}
+          className={`absolute bottom-0 ${hasIcon ? 'left-5 right-5' : 'left-4 right-4'} h-[2px] rounded-full`}
+          style={{ background: 'linear-gradient(90deg, #2E86C1, #5B9DB8)' }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
         />
       )}
 
-      {/* Hover underline (only when NOT active) */}
       {!isActive && (
         <span
-          className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#5B9DB8] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+          className={`absolute bottom-0 ${hasIcon ? 'left-5 right-5' : 'left-4 right-4'} h-[2px] rounded-full bg-[#5B9DB8] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300`}
         />
       )}
     </Link>
   );
 };
 
-/* ── MOBILE NAV LINK WITH UNDERLINE ── */
+/* ── MOBILE NAV LINK ── */
 const MobileNavItem = ({ link, isActive, onClick }) => {
   const { user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    // Handle anchor/hash links for landing page sections
     if (link.scrollTo) {
       e.preventDefault();
       scrollToSection(link.scrollTo, navigate, location, onClick);
       return;
     }
-
-    // Handle "Home" for logged-in users
     if (link.label === 'Home' && user) {
       e.preventDefault();
       navigate(`/${user.role}/dashboard`);
       onClick();
       return;
     }
-
     onClick();
   };
 
@@ -182,25 +170,21 @@ const MobileNavItem = ({ link, isActive, onClick }) => {
       style={{ color: isActive ? '#2E86C1' : '#4A6572' }}
     >
       <span style={{ color: isActive ? '#2E86C1' : '#7B96A5' }}>
-        {link.icon}
+        {link.mobileIcon || link.icon || <FiHome size={15} />}
       </span>
       <span className="group-hover:text-[#2E86C1] transition-colors duration-300">
         {link.label}
       </span>
 
-      {/* Left-side active indicator */}
       {isActive && (
         <motion.span
           layoutId="mobile-nav-indicator"
           className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full"
-          style={{
-            background: 'linear-gradient(180deg, #2E86C1, #5B9DB8)',
-          }}
+          style={{ background: 'linear-gradient(180deg, #2E86C1, #5B9DB8)' }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
         />
       )}
 
-      {/* Bottom underline on hover (non-active) */}
       {!isActive && (
         <span
           className="absolute bottom-1 left-4 right-4 h-[1.5px] rounded-full bg-[#5B9DB8] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
@@ -218,7 +202,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // DEBUG: Remove this after confirming the issue
   console.log('[Navbar] user:', user, '| role:', user?.role, '| path:', location.pathname);
 
   useEffect(() => {
@@ -235,31 +218,28 @@ const Navbar = () => {
 
   /* ── BUILD NAV LINKS ── */
   const navLinks = (() => {
-    // 🔴 NOT LOGGED IN — Landing / Login / Register pages
     if (!user) {
       return [
-        { path: '/', label: 'Home', icon: <FiHome size={15} />, scrollTo: 'top' },
-        { path: '/#services', label: 'Services', icon: <FiBriefcase size={15} />, scrollTo: 'services' },
-        { path: '/#how-it-works', label: 'How it Works', icon: <FiInfo size={15} />, scrollTo: 'how-it-works' },
-        { path: '/#specializations', label: 'Specialities', icon: <FiHeart size={15} />, scrollTo: 'specializations' },
-        { path: '/#doctors', label: 'Our Doctors', icon: <FiUsers size={15} />, scrollTo: 'doctors' },
-        { path: '/#about', label: 'About', icon: <FiActivity size={15} />, scrollTo: 'about' },
-        { path: '/#reviews', label: 'Reviews', icon: <FiStar size={15} />, scrollTo: 'reviews' },
+        { path: '/', label: 'Home', mobileIcon: <FiHome size={15} />, scrollTo: 'top' },
+        { path: '/#services', label: 'Services', mobileIcon: <FiBriefcase size={15} />, scrollTo: 'services' },
+        { path: '/#how-it-works', label: 'How it Works', mobileIcon: <FiInfo size={15} />, scrollTo: 'how-it-works' },
+        { path: '/specialities', label: 'Specialities', mobileIcon: <FiHeart size={15} />, scrollTo: 'specializations' },
+        { path: '/#doctors', label: 'Our Doctors', mobileIcon: <FiUsers size={15} />, scrollTo: 'doctors' },
+        { path: '/#about', label: 'About', mobileIcon: <FiActivity size={15} />, scrollTo: 'about' },
+        { path: '/#reviews', label: 'Reviews', mobileIcon: <FiStar size={15} />, scrollTo: 'reviews' },
       ];
     }
 
-    // 🔵 PATIENT
     if (user.role === 'patient') {
       return [
         { path: '/dashboard', label: 'Home', icon: <FiHome size={15} /> },
-        { path: '/specialities', label: 'HealthPackages', icon: <FiHeart size={15} /> },
+        { path: '/packages', label: 'WellnessPackages', icon: <FiShield  size={15} /> },
         { path: '/specialities', label: 'Specialities', icon: <FiHeart size={15} /> },
         { path: '/patientlabreport', label: 'Reports', icon: <FiClipboard size={15} /> },
         { path: '/appointments', label: 'Prescription', icon: <FiFileText size={15} /> },
       ];
     }
 
-    // 🔵 DOCTOR
     if (user.role === 'doctor') {
       return [
         { path: '/doctordashboard', label: 'Home', icon: <FiHome size={15} /> },
@@ -270,9 +250,7 @@ const Navbar = () => {
     return [];
   })();
 
-  /* ── Determine active link ── */
   const isLinkActive = (link) => {
-    // For landing page scroll links, only 'Home' is active when on '/'
     if (link.scrollTo) {
       return link.scrollTo === 'top' && location.pathname === '/';
     }
@@ -286,35 +264,38 @@ const Navbar = () => {
         backdropFilter: isScrolled ? 'blur(30px)' : 'blur(20px)',
         WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(20px)',
       }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 rounded-2xl px-5 py-2.5 transition-all duration-500 ${
-        isScrolled ? 'w-[96%] max-w-6xl' : 'w-[92%] max-w-5xl'
-      }`}
+      className="fixed top-3 left-1/2 -translate-x-1/2 z-50 rounded-2xl transition-all duration-500"
       style={{
+        width: 'calc(100% - 48px)',
+        maxWidth: '1500px',
+        height: '68px',
+        padding: '0 40px',
+        display: 'flex',
+        alignItems: 'center',
         background: isScrolled
           ? 'rgba(255, 255, 255, 0.82)'
           : 'rgba(255, 255, 255, 0.55)',
         border: `1px solid ${
-          isScrolled
-            ? 'rgba(46, 134, 193, 0.12)'
-            : 'rgba(255, 255, 255, 0.35)'
+          isScrolled ? 'rgba(46, 134, 193, 0.12)' : 'rgba(255, 255, 255, 0.35)'
         }`,
         boxShadow: isScrolled
           ? '0 8px 32px rgba(46, 134, 193, 0.12), 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)'
           : '0 4px 16px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.5)',
       }}
     >
-      <div className="flex items-center justify-between">
-        {/* ── LOGO ── */}
+      <div className="flex items-center justify-between w-full">
+
+        {/* ── LEFT: LOGO ── */}
         <Link
           to={user ? `/${user.role}/dashboard` : '/'}
-          className="flex items-center gap-2.5 group select-none"
+          className="flex items-center gap-3 group select-none flex-shrink-0"
         >
           <div className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
             <NexoraLogo />
           </div>
           <div className="hidden sm:flex flex-col leading-none">
             <span
-              className="text-[1.2rem] font-bold tracking-wide"
+              className="text-[1.7rem] font-bold tracking-wide"
               style={{
                 fontFamily: "'Playfair Display', serif",
                 background: 'linear-gradient(135deg, #1A5C85 0%, #2E86C1 50%, #5B9DB8 100%)',
@@ -326,19 +307,16 @@ const Navbar = () => {
               Nexora
             </span>
             <span
-              className="text-[0.6rem] font-semibold tracking-[0.2em] uppercase"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                color: '#7B96A5',
-              }}
+              className="text-[0.7rem] font-semibold tracking-[0.2em] uppercase"
+              style={{ fontFamily: "'Poppins', sans-serif", color: '#7B96A5' }}
             >
               Healthcare
             </span>
           </div>
         </Link>
 
-        {/* ── DESKTOP NAV LINKS ── */}
-        <div className="hidden md:flex items-center gap-0.5">
+        {/* ── CENTER: NAV LINKS ── */}
+        <div className="hidden md:flex items-center gap-4 flex-1 justify-center px-6">
           {navLinks.map((link) => (
             <NavItem
               key={link.path}
@@ -348,25 +326,25 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* ── AUTH BUTTONS ── */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* ── RIGHT: AUTH BUTTONS ── */}
+        <div className="hidden md:flex items-center flex-shrink-0">
           {user ? (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               {/* Profile Link */}
               <Link
                 to={`/${user.role}/profile`}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-300 group"
+                className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-300 group"
                 style={{ color: '#4A6572' }}
               >
                 <div
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold transition-transform duration-300 group-hover:scale-110"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold transition-transform duration-300 group-hover:scale-110 flex-shrink-0"
                   style={{
                     background: 'linear-gradient(135deg, #2E86C1, #1A5C85, #5B9DB8)',
                   }}
                 >
                   {user.name?.charAt(0).toUpperCase()}
                 </div>
-                <span className="group-hover:text-[#2E86C1] transition-colors duration-300">
+                <span className="group-hover:text-[#2E86C1] transition-colors duration-300 whitespace-nowrap">
                   {user.name?.split(' ')[0]}
                 </span>
               </Link>
@@ -377,44 +355,30 @@ const Navbar = () => {
               {/* Logout */}
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-medium text-red-400 hover:text-red-500 hover:bg-red-50/70 transition-all duration-300 cursor-pointer"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm font-medium text-red-400 hover:text-red-500 hover:bg-red-50/70 transition-all duration-300 cursor-pointer whitespace-nowrap"
               >
                 <FiLogOut size={14} />
                 Logout
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
-              <Link
-                to="/login"
-                className="relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 group overflow-hidden"
-                style={{ color: '#2E86C1' }}
-              >
-                <span className="relative z-10">Log In</span>
-                <span
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: 'rgba(46, 134, 193, 0.08)' }}
-                />
-              </Link>
-              <Link
-                to="/register"
-                className="relative px-5 py-2 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
-                style={{
-                  background: 'linear-gradient(135deg, #2E86C1 0%, #1A5C85 100%)',
-                  boxShadow: '0 4px 15px rgba(46, 134, 193, 0.35)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    '0 6px 25px rgba(46, 134, 193, 0.5)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    '0 4px 15px rgba(46, 134, 193, 0.35)';
-                }}
-              >
-                Get Started
-              </Link>
-            </div>
+            /* ── LANDING PAGE: single Login button ── */
+            <Link
+              to="/login"
+              className="relative px-6 py-2.5 rounded-xl text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
+              style={{
+                background: 'linear-gradient(135deg, #2E86C1 0%, #1A5C85 100%)',
+                boxShadow: '0 4px 15px rgba(46, 134, 193, 0.35)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 6px 25px rgba(46, 134, 193, 0.5)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(46, 134, 193, 0.35)';
+              }}
+            >
+              Login
+            </Link>
           )}
         </div>
 
@@ -439,12 +403,14 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden absolute top-full left-0 right-0 rounded-b-2xl px-4"
+            style={{
+              background: 'rgba(255,255,255,0.97)',
+              borderTop: '1px solid rgba(196, 218, 232, 0.4)',
+              boxShadow: '0 8px 32px rgba(46, 134, 193, 0.12)',
+            }}
           >
-            <div
-              className="mt-3 pt-3 flex flex-col gap-0.5"
-              style={{ borderTop: '1px solid rgba(196, 218, 232, 0.4)' }}
-            >
+            <div className="py-3 flex flex-col gap-0.5">
               {navLinks.map((link) => (
                 <MobileNavItem
                   key={link.path}
@@ -454,7 +420,6 @@ const Navbar = () => {
                 />
               ))}
 
-              {/* Divider */}
               <div
                 className="my-2 mx-4"
                 style={{ borderTop: '1px solid rgba(196, 218, 232, 0.3)' }}
@@ -479,27 +444,15 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
-                <div className="flex gap-2 mt-1 px-4 pb-2">
+                /* ── MOBILE: single Login button ── */
+                <div className="mt-1 px-4 pb-3">
                   <Link
                     to="/login"
                     onClick={() => setMobileOpen(false)}
-                    className="flex-1 text-center px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300"
-                    style={{
-                      border: '1.5px solid #2E86C1',
-                      color: '#2E86C1',
-                    }}
+                    className="block w-full text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300"
+                    style={{ background: 'linear-gradient(135deg, #2E86C1, #1A5C85)' }}
                   >
-                    Log In
-                  </Link>
-                  <Link
-                    to="/register"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex-1 text-center px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-300"
-                    style={{
-                      background: 'linear-gradient(135deg, #2E86C1, #1A5C85)',
-                    }}
-                  >
-                    Get Started
+                    Login
                   </Link>
                 </div>
               )}

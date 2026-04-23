@@ -439,20 +439,42 @@ export default function AppointmentsPage() {
     return;
   }
 
-  axios
-    .get(`http://localhost:5000/api/appointment/patient/${user.patient_id}`)
-    .then((res) => {
-      console.log("API DATA:", res.data); // 🔥 DEBUG
+  Promise.all([
+    axios.get(`http://localhost:5000/api/appointment/patient/${user.patient_id}`),
+    axios.get(`http://localhost:5000/api/prescription/patient/${user.patient_id}`).catch(err => ({ data: [] }))
+  ])
+    .then(([res, rxRes]) => {
+      console.log("API APPOINTMENTS:", res.data); // 🔥 DEBUG
+      console.log("API PRESCRIPTIONS:", rxRes.data);
 
       if (!Array.isArray(res.data)) {
         setAppointments([]);
         return;
       }
 
+      const rxs = Array.isArray(rxRes.data) ? rxRes.data : [];
+      const rxByApt = {};
+      rxs.forEach(rx => {
+         if (!rxByApt[rx.appointment_id]) {
+            rxByApt[rx.appointment_id] = {
+               diagnosis: { primary: rx.diagnosis },
+               medicines: [],
+               notes: [{ src: rx.doctor_name, text: rx.notes }],
+               sig: { name: rx.doctor_name, reg: rx.specialization }
+            };
+         }
+         rxByApt[rx.appointment_id].medicines.push({
+            n: rxByApt[rx.appointment_id].medicines.length + 1,
+            name: rx.medicine,
+            detail: rx.dosage,
+            dur: rx.duration
+         });
+      });
+
       const formatted = res.data.map((a) => ({
         id: a.appointment_id,
         date: {
-          day: new Date(a.appointment_date).getDate(),
+          day: new Date(a.appointment_date).getDate().toString().padStart(2, '0'),
           month: new Date(a.appointment_date).toLocaleString("default", { month: "short" }),
           year: new Date(a.appointment_date).getFullYear(),
         },
@@ -465,7 +487,7 @@ export default function AppointmentsPage() {
         tags: ["Consultation"],
 
         // 🔥 IMPORTANT
-        prescription: a.prescription || null,
+        prescription: rxByApt[a.appointment_id] || null,
       }));
 
       setAppointments(formatted);

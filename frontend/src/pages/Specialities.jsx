@@ -11,7 +11,7 @@ const specialities = [
   {
     name: "Bariatric Surgery", featured: false, tag: "Surgical",
     img: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=900&q=80",
-    intro: "We offer advanced minimally invasive weight-loss surgeries to help patients achieve long-term health transformation through comprehensive pre- and post-operative programs.",
+    intro: "Bariatric surgery, also called metabolic surgery, is a medical procedure designed to alter the digestive system to assist in significant weight loss. It is considered when diet and exercise haven't worked or when overweight people have serious health problems. Bariatric surgery can limit how much one can eat, reduce the body's ability to absorb nutrients, or both. While offering many benefits, it is a significant procedure with potential risks and requires permanent lifestyle changes.",
     stats: [{ n: "5K+", l: "Surgeries Done" }, { n: "85%", l: "Weight Loss Success" }, { n: "12", l: "Expert Surgeons" }],
     treatments: ["Gastric Bypass", "Sleeve Gastrectomy", "Gastric Banding", "Mini Bypass", "Revisional Surgery"],
     conditions: ["Morbid Obesity", "Type 2 Diabetes", "Hypertension", "Sleep Apnea", "Joint Pain"],
@@ -28,7 +28,7 @@ const specialities = [
   {
     name: "Cardiology", featured: false, tag: "Heart",
     img: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80",
-    intro: "KD Hospital stands out among the top hospitals in Gujarat, particularly recognised as a leading cardiology hospital in the region. Recognised as the best cardiac centre in Ahmedabad, the hospital is dedicated to providing exceptional heart and cardiovascular care through its comprehensive range of services, setting the standard for quality healthcare in the area. The cardiology department at Kusum Dhirajlal Hospital is staffed by top cardiac experts with extensive experience in managing a wide variety of cardiology cases. These specialists ensure accurate diagnoses and provide advanced treatments, including cutting-edge angiography. The hospital’s dedicated team of doctors and staff work seamlessly together to meet the healthcare needs of every patient. KD Hospital offers an array of cardiac procedures, spanning invasive, non-invasive, and heart rhythm treatments, making it a benchmark for cardiac care in the region.",
+    intro: "NEXORA Hospital stands out among the top hospitals in Gujarat, particularly recognised as a leading cardiology hospital in the region. Recognised as the best cardiac centre in Ahmedabad, the hospital is dedicated to providing exceptional heart and cardiovascular care through its comprehensive range of services, setting the standard for quality healthcare in the area. The cardiology department at Kusum Dhirajlal Hospital is staffed by top cardiac experts with extensive experience in managing a wide variety of cardiology cases. These specialists ensure accurate diagnoses and provide advanced treatments, including cutting-edge angiography. The hospital’s dedicated team of doctors and staff work seamlessly together to meet the healthcare needs of every patient. NEXORA Hospital offers an array of cardiac procedures, spanning invasive, non-invasive, and heart rhythm treatments, making it a benchmark for cardiac care in the region.",
     stats: [{ n: "10K+", l: "Patients/yr" }, { n: "96%", l: "Satisfaction" }, { n: "22", l: "Cardiologists" }],
     treatments: ["ECG & Echo", "Stress Testing", "Catheterisation", "Stenting", "Cardiac Rehab"],
     conditions: ["Chest Pain", "Heart Attack", "Hypertension", "Cholesterol", "Palpitations"],
@@ -37,7 +37,7 @@ const specialities = [
   {
     name: "Dermatology", featured: false, tag: "Skin",
     img: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=900&q=80",
-    intro: "Expert dermatological care for skin, hair and nail disorders combined with a full range of cosmetic treatments to enhance your natural appearance.",
+    intro: "NEXORA Hospital is committed to providing exceptional care, ensuring that patients receive the highest level of treatment and expert guidance at every step. Our skin experts in Ahmedabad at Kusum Dhirajlal Hospital are skilled in treating all skin issues, including cosmetic skin solutions.Experienced dermatologists and support staff lead the dermatology department at NEXORA Hospital and have years of handhold experience.",
     stats: [{ n: "12K+", l: "Patients/yr" }, { n: "95%", l: "Satisfaction" }, { n: "18", l: "Dermatologists" }],
     treatments: ["Laser Therapy", "Botox", "Fillers", "Chemical Peel", "Microneedling"],
     conditions: ["Acne", "Eczema", "Psoriasis", "Hair Loss", "Skin Cancer"],
@@ -45,7 +45,7 @@ const specialities = [
   {
     name: "Emergency Medicine", featured: true, tag: "Emergency",
     img: "https://images.unsplash.com/photo-1563213126-a4273aed2016?w=900&q=80",
-    intro: "Our emergency department operates around the clock to deliver rapid, expert care for all life-threatening and urgent medical conditions with minimal wait times.",
+    intro: "In critical medical situations, timely and expert intervention is paramount. Emergency & Trauma Centre, a NABH-Accredited level 1 trauma centre, provides world-class emergency and trauma care with a multidisciplinary team of specialists and cutting-edge medical technology.",
     stats: [{ n: "200+", l: "Daily Cases" }, { n: "<8min", l: "Triage Time" }, { n: "60", l: "ER Doctors" }],
     treatments: ["Trauma Care", "Resuscitation", "Emergency Surgery", "Toxicology", "Stroke Protocol"],
     conditions: ["Heart Attack", "Stroke", "Fractures", "Poisoning", "Severe Infections"],
@@ -54,7 +54,7 @@ const specialities = [
   {
     name: "ENT", featured: false, tag: "Head & Neck",
     img: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=900&q=80",
-    intro: "Our ENT specialists diagnose and treat disorders of the ear, nose, throat, head and neck, offering surgical and non-surgical solutions for patients of all ages.",
+    intro: "At the ENT unit in NEXORA Hospital, we have the latest technologically advanced equipment and experienced surgeons who can carry out the most complex surgeries.",
     stats: [{ n: "9K+", l: "Patients/yr" }, { n: "94%", l: "Success Rate" }, { n: "14", l: "Surgeons" }],
     treatments: ["Tonsillectomy", "Sinus Surgery", "Hearing Aids", "Cochlear Implant", "Rhinoplasty"],
     conditions: ["Sinusitis", "Hearing Loss", "Tonsillitis", "Snoring", "Head & Neck Cancer"],
@@ -62,7 +62,7 @@ const specialities = [
   {
     name: "Neurology", featured: true, tag: "Neurology",
     img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80",
-    intro: "A dedicated epilepsy programme offering advanced medical and surgical treatment for drug-resistant epilepsy using cutting-edge neuroimaging and intraoperative monitoring.",
+    intro: "Adhering to its vision of ensuring ‘well-being’ as a human commitment, NEXORA Hospital has built a firm base of happy patients who trusted the medical experts and went ahead with neurological treatments. Kusum Dhirajlal Hospital is a stroke-ready hospital in Ahmedabad with an experienced team of interventional neurologists and surgeons.The neurology department of NEXORA Hospital comprises highly-trained, skilled, and experienced neurologists, neurosurgeons, interventional radiologists, neuro physiotherapists, and rehabilitation experts who ensure that patients receive the best quality treatments for curing their neurological problems.",
     stats: [{ n: "500+", l: "Surgeries/yr" }, { n: "75%", l: "Seizure Freedom" }, { n: "8", l: "Epileptologists" }],
     treatments: ["EEG Monitoring", "Resection Surgery", "VNS", "RNS Implant", "Ketogenic Diet"],
     conditions: ["Drug-resistant Epilepsy", "Focal Seizures", "Temporal Lobe Epilepsy", "Infantile Spasms", "Lennox-Gastaut"],
@@ -70,7 +70,7 @@ const specialities = [
   {
     name: "Obstetrics", featured: false, tag: "Reproductive",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80",
-    intro: "A compassionate fertility centre offering the latest assisted reproductive technologies to help individuals and couples achieve their dream of parenthood.",
+    intro: "At NEXORA Blossom, we specialise in providing comprehensive care for women throughout pregnancy and childbirth. We understand that this journey is an unforgettable experience for women.NEXORA Hospital is the best maternity hospital in Ahmedabad, offering a comprehensive range of services catering to every pregnancy stage. From family planning advice to early pregnancy detection and personalised care throughout the journey, the hospital ensures a safe and secure experience for both mother and baby. Their team of experienced healthcare professionals is dedicated to providing exceptional care, making Kusum Dhirajlal Hospital the preferred choice for expecting families in Ahmedabad.At Kusum Dhirajlal Hospital, our doctors work closely with expectant mothers to create a personalised birth plan, ensuring their preferences are communicated and respected throughout the process. Our dedicated team of nurses and midwives provides continuous, compassionate care during pregnancy, labour, and delivery, ensuring mother and baby receive the best possible support. With a wealth of experience in managing pregnancy complications, addressing genetic concerns, and diagnosing disorders, our specialists are committed to providing comprehensive and expert care at every step.Our services include childbirth and prenatal education classes, activities, examinations, care, parenting classes after birth, and providing a nurturing environment with warm and soothing features that simulate a home-like atmosphere and are very comforting for new moms.All these services are available under one roof; NEXORA Hospital is the best maternity hospital in Ahmedabad.We examine challenges in general obstetrics, medical complications, foetal disease, labor and delivery at our maternity hospital in Ahmedabad.",
     stats: [{ n: "3K+", l: "IVF Cycles/yr" }, { n: "55%", l: "Success Rate" }, { n: "10", l: "Fertility Experts" }],
     treatments: ["IVF", "IUI", "Egg Freezing", "Sperm Banking", "Surrogacy Support"],
     conditions: ["Infertility", "PCOS", "Low Sperm Count", "Endometriosis", "Recurrent Miscarriage"],
@@ -79,7 +79,7 @@ const specialities = [
   {
     name: "Gastroenterology", featured: false, tag: "Digestive",
     img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=900&q=80",
-    intro: "Expert care for all digestive system disorders, offering advanced endoscopy services, diagnostic imaging and personalised medical and surgical treatment plans.",
+    intro: "The gastroenterology department at NEXORA Hospital is regarded as one of the best gastroenterology centres in India. Our team of experienced gastrophysicians and skilled staff is dedicated towards the management of diseases of the digestive and hepatobiliary systems. The modern state-of-art equipments and the advanced intensive care units at Kusum Dhirajlal Hospital are handled by the best gastroenterologist in Ahmedabad. We offer the best endoscopy in Ahmedabad with two technologically advanced endoscopy suites.",
     stats: [{ n: "11K+", l: "Patients/yr" }, { n: "96%", l: "Endoscopy Accuracy" }, { n: "16", l: "Gastroenterologists" }],
     treatments: ["Colonoscopy", "ERCP", "Endoscopy", "Liver Biopsy", "Capsule Endoscopy"],
     conditions: ["IBS", "Crohn's Disease", "Liver Cirrhosis", "Colorectal Cancer", "GERD"],
@@ -88,7 +88,7 @@ const specialities = [
   {
     name: "General Surgery", featured: false, tag: "Surgical",
     img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=900&q=80",
-    intro: "Our general surgery team performs a wide range of procedures with expertise in both traditional and laparoscopic techniques, ensuring optimal outcomes and fast recovery.",
+    intro: "NEXORA Hospital, Ahmedabad, is home to a team of highly skilled and experienced general surgeons capable of performing even the most complex surgeries. Our surgeons are dedicated to providing comprehensive care at every stage—before, during, and after surgery—ensuring all patients' smooth and effective recovery. With extensive expertise and advanced resources, our general surgeons are fully equipped to handle a wide range of procedures.",
     stats: [{ n: "15K+", l: "Surgeries/yr" }, { n: "97%", l: "Success Rate" }, { n: "28", l: "Surgeons" }],
     treatments: ["Laparoscopic Surgery", "Appendectomy", "Cholecystectomy", "Thyroidectomy", "Hernia Repair"],
     conditions: ["Appendicitis", "Gallstones", "Thyroid Nodules", "Hernias", "Abdominal Masses"],
@@ -96,7 +96,7 @@ const specialities = [
   {
     name: "Gynaecology", featured: false, tag: "Women's Health",
     img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80",
-    intro: "Comprehensive women's health services covering routine gynaecological care, menstrual health, reproductive medicine, and advanced minimally invasive surgeries.",
+    intro: "At NEXORA Blossom, we understand that every stage in a woman’s life brings new developments and changes, often leading to questions and concerns about health management. We recognise the emotional and social aspects of gynaecological issues and offer a comprehensive range of services under one roof, from annual preventive check-ups to complex medical and surgical care for women of all ages.Our highly skilled, interdisciplinary team includes leading obstetricians and gynaecologists, urogynaecologists, breast surgeons, gynaec-oncologists, trained paramedics, and nurses. Together, we collaborate to deliver the highest standard of care. Whether supporting women during their reproductive years or addressing the challenges of post-reproductive health, our dedicated team ensures that every patient receives the best possible care at every stage of life.At NEXORA Hospital, we offer the best obstetrics and gynaecology services to women from all walks of life, particularly those from economically disadvantaged backgrounds who may lack access to quality healthcare. We care for young women dealing with irregular cycles, contraception, urogynaecological issues, and preventive gynaecological care, all aimed at providing the highest quality services throughout their life cycle.At NEXORA Blossom, we offer comprehensive care for adolescents, reproductive issues, menopause, urinary incontinence, pelvic prolapse, genetic concerns, and disorders, along with all necessary diagnostic services.",
     stats: [{ n: "14K+", l: "Patients/yr" }, { n: "96%", l: "Satisfaction" }, { n: "20", l: "Gynaecologists" }],
     treatments: ["Hysteroscopy", "Laparoscopy", "Hysterectomy", "Colposcopy", "Fibroid Removal"],
     conditions: ["Endometriosis", "PCOS", "Uterine Fibroids", "Cervical Cancer", "Menopause"],
@@ -104,7 +104,7 @@ const specialities = [
   {
     name: "Health Check-up Packages", featured: false, tag: "Preventive",
     img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=900&q=80",
-    intro: "Tailored preventive health screening packages for all ages and risk profiles, helping detect conditions early and maintain optimal health year-round.",
+    intro: "At NEXORA Hospital our vision to promote 'well-being' reflects our deep commitment to enhancing the lives of individuals and communities. In line with this, we offer affordable health check-up packages in Ahmedabad designed to empower patients with early diagnosis and prevention of various health conditions. These packages are part of our larger mission to instil community hope, health, and happiness. By providing accessible and comprehensive health screenings, we strive to help individuals lead healthier lives and fulfil the core values of Kusum Dhirajlal Hospital.You can find the details of our health check-up packages below : In line with our mission to deliver safe, effective, professional, ethical, and comprehensive healthcare, NEXORA Hospital offers discounted health check-up packages in Ahmedabad, backed by our state-of-the-art facilities. Our health check-up services are designed to detect existing or potential health issues early, enabling timely intervention to prevent complications. Choose the healthcare package that best suits your age and health condition, and take a proactive step toward maintaining your well-being with the highest quality care.",
     stats: [{ n: "20K+", l: "Checkups/yr" }, { n: "12", l: "Package Types" }, { n: "Same Day", l: "Reports" }],
     treatments: ["Blood Panel", "Cardiac Screening", "Cancer Markers", "Imaging", "Diet Consult"],
     conditions: ["Preventive Screening", "Pre-employment", "Executive Health", "Diabetes Risk", "Heart Risk"],
@@ -112,7 +112,7 @@ const specialities = [
   {
     name: "Health @ Home", featured: true, tag: "Home Care",
     img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-    intro: "Professional medical care delivered to your doorstep — from nursing and physiotherapy to diagnostics and IV therapy — providing hospital-quality care in the comfort of your home.",
+    intro: "NEXORA Hospital believes that delivering medicines to your doorstep is a healthcare essential. It makes your life easier while bringing these benefits to you within the comfort of your home.At NEXORA Hospital, in addition to the in-house state-of-the-art laboratory, we offer home sample collection for you and your family through our home healthcare service.",
     stats: [{ n: "500+", l: "Daily Visits" }, { n: "50+", l: "Services" }, { n: "24/7", l: "Availability" }],
     treatments: ["Home Nursing", "IV Therapy", "Physiotherapy", "Sample Collection", "Wound Dressing"],
     conditions: ["Post-surgical Care", "Elderly Care", "Chronic Disease", "Palliative Care", "ICU@Home"],
@@ -130,7 +130,7 @@ const specialities = [
   {
     name: "Laboratory Medicine", featured: false, tag: "Diagnostics",
     img: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&q=80",
-    intro: "State-of-the-art diagnostic laboratory services covering haematology, biochemistry, microbiology and molecular testing with rapid turnaround and pinpoint accuracy.",
+    intro: "NEXORA Hospital's laboratory medicine department offers accurate and timely diagnostics for Ahmedabad patients. Contact us for a wide range of laboratory services and reliable test results. The pathology laboratory at Kusum Dhirajlal Hospital offers 24x7 services to patients. Quality is never an accident; it is always the result of high intention, sincere effort, intelligent direction, and skilful execution.The pathology laboratory at NEXORA Hospital provides high-quality reports even in emergency situations. Our unique, high-tech laboratory has world-class instruments and well-trained, efficient staff.",
     stats: [{ n: "1M+", l: "Tests/yr" }, { n: "Same Day", l: "Reports" }, { n: "99.9%", l: "Accuracy" }],
     treatments: ["Blood Tests", "Cultures", "Molecular Diagnostics", "Histopathology", "Cytology"],
     conditions: ["Infection Diagnosis", "Cancer Markers", "Metabolic Disorders", "Drug Monitoring", "Genetic Testing"],
@@ -146,7 +146,7 @@ const specialities = [
   {
     name: "Neonatology & Paediatrics", featured: false, tag: "Child Health",
     img: "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=900&q=80",
-    intro: "Dedicated neonatal intensive care and comprehensive paediatric services providing expert care for newborns through adolescents in a warm, family-centred environment.",
+    intro: "Your newborn's health is as crucial to the NEXORA Blossom as it is to you. Our team of neonatologists and paediatricians provides the best care for your baby!Neonatology focuses on preventing and treating issues that arise during the foetal, intrapartum, or neonatal periods. Our neonatologists at NEXORA Blossom offer expert medical care and provide information and support to newborn families. We offer a comprehensive range of services to address various health challenges that newborns may face. Our experienced team is available 24/7 to care for critically ill premature and full-term infants. We are committed to high-quality, family-centered care because we understand how important your baby's health is and the challenges and fears that come with your newborn's health issues. Common reasons for NICU (Neonatal Intensive Care Unit) care include premature birth, birth asphyxia, pulmonary hypoplasia, low birth weight, sepsis, and congenital malformations. NEXORA Hospital has a 'state-of-the-art' level III-B NICU set-up, with an attached perinatal centre that includes foetal medicine, high-risk obstetrics, and IVF under one roof.",
     stats: [{ n: "5K+", l: "NICU Babies/yr" }, { n: "96%", l: "Survival (<28wks)" }, { n: "25", l: "Paediatricians" }],
     treatments: ["NICU Care", "Surfactant Therapy", "Paediatric Surgery", "Vaccination", "Developmental Assessment"],
     conditions: ["Prematurity", "Neonatal Jaundice", "Congenital Anomalies", "Paediatric Infections", "Growth Disorders"],
@@ -154,16 +154,16 @@ const specialities = [
   {
     name: "Nephrology & Dialysis Centre", featured: false, tag: "Kidney",
     img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=900&q=80",
-    intro: "Comprehensive kidney care from early-stage CKD management to advanced dialysis and transplant coordination, with a dedicated dialysis unit running multiple sessions daily.",
-    stats: [{ n: "200+", l: "Dialysis/day" }, { n: "3K+", l: "CKD Patients" }, { n: "14", l: "Nephrologists" }],
-    treatments: ["Haemodialysis", "Peritoneal Dialysis", "Kidney Biopsy", "CKD Management", "Transplant Prep"],
+    intro: "NEXORA Hospital has built a strong reputation as one of Ahmedabad's premier healthcare destinations, particularly recognised for its outstanding nephrology and dialysis services. Our specialised nephrology department provides a full spectrum of services, addressing preventive and advanced care needs for patients with kidney-related issues. By combining the expertise of skilled nephrologists and kidney transplant specialists with the latest medical technologies, we have established ourselves as the leading dialysis centre in Ahmedabad.We understand every patient is unique, so we offer personalised care plans according to individual needs. From the initial consultation to ongoing care, our team is dedicated to providing consistent, compassionate treatment that ensures the best possible outcomes.",
+    stats: [{ n: "200+", l: "Dialysis/day" }, { n: "3K+", l: "CNEXORA Patients" }, { n: "14", l: "Nephrologists" }],
+    treatments: ["Haemodialysis", "Peritoneal Dialysis", "Kidney Biopsy", "CNEXORA Management", "Transplant Prep"],
     conditions: ["Chronic Kidney Disease", "ESRD", "Glomerulonephritis", "Polycystic Kidney", "Lupus Nephritis"],
   },
 
   {
     name: "Neurosurgery", featured: false, tag: "Brain Surgery",
     img: "https://images.unsplash.com/photo-1583912267550-d974f54f3ced?w=900&q=80",
-    intro: "Our neurosurgical team performs complex brain and spinal surgeries with exceptional precision, using neuronavigation, intraoperative MRI and minimally invasive approaches.",
+    intro: "The NEXORA Hospital's neurosurgery department is the epitome of excellence and innovation. We have secured a prominent place in Neurosurgery in Ahmedabad and India because of our accurate diagnosis and advanced treatment. Our hallmarks are cutting-edge technology, a unique patient-centric approach, and a commitment to rendering the best possible treatment to patients with care, empathy, and sensitivity.Our best neurosurgeons, neurologists, interventional neuroradiologists, and other associated specialists have extensive experience. We are available 24/7 with our advanced scientific equipment to offer highly prioritised and effective treatment for emergency cases.The NEXORA Hospital's neurosurgery department is among the best in the country; it provides specific treatment for stroke, epilepsy, head and spinal injuries, including brain tumours, and various neuro degenerative disorders. With a high success rate in critical cases, a team of experienced experts, and a dedication to serving patients, we have become one of the most sought-after hospitals for neurosurgery.",
     stats: [{ n: "1.5K+", l: "Surgeries/yr" }, { n: "97%", l: "Success Rate" }, { n: "12", l: "Neurosurgeons" }],
     treatments: ["Craniotomy", "Spinal Fusion", "Deep Brain Stimulation", "Gamma Knife", "Endoscopic Surgery"],
     conditions: ["Brain Tumour", "Aneurysm", "Hydrocephalus", "Spinal Disc Disease", "AVM"],
@@ -171,7 +171,7 @@ const specialities = [
   {
     name: "Obstetrics", featured: false, tag: "Maternity",
     img: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=900&q=80",
-    intro: "Comprehensive maternity care from early pregnancy through postpartum, with expert support for normal and high-risk pregnancies and a state-of-the-art birthing centre.",
+    intro: "At NEXORA Blossom, we specialise in providing comprehensive care for women throughout pregnancy and childbirth. We understand that this journey is an unforgettable experience for women.NEXORA Hospital is the best maternity hospital in Ahmedabad, offering a comprehensive range of services catering to every pregnancy stage. From family planning advice to early pregnancy detection and personalised care throughout the journey, the hospital ensures a safe and secure experience for both mother and baby. Their team of experienced healthcare professionals is dedicated to providing exceptional care, making Kusum Dhirajlal Hospital the preferred choice for expecting families in Ahmedabad.At Kusum Dhirajlal Hospital, our doctors work closely with expectant mothers to create a personalised birth plan, ensuring their preferences are communicated and respected throughout the process. Our dedicated team of nurses and midwives provides continuous, compassionate care during pregnancy, labour, and delivery, ensuring mother and baby receive the best possible support. With a wealth of experience in managing pregnancy complications, addressing genetic concerns, and diagnosing disorders, our specialists are committed to providing comprehensive and expert care at every step.Our services include childbirth and prenatal education classes, activities, examinations, care, parenting classes after birth, and providing a nurturing environment with warm and soothing features that simulate a home-like atmosphere and are very comforting for new moms.All these services are available under one roof; NEXORA Hospital is the best maternity hospital in Ahmedabad.We examine challenges in general obstetrics, medical complications, foetal disease, labor and delivery at our maternity hospital in Ahmedabad.",
     stats: [{ n: "6K+", l: "Deliveries/yr" }, { n: "99%", l: "Safe Deliveries" }, { n: "22", l: "Obstetricians" }],
     treatments: ["Antenatal Care", "Normal Delivery", "C-Section", "Epidural", "High-risk Management"],
     conditions: ["High-risk Pregnancy", "Pre-eclampsia", "Gestational Diabetes", "Multiple Pregnancy", "Preterm Labour"],
@@ -179,7 +179,7 @@ const specialities = [
   {
     name: "Oncology", featured: false, tag: "Cancer Care",
     img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-    intro: "A multidisciplinary cancer care programme offering personalised oncology services from diagnosis to treatment, with access to the latest targeted therapies and clinical trials.",
+    intro: "At NEXORA Hospital, we understand that cancer is complex and that its treatment requires a mix of therapies like chemotherapy, radiotherapy, and surgery, along with lifestyle modifications.At NEXORA Hospital, all presenting cases, primary or metastatic, are diagnosed and investigated by surgical teams streamlined into and specializing in organ specific services.At NEXORA Cancer Centre, we understand how important it is for patients and families to receive clear answers and the right treatment, without unnecessary stress.At NEXORA Cancer Centre, Gujarat's beacon for precision radiation oncology, we offer an advanced, cutting-edge radiation therapy programme.",
     stats: [{ n: "8K+", l: "New Cases/yr" }, { n: "15+", l: "Cancer Types" }, { n: "30", l: "Oncologists" }],
     treatments: ["Chemotherapy", "Immunotherapy", "Targeted Therapy", "Radiation", "Bone Marrow Transplant"],
     conditions: ["Lung Cancer", "Breast Cancer", "Blood Cancer", "GI Cancer", "Head & Neck Cancer"],
@@ -187,7 +187,7 @@ const specialities = [
   {
     name: "Ophthalmology", featured: false, tag: "Eye Care",
     img: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&q=80",
-    intro: "Complete eye care services from routine vision check-ups and spectacle prescriptions to advanced cataract surgery, retina care and laser vision correction.",
+    intro: "At NEXORA Hospital, we are dedicated to providing comprehensive eye care services using cutting-edge technology and a team of experienced professionals. Our ophthalmology department offers a wide range of services tailored to meet the individual needs of our patients.",
     stats: [{ n: "15K+", l: "Patients/yr" }, { n: "99%", l: "Cataract Success" }, { n: "16", l: "Eye Specialists" }],
     treatments: ["LASIK", "Cataract Surgery", "Retina Surgery", "Glaucoma Management", "Corneal Transplant"],
     conditions: ["Cataract", "Glaucoma", "Retinal Detachment", "Diabetic Retinopathy", "Myopia"],
@@ -195,7 +195,7 @@ const specialities = [
   {
     name: "Orthopedics", featured: false, tag: "Bone & Joint",
     img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=900&q=80",
-    intro: "Full-spectrum orthopaedic care covering fractures, sports injuries, spinal disorders and joint replacement with cutting-edge robotic surgical systems.",
+    intro: "Orthopaedic and joint replacement department at NEXORA Hospital is a center of excellence in Ahmedabad. It offers cutting-edge technology and state-of-the-art equipment to deliver outstanding results in orthopaedic surgeries. Patients trust the expertise and quality of care provided by our trained experts.Besides being Ahmedabad's unbeatable joint replacement center, NEXORA Hospital also works towards orthopaedic surgeries.",
     stats: [{ n: "12K+", l: "Procedures/yr" }, { n: "96%", l: "Satisfaction" }, { n: "24", l: "Orthopaedic Surgeons" }],
     treatments: ["Joint Replacement", "Arthroscopy", "Fracture Fixation", "Spine Surgery", "Sports Injury Rehab"],
     conditions: ["Arthritis", "Fractures", "Sports Injuries", "Scoliosis", "Tendon Disorders"],
@@ -204,7 +204,7 @@ const specialities = [
   {
     name: "Plastic & Reconstructive Surgery", featured: false, tag: "Reconstructive",
     img: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=900&q=80",
-    intro: "Expert plastic and reconstructive surgery from post-trauma reconstruction to cosmetic enhancements, performed by internationally trained surgeons using the latest techniques.",
+    intro: "At NEXORA Hospital, we believe that Every face tells a story, and we're here to help make yours a positive one. Kusum Dhirajlal Hospital offers the unique advantage of having both cosmetic and reconstructive surgeries under one roof. Our department is led by expert super-specialists renowned for achieving exceptional results, even in the most complex cases.Our expert team of clinicians has successfully helped hundreds of patients achieve their desired appearance through cosmetic procedures. Additionally, we have restored normalcy and significantly improved the quality of life for those recovering from severe accidents through advanced reconstructive surgeries. Whether you're seeking to enhance your appearance or regain functionality after a traumatic injury, we are dedicated to providing every patient with the highest standard of care.",
     stats: [{ n: "3K+", l: "Surgeries/yr" }, { n: "97%", l: "Satisfaction" }, { n: "10", l: "Plastic Surgeons" }],
     treatments: ["Rhinoplasty", "Breast Augmentation", "Tummy Tuck", "Cleft Repair", "Burns Reconstruction"],
     conditions: ["Burns", "Cleft Palate", "Breast Reconstruction", "Body Contouring", "Facial Trauma"],
@@ -213,7 +213,7 @@ const specialities = [
   {
     name: "Radiology", featured: false, tag: "Imaging",
     img: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=80",
-    intro: "Full diagnostic imaging services including 3T MRI, 128-slice CT, PET-CT and digital X-ray with subspecialty radiologists providing same-day reports.",
+    intro: "NEXORA Hospital has a state-of-the-art radiology department featuring the latest, high-quality equipment to ensure accurate diagnosis and effective treatment. Our highly qualified and experienced radiologists are dedicated to providing precise interpretations, enabling the appropriate interventions and treatments to be carried out promptly.At Kusum Dhirajlal Hospital, our radiology department offers exceptional diagnostic services, with a team of skilled technicians and radiologists available 24/7. We are committed to delivering patient care with the utmost professionalism and compassion.",
     stats: [{ n: "200K+", l: "Scans/yr" }, { n: "Same Day", l: "Reports" }, { n: "25", l: "Radiologists" }],
     treatments: ["MRI", "CT Scan", "PET-CT", "Ultrasound", "X-ray"],
     conditions: ["Cancer Staging", "Neurological Diagnosis", "Cardiac Imaging", "MSK Imaging", "Vascular Assessment"],
@@ -222,7 +222,7 @@ const specialities = [
   {
     name: "Spine Surgery", featured: false, tag: "Spine",
     img: "https://images.unsplash.com/photo-1583912267550-d974f54f3ced?w=900&q=80",
-    intro: "Advanced spinal surgery from minimally invasive disc procedures to complex deformity corrections, with a dedicated spine rehabilitation programme for optimal outcomes.",
+    intro: "Our spine surgery centre in NEXORA Hospital aims to provide “Complete care from neck to back.” We treat all ailments related to the spine here. The NEXORA Hospital spine surgery centre provides advanced care for neck, back, and spine conditions. We know that diagnosing and coordinating care for spine conditions can be challenging for patients and their primary care providers.At our spine surgery centre, we streamline this process with an experienced multidisciplinary team diagnosing spine disorders and developing individual treatment plans. The concerted expertise of our spine surgery and pain management specialists, combined with physical and occupational therapy and a nurse navigator, is available to patients at the Spine Surgery Centre in NEXORA Hospital.We aim to ensure that the patient is provided care by the most appropriate specialist right from the start. We collaborate with each patient from the first visit to decide on the best treatment option, which is often not surgery.",
     stats: [{ n: "2K+", l: "Surgeries/yr" }, { n: "96%", l: "Pain Relief" }, { n: "14", l: "Spine Surgeons" }],
     treatments: ["Microdiscectomy", "Spinal Fusion", "Vertebroplasty", "Spinal Stimulation", "Endoscopic Spine"],
     conditions: ["Disc Herniation", "Spondylolisthesis", "Scoliosis", "Spinal Stenosis", "Compression Fracture"],
@@ -231,7 +231,7 @@ const specialities = [
   {
     name: "Urology", featured: true, tag: "Urological",
     img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=900&q=80",
-    intro: "Full-spectrum urological care covering both medical and surgical management of kidney stones, prostate disease, incontinence, and urological cancers.",
+    intro: "Urologists are specialised doctors who diagnose and treat problems related to these organs. Our urology department at NEXORA Hospital, Ahmedabad, offers comprehensive care for various urological issues, ensuring our patients receive the best possible treatment.",
     stats: [{ n: "10K+", l: "Patients/yr" }, { n: "97%", l: "Stone Clearance" }, { n: "16", l: "Urologists" }],
     treatments: ["Laser Stone Surgery", "TURP", "Urodynamics", "Cystoscopy", "Vasectomy"],
     conditions: ["Kidney Stones", "BPH", "Incontinence", "UTI", "Bladder Cancer"],
@@ -249,7 +249,7 @@ const specialities = [
 {
   name: "Surgical Oncology", featured: false, tag: "Cancer Surgery",
   img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-  intro: "Specialized surgical procedures for the treatment of cancer with focus on tumor removal and patient recovery.",
+  intro: "At NEXORA Hospital, all presenting cases, primary or metastatic, are diagnosed and investigated by surgical teams streamlined into and specializing in organ specific services.",
   stats: [{ n: "3K+", l: "Surgeries/yr" }, { n: "95%", l: "Success Rate" }, { n: "10", l: "Onco Surgeons" }],
   treatments: ["Tumor Removal", "Organ Resection", "Lymph Node Dissection", "Reconstructive Surgery"],
   conditions: ["Breast Cancer", "Lung Cancer", "GI Cancer", "Head & Neck Cancer"],
@@ -257,7 +257,7 @@ const specialities = [
 {
   name: "Medical Oncology", featured: false, tag: "Cancer Care",
   img: "https://images.unsplash.com/photo-1580281657521-7b7c0c5a4d71?w=900&q=80",
-  intro: "Comprehensive cancer treatment using chemotherapy, immunotherapy and targeted therapies.",
+  intro: "At NEXORA Hospital, we understand that cancer is complex and that its treatment requires a mix of therapies like chemotherapy, radiotherapy, and surgery, along with lifestyle modifications",
   stats: [{ n: "5K+", l: "Patients/yr" }, { n: "90%", l: "Response Rate" }, { n: "12", l: "Oncologists" }],
   treatments: ["Chemotherapy", "Immunotherapy", "Targeted Therapy", "Hormonal Therapy"],
   conditions: ["Breast Cancer", "Blood Cancer", "Lung Cancer", "Colon Cancer"],
@@ -265,7 +265,7 @@ const specialities = [
 {
   name: "Radiation Oncology", featured: false, tag: "Radiotherapy",
   img: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=900&q=80",
-  intro: "Advanced radiation therapy techniques for precise and effective cancer treatment.",
+  intro: "At NEXORA Cancer Centre, Gujarat's beacon for precision radiation oncology, we offer an advanced, cutting-edge radiation therapy programme.",
   stats: [{ n: "4K+", l: "Cases/yr" }, { n: "92%", l: "Precision Rate" }, { n: "8", l: "Specialists" }],
   treatments: ["External Beam Radiation", "Brachytherapy", "IMRT", "IGRT"],
   conditions: ["Tumors", "Brain Cancer", "Prostate Cancer", "Cervical Cancer"],
@@ -289,7 +289,7 @@ const specialities = [
 {
   name: "Physiotherapy", featured: false, tag: "Rehabilitation",
   img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80",
-  intro: "Rehabilitation services focused on restoring mobility, strength and function after injury or surgery.",
+  intro: "At NEXORA Hospital, comprehensive care extends beyond medical treatment. Our physiotherapy centre is designed to support your complete recovery journey. Whether you're recovering from an injury or surgery or managing a chronic condition, our dedicated physiotherapists utilise advanced techniques and a holistic approach to promote healing, reduce pain, and improve mobility.Our physiotherapy services cater to patients of all ages and backgrounds. With the latest equipment, skilled professionals, and personalised care, we ensure you receive the best therapeutic interventions tailored to your needs. From rehabilitation to prevention, we focus on restoring your quality of life.",
   stats: [{ n: "600+", l: "Sessions/day" }, { n: "95%", l: "Recovery Rate" }, { n: "30", l: "Therapists" }],
   treatments: ["Manual Therapy", "Exercise Therapy", "Electrotherapy", "Sports Rehab"],
   conditions: ["Back Pain", "Post-surgery Rehab", "Sports Injuries", "Stroke Recovery"],
@@ -305,7 +305,7 @@ const specialities = [
 {
   name: "Liver Transplant", featured: false, tag: "Transplant",
   img: "https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=900&q=80",
-  intro: "Advanced liver transplant procedures with high success rates and comprehensive post-operative care.",
+  intro: "The procedure of removing a part/whole of a diseased liver and replacing it with a new functioning liver is called liver transplantation.",
   stats: [{ n: "300+", l: "Transplants/yr" }, { n: "92%", l: "Success Rate" }, { n: "10", l: "Surgeons" }],
   treatments: ["Living Donor Transplant", "Deceased Donor", "Post-transplant Care"],
   conditions: ["Liver Failure", "Cirrhosis", "Hepatitis", "Liver Cancer"],
@@ -313,7 +313,7 @@ const specialities = [
 {
   name: "Kidney Transplant", featured: false, tag: "Transplant",
   img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=900&q=80",
-  intro: "Comprehensive kidney transplant program offering both living and cadaver donor transplants.",
+  intro: "A kidney transplant, also known as a renal transplant, is a surgical procedure in which a healthy kidney is placed into a patient with end-stage kidney disease.",
   stats: [{ n: "400+", l: "Transplants/yr" }, { n: "95%", l: "Success Rate" }, { n: "12", l: "Nephrologists" }],
   treatments: ["Kidney Transplant", "Dialysis", "Post-transplant Monitoring"],
   conditions: ["Kidney Failure", "Chronic Kidney Disease", "ESRD"],
@@ -321,7 +321,7 @@ const specialities = [
 {
   name: "Heart Transplant", featured: false, tag: "Cardiac",
   img: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80",
-  intro: "Life-saving heart transplant procedures supported by advanced cardiac care units.",
+  intro: "A heart transplant is a surgical procedure where a diseased or damaged heart is replaced with a healthy donor heart, typically performed when a patient has end-stage heart failure.",
   stats: [{ n: "150+", l: "Transplants/yr" }, { n: "90%", l: "Survival Rate" }, { n: "8", l: "Cardiac Surgeons" }],
   treatments: ["Heart Transplant", "Pre/Post Care", "Cardiac Rehab"],
   conditions: ["Heart Failure", "Cardiomyopathy", "Congenital Heart Disease"],
@@ -329,7 +329,7 @@ const specialities = [
 {
   name: "Lung Transplant", featured: false, tag: "Transplant",
   img: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80",
-  intro: "Advanced lung transplant services for patients with end-stage lung diseases.",
+  intro: "Introducing our revolutionary lung transplant services, designed to provide renewed hope and a breath of fresh air to individuals battling severe lung diseases.",
   stats: [{ n: "120+", l: "Transplants/yr" }, { n: "88%", l: "Success Rate" }, { n: "6", l: "Specialists" }],
   treatments: ["Single Lung Transplant", "Double Lung Transplant", "Post Care"],
   conditions: ["COPD", "Pulmonary Fibrosis", "Lung Failure"],

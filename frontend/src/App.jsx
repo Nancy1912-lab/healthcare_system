@@ -9,6 +9,12 @@ import PatientDashboard from "./pages/Dashboard";
 import AppointmentsPage from "./pages/Appointment";
 import LabReportsPage from "./pages/labreport";
 import Patientlabreport from "./pages/patientlabreport";
+import Packages from "./pages/Packages";
+import PatientProfile from "./pages/PatientProfile";
+import Footer from "./components/Footer";
+import DoctorProfile from "./pages/DoctorProfile"; 
+import DoctorLabReports from "./pages/DoctorLabReports";
+
 
 function App() {
   return (
@@ -32,8 +38,15 @@ function App() {
         <Route path="/dashboard" element={<PatientDashboard/>}/>
        <Route path="/appointments" element={<AppointmentsPage />} />
        <Route path="/labreports" element={<LabReportsPage />} />
+       <Route path="/packages" element={<Packages/>} />
        <Route path="/patientlabreport" element={<Patientlabreport />} />
+       <Route path="/patient/profile" element={<PatientProfile />} />
+       <Route path="/doctor/profile" element={<DoctorProfile />} />
+       <Route path="/doctor/lab-history" element={<DoctorLabReports />} />
+
       </Routes>
+
+      <Footer />
 
     </Router>
   );

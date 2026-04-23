@@ -1226,7 +1226,7 @@ export default function KDCareLanding() {
       <Doctors />
       <About />
       <Testimonials />
-      <Footer />
+      {/* <Footer /> */}
     </div>
     </>
   );

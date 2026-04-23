@@ -3,6 +3,7 @@ import {
   bookAppointment,
   getPatientAppointments,
   getDoctorAppointments,
+  getDoctorHistory,
   updateAppointmentStatus,
   getDoctorsBySymptom
 } from "../controllers/appointmentController.js";
@@ -12,6 +13,7 @@ router.post("/book", bookAppointment);
 
 router.get("/patient/:id", getPatientAppointments);
 router.get("/doctor/:id", getDoctorAppointments);
+router.get("/history/doctor/:id", getDoctorHistory);
 router.put("/status", updateAppointmentStatus);
 
 router.get("/doctors-by-symptom/:symptom_id", getDoctorsBySymptom);

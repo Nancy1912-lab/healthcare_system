@@ -8,6 +8,6 @@ const router = express.Router();
 router.post("/register", registerPatient);
 router.post("/login", loginPatient);
 
-router.get("/profile", verifyToken, getPatientProfile);
+router.get("/profile", getPatientProfile);
 
 export default router;

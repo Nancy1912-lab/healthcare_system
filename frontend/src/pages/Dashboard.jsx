@@ -153,7 +153,13 @@ const EMERGENCIES = [
 
 const BAR_VALS = [62, 45, 78, 55, 90, 40, 68];
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
+const C = {
+  primary: "#2E86C1",
+  dark: "#1A5C85",
+  teal: "#5B9DB8",
+  light: "#C4DAE8",
+  bg: "#F5F1EC",
+};
 // ─── ANIMATED COUNTER ──────────────────────────────────────────────────────
 function useCounter(target, suffix = "", delay = 400) {
     const [count, setCount] = useState(0);
@@ -313,53 +319,128 @@ function SectionHeading({ children }) {
 }
 
 // ─── DOCTOR CARD ───────────────────────────────────────────────────────────
-function DoctorCard({ doc, specialty, selected, onClick }) {
-    return (
-        <div onClick={onClick} className="rounded-2xl p-5 cursor-pointer border-2 transition-all duration-300 hover:-translate-y-1"
-            style={selected ? {
-                background: "linear-gradient(145deg,#14447C,#1D5FA8)",
-                borderColor: "rgba(255,255,255,.22)",
-                boxShadow: "0 14px 42px rgba(29,95,168,.32)",
-            } : {
-                background: "rgba(255,255,255,.72)", backdropFilter: "blur(20px)",
-                borderColor: "rgba(180,200,218,.35)", boxShadow: "0 2px 12px rgba(20,68,124,.06)",
-            }}>
-            <div className="w-14 h-14 rounded-xl flex items-center justify-center font-bold text-base mb-3"
-                style={{ background: selected ? "rgba(255,255,255,.2)" : "#E8F1FA", color: selected ? "#fff" : "#14447C" }}>
-                {doc.av}
-            </div>
-            <p className="font-bold text-sm mb-0.5" style={{ color: selected ? "#fff" : "#1A2B3C" }}>{doc.name}</p>
-            <p className="text-xs mb-4" style={{ color: selected ? "rgba(196,218,232,.8)" : "#0F7B6C" }}>{specialty}</p>
-            <div className="flex justify-between mb-3">
-                <div>
-                    <p className="mb-0.5" style={{ fontSize: "9.5px", color: selected ? "rgba(196,218,232,.6)" : "#6B7F90" }}>Experience</p>
-                    <p className="text-sm font-semibold" style={{ color: selected ? "#fff" : "#1A2B3C" }}>{doc.exp}</p>
-                </div>
-                <div className="text-right">
-                    <p className="mb-0.5" style={{ fontSize: "9.5px", color: selected ? "rgba(196,218,232,.6)" : "#6B7F90" }}>Rating</p>
-                    <p className="text-sm font-semibold flex items-center gap-1 justify-end" style={{ color: "#B45309" }}>
-                        <Icon name="star" size={12} style={{ fill: "#B45309" }} /> {doc.rating}
-                    </p>
-                </div>
-            </div>
-            <div className="pt-3 border-t" style={{ borderColor: selected ? "rgba(255,255,255,.15)" : "rgba(180,200,218,.35)" }}>
-                <p style={{ fontSize: "9.5px", color: selected ? "rgba(196,218,232,.6)" : "#6B7F90", marginBottom: "3px" }}>Next Available</p>
-                <p className="text-xs font-semibold flex items-center gap-1.5" style={{ color: selected ? "#86efac" : "#0F7B6C" }}>
-                    <Icon name="circle" size={8} style={{ fill: selected ? "#86efac" : "#0F7B6C", color: selected ? "#86efac" : "#0F7B6C" }} />
-                    {doc.available}
-                </p>
-            </div>
-        </div>
-    );
-}
+ import { FiUser } from "react-icons/fi";
 
+function DoctorCard({ doc, specialty, selected, onClick }) {
+  return (
+    <div
+      onClick={onClick}
+      className={`min-w-[265    px] rounded-2xl p-5 cursor-pointer border-2 transition-all duration-300 hover:-translate-y-1 ${
+        selected ? "shadow-xl" : ""
+      }`}
+      style={
+        selected
+          ? {
+              background: "linear-gradient(145deg,#14447C,#1D5FA8)",
+              borderColor: "rgba(255,255,255,.22)",
+              boxShadow: "0 14px 42px rgba(29,95,168,.32)",
+            }
+          : {
+              background: "rgba(255,255,255,.72)",
+              backdropFilter: "blur(20px)",
+              borderColor: "rgba(180,200,218,.35)",
+              boxShadow: "0 2px 12px rgba(20,68,124,.06)",
+            }
+      }
+    >
+      {/* Top Row */}
+      <div className="flex items-center gap-3 mb-4">
+        {/* Icon instead of avatar */}
+        <div
+          className="w-12 h-12 rounded-xl flex items-center justify-center"
+          style={{
+            background: selected ? "rgba(255,255,255,.2)" : "#E8F1FA",
+            color: selected ? "#fff" : "#14447C",
+          }}
+        >
+          <FiUser size={20} />
+        </div>
+
+        <div>
+          <p
+            className="font-bold text-sm"
+            style={{ color: selected ? "#fff" : "#1A2B3C" }}
+          >
+            {doc.name}
+          </p>
+          <p
+            className="text-xs"
+            style={{
+              color: selected
+                ? "rgba(196,218,232,.8)"
+                : "#0F7B6C",
+            }}
+          >
+            {specialty}
+          </p>
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div className="mb-4">
+        <p
+          className="text-[10px]"
+          style={{
+            color: selected
+              ? "rgba(196,218,232,.6)"
+              : "#6B7F90",
+          }}
+        >
+          Experience
+        </p>
+        <p
+          className="text-sm font-semibold"
+          style={{ color: selected ? "#fff" : "#1A2B3C" }}
+        >
+          {doc.exp}
+        </p>
+      </div>
+
+      {/* Divider */}
+      <div
+        className="border-t pt-3"
+        style={{
+          borderColor: selected
+            ? "rgba(255,255,255,.15)"
+            : "rgba(180,200,218,.35)",
+        }}
+      >
+        <p
+          className="text-[10px] mb-1"
+          style={{
+            color: selected
+              ? "rgba(196,218,232,.6)"
+              : "#6B7F90",
+          }}
+        >
+          Next Available
+        </p>
+
+        <p
+          className="text-xs font-semibold flex items-center gap-2"
+          style={{
+            color: selected ? "#86efac" : "#0F7B6C",
+          }}
+        >
+          <span
+            className="w-2 h-2 rounded-full"
+            style={{
+              background: selected ? "#86efac" : "#0F7B6C",
+            }}
+          />
+          {doc.available}
+        </p>
+      </div>
+    </div>
+  );
+}
 // ═══════════════════════════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ═══════════════════════════════════════════════════════════════════════════
 export default function PatientDashboard() {
 
     const user = JSON.parse(localStorage.getItem("user"));
-const navigate = useNavigate();
+    const navigate = useNavigate();
     const c1 = 12;
     const c2 = 24;
     const c3 = 87;
@@ -372,7 +453,13 @@ const navigate = useNavigate();
 
     const [selectedDoctor, setSelectedDoctor] = useState(null);
     const [confirmed, setConfirmed] = useState(false);
+    const [factIndex, setFactIndex] = useState(0);
 
+    const facts = [
+        "Chronic dehydration is one of the most underdiagnosed contributors to fatigue, headaches, and poor focus.",
+        "Sleeping less than 6 hours weakens your immune system.",
+        "Walking 30 minutes daily improves heart health."
+    ];
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
 
@@ -412,7 +499,7 @@ const navigate = useNavigate();
     const handleConfirm = () => {
         const user = JSON.parse(localStorage.getItem("user"));
         console.log("USER:", user);
-        
+
 
         if (!user || user.role !== "patient") {
             alert("Please login as patient");
@@ -432,11 +519,14 @@ const navigate = useNavigate();
             doctor_id: selectedDoctor?.doctor_id
         });
 
+        const todayDate = new Date().toISOString().split('T')[0];
+        const currentTime = new Date().toTimeString().split(' ')[0];
+
         axios.post("http://localhost:5000/api/appointment/book", {
             patient_id: user?.patient_id,
             doctor_id: selectedDoctor.doctor_id,
-            appointment_date: "2026-04-20",
-            appointment_time: "15:00:00",
+            appointment_date: todayDate,
+            appointment_time: currentTime,
             symptoms: []
         })
             .then(res => {
@@ -479,48 +569,37 @@ const navigate = useNavigate();
       `}</style>
 
             {/* ═══ §1 HERO ═══════════════════════════════════════════════════════ */}
-            <section style={{
-                minHeight: "100vh", background: "linear-gradient(135deg,#0D3660 0%,#14447C 45%,#1B6B8A 100%)",
-                position: "relative", overflow: "hidden", display: "flex", flexDirection: "column",
-            }}>
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80&auto=format&fit=crop"
-                    alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: .08, pointerEvents: "none" }} />
-                {/* Blobs */}
-                <div style={{ position: "absolute", borderRadius: "50%", filter: "blur(72px)", opacity: .14, width: 480, height: 480, background: "#5B9DB8", top: -100, right: -80, pointerEvents: "none" }} />
-                <div style={{ position: "absolute", borderRadius: "50%", filter: "blur(72px)", opacity: .1, width: 300, height: 300, background: "#C4DAE8", bottom: 40, left: -60, pointerEvents: "none" }} />
+                       
 
-                {/* Ticker */}
-                <div style={{ padding: "12px 56px", background: "rgba(255,255,255,.06)", borderBottom: "1px solid rgba(255,255,255,.1)", position: "relative", zIndex: 3 }}>
-                    <div className="flex items-center gap-4">
-                        <span style={{ fontSize: "10px", fontWeight: 700, color: "rgba(196,218,232,.8)", letterSpacing: ".16em", textTransform: "uppercase", whiteSpace: "nowrap", paddingRight: 16, borderRight: "1px solid rgba(196,218,232,.25)" }}>
-                            Daily Tips
-                        </span>
-                        <Ticker />
-                    </div>
-                </div>
+<section className="relative flex flex-col overflow-hidden" style={{ minHeight:"calc(100vh - 64px)" }}>
+        <div className="absolute inset-0">
+          <img src="https://i.pinimg.com/1200x/21/7a/7a/217a7a60cc05cc990b8586fdec8076af.jpg" alt="" className="w-full h-full object-cover object-top"/>
+          <div className="absolute inset-0" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}/>
+        </div>
+
+
+                {/* Blobs */}
+                <div className="blob-1 absolute opacity-30 rounded-full" style={{ width:380,height:380,top:-120,left:-120,background:`radial-gradient(circle,${C.light},transparent)` }}/>
+        <div className="blob-2 absolute opacity-20 rounded-full" style={{ width:280,height:280,top:80,right:"25%",background:"radial-gradient(circle,white,transparent)" }}/>
+        <div className="blob-3 absolute opacity-25 rounded-full" style={{ width:320,height:320,bottom:0,right:0,background:`radial-gradient(circle,${C.teal},transparent)` }}/>
+               
 
                 {/* Hero top */}
-                <div className="hero-cols flex-1 flex items-center gap-12" style={{ padding: "56px 56px 36px", position: "relative", zIndex: 2 }}>
+                <div className="hero-cols flex-1 flex items-center gap-12" style={{ padding: "90px 56px 36px", position: "relative", zIndex: 2 }}>
                     {/* Left */}
-                    <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ flex: 1, minWidth: 0 
+    }}>
                         <p className="fade-up" style={{ color: "rgba(196,218,232,.7)", fontSize: "10.5px", letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 600, marginBottom: 10 }}>
                             Patient Portal · 2025
                         </p>
-                        <h1 className="fade-up" style={{ fontFamily: "'Playfair Display', serif", color: "#fff", fontSize: "clamp(2rem,4.5vw,3.4rem)", fontWeight: 600, lineHeight: 1.12, marginBottom: 16, animationDelay: ".08s" }}>
-                            Good Morning,<br /><em style={{ color: "#C4DAE8" }}>{user?.name}</em>
+                        <h1 className="fade-up" style={{ fontFamily: "'Playfair Display', serif", color: "#fff", fontSize: "clamp(2.5rem,5.5vw,3.4rem)", fontWeight: 700, lineHeight: 1.12, marginBottom: 16, animationDelay: ".08s" }}>
+                            Good Morning,<br /> <span style={{fontStyle: "",  color: "#C4DAE8" }}>{user?.name}</span>
                         </h1>
                         <p className="fade-up" style={{ color: "rgba(196,218,232,.78)", fontSize: 14, lineHeight: 1.8, maxWidth: 500, marginBottom: 36, animationDelay: ".16s" }}>
                             Your personal health hub — schedule visits, track vitals, and connect with top specialists all in one place.
                         </p>
-                        {/* Stats */}
-                        <div className="fade-up flex flex-wrap gap-9 mb-9" style={{ animationDelay: ".24s" }}>
-                            {[{ val: c1, label: "Completed Visits" }, { val: c2, label: "Doctors Available" }, { val: c3, label: "Health Score" }].map((s, i) => (
-                                <div key={i} className="text-center">
-                                    <div style={{ fontFamily: "'Playfair Display', serif", color: "#fff", fontSize: "2.2rem", fontWeight: 700, lineHeight: 1 }}>{s.val}</div>
-                                    <div style={{ fontSize: "11px", color: "rgba(196,218,232,.65)", marginTop: 3 }}>{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
+                        
+                        
                         {/* CTAs */}
                         <div className="fade-up flex flex-wrap gap-3" style={{ animationDelay: ".32s" }}>
                             <button className="pulse-btn flex items-center gap-2 font-semibold"
@@ -528,44 +607,21 @@ const navigate = useNavigate();
                                 style={{ padding: "12px 26px", borderRadius: 10, border: "none", background: "rgba(255,255,255,.95)", color: "#14447C", fontSize: 13.5, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 4px 18px rgba(0,0,0,.2)" }}>
                                 <Icon name="calendar" size={15} /> Book Appointment
                             </button>
-                            {/* <button className="flex items-center gap-2 font-medium"
-                style={{ padding: "12px 24px", borderRadius: 10, border: "1.5px solid rgba(255,255,255,.4)", background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 13.5, fontFamily: "inherit", cursor: "pointer", backdropFilter: "blur(8px)" }}>
-                <Icon name="file-text" size={15} /> View Reports
-              </button> */}
-                        </div>
-                    </div>
-
-                    {/* Doctor float card */}
-                    <div className="float-anim" style={{ flexShrink: 0 }}>
-                        <div style={{ width: 280, borderRadius: 24, background: "rgba(255,255,255,.12)", border: "1px solid rgba(255,255,255,.2)", backdropFilter: "blur(20px)", overflow: "hidden", boxShadow: "0 20px 56px rgba(0,0,0,.22)" }}>
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=640&q=80&auto=format&fit=crop" alt="Doctor" style={{ width: "100%", height: 195, objectFit: "cover", objectPosition: "center top" }} />
-                            <div style={{ padding: "16px 18px" }}>
-                                <p style={{ color: "rgba(196,218,232,.65)", fontSize: "9.5px", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 4 }}>Your Primary Doctor</p>
-                                <p style={{ color: "#fff", fontWeight: 700, fontSize: 15, fontFamily: "'Playfair Display', serif", marginBottom: 2 }}>Dr. Ananya Sharma</p>
-                                <p style={{ color: "rgba(196,218,232,.75)", fontSize: 12, marginBottom: 12 }}>Cardiologist · 14 yrs</p>
-                                <div className="flex gap-2 flex-wrap">
-                                    <span className="flex items-center gap-1" style={{ background: "rgba(255,255,255,.12)", color: "rgba(220,235,248,.9)", borderRadius: 7, padding: "4px 10px", fontSize: 11 }}>
-                                        <Icon name="star" size={11} style={{ fill: "currentColor" }} /> 4.9
-                                    </span>
-                                    <span className="flex items-center gap-1" style={{ background: "rgba(22,163,74,.22)", color: "#86efac", borderRadius: 7, padding: "4px 10px", fontSize: 11 }}>
-                                        <Icon name="circle" size={9} style={{ fill: "currentColor" }} /> Available
-                                    </span>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
 
                 {/* ── Hero Bottom — Quick Access ── */}
                 <div style={{ position: "relative", zIndex: 2, padding: "0 56px 60px" }}>
-                    <div style={{ background: "rgba(245,241,236,.1)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,.15)", borderRadius: "24px 24px 0 0", padding: "32px 36px 40px" }}>
+                    <div style={{  width: "50%",background: "rgba(245,241,236,.1)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,.15)", borderRadius: "24px 24px 0 0", padding: "32px 36px 40px" }}>
                         <p style={{ color: "rgba(196,218,232,.5)", fontSize: 10, fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 20 }}>Quick Access</p>
-                        <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+                        <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
                             {[
                                 { label: "View Reports", icon: "file-text", desc: "Access your health records" },
 
                                 { label: "Doctor Prescription", icon: "scroll-text", desc: "View active prescriptions" },
-                                { label: "Medications", icon: "pill", desc: "Track daily medicines" },
+                               
                             ].map((a, i) => (
                                 <div key={i}
                                     onClick={() => {
@@ -587,15 +643,21 @@ const navigate = useNavigate();
                         </div>
                     </div>
                 </div>
+                <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
+          <path d="M0,50 C480,90 960,10 1440,55 L1440,80 L0,80 Z" fill={C.bg}/>
+        </svg>
 
             </section>
+
+          
 
             <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg,transparent,rgba(180,200,218,.35),transparent)" }} />
 
             {/* ═══ §5 DOCTOR FINDER ══════════════════════════════════════════════ */}
             <Section style={{ background: "#F5F1EC" }} className="section-pad" id="finder">
+                
                 <SectionLabel icon="stethoscope">Smart Booking</SectionLabel>
-                <SectionHeading>Find Your <em>Perfect Doctor</em></SectionHeading>
+                <SectionHeading>Find Your Perfect Doctor</SectionHeading>
                 <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 520, marginBottom: 36 }}>Select a symptom and we'll instantly match you with the right specialist — rated, experienced, and available.</p>
 
                 <div style={{ maxWidth: 640, marginBottom: 24 }}>
@@ -603,41 +665,92 @@ const navigate = useNavigate();
                         <label style={{ display: "block", fontSize: "10.5px", fontWeight: 700, color: "#1D5FA8", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>
                             What are you experiencing?
                         </label>
-                        <div style={{ position: "relative" }}>
-                            <select
-                                value={selectedSymptom}
-                                onChange={(e) => {
-                                    const id = e.target.value;
-                                    setSelectedSymptom(id);
-                                    setSelectedDoctor(null);
-                                    setConfirmed(false);
+                       
+                            <div style={{ position: "relative" }}>
+  <select
+    value={selectedSymptom}
+    onChange={(e) => {
+      const id = e.target.value;
+      console.log("Selected:", id);
 
-                                    axios.get(`http://localhost:5000/api/appointment/doctors-by-symptom/${id}`)
-                                        .then(res => {
-                                            console.log("DOCTORS:", res.data);
+      setSelectedSymptom(id);
+      setSelectedDoctor(null);
+      setConfirmed(false);
 
-                                            // ✅ FIX
-                                            if (Array.isArray(res.data)) {
-                                                setDoctors(res.data);
-                                            } else {
-                                                setDoctors([]);
-                                            }
-                                        })
-                                        .catch(err => console.log(err));
-                                }}
-                            >
-                                <option value="">Select Symptom</option>
+      if (!id) return;
 
-                                {Array.isArray(symptoms) && symptoms.map((s) => (
-                                    <option key={s.symptom_id} value={s.symptom_id}>
-                                        {s.name}
-                                    </option>
-                                ))}
-                            </select>
-                            <div style={{ position: "absolute", right: 14, top: "50%", transform: "translateY(-50%)", pointerEvents: "none", color: "#6B7F90" }}>
-                                <Icon name="chevron-down" size={16} />
-                            </div>
-                        </div>
+      axios.get(`http://localhost:5000/api/appointment/doctors-by-symptom/${id}`)
+        .then(res => {
+          console.log("DOCTORS:", res.data);
+
+          if (Array.isArray(res.data)) {
+            setDoctors(res.data);
+          } else {
+            setDoctors([]);
+          }
+        })
+        .catch(err => console.log(err));
+    }}
+    style={{
+      width: "100%",
+      padding: "14px 18px",
+      borderRadius: "14px",
+      border: "1.5px solid #C9D7E3",
+      background: "#FFFFFF",
+      fontSize: "14px",
+      color: selectedSymptom ? "#2C3E50" : "#6B7F90",
+      fontWeight: "500",
+      cursor: "pointer",
+      appearance: "none",
+      outline: "none",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
+      transition: "all 0.25s ease"
+    }}
+    onFocus={(e) => {
+      e.target.style.border = "1.5px solid #1D5FA8";
+      e.target.style.boxShadow = "0 0 0 3px rgba(29,95,168,0.1)";
+    }}
+    onBlur={(e) => {
+      e.target.style.border = "1.5px solid #C9D7E3";
+      e.target.style.boxShadow = "0 2px 6px rgba(0,0,0,0.04)";
+    }}
+  >
+    {/* ✅ Correct placeholder */}
+    <option value="" disabled hidden>
+      Select Symptom
+    </option>
+
+    {Array.isArray(symptoms) &&
+      symptoms.map((s, index) => (
+        <option
+          key={s.symptom_id || s.id || index}
+          value={s.symptom_id || s.id}
+        >
+          {s.description}
+        </option>
+      ))}
+  </select>
+  
+
+  {/* Arrow */}
+  <div
+    style={{
+      position: "absolute",
+      right: 14,
+      top: "50%",
+      transform: "translateY(-50%)",
+      pointerEvents: "none",
+      color: "#1D5FA8",
+      fontSize: "12px"
+    }}
+  >
+    ▼
+  </div>
+</div>
+
+
+   
+    
 
                         {selectedSymptom && (
                             <div className="pop-in flex items-center gap-3 mt-3 p-3 rounded-xl" style={{ background: "#E8F1FA", border: "1px solid rgba(29,95,168,.15)" }}>
@@ -659,36 +772,50 @@ const navigate = useNavigate();
                 {selectedSymptom && (
                     <div className="pop-in">
                         <p style={{ fontSize: "10.5px", fontWeight: 700, color: "#0F7B6C", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 16 }}>Available Specialists</p>
-                        <div className="grid-3 mb-6" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18 }}>
-                            {doctors.map((doc, i) => (
-                                <DoctorCard
-                                    key={i}
-                                    doc={{
-                                        name: doc.name,
-                                        exp: doc.experience,
-                                        available: doc.available_time,
-                                        av: doc.name?.[0] || "DR"
-                                    }}
-                                    specialty="Doctor"
-                                    selected={selectedDoctor?.doctor_id === doc.doctor_id}
-                                    onClick={() => {
-                                        setSelectedDoctor(doc);
-                                        setConfirmed(false);
-                                    }}
-                                />))}
-                        </div>
+                       
+
+<div className="flex gap-4 overflow-x-auto flex-nowrap pb-2 scrollbar-hide">
+  {doctors.map((doc, i) => (
+    <div
+      key={i}
+      className={`flex-shrink-0 ${
+        doctors.length <= 3
+          ? "flex-1 min-w-[280px]"
+          : doctors.length === 4
+          ? "flex-1 min-w-[220px]"
+          : "w-[265px]"
+      }`}
+    >
+      <DoctorCard
+        doc={{
+          name: doc.name,
+          exp: doc.experience,
+          available: doc.available_time,
+          av: doc.name?.[0] || "DR"
+        }}
+        specialty="Doctor"
+        selected={selectedDoctor?.doctor_id === doc.doctor_id}
+        onClick={() => {
+          setSelectedDoctor(doc);
+          setConfirmed(false);
+        }}
+      />
+    </div>
+  ))}
+</div>
+           
 
                         {selectedDoctor && !confirmed && (
-                            <div className="pop-in text-center">
-                                <button onClick={handleConfirm} className="pulse-btn inline-flex items-center gap-2 font-bold"
-                                    style={{ padding: "14px 40px", borderRadius: 14, border: "none", cursor: "pointer", background: "linear-gradient(135deg,#14447C,#1D5FA8)", color: "#fff", fontSize: 14, fontFamily: "inherit", boxShadow: "0 10px 32px rgba(29,95,168,.32)" }}>
+                            <div className="pop-in text-center mt-5">
+                                <button onClick={handleConfirm} className=" inline-flex items-center gap-2 font-bold"
+                                    style={{ padding: "12px 40px", borderRadius: 14, border: "none", cursor: "pointer", background: "linear-gradient(135deg,#14447C,#1D5FA8)", color: "#fff", fontSize: 14, fontFamily: "inherit", boxShadow: "0 10px 32px rgba(29,95,168,.32)" }}>
                                     <Icon name="check-circle" size={16} /> Confirm with {selectedDoctor.name}
                                 </button>
                             </div>
                         )}
 
                         {confirmed && (
-                            <div className="pop-in rounded-3xl p-8 text-center" style={{ background: "rgba(255,255,255,.75)", backdropFilter: "blur(20px)", border: "2px solid rgba(15,123,108,.2)" }}>
+                            <div className="pop-in rounded-3xl p-8 text-center mt-5" style={{ background: "rgba(255,255,255,.75)", backdropFilter: "blur(20px)", border: "2px solid rgba(15,123,108,.2)" }}>
                                 <div className="flex justify-center mb-3">
                                     <Icon name="check-circle" size={44} style={{ color: "#0F7B6C" }} />
                                 </div>
@@ -711,17 +838,38 @@ const navigate = useNavigate();
             {/* ═══ §2 APPOINTMENTS ═══════════════════════════════════════════════ */}
             <Section style={{ background: "#F3EEE8" }} className="section-pad">
                 <SectionLabel icon="calendar-clock">Your Schedule</SectionLabel>
-                <SectionHeading>Upcoming <em>Appointments</em></SectionHeading>
+                <SectionHeading>Upcoming Appointments</SectionHeading>
                 <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 500, marginBottom: 40 }}>Stay on top of your care — your next visits at a glance.</p>
 
-                <div className="flex gap-5 overflow-x-auto pb-3">
+                {/* <div className="flex gap-5 overflow-x-auto pb-3 no-scrollbar bg-transparent"> */}
+                <div
+  className="flex gap-5 pb-3"
+  style={{
+    overflowX: "auto",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none"
+  }}
+>
                     {appointments.map((a, i) => (
                         <GlassCard key={i} className="transition-all duration-300 hover:-translate-y-1" style={{ minWidth: 268, borderRadius: 24, flexShrink: 0, overflow: "hidden" }}>
                             <div style={{ height: 5, background: "linear-gradient(90deg,#1D5FA8,#0F7B6C)" }} />
                             <div style={{ padding: "22px 20px" }}>
-                                <div style={{ width: 44, height: 44, borderRadius: 12, background: "#E8F1FA", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
+                                {/* <div style={{ width: 44, height: 44, borderRadius: 12, background: "#E8F1FA", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
                                     <Icon name={a.icon} size={20} style={{ color: "#1D5FA8" }} />
-                                </div>
+                                </div> */}
+                                <div
+  className="flex items-center justify-center text-xs font-semibold"
+  style={{
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    background: "#E8F1FA",
+    color: "#0F7B6C",
+    marginBottom: 12
+  }}
+>
+  ✔
+</div>
                                 <p style={{ fontWeight: 700, color: "#1A2B3C", fontSize: 15, fontFamily: "'Playfair Display',serif", marginBottom: 3 }}>{a.doctor_name}</p>
                                 <p style={{ fontSize: 12, color: "#0F7B6C", fontWeight: 500, marginBottom: 16 }}> {a.specialization}</p>
                                 <div className="flex gap-2 flex-wrap mb-4">
@@ -737,10 +885,7 @@ const navigate = useNavigate();
                                         </span>
                                     ))}
                                 </div>
-                                <button className="flex items-center justify-center gap-1.5 w-full font-semibold transition-all hover:bg-blue-50"
-                                    style={{ padding: "10px", borderRadius: 10, border: "1.5px solid rgba(180,200,218,.5)", background: "transparent", color: "#1D5FA8", fontSize: 12.5, fontFamily: "inherit", cursor: "pointer" }}>
-                                    View Details <Icon name="arrow-right" size={13} />
-                                </button>
+                               
                             </div>
                         </GlassCard>
                     ))}
@@ -761,7 +906,7 @@ const navigate = useNavigate();
             {/* ═══ §4 WELLNESS TIPS ══════════════════════════════════════════════ */}
             <Section style={{ background: "#F3EEE8" }} className="section-pad">
                 <SectionLabel icon="leaf" color="#0F7B6C">Wellness</SectionLabel>
-                <SectionHeading>Daily Tips &amp; <em>Healthy Habits</em></SectionHeading>
+                <SectionHeading> Healthy Habits</SectionHeading>
                 <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 500, marginBottom: 40 }}>Small consistent habits lead to extraordinary long-term outcomes.</p>
 
                 <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28 }}>
@@ -783,28 +928,63 @@ const navigate = useNavigate();
 
                     <div className="flex flex-col gap-4">
                         <GlassCard style={{ borderRadius: 24, overflow: "hidden" }}>
-                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&q=75&auto=format&fit=crop" alt="Wellness" style={{ width: "100%", height: 190, objectFit: "cover" }} />
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&q=75&auto=format&fit=crop" alt="Wellness" style={{ width: "100%", height: 210, objectFit: "cover" }} />
                             <div style={{ padding: "18px 20px" }}>
                                 <p className="font-bold mb-1.5" style={{ fontFamily: "'Playfair Display',serif", fontSize: 16, color: "#1A2B3C" }}>Your Wellness Journey</p>
-                                <p style={{ fontSize: 13, color: "#6B7F90", lineHeight: 1.75 }}>You've maintained a healthy routine for 18 consecutive days. Keep it up!</p>
+                                <p style={{ fontSize: 13, color: "#6B7F90", lineHeight: 1.75 }}>“Small daily habits create big health changes.”</p>
                             </div>
                         </GlassCard>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-                            {WELLNESS_STATS.map((s, i) => (
-                                <GlassCard key={i} style={{ padding: "16px 14px" }}>
-                                    <Icon name={s.icon} size={20} style={{ color: s.color, marginBottom: 8 }} />
-                                    <p className="font-bold" style={{ fontFamily: "'Playfair Display',serif", fontSize: 20, color: s.color, lineHeight: 1 }}>{s.value}</p>
-                                    <p className="font-medium" style={{ fontSize: 12, color: "#1A2B3C", marginTop: 4 }}>{s.label}</p>
-                                    <p style={{ fontSize: 10.5, color: "#6B7F90", marginTop: 2 }}>{s.sub}</p>
-                                </GlassCard>
-                            ))}
+
+                        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 items-start">
+
+                            {/* FACT CARD */}
+                            <div className="rounded-3xl border border-[#E6D3B3] bg-[#F3E6D6] p-6 flex flex-col justify-between min-h-[140px]">
+
+                                <span className="bg-[#B7791F] text-white text-xs px-3 py-1 rounded-full w-fit">
+                                    Daily Inspiration
+                                </span>
+
+                                <p className="text-[#3B2A1A] text-sm leading-relaxed mt-4 font-medium">
+                                    Those who think they have no time for healthy eating will sooner or later have to find time for illness.
+                                </p>
+
+                                <button
+                                    onClick={() => setFactIndex((prev) => (prev + 1) % facts.length)}
+                                    className="text-[#B7791F] text-sm mt-4 flex items-center gap-1 hover:translate-x-1 transition"
+                                >
+                                    — Edward Stanley
+                                </button>
+                            </div>
+
+
+
+                            <div className="rounded-3xl border border-[#9fb0c0] bg-[#C8D9E6] p-6 flex flex-col justify-between min-h-[190px] shadow-sm hover:shadow-md transition">
+
+                                <span className="bg-[#29586d] text-white text-xs px-3 py-1 rounded-full w-fit">
+                                    Did you know?
+                                </span>
+
+                                <p className="text-[#2F4156] text-sm leading-relaxed mt-4 font-medium">
+                                    {facts[factIndex]}
+                                </p>
+
+                                <button
+                                    onClick={() => setFactIndex((prev) => (prev + 1) % facts.length)}
+                                    className="text-[#3c6577] text-sm mt-4 flex items-center gap-1 hover:translate-x-1 transition font-medium"
+                                >
+                                    › Next fact
+                                </button>
+
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>
             </Section>
 
             <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg,transparent,rgba(180,200,218,.35),transparent)" }} />
-
 
             {/* ═══ §6 EMERGENCY ══════════════════════════════════════════════════ */}
             <section className="px-14 py-20 section-pad relative overflow-hidden"
@@ -847,10 +1027,10 @@ const navigate = useNavigate();
             </section>
 
             {/* ═══ FOOTER ════════════════════════════════════════════════════════ */}
-            <footer style={{ background: "#EDE8E2", borderTop: "1px solid rgba(180,200,218,.35)", padding: "24px 56px", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+            {/* <footer style={{ background: "#EDE8E2", borderTop: "1px solid rgba(180,200,218,.35)", padding: "24px 56px", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
                 <Icon name="shield-check" size={14} style={{ color: "#6B7F90" }} />
                 <p style={{ fontSize: 12, color: "#6B7F90" }}>HealthCare Portal &nbsp;·&nbsp; All data is encrypted and confidential &nbsp;·&nbsp; For emergencies, always call 108</p>
-            </footer>
+            </footer> */}
         </div>
     );
 }

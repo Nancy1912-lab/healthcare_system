@@ -44,12 +44,7 @@ const INIT_APPOINTMENTS = [
   { id:7, name:"Sneha Reddy",   age:27, gender:"Female", time:"05:45 PM", type:"First Visit",           status:"pending",   img:"https://images.unsplash.com/photo-1598346762291-aee88549193f?w=80&h=80&fit=crop&crop=face", done:false },
 ];
 
-const INIT_LABS = [
-  { id:1, patient:"Priya Sharma", test:"Complete Blood Count", status:"pending",    date:"Apr 18", urgency:"normal", img:"https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=40&h=40&fit=crop&crop=face", file:null },
-  { id:2, patient:"Rahul Mehta",  test:"ECG + Stress Test",    status:"complete",   date:"Apr 17", urgency:"high",   img:"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=40&h=40&fit=crop&crop=face", file:null },
-  { id:3, patient:"Anita Patel",  test:"MRI Brain Scan",       status:"processing", date:"Apr 16", urgency:"urgent", img:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=40&h=40&fit=crop&crop=face", file:null },
-  { id:4, patient:"Vikram Singh", test:"Lipid Panel",          status:"complete",   date:"Apr 15", urgency:"normal", img:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face", file:null },
-];
+const INIT_LABS = [];
 
 const STATUS_CFG = {
   confirmed: { label:"Confirmed", strip:"linear-gradient(90deg,#10b981,#059669)", chip:"bg-emerald-100 text-emerald-800 border border-emerald-200" },
@@ -262,7 +257,7 @@ export default function DoctorDashboard() {
   const [appointments, setAppointments] = useState([]);
   
   const [historyPatients, setHistory]   = useState([]);
-  const [labs, setLabs]                 = useState(INIT_LABS);
+  const [labs, setLabs]                 = useState([]);
   const [rxPanel, setRxPanel]           = useState(null);
   const [showAddLab, setShowAddLab]     = useState(false);
   const [prescriptions, setRxData]      = useState({});
@@ -271,12 +266,12 @@ export default function DoctorDashboard() {
   const scrollSlider = (dir) => { if(sliderRef.current) sliderRef.current.scrollBy({left:dir*300,behavior:"smooth"}); };
 
   const markDone = (id) => {
-    setAppointments(prev => prev.map(a => {
-      if(a.id !== id) return a;
-      const u = {...a, done:true};
-      setHistory(h => { if(h.find(p=>p.id===id)) return h; return [{...u,visitedAt:new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})},...h]; });
-      return u;
-    }));
+    axios.put("http://localhost:5000/api/appointment/status", { appointment_id: id, status: "completed" })
+      .then(() => {
+        setAppointments(prev => prev.filter(a => a.id !== id));
+        fetchHistory();
+      })
+      .catch(err => console.log(err));
   };
 
  const saveRx = (appointmentId, data) => {
@@ -310,29 +305,56 @@ export default function DoctorDashboard() {
   }));
 
 
+  const fetchHistory = () => {
+    if (!doctorId) return;
+    axios.get(`http://localhost:5000/api/appointment/history/doctor/${doctorId}`)
+      .then(res => {
+        setHistory(res.data.map(a => ({
+          id: a.appointment_id, name: a.patient_name, age: a.age, gender: a.gender,
+          type: "Consultation", visitedAt: new Date(a.appointment_date).toLocaleDateString(),
+          img: ""
+        })));
+      }).catch(console.log);
+  };
+
   useEffect(() => {
- 
+    if (!doctorId) return;
 
-  axios
-    .get(`http://localhost:5000/api/appointment/doctor/${doctorId}`)
-    .then((res) => {
-      const formatted = res.data.map((a) => ({
-  id: a.appointment_id,
-  name: a.patient_name,
-  age: a.age,
-  gender: a.gender,
-  time: formatTime(a.appointment_time),
-  type: "Consultation",
-  status: "confirmed",
-  img: "",
-  done: false,
+    axios
+      .get(`http://localhost:5000/api/appointment/doctor/${doctorId}`)
+      .then((res) => {
+        const formatted = res.data.filter(a => a.status !== 'completed').map((a) => ({
+          id: a.appointment_id,
+          name: a.patient_name,
+          age: a.age,
+          gender: a.gender,
+          time: formatTime(a.appointment_time),
+          type: "Consultation",
+          status: "confirmed",
+          img: "",
+          done: false,
+        }));
+        setAppointments(formatted);
+      })
+      .catch((err) => console.log(err));
 
-      }));
-console.log("FORMATTED:", formatted);
-      setAppointments(formatted);
-    })
-    .catch((err) => console.log(err));
-}, []);
+    fetchHistory();
+
+    Promise.all([
+      axios.get(`http://localhost:5000/api/lab/pending/${doctorId}`),
+      axios.get(`http://localhost:5000/api/lab/completed-doctor/${doctorId}`)
+    ]).then(([pendingRes, completedRes]) => {
+      let allLabs = [...pendingRes.data, ...completedRes.data];
+      allLabs.sort((a,b) => new Date(b.report_date) - new Date(a.report_date));
+      allLabs = allLabs.slice(0, 4);
+      setLabs(allLabs.map(r => ({
+        id: r.report_id, patient: r.patient_name, test: r.test_name || "Lab Report",
+        status: r.status, date: new Date(r.report_date).toLocaleDateString(),
+        urgency: r.urgency, file: r.file_url ? "View File" : null
+      })));
+    }).catch(console.log);
+
+  }, [doctorId]);
 
 const formatTime = (time) => {
   const [h, m] = time.split(":");
@@ -347,16 +369,18 @@ const formatTime = (time) => {
       <style>{GLOBAL_CSS}</style>
 
       {/* ══ NAVBAR SPACE — replace with your <Navbar /> ══ */}
-      <div className="h-16 bg-white border-b border-slate-100 flex items-center px-14">
+      <div className="h-16 bg-white border-b border-slate-100 flex items-center px-14" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}>
         {/* <Navbar /> */}
-        <span className="text-xs text-slate-400 font-medium tracking-wide">← Your Navbar goes here</span>
-      </div>
+         {/* <span className="text-xs text-slate-400 font-medium tracking-wide">← Your Navbar goes here</span> */}
+      </div> 
 
       {/* ══ HERO ══════════════════════════════════════════ */}
-      <section className="relative flex flex-col overflow-hidden" style={{ minHeight:"calc(100vh - 64px)" }}>
+      
+      <section className=" relative flex flex-col overflow-hidden" style={{ minHeight:"calc(100vh - 64px)" }}>
         <div className="absolute inset-0">
-          <img src="https://i.pinimg.com/1200x/72/d8/99/72d899407b595c3307e6bbd619d20067.jpg" alt="" className="w-full h-full object-cover object-top"/>
+          <img src="https://i.pinimg.com/1200x/ab/16/5a/ab165aab128f19ae9883e681dd0e3af0.jpg" alt="" className="w-full h-full object-cover object-top"/>
           <div className="absolute inset-0" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}/>
+          
         </div>
         <div className="blob-1 absolute opacity-30 rounded-full" style={{ width:380,height:380,top:-120,left:-120,background:`radial-gradient(circle,${C.light},transparent)` }}/>
         <div className="blob-2 absolute opacity-20 rounded-full" style={{ width:280,height:280,top:80,right:"25%",background:"radial-gradient(circle,white,transparent)" }}/>
@@ -373,7 +397,7 @@ const formatTime = (time) => {
                   <span className="text-white/80 text-sm font-medium">Saturday, April 19, 2026</span>
                 </div>
                 <h1 className="font-semibold text-white leading-tight mb-4" style={{ fontSize:"clamp(2.4rem,5vw,3.8rem)" }}>
-                  Welcome back,<br/><span style={{ color:C.light }}>Dr. {user?.name}</span>
+                  Welcome back,<br/><span style={{ color:C.light }}> {user?.name}</span>
                 </h1>
                 <p className="text-white/60 mb-10 max-w-md font-light leading-relaxed" style={{ fontSize:15 }}>
                   You have <strong className="text-white font-semibold">12 appointments</strong> and{" "}
@@ -411,62 +435,16 @@ const formatTime = (time) => {
                 </div>
               </div>
 
-              {/* RIGHT — Profile Card */}
-              <div className="flex justify-center lg:justify-end fade-up-2">
-                <div className="float-slow relative">
-                  <div className="glass rounded-3xl p-7 shadow-2xl" style={{ width:300 }}>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="relative mb-5">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=120&h=120&fit=crop&crop=face" alt="Dr. Aryan"
-                          className="rounded-full object-cover" style={{ width:88,height:88,border:"4px solid rgba(255,255,255,.4)",boxShadow:"0 8px 24px rgba(0,0,0,.2)" }}/>
-                        <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white" style={{ background:isOnline?"#34d399":"#9ca3af" }}/>
-                      </div>
-                      <div className="text-white font-bold text-lg">Dr. Aryan Kapoor</div>
-                      <div className="text-white/60 text-sm mt-0.5">Senior Cardiologist</div>
-                      <div className="text-white/40 text-xs mt-0.5">AIIMS Delhi · MD, DM Cardiology</div>
-                      <div className="flex items-center gap-1 mt-3">
-                        {[1,2,3,4,5].map(i=><Star key={i} size={13} color={i<=4?"#fbbf24":"rgba(255,255,255,.22)"} fill={i<=4?"#fbbf24":"none"}/>)}
-                        <span className="text-white/60 text-xs ml-1.5">4.9 (312)</span>
-                      </div>
-                      <div className="w-full h-px bg-white/10 my-5"/>
-                      <div className="grid grid-cols-3 gap-2 w-full">
-                        {[{l:"Exp.",v:"8+ yrs"},{l:"Patients",v:"1.2k"},{l:"Success",v:"96%"}].map((s,i)=>(
-                          <div key={i} className="bg-white/10 rounded-xl p-2.5 text-center">
-                            <div className="text-white font-bold text-sm">{s.v}</div>
-                            <div className="text-white/50 text-xs mt-0.5">{s.l}</div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="flex gap-2 mt-5 w-full">
-                        {[{Ic:Phone,label:"Call"},{Ic:Mail,label:"Message"}].map(b=>(
-                          <button key={b.label} className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-medium text-white border-none cursor-pointer transition-all"
-                            style={{ background:"rgba(255,255,255,.18)",fontFamily:"'Poppins',sans-serif" }}
-                            onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,.3)";}}
-                            onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,.18)";}}>
-                            <b.Ic size={13}/>{b.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="float-x glass-dark absolute -top-4 -left-9 rounded-2xl px-4 py-2.5 flex items-center gap-2">
-                    <Heart size={12} color="#fca5a5"/><span className="text-white text-xs font-medium">Cardiology Ward</span>
-                  </div>
-                  <div className="float-fast absolute -bottom-4 -right-7 rounded-2xl px-4 py-2.5 flex items-center gap-2 shadow-lg"
-                    style={{ background:"rgba(52,211,153,.92)",backdropFilter:"blur(10px)" }}>
-                    <CheckCircle size={13} color="white"/><span className="text-white text-xs font-semibold">On Duty</span>
-                  </div>
-                </div>
-              </div>
+              
             </div>
 
             {/* Quick Access */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 fade-up-4">
+            <div className="mt-15 grid grid-cols-2 md:grid-cols-3 gap-4 fade-up-4">
               {[
                 {Ic:CalendarCheck,label:"Appointments",sub:"12 today",   clr:"#2E86C1"},
                 {Ic:FlaskConical, label:"Lab Reports", sub:"6 pending",  clr:"#0891b2"},
                 {Ic:Users,        label:"My Patients", sub:"1,243 total",clr:"#059669"},
-                {Ic:MessageCircle,label:"Messages",    sub:"4 unread",   clr:"#7c3aed"},
+                // {Ic:MessageCircle,label:"Messages",    sub:"4 unread",   clr:"#7c3aed"},
               ].map((t,i)=>(
                 <button key={i} className="glass hover-lift rounded-2xl p-5 flex items-center gap-4 border-none cursor-pointer text-left group"
                   style={{ fontFamily:"'Poppins',sans-serif" }}>
@@ -503,12 +481,14 @@ const formatTime = (time) => {
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background:C.primary }}/>
                   <span className="text-xs font-semibold uppercase tracking-widest" style={{ color:C.primary }}>Today's Schedule</span>
                 </div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs bg-white border border-slate-100 shadow-sm" style={{ color:"#567C8D" }}>
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>{appointments.length} today
-                </div>
+                
               </div>
               <h2 className="font-semibold leading-tight" style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(2rem,3.5vw,2.8rem)",color:"#1B3A52" }}>Your Appointments</h2>
-              <p className="font-light leading-relaxed mt-1.5" style={{ fontSize:13,color:"#7A8F9E" }}>Stay on top of every consultation — your full patient queue for today.</p>
+              <p className="font-light leading-relaxed mt-1.5" style={{ fontSize:13,color:"#7A8F9E" }}>Stay on top of every consultation — your full patient queue for today    . 
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs bg-white border border-slate-100 shadow-sm" style={{ color:"#567C8D" }}>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>{appointments.length} today
+                </div></p>
+              
             </div>
           </div>
           <div className="flex gap-2 flex-shrink-0">
@@ -516,6 +496,11 @@ const formatTime = (time) => {
             <button onClick={()=>scrollSlider(1)} className="hover-lift w-11 h-11 rounded-xl border-none cursor-pointer flex items-center justify-center" style={{ background:C.primary }}><ChevronRight size={20} color="white"/></button>
           </div>
         </div>
+         {/* <Section style={{ background: "#F3EEE8" }} className="section-pad">
+                <SectionLabel icon="leaf" color="#0F7B6C">Wellness</SectionLabel>
+                <SectionHeading> Healthy Habits</SectionHeading>
+                <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 500, marginBottom: 40 }}>Small consistent habits lead to extraordinary long-term outcomes.</p> */}
+
 
         <div ref={sliderRef} className="snap-scroll flex gap-5 overflow-x-auto pb-4">
           {appointments.map((apt)=>{
@@ -530,7 +515,7 @@ const formatTime = (time) => {
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-sm truncate" style={{ color:C.dark }}>{apt.name}</div>
                       <div className="text-xs text-slate-400 mt-0.5"><p>Age: {apt.age|| "-"}</p>
-  <p> {apt.gender|| "-"}</p></div>
+                          <p> {apt.gender|| "-"}</p></div>
                       <div className="text-xs text-slate-400 truncate">{apt.type}</div>
                     </div>
                    
@@ -567,6 +552,7 @@ const formatTime = (time) => {
             );
           })}
         </div>
+       
       </section>
 
 
@@ -633,9 +619,9 @@ const formatTime = (time) => {
                 style={{ background:`linear-gradient(135deg,${C.primary},${C.teal})`,fontFamily:"'Poppins',sans-serif" }}>
                 <PlusCircle size={16}/> Add Report
               </button>
-              <button className="glass-card hover-lift flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm border-none cursor-pointer"
+              <button onClick={() => navigate("/doctor/lab-history")} className="glass-card hover-lift flex items-center gap-2 px-5 py-3 rounded-2xl font-semibold text-sm border-none cursor-pointer"
                 style={{ color:C.dark,fontFamily:"'Poppins',sans-serif" }}>
-                <Download size={16} color={C.dark}/> Export All
+                <ClipboardList size={16} color={C.dark}/> View History
               </button>
             </div>
           </div>

@@ -78,3 +78,34 @@ db.query(sql, [patient_id], (err, results) => {
     res.json(results);
   });
 };
+
+export const getPrescriptionByAppointmentId = (req, res) => {
+  const { appointment_id } = req.params;
+
+  const sql = `
+    SELECT 
+      p.prescription_id,
+      p.appointment_id,
+      p.medicine,
+      p.dosage,
+      p.duration,
+      p.diagnosis,
+      p.notes,
+      d.name AS doctor_name,
+      s.name AS specialization
+    FROM PRESCRIPTION p
+    JOIN APPOINTMENT a ON p.appointment_id = a.appointment_id
+    JOIN DOCTOR d ON a.doctor_id = d.doctor_id
+    JOIN SPECIALIZATION s ON d.specialization_id = s.specialization_id
+    WHERE p.appointment_id = ?
+    ORDER BY p.prescription_id DESC
+  `;
+  
+  db.query(sql, [appointment_id], (err, results) => {
+    if (err) {
+      console.error("GET PRESCRIPTION BY APPOINTMENT ERROR:", err);
+      return res.status(500).json({ message: "Database error ❌" });
+    }
+    res.json(results);
+  });
+};

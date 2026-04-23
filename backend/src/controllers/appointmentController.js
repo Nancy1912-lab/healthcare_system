@@ -136,9 +136,8 @@ SELECT
 FROM APPOINTMENT a
 JOIN PATIENT p ON a.patient_id = p.patient_id
 WHERE a.doctor_id = ?
-AND a.appointment_date = CURDATE()
-AND a.appointment_time >= CURTIME()
-ORDER BY a.appointment_time ASC
+AND a.appointment_date >= CURDATE()
+ORDER BY a.appointment_date ASC, a.appointment_time ASC
 `;
 
     db.query(sql, [id], (err, result) => {
@@ -168,12 +167,19 @@ export const getDoctorsBySymptom = (req, res) => {
     const { symptom_id } = req.params;
 
     const sql = `
-    SELECT d.*
-    FROM DOCTOR d
-    JOIN SYMPTOM_SPECIALIZATION ss 
-      ON d.specialization_id = ss.specialization_id
-    WHERE ss.symptom_id = ?
-  `;
+  SELECT DISTINCT 
+    d.doctor_id,
+    d.name,
+    d.experience,
+    d.available_time,
+    d.specialization_id
+  FROM DOCTOR d
+  WHERE d.specialization_id IN (
+    SELECT specialization_id 
+    FROM SYMPTOM_SPECIALIZATION
+    WHERE symptom_id = ?
+  )
+`;
 
     db.query(sql, [symptom_id], (err, result) => {
         if (err) {
@@ -181,6 +187,29 @@ export const getDoctorsBySymptom = (req, res) => {
             return res.status(500).json({ message: "Error fetching doctors ❌" });
         }
 
+        res.json(result);
+    });
+};
+
+// 🔹 GET DOCTOR HISTORY (COMPLETED APPOINTMENTS)
+export const getDoctorHistory = (req, res) => {
+    const { id } = req.params;
+
+    const sql = `
+SELECT 
+  a.*, 
+  p.name AS patient_name,
+  p.age,
+  p.gender,
+  p.patient_id as p_id
+FROM APPOINTMENT a
+JOIN PATIENT p ON a.patient_id = p.patient_id
+WHERE a.doctor_id = ? AND a.status = 'completed'
+ORDER BY a.appointment_date DESC, a.appointment_time DESC
+`;
+
+    db.query(sql, [id], (err, result) => {
+        if (err) return res.status(500).json(err);
         res.json(result);
     });
 };

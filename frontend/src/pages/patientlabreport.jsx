@@ -1,130 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { jsPDF } from "jspdf";
+import { toPng } from "html-to-image";
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
-const REPORTS = [
-  {
-    id: 1,
-    name: "Complete Blood Count (CBC)",
-    short: "CBC",
-    date: "Apr 15, 2026",
-    days: "5 days ago",
-    doctor: "Dr. Priya Sharma",
-    dept: "Haematology",
-    lab: "Lal PathLabs",
-    status: "review",
-    badgeTxt: "Needs Review",
-    icon: "blood",
-    note:
-      "Haemoglobin found low at 10.2 g/dL indicating mild anaemia. Iron supplementation recommended along with dietary changes. Recheck in 4 weeks.",
-    results: [
-      { t: "Haemoglobin", v: "10.2 g/dL", r: "13.5–17.5 g/dL", s: "low" },
-      { t: "RBC Count", v: "4.1 M/uL", r: "4.5–5.9 M/uL", s: "low" },
-      { t: "WBC Count", v: "7200 /uL", r: "4500–11000 /uL", s: "normal" },
-      { t: "Platelets", v: "210000 /uL", r: "150000–400000 /uL", s: "normal" },
-    ],
-    drugs: [
-      { name: "Ferrous Sulphate 200mg", dose: "1 tab twice daily", dur: "8 weeks" },
-      { name: "Vitamin C 500mg", dose: "1 tab daily", dur: "8 weeks" },
-    ],
-  },
-  {
-    id: 2,
-    name: "Lipid Profile Panel",
-    short: "LPP",
-    date: "Mar 05, 2026",
-    days: "46 days ago",
-    doctor: "Dr. Arjun Kapoor",
-    dept: "Cardiology",
-    lab: "Apollo Labs",
-    status: "normal",
-    badgeTxt: "Normal",
-    icon: "heart",
-    note:
-      "All lipid values within acceptable range. Continue current lifestyle. Annual monitoring recommended. Patient advised to maintain low-saturated-fat diet.",
-    results: [
-      { t: "Total Cholesterol", v: "178 mg/dL", r: "< 200 mg/dL", s: "normal" },
-      { t: "LDL Cholesterol", v: "105 mg/dL", r: "< 130 mg/dL", s: "normal" },
-      { t: "HDL Cholesterol", v: "52 mg/dL", r: "> 40 mg/dL", s: "normal" },
-      { t: "Triglycerides", v: "130 mg/dL", r: "< 150 mg/dL", s: "normal" },
-    ],
-    drugs: [
-      { name: "Rosuvastatin 5mg", dose: "1 tab at night", dur: "3 months" },
-    ],
-  },
-  {
-    id: 3,
-    name: "Thyroid Panel (TSH, T3, T4)",
-    short: "TFT",
-    date: "Feb 12, 2026",
-    days: "2 months ago",
-    doctor: "Dr. Meera Joshi",
-    dept: "Endocrinology",
-    lab: "SRL Diagnostics",
-    status: "critical",
-    badgeTxt: "Critical",
-    icon: "thyroid",
-    note:
-      "TSH significantly elevated indicating hypothyroidism. Initiating Levothyroxine therapy. Strict monthly monitoring required. Avoid soy and calcium near dose time.",
-    results: [
-      { t: "TSH", v: "9.8 mIU/L", r: "0.4–4.0 mIU/L", s: "high" },
-      { t: "Free T4", v: "0.6 ng/dL", r: "0.8–1.8 ng/dL", s: "low" },
-      { t: "Free T3", v: "2.1 pg/mL", r: "2.3–4.2 pg/mL", s: "low" },
-    ],
-    drugs: [
-      { name: "Levothyroxine 50mcg", dose: "1 tab empty stomach", dur: "Ongoing" },
-      { name: "Calcium + Vit D3", dose: "1 tab after lunch", dur: "3 months" },
-    ],
-  },
-  {
-    id: 4,
-    name: "Liver Function Test (LFT)",
-    short: "LFT",
-    date: "Jan 28, 2026",
-    days: "3 months ago",
-    doctor: "Dr. Priya Sharma",
-    dept: "Gastroenterology",
-    lab: "Metropolis Labs",
-    status: "normal",
-    badgeTxt: "Normal",
-    icon: "liver",
-    note:
-      "All hepatic enzymes within normal limits. No signs of hepatic stress. Continue avoiding alcohol. Retest in 6 months as routine check-up.",
-    results: [
-      { t: "ALT (SGPT)", v: "28 U/L", r: "7–56 U/L", s: "normal" },
-      { t: "AST (SGOT)", v: "24 U/L", r: "10–40 U/L", s: "normal" },
-      { t: "Bilirubin Total", v: "0.9 mg/dL", r: "0.2–1.2 mg/dL", s: "normal" },
-      { t: "Albumin", v: "4.1 g/dL", r: "3.5–5.0 g/dL", s: "normal" },
-    ],
-    drugs: [
-      { name: "Silymarin 140mg", dose: "1 tab thrice daily", dur: "6 weeks" },
-    ],
-  },
-  {
-    id: 5,
-    name: "Blood Glucose (HbA1c + FBS)",
-    short: "BG",
-    date: "Dec 10, 2025",
-    days: "4 months ago",
-    doctor: "Dr. Arjun Kapoor",
-    dept: "Diabetology",
-    lab: "Lal PathLabs",
-    status: "review",
-    badgeTxt: "Needs Review",
-    icon: "glucose",
-    note:
-      "HbA1c borderline at 6.2%. Pre-diabetic range. Recommend lifestyle modification — low GI diet and 150 min/week exercise. Recheck in 3 months.",
-    results: [
-      { t: "HbA1c", v: "6.2 %", r: "< 5.7 % normal", s: "high" },
-      { t: "Fasting Blood Sugar", v: "108 mg/dL", r: "70–99 mg/dL", s: "high" },
-      { t: "Post-Prandial Sugar", v: "142 mg/dL", r: "< 140 mg/dL", s: "high" },
-    ],
-    drugs: [
-      { name: "Metformin 500mg", dose: "1 tab after breakfast", dur: "3 months" },
-      { name: "Multivitamin B-Complex", dose: "1 tab daily", dur: "3 months" },
-    ],
-  },
-];
-
 // ─── ICONS ───────────────────────────────────────────────────────────────────
 // const iconStyles = {
 //   blood: { bg: "from-pink-100 to-pink-200", text: "text-pink-800" },
@@ -218,7 +97,7 @@ function ResultValue({ s, v }) {
 }
 
 // ─── HISTORY PAGE ─────────────────────────────────────────────────────────────
-function HistoryPage({ onView }) {
+function HistoryPage({ onView, reports = [] }) {
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <div className="max-w-3xl mx-auto px-5 py-10">
@@ -252,9 +131,18 @@ function HistoryPage({ onView }) {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-3 mb-8">
           {[
-            { icon: "clipboard", label: "Total Reports", val: "5", color: "bg-slate-100 text-slate-600" },
-            { icon: "user", label: "Doctors Consulted", val: "4", color: "bg-slate-100 text-slate-600" },
-            // { icon: "shield", label: "Need Attention", val: "2", color: "bg-amber-50 text-amber-600" },
+            { 
+              icon: "clipboard", 
+              label: "Total Reports", 
+              val: reports.length.toString(), 
+              color: "bg-teal-50 text-teal-600" 
+            },
+            { 
+              icon: "user", 
+              label: "Doctors Consulted", 
+              val: [...new Set(reports.map(r => r.doctor))].length.toString(), 
+              color: "bg-slate-100 text-slate-600" 
+            },
           ].map((s) => (
             <div key={s.label} className="bg-white rounded-2xl border border-slate-100 px-4 py-4 flex items-center gap-3 shadow-sm">
               <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${s.color}`}>
@@ -282,15 +170,57 @@ function HistoryPage({ onView }) {
           ))}
         </div>
 
-        {/* Section label */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-teal-600">Report History</span>
-          <div className="flex-1 h-px bg-gradient-to-r from-teal-200/60 to-transparent" />
-        </div>
+        {reports.length > 0 && (
+          <>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xs font-semibold uppercase tracking-widest text-teal-600">Latest Report</span>
+              <div className="flex-1 h-px bg-gradient-to-r from-teal-200/60 to-transparent" />
+            </div>
+            <div className="mb-8">
+              <div
+                onClick={() => onView(reports[0])}
+                className="group bg-white border-2 border-teal-100 shadow-md rounded-2xl px-5 py-5 flex items-center gap-4 cursor-pointer transition-all duration-200 hover:translate-x-1.5 hover:shadow-xl hover:border-teal-300 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 bg-teal-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl tracking-widest uppercase">
+                  Latest
+                </div>
+                <div className={`absolute left-0 top-0 bottom-0 w-[4px] rounded-r-full bg-teal-500`} />
+                <ReportIcon type={reports[0].icon} />
+                <div className="flex-1 min-w-0">
+                  <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-lg font-bold text-slate-800 leading-snug">
+                    {reports[0].name}
+                  </div>
+                  <div className="flex items-center gap-3 mt-1.5 flex-wrap">
+                    <span className="flex items-center gap-1 text-xs font-medium text-slate-600">
+                      <svg className="w-3.5 h-3.5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+                      {reports[0].doctor}
+                    </span>
+                    <span className="flex items-center gap-1 text-xs font-medium text-slate-600">
+                      <svg className="w-3.5 h-3.5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                      {reports[0].lab}
+                    </span>
+                  </div>
+                </div>
+                <div className="text-right flex-shrink-0 mr-4">
+                  <div className="text-sm font-bold text-slate-800">{reports[0].date}</div>
+                  <div className="text-xs text-teal-600 font-medium mt-0.5">{reports[0].days}</div>
+                </div>
+                <div className="w-9 h-9 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0 transition-all duration-150 group-hover:bg-teal-600 group-hover:text-white">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
 
-        {/* Report rows */}
-        <div className="flex flex-col gap-2.5">
-          {REPORTS.map((r) => (
+        {reports.length > 1 && (
+          <>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-xs font-semibold uppercase tracking-widest text-slate-500">Previous Reports</span>
+              <div className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent" />
+            </div>
+            <div className="flex flex-col gap-2.5">
+              {reports.slice(1).map((r) => (
             <div
               key={r.id}
               onClick={() => onView(r)}
@@ -341,9 +271,11 @@ function HistoryPage({ onView }) {
                   <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
               </div>
+              </div>
+            ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
       </div>
     </div>
   );
@@ -351,17 +283,45 @@ function HistoryPage({ onView }) {
 
 // ─── DETAIL PAGE ──────────────────────────────────────────────────────────────
 function DetailPage({ report, onBack }) {
-  const handleDownload = () => {
-    alert(`Downloading: ${report.name}\n\n(In production, this triggers a PDF export.)`);
+  const reportRef = useRef(null);
+  const [prescription, setPrescription] = useState(null);
+
+  useEffect(() => {
+    if (report.appointment_id) {
+      axios.get(`http://localhost:5000/api/prescription/appointment/${report.appointment_id}`)
+        .then(res => {
+          if (res.data && res.data.length > 0) {
+            setPrescription(res.data);
+          }
+        })
+        .catch(err => console.error("Error fetching prescription:", err));
+    }
+  }, [report.appointment_id]);
+
+  const handleDownload = async () => {
+    if (report.file_url) {
+      window.open(`http://localhost:5000${report.file_url}`, '_blank');
+      return;
+    }
+    
+    if (!reportRef.current) return;
+    try {
+      const node = reportRef.current;
+      const dataUrl = await toPng(node, { pixelRatio: 2, cacheBust: true });
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (node.offsetHeight * pdfWidth) / node.offsetWidth;
+      pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`${report.name.replace(/\s+/g, "_")}_Report.pdf`);
+    } catch (err) {
+      console.error("PDF generation failed", err);
+      alert("Failed to generate PDF: " + (err.message || JSON.stringify(err)));
+    }
   };
 
   return (
     <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
       <div className="max-w-3xl mx-auto px-5 py-10">
-
-        {/* Top bar */}
-        <span></span>
-        <span> . <p>.</p></span>
         <div className="flex items-center gap-3 mb-8">
           <button
             onClick={onBack}
@@ -377,13 +337,10 @@ function DetailPage({ report, onBack }) {
             </h2>
             <p className="text-sm text-slate-500 mt-0.5">{report.dept} · {report.date}</p>
           </div>
-          {/* <StatusBadge status={report.status} text={report.badgeTxt} /> */}
         </div>
 
-        {/* Main info card */}
-        <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-4">
-
-          {/* Navy header */}
+        <div ref={reportRef} className="bg-[#F5F0E8] pb-6">
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-4">
           <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-7 py-5 flex items-start justify-between">
             <div>
               <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-white leading-snug">
@@ -399,7 +356,6 @@ function DetailPage({ report, onBack }) {
             </div>
           </div>
 
-          {/* Meta strip */}
           <div className="bg-stone-50 px-7 py-4 border-b border-slate-100 flex gap-8 flex-wrap">
             {[
               { label: "Doctor", val: report.doctor },
@@ -414,72 +370,95 @@ function DetailPage({ report, onBack }) {
             ))}
           </div>
 
-          {/* Results table */}
-          <div className="px-7 py-6">
-            <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-4">Test Results</div>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-slate-100">
-                    <tr>hii</tr>
-                    <tr>hii</tr>
-                    <tr>hii</tr>
-                    <tr>hii</tr>
-                    <tr>hii</tr>
-                    
-                  {/* <th className="text-left text-xs uppercase tracking-wider text-slate-400 font-medium pb-3 w-2/5">Parameter</th>
-                  <th className="text-left text-xs uppercase tracking-wider text-slate-400 font-medium pb-3 w-1/4">Value</th>
-                  <th className="text-left text-xs uppercase tracking-wider text-slate-400 font-medium pb-3">Reference Range</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {/* {report.results.map((rv, i) => (
-                  <tr key={i} className="border-b border-slate-50 last:border-0">
-                    <td className="py-3 text-sm text-slate-700">{rv.t}</td>
-                    <td className="py-3"><ResultValue s={rv.s} v={rv.v} /></td>
-                    <td className="py-3 text-xs text-slate-400">{rv.r}</td>
-                  </tr>
-                ))} */}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Clinical notes */}
-          <div className="px-7 py-5 border-t border-slate-100">
-            <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-3">Clinical Notes</div>
-            <p className="text-sm text-slate-500 leading-relaxed italic border-l-2 border-teal-200 pl-4">
-              "{report.note}"
-            </p>
-          </div>
-        </div>
-
-        {/* Prescription card */}
-        <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-6">
-          <div className="px-7 py-4 border-b border-slate-100 flex items-center justify-between">
-            <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-lg font-semibold text-slate-800">
-              Prescription
-            </div>
-            <div className="flex items-center gap-1.5 bg-teal-50 text-teal-600 border border-teal-200 text-xs px-3 py-1.5 rounded-full font-medium">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Issued
-            </div>
-          </div>
-          <div className="px-7 py-2">
-            {report.drugs.map((d, i) => (
-              <div key={i} className="flex items-center gap-3 py-3.5 border-b border-slate-50 last:border-0">
-                <div className="w-7 h-7 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                  {i + 1}
-                </div>
-                <div className="flex-1 text-sm font-semibold text-slate-800">{d.name}</div>
-                <div className="text-xs text-slate-500 mr-2">{d.dose}</div>
-                <div className="text-xs text-slate-500 bg-stone-100 px-3 py-1 rounded-full">{d.dur}</div>
+          <div className="bg-white">
+            <div className="px-7 py-8 border-b border-slate-50">
+              <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-4 flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                Doctor's Findings & Results
               </div>
-            ))}
+              <div className="text-base text-slate-700 leading-relaxed whitespace-pre-wrap bg-stone-50/50 p-6 rounded-2xl border border-stone-100 shadow-inner">
+                {report.note || "No specific findings recorded."}
+              </div>
+            </div>
+
+            {report.file_url && (
+              <div className="px-7 py-8 border-b border-slate-50 bg-stone-50/20">
+                <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-4 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                  Original Lab Document
+                </div>
+                {report.file_url.match(/\.(jpg|jpeg|png|gif)$/i) ? (
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md max-w-full group relative">
+                    <img 
+                      src={`http://localhost:5000${report.file_url}`} 
+                      alt="Lab Report" 
+                      className="w-full h-auto cursor-pointer transition-transform duration-300 group-hover:scale-[1.02]"
+                      onClick={() => window.open(`http://localhost:5000${report.file_url}`, '_blank')}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors pointer-events-none flex items-center justify-center">
+                       <span className="bg-white/90 text-slate-900 px-4 py-2 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">Click to Enlarge</span>
+                    </div>
+                  </div>
+                ) : (
+                  <a 
+                    href={`http://localhost:5000${report.file_url}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-200 text-teal-700 hover:text-teal-900 font-semibold transition-all hover:shadow-md hover:border-teal-300 group"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
+                      </svg>
+                    </div>
+                    <span>Download Original Report Document</span>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Actions */}
+        {prescription && (
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-6">
+            <div className="px-7 py-5 bg-teal-50 border-b border-teal-100 flex items-center justify-between">
+              <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-lg font-bold text-slate-800">
+                Associated Prescription
+              </div>
+              <div className="text-[10px] font-bold text-teal-600 uppercase tracking-widest px-3 py-1 bg-white border border-teal-200 rounded-full">
+                Diagnosis: {prescription[0].diagnosis}
+              </div>
+            </div>
+            
+            <div className="px-7 py-5">
+              <div className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3">Medications</div>
+              <div className="flex flex-col gap-3">
+                {prescription.map((p, i) => (
+                  <div key={i} className="flex items-center gap-4 bg-stone-50 p-4 rounded-2xl border border-stone-100">
+                    <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold">
+                      {i + 1}
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-bold text-slate-800">{p.medicine}</div>
+                      <div className="text-xs text-slate-500 mt-0.5">{p.dosage} · {p.duration}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {prescription[0].notes && (
+                <div className="mt-6">
+                  <div className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-2">Doctor's Clinical Notes</div>
+                  <div className="text-sm text-slate-600 italic leading-relaxed border-l-2 border-teal-200 pl-4">
+                    "{prescription[0].notes}"
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+        </div>
+
         <div className="flex gap-3">
           <button
             onClick={handleDownload}
@@ -506,7 +485,54 @@ function DetailPage({ report, onBack }) {
 // ─── APP ROOT ─────────────────────────────────────────────────────────────────
 export default function Patientlabreport() {
   const [selected, setSelected] = useState(null);
+  const [reports, setReports] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.patient_id) {
+      axios.get(`http://localhost:5000/api/lab/completed/${user.patient_id}`)
+        .then(res => {
+          const formatted = res.data.map(r => {
+            const testName = r.test_name?.toLowerCase() || "";
+            let icon = "blood";
+            if (testName.includes("heart") || testName.includes("lipid") || testName.includes("cardio")) icon = "heart";
+            if (testName.includes("thyroid")) icon = "thyroid";
+            if (testName.includes("liver") || testName.includes("lft")) icon = "liver";
+            if (testName.includes("sugar") || testName.includes("glucose") || testName.includes("diabetes")) icon = "glucose";
+
+            const rDate = new Date(r.report_date);
+            const now = new Date();
+            const diffTime = Math.abs(now - rDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            let daysLabel = diffDays === 0 ? "Today" : diffDays === 1 ? "Yesterday" : `${diffDays} days ago`;
+            if (diffDays > 30) daysLabel = `${Math.floor(diffDays / 30)} months ago`;
+
+            return {
+              id: r.report_id,
+              appointment_id: r.appointment_id,
+              name: r.test_name || "General Lab Report",
+              short: "LAB",
+              date: rDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              days: daysLabel,
+              doctor: r.doctor_name || "Assigned Doctor",
+              dept: r.specialization || "Laboratory",
+              lab: r.lab_name || "General Lab",
+              status: r.urgency === 'high' ? 'critical' : 'normal',
+              badgeTxt: r.urgency === 'high' ? 'Critical' : 'Normal',
+              icon: icon,
+              note: r.result || "No specific findings recorded.",
+              file_url: r.file_url,
+              results: [],
+              drugs: []
+            };
+          });
+          setReports(formatted);
+        })
+        .catch(err => console.error(err));
+    }
+  }, []);
+
   return selected
     ? <DetailPage report={selected} onBack={() => setSelected(null)} />
-    : <HistoryPage onView={setSelected} />;
+    : <HistoryPage onView={setSelected} reports={reports} />;
 }

@@ -2,7 +2,7 @@ import db from "../config/db.js";
 
 // GET PATIENT PROFILE
 export const getPatientProfile = (req, res) => {
-  const userId = req.user.id; // from JWT
+  const userId = req.query.id;   // ✅ ADD THIS
 
   const sql = `
     SELECT p.patient_id, p.name, p.email, p.phone, p.age, p.gender,

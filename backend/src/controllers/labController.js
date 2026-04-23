@@ -51,6 +51,8 @@ export const doctorReviewReport = (req, res) => {
     return res.status(400).json({ message: "Invalid Report ID. Please provide a numeric ID. ❌" });
   }
 
+  const fileUrl = req.file ? `/uploads/${req.file.filename}` : null;
+
   // We use explicit values or keep existing ones
   const sql = `
     UPDATE LAB_REPORT 
@@ -58,6 +60,7 @@ export const doctorReviewReport = (req, res) => {
         urgency = ?, 
         test_id = CASE WHEN ? IS NOT NULL THEN ? ELSE test_id END, 
         lab_id = CASE WHEN ? IS NOT NULL THEN ? ELSE lab_id END, 
+        file_url = CASE WHEN ? IS NOT NULL THEN ? ELSE file_url END,
         status = 'completed'
     WHERE report_id = ?
   `;
@@ -67,6 +70,7 @@ export const doctorReviewReport = (req, res) => {
     urgency || 'normal', 
     test_id || null, test_id || null, 
     lab_id || null, lab_id || null, 
+    fileUrl, fileUrl,
     reportId
   ];
 
@@ -98,6 +102,27 @@ export const getPatientCompletedReports = (req, res) => {
   `;
 
   db.query(sql, [patientId], (err, result) => {
+    if (err) return res.status(500).json(err);
+    res.json(result);
+  });
+};
+
+// 5. Doctor views their completed reports
+export const getDoctorCompletedReports = (req, res) => {
+  const { doctorId } = req.params;
+
+  const sql = `
+    SELECT lr.*, p.name as patient_name, p.patient_id as p_id, t.test_name, l.name as lab_name
+    FROM LAB_REPORT lr
+    JOIN APPOINTMENT a ON lr.appointment_id = a.appointment_id
+    JOIN PATIENT p ON a.patient_id = p.patient_id
+    LEFT JOIN TEST t ON lr.test_id = t.test_id
+    LEFT JOIN LAB l ON lr.lab_id = l.lab_id
+    WHERE a.doctor_id = ? AND lr.status = 'completed'
+    ORDER BY lr.report_date DESC
+  `;
+
+  db.query(sql, [doctorId], (err, result) => {
     if (err) return res.status(500).json(err);
     res.json(result);
   });
