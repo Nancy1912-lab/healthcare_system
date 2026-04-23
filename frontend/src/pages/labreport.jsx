@@ -191,6 +191,7 @@ export default function LabReportsPage() {
             const formData = new FormData();
             formData.append("result", result || `${selectedReport} - ${clinicalNotes || "Results recorded"}`);
             formData.append("urgency", urgency);
+            formData.append("test_name", selectedReport);
             if (uploadedFile) {
               formData.append("reportFile", uploadedFile);
             }

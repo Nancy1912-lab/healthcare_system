@@ -56,6 +56,7 @@ const STATUS_CFG = {
 const LAB_STATUS = {
   pending:    { cls:"bg-amber-50 text-amber-800 border border-amber-200",       label:"Pending" },
   processing: { cls:"bg-blue-50 text-blue-800 border border-blue-200",          label:"Processing" },
+  completed:   { cls:"bg-emerald-50 text-emerald-800 border border-emerald-200", label:"Complete" },
   complete:   { cls:"bg-emerald-50 text-emerald-800 border border-emerald-200", label:"Complete" },
 };
 
@@ -133,34 +134,36 @@ function PrescriptionPanel({ patient, existing, onClose, onSave }) {
 
           <div className="mb-5">
             <label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Diagnosis</label>
-            <input className={iCls} placeholder="Enter diagnosis..." value={diagnosis} onChange={(e)=>setDiagnosis(e.target.value)}/>
+            <input className={iCls} placeholder="Enter diagnosis..." value={diagnosis} onChange={(e)=>setDiagnosis(e.target.value)} disabled={!!existing}/>
           </div>
 
           <div className="mb-5">
             <div className="flex items-center justify-between mb-3">
               <label className="text-xs font-bold uppercase tracking-widest text-slate-400">Medications</label>
-              <button onClick={addMed} className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg cursor-pointer border-none transition-all" style={{ background:`${C.light}60`, color:C.dark }}>
-                <Plus size={12}/> Add
-              </button>
+              {!existing && (
+                <button onClick={addMed} className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg cursor-pointer border-none transition-all" style={{ background:`${C.light}60`, color:C.dark }}>
+                  <Plus size={12}/> Add
+                </button>
+              )}
             </div>
             {medicines.map((med, i) => (
               <div key={i} className="relative rounded-2xl p-4 mb-3 border border-slate-100 bg-slate-50">
-                {medicines.length > 1 && (
+                {medicines.length > 1 && !existing && (
                   <button onClick={()=>removeMed(i)} className="absolute top-2 right-2 w-6 h-6 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center hover:bg-rose-200 transition-all cursor-pointer border-none"><X size={11}/></button>
                 )}
                 <div className="grid grid-cols-2 gap-3 mb-3">
-                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Medicine</div><input className={iCls} placeholder="e.g. Metoprolol" value={med.name} onChange={(e)=>updateMed(i,"name",e.target.value)}/></div>
-                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Dosage</div><input className={iCls} placeholder="e.g. 50mg" value={med.dose} onChange={(e)=>updateMed(i,"dose",e.target.value)}/></div>
+                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Medicine</div><input className={iCls} placeholder="e.g. Metoprolol" value={med.name || med.medicine} onChange={(e)=>updateMed(i,"name",e.target.value)} disabled={!!existing}/></div>
+                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Dosage</div><input className={iCls} placeholder="e.g. 50mg" value={med.dose || med.dosage} onChange={(e)=>updateMed(i,"dose",e.target.value)} disabled={!!existing}/></div>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <div className="text-xs font-semibold text-slate-400 mb-1.5">Frequency</div>
-                    <select className={iCls} value={med.freq} onChange={(e)=>updateMed(i,"freq",e.target.value)}>
+                    <select className={iCls} value={med.freq || "Once daily"} onChange={(e)=>updateMed(i,"freq",e.target.value)} disabled={!!existing}>
                       <option value="">Select...</option>
                       <option>Once daily</option><option>Twice daily</option><option>Thrice daily</option><option>Every 8 hours</option><option>As needed</option>
                     </select>
                   </div>
-                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Duration</div><input className={iCls} placeholder="e.g. 30 days" value={med.dur} onChange={(e)=>updateMed(i,"dur",e.target.value)}/></div>
+                  <div><div className="text-xs font-semibold text-slate-400 mb-1.5">Duration</div><input className={iCls} placeholder="e.g. 30 days" value={med.dur || med.duration} onChange={(e)=>updateMed(i,"dur",e.target.value)} disabled={!!existing}/></div>
                 </div>
               </div>
             ))}
@@ -168,13 +171,20 @@ function PrescriptionPanel({ patient, existing, onClose, onSave }) {
 
           <div className="mb-7">
             <label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Doctor's Notes</label>
-            <textarea className={iCls} rows={4} style={{ resize:"vertical", minHeight:88 }} placeholder="Additional notes, instructions, follow-up dates..." value={notes} onChange={(e)=>setNotes(e.target.value)}/>
+            <textarea className={iCls} rows={4} style={{ resize:"vertical", minHeight:88 }} placeholder="Additional notes, instructions, follow-up dates..." value={notes} onChange={(e)=>setNotes(e.target.value)} disabled={!!existing}/>
           </div>
 
-          <button onClick={handleSave} className="w-full py-4 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90 cursor-pointer border-none"
-            style={{ background:`linear-gradient(135deg,${C.primary},${C.teal})`, fontFamily:"'Poppins',sans-serif" }}>
-            <Pill size={16}/> Update Prescription
-          </button>
+          {!existing && (
+            <button onClick={handleSave} className="w-full py-4 rounded-2xl text-white font-bold text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90 cursor-pointer border-none"
+              style={{ background:`linear-gradient(135deg,${C.primary},${C.teal})`, fontFamily:"'Poppins',sans-serif" }}>
+              <Pill size={16}/> Save Prescription & Complete Appointment
+            </button>
+          )}
+          {existing && (
+            <div className="w-full py-4 rounded-2xl text-emerald-700 font-bold text-sm flex items-center justify-center gap-2 bg-emerald-50 border border-emerald-200">
+              <CheckCircle size={16}/> Prescription Already Saved
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -274,29 +284,31 @@ export default function DoctorDashboard() {
       .catch(err => console.log(err));
   };
 
- const saveRx = (appointmentId, data) => {
-  console.log("Sending appointment_id:", appointmentId);  // ✅ ADD THIS
-  console.log("Full data:", data);
+  const saveRx = (appointmentId, data) => {
+    console.log("Sending appointment_id:", appointmentId);
+    console.log("Full data:", data);
 
-  axios.post("http://localhost:5000/api/prescription", {
-    appointment_id: appointmentId,
-    diagnosis: data.diagnosis,
-    notes: data.notes,
-    medicines: data.medicines.map((m) => ({
-      name: m.name,
-      dosage: m.dose,
-      duration: m.dur
-    }))
-  })
-  .then(() => {
-    // save locally also (UI update)
-    setRxData(prev => ({
-      ...prev,
-      [appointmentId]: data
-    }));
-  })
-  .catch(err => console.log(err));
-};
+    axios.post("http://localhost:5000/api/prescription", {
+      appointment_id: appointmentId,
+      diagnosis: data.diagnosis,
+      notes: data.notes,
+      medicines: data.medicines.map((m) => ({
+        name: m.name,
+        dosage: m.dose,
+        duration: m.dur
+      }))
+    })
+    .then(() => {
+      // save locally
+      setRxData(prev => ({
+        ...prev,
+        [appointmentId]: data
+      }));
+      // Automatically complete the appointment
+      markDone(appointmentId);
+    })
+    .catch(err => console.log(err));
+  };
   const addLab      = (lab) => setLabs(prev => [lab,...prev]);
   const cycleStatus = (id)  => setLabs(prev => prev.map(l => {
     if(l.id!==id) return l;
@@ -314,12 +326,32 @@ export default function DoctorDashboard() {
           type: "Consultation", visitedAt: new Date(a.appointment_date).toLocaleDateString(),
           img: ""
         })));
+
+        // Fetch existing prescriptions for history appointments too
+        res.data.forEach(apt => {
+            axios.get(`http://localhost:5000/api/prescription/appointment/${apt.appointment_id}`)
+                .then(rxRes => {
+                    if (rxRes.data && rxRes.data.length > 0) {
+                        setRxData(prev => ({
+                            ...prev,
+                            [apt.appointment_id]: {
+                                diagnosis: rxRes.data[0].diagnosis,
+                                medicines: rxRes.data.map(m => ({
+                                    name: m.medicine,
+                                    dose: m.dosage,
+                                    dur: m.duration
+                                })),
+                                notes: rxRes.data[0].notes
+                            }
+                        }));
+                    }
+                }).catch(e => console.log("Rx history fetch error", e));
+        });
       }).catch(console.log);
   };
 
-  useEffect(() => {
+  const fetchAppointments = () => {
     if (!doctorId) return;
-
     axios
       .get(`http://localhost:5000/api/appointment/doctor/${doctorId}`)
       .then((res) => {
@@ -337,6 +369,13 @@ export default function DoctorDashboard() {
         setAppointments(formatted);
       })
       .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if (!doctorId) return;
+
+    fetchAppointments();
+    const interval = setInterval(fetchAppointments, 5000);
 
     fetchHistory();
 
@@ -354,14 +393,44 @@ export default function DoctorDashboard() {
       })));
     }).catch(console.log);
 
+    // Fetch existing prescriptions for these appointments
+    axios.get(`http://localhost:5000/api/appointment/doctor/${doctorId}`)
+      .then(res => {
+          res.data.forEach(apt => {
+              axios.get(`http://localhost:5000/api/prescription/appointment/${apt.appointment_id}`)
+                  .then(rxRes => {
+                      if (rxRes.data && rxRes.data.length > 0) {
+                          setRxData(prev => ({
+                              ...prev,
+                              [apt.appointment_id]: {
+                                  diagnosis: rxRes.data[0].diagnosis,
+                                  medicines: rxRes.data.map(m => ({
+                                      name: m.medicine,
+                                      dose: m.dosage,
+                                      dur: m.duration
+                                  })),
+                                  notes: rxRes.data[0].notes
+                              }
+                          }));
+                      }
+                  }).catch(e => console.log("Rx fetch error", e));
+          });
+      });
+
+    return () => clearInterval(interval);
   }, [doctorId]);
 
 const formatTime = (time) => {
-  const [h, m] = time.split(":");
-  let hour = parseInt(h);
-  const ampm = hour >= 12 ? "PM" : "AM";
-  hour = hour % 12 || 12;
-  return `${hour}:${m} ${ampm}`;
+  if (!time) return "--:--";
+  try {
+    const parts = time.split(":");
+    if (parts.length < 2) return time;
+    const [h, m] = parts;
+    let hour = parseInt(h);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    hour = hour % 12 || 12;
+    return `${hour}:${m} ${ampm}`;
+  } catch(e) { return time; }
 };
 
   return (
@@ -369,9 +438,8 @@ const formatTime = (time) => {
       <style>{GLOBAL_CSS}</style>
 
       {/* ══ NAVBAR SPACE — replace with your <Navbar /> ══ */}
-      <div className="h-16 bg-white border-b border-slate-100 flex items-center px-14" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}>
-        {/* <Navbar /> */}
-         {/* <span className="text-xs text-slate-400 font-medium tracking-wide">← Your Navbar goes here</span> */}
+      <div className="h-16 flex items-center px-14" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}>
+          {/* Navbar space */}
       </div> 
 
       {/* ══ HERO ══════════════════════════════════════════ */}
@@ -628,7 +696,7 @@ const formatTime = (time) => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {labs.map(r=>{
-              const ls=LAB_STATUS[r.status];
+              const ls=LAB_STATUS[r.status] || LAB_STATUS.pending;
               const uc=urgencyColor(r.urgency);
               return(
                 <div key={r.id} className="glass-card hover-lift rounded-3xl overflow-hidden">

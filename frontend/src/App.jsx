@@ -19,11 +19,7 @@ import DoctorLabReports from "./pages/DoctorLabReports";
 function App() {
   return (
     <Router>
-      <Navbar
-  user={null}
-  onLogin={() => window.location.href = "/login"}
-  onLogout={() => {}}
-/>
+      <Navbar />
 
 
       <Routes>

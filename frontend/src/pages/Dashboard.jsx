@@ -519,8 +519,12 @@ export default function PatientDashboard() {
             doctor_id: selectedDoctor?.doctor_id
         });
 
-        const todayDate = new Date().toISOString().split('T')[0];
-        const currentTime = new Date().toTimeString().split(' ')[0];
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const todayDate = `${year}-${month}-${day}`;
+        const currentTime = now.toTimeString().split(' ')[0];
 
         axios.post("http://localhost:5000/api/appointment/book", {
             patient_id: user?.patient_id,

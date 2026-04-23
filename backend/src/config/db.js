@@ -4,7 +4,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
 
-  password: "im_ria10", // XAMPP has no password
+  password: "shaif@121006", // XAMPP has no password
   database: "healthcare_db",
   port: 3306
 

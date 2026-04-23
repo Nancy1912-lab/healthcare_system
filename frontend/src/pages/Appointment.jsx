@@ -134,7 +134,14 @@ function PrescriptionDetail({ apt, onBack }) {
     
   const rx = apt.prescription || {};
   console.log("APT:", apt);
-console.log("RX:", rx);
+  console.log("RX:", rx);
+  
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const patientName = user.name || "Unknown Patient";
+  const patientId = user.patient_id ? `P-${user.patient_id}` : "Unknown ID";
+  const patientAge = user.age ? `Age ${user.age}` : "Age Unknown";
+  const patientGender = user.gender || "Unknown";
+
   return (
     <div className="bg-[#F5EFE8] min-h-screen" style={{ fontFamily: "Inter, sans-serif" }}>
 
@@ -153,8 +160,8 @@ console.log("RX:", rx);
       <div className="bg-[#2E4156] px-6 pt-7 pb-14 relative overflow-hidden">
         <div className="absolute rounded-full border border-[#CBD9E6]/10 pointer-events-none" style={{ width: 200, height: 200, top: -50, right: -50 }} />
         <p className="text-[10px] text-[#8A9AAA] tracking-[2px] uppercase mb-2">Prescription · {apt.fullDate}</p>
-        <h1 className="text-[24px] text-[#F5EFE8] mb-1" style={{ fontFamily: "Playfair Display, serif", fontWeight: 400 }}>Arjun Sharma</h1>
-        <p className="text-[12px] text-[#8A9AAA] mb-4">Patient ID: #P-20481 · Age 34 · Blood Group B+</p>
+        <h1 className="text-[24px] text-[#F5EFE8] mb-1" style={{ fontFamily: "Playfair Display, serif", fontWeight: 400 }}>{patientName}</h1>
+        <p className="text-[12px] text-[#8A9AAA] mb-4">Patient ID: #{patientId} · {patientAge} · {patientGender}</p>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-full bg-[#567C8D] flex items-center justify-center text-[12px] text-[#CBD9E6] font-medium flex-shrink-0">{apt.initials}</div>
           <div>

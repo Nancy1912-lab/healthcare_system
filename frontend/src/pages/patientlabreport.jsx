@@ -118,12 +118,16 @@ function HistoryPage({ onView, reports = [] }) {
           {/* Patient chip */}
           {/* <div className="flex items-center gap-2.5 bg-white border border-slate-200 rounded-full px-4 py-2 shadow-sm"> */}
           <div className="flex items-center gap-2.5 bg-white/40 backdrop-blur-sm border border-[#C8D9E6] rounded-full px-4 py-2">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-teal-500 to-slate-700 flex items-center justify-center text-white text-xs font-semibold tracking-wide">
-              RM
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#567C8D] to-[#2F4156] flex items-center justify-center text-white text-xs font-semibold tracking-wide uppercase">
+              {JSON.parse(localStorage.getItem("user"))?.name?.substring(0, 2) || "PT"}
             </div>
             <div>
-              <div className="text-sm font-semibold text-slate-800 leading-tight">Rahul Mehta</div>
-              <div className="text-xs text-slate-400 mt-0.5">KD-20240420</div>
+              <div className="text-sm font-semibold text-slate-800 leading-tight capitalize">
+                {JSON.parse(localStorage.getItem("user"))?.name || "Patient"}
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5 uppercase">
+                P-{JSON.parse(localStorage.getItem("user"))?.patient_id || "ID"}
+              </div>
             </div>
           </div>
         </div>
@@ -284,7 +288,7 @@ function HistoryPage({ onView, reports = [] }) {
 // ─── DETAIL PAGE ──────────────────────────────────────────────────────────────
 function DetailPage({ report, onBack }) {
   const reportRef = useRef(null);
-  const [prescription, setPrescription] = useState(null);
+  const [prescription, setPrescription] = useState([]);
 
   useEffect(() => {
     if (report.appointment_id) {
@@ -298,12 +302,25 @@ function DetailPage({ report, onBack }) {
     }
   }, [report.appointment_id]);
 
-  const handleDownload = async () => {
-    if (report.file_url) {
-      window.open(`http://localhost:5000${report.file_url}`, '_blank');
-      return;
+  const downloadOriginal = async (url) => {
+    try {
+      const response = await fetch(`http://localhost:5000${url}`);
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = downloadUrl;
+      link.download = url.split("/").pop() || "report-file";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(downloadUrl);
+    } catch (err) {
+      console.error("Download failed", err);
+      window.open(`http://localhost:5000${url}`, "_blank");
     }
-    
+  };
+
+  const handleDownload = async () => {
     if (!reportRef.current) return;
     try {
       const node = reportRef.current;
@@ -312,171 +329,157 @@ function DetailPage({ report, onBack }) {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (node.offsetHeight * pdfWidth) / node.offsetWidth;
       pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`${report.name.replace(/\s+/g, "_")}_Report.pdf`);
+      pdf.save(`LR-${report.id}_Report.pdf`);
     } catch (err) {
       console.error("PDF generation failed", err);
       alert("Failed to generate PDF: " + (err.message || JSON.stringify(err)));
     }
   };
 
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const patientName = user.name || "Unknown Patient";
+  const patientIdStr = user.patient_id ? `P-${user.patient_id}` : "Unknown ID";
+
   return (
-    <div className="min-h-screen" style={{ background: "#F5F0E8" }}>
-      <div className="max-w-3xl mx-auto px-5 py-10">
-        <div className="flex items-center gap-3 mb-8">
-          <button
-            onClick={onBack}
-            className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-stone-100 transition-all duration-150 hover:scale-95 flex-shrink-0 shadow-sm"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <div className="flex-1">
-            <h2 style={{ fontFamily: "'Playfair Display', serif" }} className="text-2xl font-bold text-slate-900 leading-tight">
-              {report.name}
-            </h2>
-            <p className="text-sm text-slate-500 mt-0.5">{report.dept} · {report.date}</p>
-          </div>
-        </div>
-
-        <div ref={reportRef} className="bg-[#F5F0E8] pb-6">
-          <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-4">
-          <div className="bg-gradient-to-r from-slate-900 to-slate-700 px-7 py-5 flex items-start justify-between">
-            <div>
-              <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-xl font-bold text-white leading-snug">
-                {report.name}
-              </div>
-              <div className="text-sm text-white/50 mt-1">Patient: Rahul Mehta · ID: KD-20240420</div>
-            </div>
-            <div className="flex items-center gap-1.5 bg-white/10 border border-white/20 text-white/90 text-xs px-3 py-1.5 rounded-full">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Verified
-            </div>
-          </div>
-
-          <div className="bg-stone-50 px-7 py-4 border-b border-slate-100 flex gap-8 flex-wrap">
-            {[
-              { label: "Doctor", val: report.doctor },
-              { label: "Department", val: report.dept },
-              { label: "Laboratory", val: report.lab },
-              { label: "Date", val: report.date },
-            ].map((m) => (
-              <div key={m.label}>
-                <div className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-0.5">{m.label}</div>
-                <div className="text-sm font-semibold text-slate-800">{m.val}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-white">
-            <div className="px-7 py-8 border-b border-slate-50">
-              <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-4 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                Doctor's Findings & Results
-              </div>
-              <div className="text-base text-slate-700 leading-relaxed whitespace-pre-wrap bg-stone-50/50 p-6 rounded-2xl border border-stone-100 shadow-inner">
-                {report.note || "No specific findings recorded."}
-              </div>
-            </div>
-
-            {report.file_url && (
-              <div className="px-7 py-8 border-b border-slate-50 bg-stone-50/20">
-                <div className="text-xs uppercase tracking-widest text-teal-600 font-semibold mb-4 flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-teal-500" />
-                  Original Lab Document
-                </div>
-                {report.file_url.match(/\.(jpg|jpeg|png|gif)$/i) ? (
-                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md max-w-full group relative">
-                    <img 
-                      src={`http://localhost:5000${report.file_url}`} 
-                      alt="Lab Report" 
-                      className="w-full h-auto cursor-pointer transition-transform duration-300 group-hover:scale-[1.02]"
-                      onClick={() => window.open(`http://localhost:5000${report.file_url}`, '_blank')}
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors pointer-events-none flex items-center justify-center">
-                       <span className="bg-white/90 text-slate-900 px-4 py-2 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">Click to Enlarge</span>
-                    </div>
-                  </div>
-                ) : (
-                  <a 
-                    href={`http://localhost:5000${report.file_url}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 bg-white p-5 rounded-2xl border border-slate-200 text-teal-700 hover:text-teal-900 font-semibold transition-all hover:shadow-md hover:border-teal-300 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
-                      </svg>
-                    </div>
-                    <span>Download Original Report Document</span>
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {prescription && (
-          <div className="bg-white rounded-3xl border border-slate-100 shadow-md overflow-hidden mb-6">
-            <div className="px-7 py-5 bg-teal-50 border-b border-teal-100 flex items-center justify-between">
-              <div style={{ fontFamily: "'Playfair Display', serif" }} className="text-lg font-bold text-slate-800">
-                Associated Prescription
-              </div>
-              <div className="text-[10px] font-bold text-teal-600 uppercase tracking-widest px-3 py-1 bg-white border border-teal-200 rounded-full">
-                Diagnosis: {prescription[0].diagnosis}
-              </div>
-            </div>
-            
-            <div className="px-7 py-5">
-              <div className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-3">Medications</div>
-              <div className="flex flex-col gap-3">
-                {prescription.map((p, i) => (
-                  <div key={i} className="flex items-center gap-4 bg-stone-50 p-4 rounded-2xl border border-stone-100">
-                    <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold">
-                      {i + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-bold text-slate-800">{p.medicine}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">{p.dosage} · {p.duration}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {prescription[0].notes && (
-                <div className="mt-6">
-                  <div className="text-xs uppercase tracking-widest text-slate-400 font-medium mb-2">Doctor's Clinical Notes</div>
-                  <div className="text-sm text-slate-600 italic leading-relaxed border-l-2 border-teal-200 pl-4">
-                    "{prescription[0].notes}"
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-        </div>
-
+    <div className="min-h-screen font-sans bg-[#F5F0E8] flex flex-col items-center py-12 px-4">
+      <div className="w-full max-w-[816px] mb-6 flex justify-between items-center">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-slate-500 hover:text-slate-800 transition-colors text-sm font-medium bg-white px-4 py-2 rounded-full shadow-sm"
+        >
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+          Back
+        </button>
         <div className="flex gap-3">
-          <button
-            onClick={handleDownload}
-            className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-150 hover:-translate-y-0.5 shadow-md"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download Report
-          </button>
-          {/* <button className="flex items-center gap-2 border border-teal-300 text-teal-600 hover:bg-teal-50 px-6 py-3 rounded-full text-sm font-medium transition-all duration-150">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" /><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-            </svg>
-            Share
-          </button> */}
+           {report.file_url && (
+              <button
+                onClick={() => downloadOriginal(report.file_url)}
+                className="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-sm"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download Original File
+              </button>
+           )}
+           <button
+              onClick={handleDownload}
+              className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-md"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download PDF
+            </button>
         </div>
+      </div>
+
+      {/* PAPER SHEET */}
+      <div ref={reportRef} className="bg-white p-14 shadow-lg mx-auto" style={{ minHeight: "1056px", width: "816px" }}>
+        
+        {/* HEADER ROW */}
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <div className="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase mb-3">
+              HEALTHCARE SYSTEM — LAB REPORT
+            </div>
+            <h1 className="text-4xl font-bold text-slate-600 font-serif mb-2">
+              Lab Report
+            </h1>
+            <div className="text-xs text-slate-400 font-medium tracking-wide">
+              Report ID: #LR-{report.id} • Date: {report.date}
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-[10px] font-bold text-slate-300 tracking-[0.1em] uppercase mb-1">
+              STATUS
+            </div>
+            <div className="text-sm font-bold text-emerald-600 flex items-center justify-end gap-1">
+              ✓ Completed
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 my-6" />
+
+        {/* 3 COLUMNS */}
+        <div className="grid grid-cols-3 gap-6 mb-8">
+          <div>
+            <div className="text-[10px] font-bold text-slate-500 tracking-[0.15em] uppercase mb-2">PATIENT INFORMATION</div>
+            <div className="text-lg font-bold text-slate-800 capitalize">{patientName}</div>
+            <div className="text-xs font-semibold text-slate-700 mt-1 uppercase">Patient ID: {patientIdStr}</div>
+          </div>
+          <div className="border-l border-slate-100 pl-6">
+            <div className="text-[10px] font-bold text-slate-500 tracking-[0.15em] uppercase mb-2">DOCTOR</div>
+            <div className="text-lg font-bold text-slate-800">{report.doctor}</div>
+            <div className="text-xs font-semibold text-slate-700 mt-1">{report.dept}</div>
+          </div>
+          <div className="border-l border-slate-100 pl-6">
+            <div className="text-[10px] font-bold text-slate-500 tracking-[0.15em] uppercase mb-2">LABORATORY</div>
+            <div className="text-lg font-bold text-slate-800">{report.lab}</div>
+            <div className="text-xs font-semibold text-slate-700 mt-1">Date: {report.date}</div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 my-6" />
+
+        {/* RESULTS */}
+        <div className="mb-10">
+          <div className="text-[10px] font-bold text-slate-800 tracking-[0.15em] uppercase mb-3">TEST RESULTS / FINDINGS</div>
+          <div className="border border-slate-200 rounded-2xl p-5 min-h-[100px]">
+            <p className="text-sm text-slate-800 whitespace-pre-wrap leading-relaxed">{report.note || "No specific findings recorded."}</p>
+          </div>
+        </div>
+
+        {/* PRESCRIPTION */}
+        <div className="mb-16">
+          <div className="text-[10px] font-bold text-slate-800 tracking-[0.15em] uppercase mb-4">PRESCRIPTION</div>
+          <table className="w-full text-left text-xs text-slate-600">
+            <thead>
+              <tr className="border-b border-slate-100">
+                <th className="pb-3 font-bold uppercase tracking-widest text-slate-500 w-12 text-center">#</th>
+                <th className="pb-3 font-bold uppercase tracking-widest text-slate-500">Medicine</th>
+                <th className="pb-3 font-bold uppercase tracking-widest text-slate-500">Dosage</th>
+                <th className="pb-3 font-bold uppercase tracking-widest text-slate-500">Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              {prescription && prescription.length > 0 ? (
+                prescription.map((p, idx) => (
+                  <tr key={idx} className="border-b border-slate-50 last:border-0">
+                    <td className="py-5 text-center font-semibold text-slate-400">{idx + 1}</td>
+                    <td className="py-5 font-bold text-slate-700 uppercase tracking-wide">{p.medicine}</td>
+                    <td className="py-5 font-medium">{p.dosage}</td>
+                    <td className="py-5 font-medium">{p.duration}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="py-10 text-center text-sm font-medium italic text-slate-400">
+                    No medications prescribed
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="border-t border-slate-100 my-10" />
+
+        {/* FOOTER ROW */}
+        <div className="flex justify-between items-end mt-auto">
+          <div>
+             <div className="text-[9px] font-bold text-slate-400 tracking-[0.1em] uppercase mb-1">ISSUED BY</div>
+             <div className="font-serif text-2xl italic font-bold text-slate-700 tracking-tight">{report.doctor}</div>
+             <div className="text-[10px] text-slate-600 font-medium">{report.dept}</div>
+          </div>
+          <div className="text-right">
+             <div className="text-[9px] font-bold text-slate-400 tracking-[0.1em] uppercase mb-1">REPORT REFERENCE</div>
+             <div className="font-bold text-lg text-slate-700 font-serif">LR-{report.id}</div>
+             <div className="text-[9px] text-slate-500 mt-1">Healthcare System · Confidential Medical Record</div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
