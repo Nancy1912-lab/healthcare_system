@@ -45,33 +45,37 @@ export const getDoctorPendingReports = (req, res) => {
 // 3. Doctor reviews and fills the report content
 export const doctorReviewReport = (req, res) => {
   const { reportId } = req.params;
-  const { result, urgency, test_id, lab_id, test_name } = req.body;
+  const { result,  test_id, lab_id, test_name } = req.body;
 
   if (isNaN(reportId)) {
     return res.status(400).json({ message: "Invalid Report ID. Please provide a numeric ID. ❌" });
   }
 
   const fileUrl = req.file ? `/uploads/${req.file.filename}` : null;
+  const finalResult = `
+${result || ""}
+${fileUrl ? `\nFILE:${fileUrl}` : ""}
+`;
 
   // We use explicit values or keep existing ones, and lookup test_id based on test_name if provided
   const sql = `
     UPDATE LAB_REPORT 
     SET result = ?, 
-        urgency = ?, 
+       
         test_id = COALESCE(?, (SELECT test_id FROM TEST WHERE test_name = ? LIMIT 1), test_id), 
         lab_id = COALESCE(?, lab_id), 
-        file_url = CASE WHEN ? IS NOT NULL THEN ? ELSE file_url END,
+       
         status = 'completed'
     WHERE report_id = ?
   `;
 
   const params = [
-    result || "", 
-    urgency || 'normal', 
+     finalResult,  
+   
     test_id || null, 
     test_name || null,
     lab_id || null, 
-    fileUrl, fileUrl,
+    
     reportId
   ];
 

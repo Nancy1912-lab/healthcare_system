@@ -24,6 +24,62 @@ import {
   Upload, RefreshCw, FileCheck, User, X, Plus,
 } from "lucide-react";
 
+
+const Icon = ({ name, size = 16, className = "", style = {} }) => {
+    const icons = {
+        "heart-pulse": <><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path d="M3.22 12H9.5l1.5-3 2 4.5 1.5-3h5.28" /></>,
+        "calendar": <><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" x2="16" y1="2" y2="6" /><line x1="8" x2="8" y1="2" y2="6" /><line x1="3" x2="21" y1="10" y2="10" /></>,
+        "calendar-clock": <><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h5" /><circle cx="17.5" cy="17.5" r="4.5" /><path d="M17.5 15.5v2l1 1" /></>,
+        "calendar-check": <><rect width="18" height="18" x="3" y="4" rx="2" ry="2" /><line x1="16" x2="16" y1="2" y2="6" /><line x1="8" x2="8" y1="2" y2="6" /><line x1="3" x2="21" y1="10" y2="10" /><path d="m9 16 2 2 4-4" /></>,
+        "file-text": <><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /><line x1="16" x2="8" y1="13" y2="13" /><line x1="16" x2="8" y1="17" y2="17" /><line x1="10" x2="8" y1="9" y2="9" /></>,
+        "droplets": <><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></>,
+        "scroll-text": <><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" /><path d="M19 17V5a2 2 0 0 0-2-2H4" /><path d="M15 8h-5" /><path d="M15 12h-5" /></>,
+        "pill": <><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" /><path d="m8.5 8.5 7 7" /></>,
+        "stethoscope": <><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" /><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" /><circle cx="20" cy="10" r="2" /></>,
+        "activity": <><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></>,
+        "star": <><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></>,
+        "circle": <><circle cx="12" cy="12" r="10" /></>,
+        "check-circle": <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></>,
+        "chevron-down": <><polyline points="6 9 12 15 18 9" /></>,
+        "chevron-right": <><polyline points="9 18 15 12 9 6" /></>,
+        "arrow-right": <><line x1="5" x2="19" y1="12" y2="12" /><polyline points="12 5 19 12 12 19" /></>,
+        "plus": <><line x1="12" x2="12" y1="5" y2="19" /><line x1="5" x2="19" y1="12" y2="12" /></>,
+        "leaf": <><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></>,
+        "moon": <><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></>,
+        "wind": <><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" /><path d="M9.6 4.6A2 2 0 1 1 11 8H2" /><path d="M12.6 19.4A2 2 0 1 0 14 16H2" /></>,
+        "monitor-off": <><path d="M17 17H4a2 2 0 0 1-2-2V5c0-.53.19-1.04.51-1.43" /><path d="M22 15a2 2 0 0 1-2 2" /><path d="M8 21h8" /><path d="M12 17v4" /><path d="m2 2 20 20" /></>,
+        "footprints": <><path d="M4 16v-2.38C4 11.5 2.97 10.43 3 8c.03-2.44 1.36-4.04 2.5-4C6.97 4 8 5.7 8 8c0 2.3-1 4-2 4v4" /><path d="M4 20.5v.5" /><path d="M11 20v-2.38c0-2.12 1.03-3.19 1-5.62-.03-2.44-1.36-4.04-2.5-4C8.03 8 7 9.7 7 12c0 2.3 1 4 2 4v4" /><path d="M11 20.5v.5" /></>,
+        "salad": <><path d="M7 21h10" /><path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z" /><path d="M11.38 12a2.4 2.4 0 0 1-.4-4.77 2.4 2.4 0 0 1 3.2-3.19 2.4 2.4 0 0 1 3.47-.63 2.4 2.4 0 0 1 3.37 3.37 2.4 2.4 0 0 1-1.1 3.7 2.51 2.51 0 0 1 .03 1.5H11.38z" /><path d="M13 12a4 4 0 0 1-8.44 1.47 4 4 0 0 1 .18-2.97" /></>,
+        "dumbbell": <><path d="m6.5 6.5 11 11" /><path d="m21 21-1-1" /><path d="m3 3 1 1" /><path d="m18 22 4-4" /><path d="m2 6 4-4" /><path d="m3 10 7-7" /><path d="m14 21 7-7" /></>,
+        "utensils": <><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /><path d="M7 2v20" /><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></>,
+        "user-check": <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><polyline points="16 11 18 13 22 9" /></>,
+        "shield": <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></>,
+        "shield-heart": <><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" /><path d="M12 17s-4-2.5-4-6a4 4 0 0 1 8 0c0 3.5-4 6-4 6z" /></>,
+        "ambulance": <><path d="M10 10H6" /><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14" /><path d="M8 8v4" /><path d="M9 18h6" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></>,
+        "flame": <><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z" /></>,
+        "siren": <><path d="M7 18H3a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-4" /><path d="M12 2v4" /><path d="m4.93 4.93 2.83 2.83" /><path d="m19.07 4.93-2.83 2.83" /><rect width="10" height="5" x="7" y="13" rx="1" /></>,
+        "phone-call": <><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.93 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /><path d="M14.05 2a9 9 0 0 1 8 7.94" /><path d="M14.05 6A5 5 0 0 1 18 10" /></>,
+        "triangle-alert": <><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /><line x1="12" x2="12" y1="9" y2="13" /><line x1="12" x2="12.01" y1="17" y2="17" /></>,
+        "shield-check": <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></>,
+        "clock": <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></>,
+        "scale": <><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></>,
+        "heart": <><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></>,
+        "thermometer": <><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" /></>,
+        "bone": <><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z" /></>,
+        "eye": <><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></>,
+        "brain": <><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></>,
+        "smile": <><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" x2="9.01" y1="9" y2="9" /><line x1="15" x2="15.01" y1="9" y2="9" /></>,
+        "scan-face": <><path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" /><path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><path d="M9 9h.01" /><path d="M15 9h.01" /></>,
+    };
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            className={className} style={style}>
+            {icons[name] || null}
+        </svg>
+    );
+};
+
 /* ─── DESIGN TOKENS ─── */
 const C = {
   primary: "#2E86C1",
@@ -33,6 +89,19 @@ const C = {
   bg:      "#EDE8E3",
 };
 
+const getReportIcon = (test) => {
+  if (!test) return "file-text";
+
+  const t = test.toLowerCase();
+
+  if (t.includes("blood")) return "droplets";
+  if (t.includes("scan") || t.includes("x-ray") || t.includes("mri")) return "scan-face";
+  if (t.includes("heart")) return "heart";
+  if (t.includes("brain")) return "brain";
+  if (t.includes("urine")) return "droplets";
+
+  return "file-text"; // default
+};
 /* ─── DATA ─── */
 const INIT_APPOINTMENTS = [
   { id:1, name:"Priya Sharma",  age:34, gender:"Female", time:"09:00 AM", type:"General Checkup",       status:"confirmed", img:"https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=face", done:false },
@@ -111,6 +180,7 @@ function PrescriptionPanel({ patient, existing, onClose, onSave }) {
 
   const iCls = "w-full rounded-xl px-4 py-2.5 text-sm border border-slate-200 bg-slate-50 text-slate-800 outline-none focus:border-blue-500 focus:bg-white transition-all font-[Poppins]";
 
+  
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-end" style={{ background:"rgba(0,0,0,.38)", backdropFilter:"blur(4px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
@@ -191,6 +261,27 @@ function PrescriptionPanel({ patient, existing, onClose, onSave }) {
   );
 }
 
+
+
+function SectionLabel({ children, icon, color = "#1D5FA8" }) {
+    return (
+        <p className="flex items-center gap-1.5 mb-2 font-bold tracking-widest uppercase"
+            style={{ fontSize: "10.5px", color }}>
+            {icon && <Icon name={icon} size={12} />}
+            {children}
+        </p>
+    );
+}
+
+function SectionHeading({ children }) {
+    return (
+        <h2 className="font-bold leading-tight mb-3"
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.9rem,3.5vw,2.6rem)", color: "#1A2B3C" }}>
+            {children}
+        </h2>
+    );
+}
+
 /* ─── ADD LAB MODAL ─── */
 function AddLabModal({ onClose, onAdd }) {
   const [form, setForm] = useState({ patient:"", test:"", urgency:"normal" });
@@ -259,6 +350,8 @@ function AddLabModal({ onClose, onAdd }) {
 
 /* ─── MAIN DASHBOARD ─── */
 export default function DoctorDashboard() {
+  const appointmentsRef = useRef(null);
+const labReportsRef = useRef(null);
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
     const doctorId = user?.doctor_id;
@@ -433,12 +526,19 @@ const formatTime = (time) => {
   } catch(e) { return time; }
 };
 
+const totalAppointments = appointments.length;
+
+const pendingReports = labs.filter(
+  (l) => l.status === "pending" || l.status === "processing"
+).length;
+
+const patientsToday = appointments.length; // OR unique patients if needed
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ backgroundColor:C.bg, fontFamily:"'Poppins',sans-serif" }}>
       <style>{GLOBAL_CSS}</style>
 
       {/* ══ NAVBAR SPACE — replace with your <Navbar /> ══ */}
-      <div className="h-16 flex items-center px-14" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}>
+      <div className="h-14 flex items-center px-14" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}>
           {/* Navbar space */}
       </div> 
 
@@ -464,21 +564,44 @@ const formatTime = (time) => {
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>
                   <span className="text-white/80 text-sm font-medium">Saturday, April 19, 2026</span>
                 </div>
-                <h1 className="font-semibold text-white leading-tight mb-4" style={{ fontSize:"clamp(2.4rem,5vw,3.8rem)" }}>
-                  Welcome back,<br/><span style={{ color:C.light }}> {user?.name}</span>
+                <h1 className="font-semibold text-white leading-tight mb-0" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(2.4rem,5vw,3.8rem)" }}>
+                  WELCOME BACK,<br/>
                 </h1>
+                <span style={{fontSize: "clamp(3.2rem,2.0vw,1.5rem)", color:C.light }}> {user?.name}</span>
                 <p className="text-white/60 mb-10 max-w-md font-light leading-relaxed" style={{ fontSize:15 }}>
-                  You have <strong className="text-white font-semibold">12 appointments</strong> and{" "}
-                  <strong className="text-white font-semibold">6 pending reports</strong> today. Have a great shift!
+                 You have <strong className="text-white font-semibold">{totalAppointments} appointments</strong> and{" "}
+<strong className="text-white font-semibold">{pendingReports} pending reports</strong> today. Have a great shift!
                 </p>
 
                 <div className="grid grid-cols-3 gap-4 mb-10">
                   {[
-                    {Ic:Users,         label:"Patients Today",  value:"24",delta:"+3"},
-                    {Ic:CalendarCheck, label:"Appointments",    value:"12",delta:"4 left"},
-                    {Ic:FileText,      label:"Pending Reports", value:"6", delta:"urgent"},
-                  ].map((s,i)=>(
-                    <div key={i} className={`glass hover-lift rounded-2xl p-5 fade-up-${i+1}`}>
+  { Ic:Users, label:"Patients Today", value:patientsToday, delta:"+0" },
+  { Ic:CalendarCheck, label:"Appointments", value:totalAppointments, delta:"Live" },
+  { Ic:FileText, label:"Pending Reports", value:pendingReports, delta:"Updated" },
+].map((s,i)=>(
+                    <div
+                      key={i}
+                      role="button"
+                      onClick={() => {
+  if (
+    s.label.toLowerCase().includes('patient') ||
+    s.label.toLowerCase().includes('appointment')
+  ) {
+    appointmentsRef.current?.scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+
+  if (
+    s.label.toLowerCase().includes('pending') ||
+    s.label.toLowerCase().includes('report')
+  ) {
+    labReportsRef.current?.scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+}}
+                      className={`glass hover-lift rounded-2xl p-5 fade-up-${i+1}`}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <div className="w-9 h-9 rounded-xl flex items-center justify-center mb-3" style={{ background:"rgba(255,255,255,.2)" }}>
                         <s.Ic size={18} color="white"/>
                       </div>
@@ -506,27 +629,8 @@ const formatTime = (time) => {
               
             </div>
 
-            {/* Quick Access */}
-            <div className="mt-15 grid grid-cols-2 md:grid-cols-3 gap-4 fade-up-4">
-              {[
-                {Ic:CalendarCheck,label:"Appointments",sub:"12 today",   clr:"#2E86C1"},
-                {Ic:FlaskConical, label:"Lab Reports", sub:"6 pending",  clr:"#0891b2"},
-                {Ic:Users,        label:"My Patients", sub:"1,243 total",clr:"#059669"},
-                // {Ic:MessageCircle,label:"Messages",    sub:"4 unread",   clr:"#7c3aed"},
-              ].map((t,i)=>(
-                <button key={i} className="glass hover-lift rounded-2xl p-5 flex items-center gap-4 border-none cursor-pointer text-left group"
-                  style={{ fontFamily:"'Poppins',sans-serif" }}>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110" style={{ background:`${t.clr}44` }}>
-                    <t.Ic size={20} color="white"/>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold text-sm">{t.label}</div>
-                    <div className="text-white/50 text-xs mt-0.5">{t.sub}</div>
-                  </div>
-                  <ArrowRight size={14} color="rgba(255,255,255,.35)" className="ml-auto"/>
-                </button>
-              ))}
-            </div>
+           
+            
           </div>
         </div>
         <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
@@ -536,39 +640,23 @@ const formatTime = (time) => {
 
 
       {/* ══ APPOINTMENTS SLIDER ═══════════════════════════ */}
-      <section className="py-20 px-14 overflow-hidden">
-        <div className="flex items-end justify-between mb-10">
-          <div className="flex items-start gap-6">
-            <div className="flex flex-col items-center pt-1.5 flex-shrink-0 ">
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background:C.primary }}/>
-              <div className="w-0.5 mt-1.5 rounded-full" style={{ minHeight:56,background:`linear-gradient(to bottom,${C.primary},rgba(46,134,193,.07))` }}/>
-            </div>
-            <div>
-              <div className="flex items-center gap-3 mb-3.5">
-                <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full" style={{ background:"rgba(46,134,193,.10)",border:"1px solid rgba(46,134,193,.2)" }}>
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background:C.primary }}/>
-                  <span className="text-xs font-semibold uppercase tracking-widest" style={{ color:C.primary }}>Today's Schedule</span>
-                </div>
-                
-              </div>
-              <h2 className="font-semibold leading-tight" style={{ fontFamily:"'Playfair Display',serif",fontSize:"clamp(2rem,3.5vw,2.8rem)",color:"#1B3A52" }}>Your Appointments</h2>
-              <p className="font-light leading-relaxed mt-1.5" style={{ fontSize:13,color:"#7A8F9E" }}>Stay on top of every consultation — your full patient queue for today    . 
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs bg-white border border-slate-100 shadow-sm" style={{ color:"#567C8D" }}>
+      <section ref={appointmentsRef} className="py-20 px-14 overflow-hidden">
+        <SectionLabel icon="stethoscope">Today's schedule</SectionLabel>
+         <SectionHeading>Your Appointments</SectionHeading>
+               
+        <div className="flex items-end justify-between mb-1">
+           <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 520, marginBottom: 36 }}>Stay on top of every consultation — your full patient queue for today . <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs bg-white border border-slate-100 shadow-sm" style={{ color:"#567C8D" }}>
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>{appointments.length} today
                 </div></p>
-              
-            </div>
+          <div className="flex items-start gap-6">
+            
           </div>
           <div className="flex gap-2 flex-shrink-0">
             <button onClick={()=>scrollSlider(-1)} className="glass-card hover-lift w-11 h-11 rounded-xl border-none cursor-pointer flex items-center justify-center"><ChevronLeft size={20} color={C.primary}/></button>
             <button onClick={()=>scrollSlider(1)} className="hover-lift w-11 h-11 rounded-xl border-none cursor-pointer flex items-center justify-center" style={{ background:C.primary }}><ChevronRight size={20} color="white"/></button>
           </div>
         </div>
-         {/* <Section style={{ background: "#F3EEE8" }} className="section-pad">
-                <SectionLabel icon="leaf" color="#0F7B6C">Wellness</SectionLabel>
-                <SectionHeading> Healthy Habits</SectionHeading>
-                <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 500, marginBottom: 40 }}>Small consistent habits lead to extraordinary long-term outcomes.</p> */}
-
+        
 
         <div ref={sliderRef} className="snap-scroll flex gap-5 overflow-x-auto pb-4">
           {appointments.map((apt)=>{
@@ -576,10 +664,16 @@ const formatTime = (time) => {
             const rx = prescriptions[apt.id];
             return(
               <div key={apt.id} className="snap-item glass-card hover-lift rounded-3xl overflow-hidden flex-shrink-0 min-h-[280px]" style={{ width:288 }}>
-                <div className="h-1.5" style={{ background:st.strip }}/>
+                <div className="h-1.5" style={{ background:"#2c6c96"}}/>
                 <div className="p-5">
                   <div className="flex items-center gap-3 mb-5">
-                    <img src={apt.img} alt={apt.name} className="rounded-2xl object-cover flex-shrink-0" style={{ width:52,height:64 }} onError={(e)=>{e.target.style.display="none";}}/>
+                    {/* <img src={apt.img} alt={apt.name} className="rounded-2xl object-cover flex-shrink-0" style={{ width:52,height:64 }} onError={(e)=>{e.target.style.display="none";}}/> */}
+                    <div
+  className="w-11 h-15 rounded-2xl flex items-center justify-center flex-shrink-0"
+  style={{ background: `${C.light}80` }}
+>
+  <User size={18} color={C.teal} />
+</div>
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-sm truncate" style={{ color:C.dark }}>{apt.name}</div>
                       <div className="text-xs text-slate-400 mt-0.5"><p>Age: {apt.age|| "-"}</p>
@@ -595,14 +689,14 @@ const formatTime = (time) => {
                   </div>
                   {rx&&(
                     <div className="mb-3 flex items-center gap-2 px-3 py-2 rounded-xl" style={{ background:"#f0fdf4",border:"1px solid #bbf7d0" }}>
-                      <CheckCircle size={13} color="#059669"/>
+                      <CheckCircle size={13} color="#1e4c6b"/>
                       <span className="text-xs font-semibold text-emerald-700 truncate">{rx.diagnosis||"Prescription saved"}</span>
                     </div>
                   )}
                   <div className="flex flex-col gap-2">
                     {!apt.done?(
                       <button onClick={()=>markDone(apt.id)} className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white text-xs font-semibold border-none cursor-pointer transition-all hover:opacity-85"
-                        style={{ background:"linear-gradient(135deg,#10b981,#059669)",fontFamily:"'Poppins',sans-serif" }}>
+                        style={{ background:"#337cac",fontFamily:"'Poppins',sans-serif" }}>
                         <CheckCheck size={13}/> Mark Complete
                       </button>
                     ):(
@@ -610,10 +704,10 @@ const formatTime = (time) => {
                         <CircleCheck size={14}/> Completed
                       </div>
                     )}
-                    <button onClick={()=>setRxPanel(apt)} className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white text-xs font-semibold border-none cursor-pointer transition-all hover:opacity-85"
+                    {/* <button onClick={()=>setRxPanel(apt)} className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-white text-xs font-semibold border-none cursor-pointer transition-all hover:opacity-85"
                       style={{ background:`linear-gradient(135deg,${C.primary},${C.teal})`,fontFamily:"'Poppins',sans-serif" }}>
                       <Pill size={13}/> Prescription
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -625,13 +719,13 @@ const formatTime = (time) => {
 
 
       {/* ══ PATIENT HISTORY ══════════════════════════════ */}
-      <section className="px-14 pb-20">
+      <section ref={labReportsRef} className="px-14 pt-10 pb-20">
+        <SectionLabel icon="stethoscope">patient Record</SectionLabel>
+                <SectionHeading>Recent &amp; History Patients</SectionHeading>
+                <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 520, marginBottom: 36 }}>Select a symptom and we'll instantly match you with the right specialist — rated, experienced, and available.</p>
+
         <div className="mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background:C.teal }}><Users size={16} color="white"/></div>
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ color:C.teal }}>Patient Records</span>
-          </div>
-          <h2 className="section-heading gradient-text" style={{ fontSize:"clamp(1.8rem,3vw,2.4rem)" }}>Recent &amp; History Patients</h2>
+         
         </div>
 
         <div className="glass-card rounded-3xl overflow-hidden">
@@ -649,7 +743,13 @@ const formatTime = (time) => {
             <div key={p.id} className="grid gap-4 items-center px-6 py-5 hover:bg-white/60 transition-all"
               style={{ gridTemplateColumns:"220px 1fr 130px 180px",borderBottom:i<historyPatients.length-1?"1px solid #f8fafc":"none" }}>
               <div className="flex items-center gap-3">
-                <img src={p.img} alt={p.name} className="w-11 h-11 rounded-2xl object-cover flex-shrink-0" style={{ border:`2px solid ${C.light}` }} onError={(e)=>{e.target.style.display="none";}}/>
+                {/* <img src={p.img} alt={p.name} className="w-11 h-11 rounded-2xl object-cover flex-shrink-0" style={{ border:`2px solid ${C.light}` }} onError={(e)=>{e.target.style.display="none";}}/> */}
+                <div
+  className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
+  style={{ background: `${C.light}80` }}
+>
+  <User size={18} color={C.teal} />
+</div>
                 <div>
                   <div className="font-bold text-sm" style={{ color:C.dark }}>{p.name}</div>
                   <div className="text-xs text-slate-400">Age {p.age} · {p.gender}</div>
@@ -670,17 +770,22 @@ const formatTime = (time) => {
 
 
       {/* ══ LAB REPORTS ══════════════════════════════════ */}
-      <section className="pb-20 relative overflow-hidden">
+      <section className="pt-10 pb-20 relative overflow-hidden">
+       
+               
+
+        
         <div className="absolute inset-0" style={{ background:`linear-gradient(135deg,${C.dark}08,${C.light}40,${C.bg})` }}/>
         <div className="relative px-14">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+           <SectionLabel icon="stethoscope">Diagnostics</SectionLabel>
+                <SectionHeading>Lab Reports</SectionHeading>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background:"#0891b2" }}><FlaskConical size={16} color="white"/></div>
-                <span className="text-xs font-bold uppercase tracking-widest" style={{ color:"#0891b2" }}>Diagnostics</span>
+                
               </div>
-              <h2 className="section-heading gradient-text mb-3" style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)" }}>Lab Reports</h2>
-              <p className="text-slate-500 text-sm font-light max-w-md">Manage diagnostic results — import patient reports and track their status seamlessly.</p>
+             
+               <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 520, marginBottom: 36 }}>Manage diagnostic results — import patient reports and track their status seamlessly.</p>
             </div>
             <div className="flex gap-3 justify-start lg:justify-end">
               <button onClick={() => navigate("/labreports")} className="hover-lift flex items-center gap-2 px-5 py-3 rounded-2xl text-white font-semibold text-sm border-none cursor-pointer"
@@ -694,7 +799,7 @@ const formatTime = (time) => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {labs.map(r=>{
               const ls=LAB_STATUS[r.status] || LAB_STATUS.pending;
               const uc=urgencyColor(r.urgency);
@@ -704,7 +809,13 @@ const formatTime = (time) => {
                   <div className="p-5">
                     <div className="flex items-center gap-3 mb-4">
                       {r.img?(
-                        <img src={r.img} alt={r.patient} className="w-10 h-10 rounded-2xl object-cover flex-shrink-0" onError={(e)=>{e.target.style.display="none";}}/>
+
+                        <div
+  className="w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0"
+  style={{ background: `${C.light}80` }}
+>
+  <User size={18} color={C.teal} />
+</div>
                       ):(
                         <div className="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ background:`${C.light}80` }}><User size={18} color={C.teal}/></div>
                       )}
@@ -714,7 +825,7 @@ const formatTime = (time) => {
                       </div>
                       {r.urgency==="urgent"&&<span className="text-xs font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 flex-shrink-0">URGENT</span>}
                     </div>
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style={{ background:`${C.light}60` }}><FlaskConical size={22} color={C.primary}/></div>
+                    
                     <div className="font-bold text-sm mb-3" style={{ color:C.dark }}>{r.test}</div>
                     {r.file&&(
                       <div className="flex items-center gap-2 text-xs font-semibold mb-3 px-3 py-1.5 rounded-xl" style={{ background:`${C.light}40`,color:C.primary }}>
@@ -732,14 +843,129 @@ const formatTime = (time) => {
                 </div>
               );
             })}
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+  {labs.map((r) => {
+    const ls = LAB_STATUS[r.status] || LAB_STATUS.pending;
+    const uc = urgencyColor(r.urgency);
+
+    return (
+      <div
+        key={r.id}
+        className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+      >
+        {/* Top Accent Line */}
+        <div
+          className="h-1 w-full"
+          style={{ background: uc }}
+        />
+
+        <div className="p-5 flex flex-col gap-4">
+
+          {/* Header */}
+          <div className="flex items-center gap-3">
+            <div
+              className="w-11 h-11 rounded-xl flex items-center justify-center"
+              style={{ background: `${C.light}70` }}
+            >
+              <User size={18} color={C.teal} />
+            </div>
+
+            <div className="flex-1 min-w-0">
+              <div
+                className="font-semibold text-sm truncate"
+                style={{ color: C.dark }}
+              >
+                {r.patient}
+              </div>
+              <div className="text-xs text-slate-400">
+                {r.date}
+              </div>
+            </div>
+
+            {r.urgency === "urgent" && (
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">
+                URGENT
+              </span>
+            )}
           </div>
+
+          {/* Divider Line */}
+          <div className="h-px bg-slate-100" />
+
+          {/* Test Name */}
+          {/* <div
+            className="text-sm font-semibold"
+            style={{ color: C.dark }}
+          >
+            {r.test}
+          </div> */}
+          {/* <div className="flex items-center gap-2">
+  {(() => {
+    const Icon = getReportIcon(r.test);
+    return <Icon size={16} color={C.primary} />;
+  })()}
+
+  <span
+    className="text-sm font-semibold"
+    style={{ color: C.dark }}
+  >
+    {r.test}
+  </span>
+</div> */}
+          
+<div className="flex items-center gap-2">
+  <Icon
+    name={getReportIcon(r.test)}
+    size={16}
+    style={{ color: C.primary }}
+  />
+
+  <span
+    className="text-sm font-semibold"
+    style={{ color: C.dark }}
+  >
+    {r.test}
+  </span>
+</div>
+          {/* File */}
+          {r.file && (
+            <div className="flex items-center gap-2 text-xs font-medium px-3 py-2 rounded-lg bg-slate-50 text-slate-600 border border-slate-100">
+              <FileCheck size={13} />
+              {r.file}
+            </div>
+          )}
+
+          {/* Footer */}
+          <div className="flex items-center justify-between mt-2">
+            <span
+              className={`text-xs font-semibold px-3 py-1 rounded-full ${ls.cls}`}
+            >
+              {ls.label}
+            </span>
+
+            <button
+              onClick={() => cycleStatus(r.id)}
+              className="text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition-all flex items-center gap-1"
+            >
+              Change
+              <RefreshCw size={11} />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
         </div>
       </section>
 
 
       {/* ══ PERFORMANCE + TIPS ═══════════════════════════ */}
+
       <section className="py-20 px-14 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 100%)` }}/>
+        
+        <div className="absolute inset-0" style={{ background: "linear-gradient(150deg,#1C3447 0%,#14447C 60%,#2c1a1a 100%)" }}/>
         <div className="blob-1 absolute opacity-20 rounded-full" style={{ width:320,height:320,top:-80,right:-80,background:C.light }}/>
         <div className="blob-3 absolute opacity-14 rounded-full" style={{ width:240,height:240,bottom:0,left:0,background:"white" }}/>
         <div className="relative">
@@ -747,7 +973,7 @@ const formatTime = (time) => {
             <div className="glass w-8 h-8 rounded-xl flex items-center justify-center"><Sparkles size={16} color="white"/></div>
             <span className="text-xs font-bold uppercase tracking-widest text-white/60">Smart Insights</span>
           </div>
-          <h2 className="section-heading text-white mb-2" style={{ fontSize:"clamp(2rem,4vw,3rem)" }}>Doctor Performance</h2>
+          <h2 className="section-heading text-white mb-2" style={{ fontFamily: "'Poppins', sans-serif", fontSize:"clamp(2rem,4vw,3rem)" }}>Doctor Performance</h2>
           <p className="text-white/50 mb-12 max-w-lg font-light" style={{ fontSize:13 }}>Your practice metrics at a glance — powered by real-time data.</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">

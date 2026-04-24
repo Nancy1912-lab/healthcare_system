@@ -388,7 +388,7 @@ function Logo() {
                     color: C.dark, fontSize: 21, fontWeight: 700, letterSpacing: "-0.3px", lineHeight: 1,
                     fontFamily: "'Poppins',sans-serif"
                 }}>
-                    KD <span style={{ color: C.blue }}>Care</span>
+                   <span style={{ color: C.blue }}>Nexora</span>
                 </div>
                 <div style={{ fontSize: 8.5, color: C.teal, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: 2, opacity: 0.75 }}>
                     Advanced Healthcare
@@ -441,7 +441,7 @@ function Login({ role, setRole, onSwitch }) {
             }}>
                 Welcome Back
             </h3>
-            <p style={{ color: `${C.teal}cc`, fontSize: 13, margin: 0 }}>Sign in to your KD Care account</p>
+            <p style={{ color: `${C.teal}cc`, fontSize: 13, margin: 0 }}>Sign in to your Nexora HealthCare account</p>
         </div>
         <RoleToggle role={role} setRole={setRole} />
         <Field icon={I.Mail} label="Email Address" type="email" placeholder="you@example.com" value={email} onChange={e => setEmail(e.target.value)} />
@@ -453,9 +453,26 @@ function Login({ role, setRole, onSwitch }) {
             Sign In as {role === "patient" ? "Patient" : "Doctor"}
         </SubmitBtn>
         <div style={{ textAlign: "center", marginTop: 18 }}>
-            <span style={{ fontSize: 13, color: `${C.teal}bb` }}>Don't have an account? </span>
-            <span onClick={onSwitch} style={{ fontSize: 13, color: C.dark, fontWeight: 700, cursor: "pointer", textDecoration: "underline" }}>Register now</span>
-        </div>
+  {role === "patient" && (
+    <>
+      <span style={{ fontSize: 13, color: `${C.teal}bb` }}>
+        Don't have an account? 
+      </span>
+      <span
+        onClick={onSwitch}
+        style={{
+          fontSize: 13,
+          color: C.dark,
+          fontWeight: 700,
+          cursor: "pointer",
+          textDecoration: "underline",
+        }}
+      >
+        Register now
+      </span>
+    </>
+  )}
+</div>
         
     </>;
     
@@ -495,7 +512,7 @@ function PatientReg({ onSwitch, role, setRole }) {
                 color: C.dark, fontSize: 21, fontWeight: 700, margin: "10px 0 5px",
                 fontFamily: "'Poppins',sans-serif", letterSpacing: "-0.3px"
             }}>Create Account</h3>
-            <p style={{ color: `${C.teal}cc`, fontSize: 13, margin: 0 }}>Join KD Care as a Patient</p>
+            <p style={{ color: `${C.teal}cc`, fontSize: 13, margin: 0 }}>Join Nexora as a Patient</p>
         </div>
         <RoleToggle role={role} setRole={setRole} />
 
@@ -681,7 +698,7 @@ function DoctorReg({ onSwitch, role, setRole }) {
         <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 18 }}>
             <input type="checkbox" style={{ marginTop: 3, accentColor: C.blue, cursor: "pointer" }} />
             <span style={{ fontSize: 12, color: `${C.dark}88`, lineHeight: 1.7 }}>
-                I confirm credentials are valid and agree to <span style={{ color: C.blue, cursor: "pointer" }}>KD Care's Code of Practice</span>
+                I confirm credentials are valid and agree to <span style={{ color: C.blue, cursor: "pointer" }}>Nexora Care's Code of Practice</span>
             </span>
         </div>
         <SubmitBtn onClick={handleDoctorRegister}>Submit Doctor Application</SubmitBtn>

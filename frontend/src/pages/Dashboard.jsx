@@ -154,11 +154,11 @@ const EMERGENCIES = [
 const BAR_VALS = [62, 45, 78, 55, 90, 40, 68];
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const C = {
-  primary: "#2E86C1",
-  dark: "#1A5C85",
-  teal: "#5B9DB8",
-  light: "#C4DAE8",
-  bg: "#F5F1EC",
+    primary: "#2E86C1",
+    dark: "#1A5C85",
+    teal: "#5B9DB8",
+    light: "#C4DAE8",
+    bg: "#F5F1EC",
 };
 // ─── ANIMATED COUNTER ──────────────────────────────────────────────────────
 function useCounter(target, suffix = "", delay = 400) {
@@ -319,120 +319,119 @@ function SectionHeading({ children }) {
 }
 
 // ─── DOCTOR CARD ───────────────────────────────────────────────────────────
- import { FiUser } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
 
 function DoctorCard({ doc, specialty, selected, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className={`min-w-[265    px] rounded-2xl p-5 cursor-pointer border-2 transition-all duration-300 hover:-translate-y-1 ${
-        selected ? "shadow-xl" : ""
-      }`}
-      style={
-        selected
-          ? {
-              background: "linear-gradient(145deg,#14447C,#1D5FA8)",
-              borderColor: "rgba(255,255,255,.22)",
-              boxShadow: "0 14px 42px rgba(29,95,168,.32)",
-            }
-          : {
-              background: "rgba(255,255,255,.72)",
-              backdropFilter: "blur(20px)",
-              borderColor: "rgba(180,200,218,.35)",
-              boxShadow: "0 2px 12px rgba(20,68,124,.06)",
-            }
-      }
-    >
-      {/* Top Row */}
-      <div className="flex items-center gap-3 mb-4">
-        {/* Icon instead of avatar */}
+    return (
         <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center"
-          style={{
-            background: selected ? "rgba(255,255,255,.2)" : "#E8F1FA",
-            color: selected ? "#fff" : "#14447C",
-          }}
+            onClick={onClick}
+            className={`min-w-[265    px] rounded-2xl p-5 cursor-pointer border-2 transition-all duration-300 hover:-translate-y-1 ${selected ? "shadow-xl" : ""
+                }`}
+            style={
+                selected
+                    ? {
+                        background: "linear-gradient(145deg,#14447C,#1D5FA8)",
+                        borderColor: "rgba(255,255,255,.22)",
+                        boxShadow: "0 14px 42px rgba(29,95,168,.32)",
+                    }
+                    : {
+                        background: "rgba(255,255,255,.72)",
+                        backdropFilter: "blur(20px)",
+                        borderColor: "rgba(180,200,218,.35)",
+                        boxShadow: "0 2px 12px rgba(20,68,124,.06)",
+                    }
+            }
         >
-          <FiUser size={20} />
+            {/* Top Row */}
+            <div className="flex items-center gap-3 mb-4">
+                {/* Icon instead of avatar */}
+                <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{
+                        background: selected ? "rgba(255,255,255,.2)" : "#E8F1FA",
+                        color: selected ? "#fff" : "#14447C",
+                    }}
+                >
+                    <FiUser size={20} />
+                </div>
+
+                <div>
+                    <p
+                        className="font-bold text-sm"
+                        style={{ color: selected ? "#fff" : "#1A2B3C" }}
+                    >
+                        {doc.name}
+                    </p>
+                    <p
+                        className="text-xs"
+                        style={{
+                            color: selected
+                                ? "rgba(196,218,232,.8)"
+                                : "#0F7B6C",
+                        }}
+                    >
+                        {specialty}
+                    </p>
+                </div>
+            </div>
+
+            {/* Experience */}
+            <div className="mb-4">
+                <p
+                    className="text-[10px]"
+                    style={{
+                        color: selected
+                            ? "rgba(196,218,232,.6)"
+                            : "#6B7F90",
+                    }}
+                >
+                    Experience
+                </p>
+                <p
+                    className="text-sm font-semibold"
+                    style={{ color: selected ? "#fff" : "#1A2B3C" }}
+                >
+                    {doc.exp}
+                </p>
+            </div>
+
+            {/* Divider */}
+            <div
+                className="border-t pt-3"
+                style={{
+                    borderColor: selected
+                        ? "rgba(255,255,255,.15)"
+                        : "rgba(180,200,218,.35)",
+                }}
+            >
+                <p
+                    className="text-[10px] mb-1"
+                    style={{
+                        color: selected
+                            ? "rgba(196,218,232,.6)"
+                            : "#6B7F90",
+                    }}
+                >
+                    Next Available
+                </p>
+
+                <p
+                    className="text-xs font-semibold flex items-center gap-2"
+                    style={{
+                        color: selected ? "#86efac" : "#0F7B6C",
+                    }}
+                >
+                    <span
+                        className="w-2 h-2 rounded-full"
+                        style={{
+                            background: selected ? "#86efac" : "#0F7B6C",
+                        }}
+                    />
+                    {doc.available}
+                </p>
+            </div>
         </div>
-
-        <div>
-          <p
-            className="font-bold text-sm"
-            style={{ color: selected ? "#fff" : "#1A2B3C" }}
-          >
-            {doc.name}
-          </p>
-          <p
-            className="text-xs"
-            style={{
-              color: selected
-                ? "rgba(196,218,232,.8)"
-                : "#0F7B6C",
-            }}
-          >
-            {specialty}
-          </p>
-        </div>
-      </div>
-
-      {/* Experience */}
-      <div className="mb-4">
-        <p
-          className="text-[10px]"
-          style={{
-            color: selected
-              ? "rgba(196,218,232,.6)"
-              : "#6B7F90",
-          }}
-        >
-          Experience
-        </p>
-        <p
-          className="text-sm font-semibold"
-          style={{ color: selected ? "#fff" : "#1A2B3C" }}
-        >
-          {doc.exp}
-        </p>
-      </div>
-
-      {/* Divider */}
-      <div
-        className="border-t pt-3"
-        style={{
-          borderColor: selected
-            ? "rgba(255,255,255,.15)"
-            : "rgba(180,200,218,.35)",
-        }}
-      >
-        <p
-          className="text-[10px] mb-1"
-          style={{
-            color: selected
-              ? "rgba(196,218,232,.6)"
-              : "#6B7F90",
-          }}
-        >
-          Next Available
-        </p>
-
-        <p
-          className="text-xs font-semibold flex items-center gap-2"
-          style={{
-            color: selected ? "#86efac" : "#0F7B6C",
-          }}
-        >
-          <span
-            className="w-2 h-2 rounded-full"
-            style={{
-              background: selected ? "#86efac" : "#0F7B6C",
-            }}
-          />
-          {doc.available}
-        </p>
-      </div>
-    </div>
-  );
+    );
 }
 // ═══════════════════════════════════════════════════════════════════════════
 // MAIN COMPONENT
@@ -573,64 +572,95 @@ export default function PatientDashboard() {
       `}</style>
 
             {/* ═══ §1 HERO ═══════════════════════════════════════════════════════ */}
-                       
 
-<section className="relative flex flex-col overflow-hidden" style={{ minHeight:"calc(100vh - 64px)" }}>
-        <div className="absolute inset-0">
-          <img src="https://i.pinimg.com/1200x/21/7a/7a/217a7a60cc05cc990b8586fdec8076af.jpg" alt="" className="w-full h-full object-cover object-top"/>
-          <div className="absolute inset-0" style={{ background:`linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }}/>
-        </div>
+
+            <section className="relative flex flex-col overflow-hidden" style={{ minHeight: "calc(100vh - 64px)" }}>
+                <div className="absolute inset-0" style={{ pointerEvents: "none" }}>
+                    <img src="https://i.pinimg.com/1200x/21/7a/7a/217a7a60cc05cc990b8586fdec8076af.jpg" alt="" className="w-full h-full object-cover object-top" />
+                    <div className="absolute inset-0" style={{ background: `linear-gradient(135deg,${C.dark}f0 0%,${C.primary}cc 45%,${C.teal}99 100%)` }} />
+                </div>
 
 
                 {/* Blobs */}
-                <div className="blob-1 absolute opacity-30 rounded-full" style={{ width:380,height:380,top:-120,left:-120,background:`radial-gradient(circle,${C.light},transparent)` }}/>
-        <div className="blob-2 absolute opacity-20 rounded-full" style={{ width:280,height:280,top:80,right:"25%",background:"radial-gradient(circle,white,transparent)" }}/>
-        <div className="blob-3 absolute opacity-25 rounded-full" style={{ width:320,height:320,bottom:0,right:0,background:`radial-gradient(circle,${C.teal},transparent)` }}/>
-               
+                <div className="blob-1 absolute opacity-30 rounded-full" style={{ width: 380, height: 380, top: -120, left: -120, background: `radial-gradient(circle,${C.light},transparent)` }} />
+                <div className="blob-2 absolute opacity-20 rounded-full" style={{ width: 280, height: 280, top: 80, right: "25%", background: "radial-gradient(circle,white,transparent)" }} />
+                <div className="blob-3 absolute opacity-25 rounded-full" style={{ width: 320, height: 320, bottom: 0, right: 0, background: `radial-gradient(circle,${C.teal},transparent)` }} />
+
 
                 {/* Hero top */}
                 <div className="hero-cols flex-1 flex items-center gap-12" style={{ padding: "90px 56px 36px", position: "relative", zIndex: 2 }}>
                     {/* Left */}
-                    <div style={{ flex: 1, minWidth: 0 
-    }}>
+                    <div style={{
+                        flex: 1, minWidth: 0
+                    }}>
                         <p className="fade-up" style={{ color: "rgba(196,218,232,.7)", fontSize: "10.5px", letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 600, marginBottom: 10 }}>
                             Patient Portal · 2025
                         </p>
-                        <h1 className="fade-up" style={{ fontFamily: "'Playfair Display', serif", color: "#fff", fontSize: "clamp(2.5rem,5.5vw,3.4rem)", fontWeight: 700, lineHeight: 1.12, marginBottom: 16, animationDelay: ".08s" }}>
-                            Good Morning,<br /> <span style={{fontStyle: "",  color: "#C4DAE8" }}>{user?.name}</span>
+                        <h1 className="fade-up" style={{ fontFamily: "'Poppins', serif", color: "#fff", fontSize: "clamp(4.5rem,5.5vw,3.4rem)", fontWeight: 700, lineHeight: 1.10,  animationDelay: ".08s" }}>
+                            GOOD MORNING,<br /> 
                         </h1>
+                        {/* <span style={{ fontStyle: "", color: "#C4DAE8" }}>{user?.name}</span> */}
+                         <span style={{fontSize: "clamp(3.2rem,2.0vw,1.5rem)", color:C.light }}> {user?.name}</span>
                         <p className="fade-up" style={{ color: "rgba(196,218,232,.78)", fontSize: 14, lineHeight: 1.8, maxWidth: 500, marginBottom: 36, animationDelay: ".16s" }}>
                             Your personal health hub — schedule visits, track vitals, and connect with top specialists all in one place.
                         </p>
-                        
-                        
+
+
                         {/* CTAs */}
                         <div className="fade-up flex flex-wrap gap-3" style={{ animationDelay: ".32s" }}>
-                            <button className="pulse-btn flex items-center gap-2 font-semibold"
-                                onClick={() => document.getElementById("finder")?.scrollIntoView({ behavior: "smooth" })}
-                                style={{ padding: "12px 26px", borderRadius: 10, border: "none", background: "rgba(255,255,255,.95)", color: "#14447C", fontSize: 13.5, fontFamily: "inherit", cursor: "pointer", boxShadow: "0 4px 18px rgba(0,0,0,.2)" }}>
-                                <Icon name="calendar" size={15} /> Book Appointment
-                            </button>
-                           
+                            <button
+  className="pulse-btn flex items-center gap-2 font-semibold relative z-50"
+  style={{
+    position: "relative",
+    zIndex: 9999,   // 🔥 VERY IMPORTANT
+    padding: "12px 26px",
+    borderRadius: 10,
+    border: "none",
+    background: "rgba(255,255,255,.95)",
+    color: "#14447C",
+    fontSize: 13.5,
+    cursor: "pointer",
+    boxShadow: "0 4px 18px rgba(0,0,0,.2)"
+  }}
+  onClick={() => {
+    console.log("CLICK WORKING ✅");
+
+    const el = document.getElementById("finder");
+    console.log("Finder:", el);
+
+    if (el) {
+      window.scrollTo({
+        top: el.offsetTop - 80,
+        behavior: "smooth"
+      });
+    }
+  }}
+>
+  Book Appointment
+</button>
+
                         </div>
                     </div>
                 </div>
 
                 {/* ── Hero Bottom — Quick Access ── */}
                 <div style={{ position: "relative", zIndex: 2, padding: "0 56px 60px" }}>
-                    <div style={{  width: "50%",background: "rgba(245,241,236,.1)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,.15)", borderRadius: "24px 24px 0 0", padding: "32px 36px 40px" }}>
+                    <div style={{ width: "50%", background: "rgba(245,241,236,.1)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,.15)", borderRadius: "24px 24px 0 0", padding: "32px 36px 40px" }}>
                         <p style={{ color: "rgba(196,218,232,.5)", fontSize: 10, fontWeight: 700, letterSpacing: ".2em", textTransform: "uppercase", marginBottom: 20 }}>Quick Access</p>
                         <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 16 }}>
                             {[
                                 { label: "View Reports", icon: "file-text", desc: "Access your health records" },
 
                                 { label: "Doctor Prescription", icon: "scroll-text", desc: "View active prescriptions" },
-                               
+
                             ].map((a, i) => (
                                 <div key={i}
                                     onClick={() => {
                                         if (a.label === "Doctor Prescription") {
                                             navigate("/appointments");
+                                        }
+                                        else if (a.label === "View Reports") {
+                                            navigate("/patientlabreport");
                                         }
                                     }}
                                     className="cursor-pointer transition-all duration-300 hover:-translate-y-1"
@@ -648,18 +678,18 @@ export default function PatientDashboard() {
                     </div>
                 </div>
                 <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
-          <path d="M0,50 C480,90 960,10 1440,55 L1440,80 L0,80 Z" fill={C.bg}/>
-        </svg>
+                    <path d="M0,50 C480,90 960,10 1440,55 L1440,80 L0,80 Z" fill={C.bg} />
+                </svg>
 
             </section>
 
-          
+
 
             <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg,transparent,rgba(180,200,218,.35),transparent)" }} />
 
             {/* ═══ §5 DOCTOR FINDER ══════════════════════════════════════════════ */}
             <Section style={{ background: "#F5F1EC" }} className="section-pad" id="finder">
-                
+
                 <SectionLabel icon="stethoscope">Smart Booking</SectionLabel>
                 <SectionHeading>Find Your Perfect Doctor</SectionHeading>
                 <p style={{ color: "#6B7F90", fontSize: 13.5, lineHeight: 1.75, maxWidth: 520, marginBottom: 36 }}>Select a symptom and we'll instantly match you with the right specialist — rated, experienced, and available.</p>
@@ -669,92 +699,92 @@ export default function PatientDashboard() {
                         <label style={{ display: "block", fontSize: "10.5px", fontWeight: 700, color: "#1D5FA8", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 10 }}>
                             What are you experiencing?
                         </label>
-                       
-                            <div style={{ position: "relative" }}>
-  <select
-    value={selectedSymptom}
-    onChange={(e) => {
-      const id = e.target.value;
-      console.log("Selected:", id);
 
-      setSelectedSymptom(id);
-      setSelectedDoctor(null);
-      setConfirmed(false);
+                        <div style={{ position: "relative" }}>
+                            <select
+                                value={selectedSymptom}
+                                onChange={(e) => {
+                                    const id = e.target.value;
+                                    console.log("Selected:", id);
 
-      if (!id) return;
+                                    setSelectedSymptom(id);
+                                    setSelectedDoctor(null);
+                                    setConfirmed(false);
 
-      axios.get(`http://localhost:5000/api/appointment/doctors-by-symptom/${id}`)
-        .then(res => {
-          console.log("DOCTORS:", res.data);
+                                    if (!id) return;
 
-          if (Array.isArray(res.data)) {
-            setDoctors(res.data);
-          } else {
-            setDoctors([]);
-          }
-        })
-        .catch(err => console.log(err));
-    }}
-    style={{
-      width: "100%",
-      padding: "14px 18px",
-      borderRadius: "14px",
-      border: "1.5px solid #C9D7E3",
-      background: "#FFFFFF",
-      fontSize: "14px",
-      color: selectedSymptom ? "#2C3E50" : "#6B7F90",
-      fontWeight: "500",
-      cursor: "pointer",
-      appearance: "none",
-      outline: "none",
-      boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
-      transition: "all 0.25s ease"
-    }}
-    onFocus={(e) => {
-      e.target.style.border = "1.5px solid #1D5FA8";
-      e.target.style.boxShadow = "0 0 0 3px rgba(29,95,168,0.1)";
-    }}
-    onBlur={(e) => {
-      e.target.style.border = "1.5px solid #C9D7E3";
-      e.target.style.boxShadow = "0 2px 6px rgba(0,0,0,0.04)";
-    }}
-  >
-    {/* ✅ Correct placeholder */}
-    <option value="" disabled hidden>
-      Select Symptom
-    </option>
+                                    axios.get(`http://localhost:5000/api/appointment/doctors-by-symptom/${id}`)
+                                        .then(res => {
+                                            console.log("DOCTORS:", res.data);
 
-    {Array.isArray(symptoms) &&
-      symptoms.map((s, index) => (
-        <option
-          key={s.symptom_id || s.id || index}
-          value={s.symptom_id || s.id}
-        >
-          {s.description}
-        </option>
-      ))}
-  </select>
-  
+                                            if (Array.isArray(res.data)) {
+                                                setDoctors(res.data);
+                                            } else {
+                                                setDoctors([]);
+                                            }
+                                        })
+                                        .catch(err => console.log(err));
+                                }}
+                                style={{
+                                    width: "100%",
+                                    padding: "14px 18px",
+                                    borderRadius: "14px",
+                                    border: "1.5px solid #C9D7E3",
+                                    background: "#FFFFFF",
+                                    fontSize: "14px",
+                                    color: selectedSymptom ? "#2C3E50" : "#6B7F90",
+                                    fontWeight: "500",
+                                    cursor: "pointer",
+                                    appearance: "none",
+                                    outline: "none",
+                                    boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
+                                    transition: "all 0.25s ease"
+                                }}
+                                onFocus={(e) => {
+                                    e.target.style.border = "1.5px solid #1D5FA8";
+                                    e.target.style.boxShadow = "0 0 0 3px rgba(29,95,168,0.1)";
+                                }}
+                                onBlur={(e) => {
+                                    e.target.style.border = "1.5px solid #C9D7E3";
+                                    e.target.style.boxShadow = "0 2px 6px rgba(0,0,0,0.04)";
+                                }}
+                            >
+                                {/* ✅ Correct placeholder */}
+                                <option value="" disabled hidden>
+                                    Select Symptom
+                                </option>
 
-  {/* Arrow */}
-  <div
-    style={{
-      position: "absolute",
-      right: 14,
-      top: "50%",
-      transform: "translateY(-50%)",
-      pointerEvents: "none",
-      color: "#1D5FA8",
-      fontSize: "12px"
-    }}
-  >
-    ▼
-  </div>
-</div>
+                                {Array.isArray(symptoms) &&
+                                    symptoms.map((s, index) => (
+                                        <option
+                                            key={s.symptom_id || s.id || index}
+                                            value={s.symptom_id || s.id}
+                                        >
+                                            {s.description}
+                                        </option>
+                                    ))}
+                            </select>
 
 
-   
-    
+                            {/* Arrow */}
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    right: 14,
+                                    top: "50%",
+                                    transform: "translateY(-50%)",
+                                    pointerEvents: "none",
+                                    color: "#1D5FA8",
+                                    fontSize: "12px"
+                                }}
+                            >
+                                ▼
+                            </div>
+                        </div>
+
+
+
+
 
                         {selectedSymptom && (
                             <div className="pop-in flex items-center gap-3 mt-3 p-3 rounded-xl" style={{ background: "#E8F1FA", border: "1px solid rgba(29,95,168,.15)" }}>
@@ -776,38 +806,37 @@ export default function PatientDashboard() {
                 {selectedSymptom && (
                     <div className="pop-in">
                         <p style={{ fontSize: "10.5px", fontWeight: 700, color: "#0F7B6C", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: 16 }}>Available Specialists</p>
-                       
 
-<div className="flex gap-4 overflow-x-auto flex-nowrap pb-2 scrollbar-hide">
-  {doctors.map((doc, i) => (
-    <div
-      key={i}
-      className={`flex-shrink-0 ${
-        doctors.length <= 3
-          ? "flex-1 min-w-[280px]"
-          : doctors.length === 4
-          ? "flex-1 min-w-[220px]"
-          : "w-[265px]"
-      }`}
-    >
-      <DoctorCard
-        doc={{
-          name: doc.name,
-          exp: doc.experience,
-          available: doc.available_time,
-          av: doc.name?.[0] || "DR"
-        }}
-        specialty="Doctor"
-        selected={selectedDoctor?.doctor_id === doc.doctor_id}
-        onClick={() => {
-          setSelectedDoctor(doc);
-          setConfirmed(false);
-        }}
-      />
-    </div>
-  ))}
-</div>
-           
+
+                        <div className="flex gap-4 overflow-x-auto flex-nowrap pb-2 scrollbar-hide">
+                            {doctors.map((doc, i) => (
+                                <div
+                                    key={i}
+                                    className={`flex-shrink-0 ${doctors.length <= 3
+                                        ? "flex-1 min-w-[280px]"
+                                        : doctors.length === 4
+                                            ? "flex-1 min-w-[220px]"
+                                            : "w-[265px]"
+                                        }`}
+                                >
+                                    <DoctorCard
+                                        doc={{
+                                            name: doc.name,
+                                            exp: doc.experience,
+                                            available: doc.available_time,
+                                            av: doc.name?.[0] || "DR"
+                                        }}
+                                        specialty="Doctor"
+                                        selected={selectedDoctor?.doctor_id === doc.doctor_id}
+                                        onClick={() => {
+                                            setSelectedDoctor(doc);
+                                            setConfirmed(false);
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+
 
                         {selectedDoctor && !confirmed && (
                             <div className="pop-in text-center mt-5">
@@ -847,13 +876,13 @@ export default function PatientDashboard() {
 
                 {/* <div className="flex gap-5 overflow-x-auto pb-3 no-scrollbar bg-transparent"> */}
                 <div
-  className="flex gap-5 pb-3"
-  style={{
-    overflowX: "auto",
-    scrollbarWidth: "none",
-    msOverflowStyle: "none"
-  }}
->
+                    className="flex gap-5 pb-3"
+                    style={{
+                        overflowX: "auto",
+                        scrollbarWidth: "none",
+                        msOverflowStyle: "none"
+                    }}
+                >
                     {appointments.map((a, i) => (
                         <GlassCard key={i} className="transition-all duration-300 hover:-translate-y-1" style={{ minWidth: 268, borderRadius: 24, flexShrink: 0, overflow: "hidden" }}>
                             <div style={{ height: 5, background: "linear-gradient(90deg,#1D5FA8,#0F7B6C)" }} />
@@ -862,18 +891,18 @@ export default function PatientDashboard() {
                                     <Icon name={a.icon} size={20} style={{ color: "#1D5FA8" }} />
                                 </div> */}
                                 <div
-  className="flex items-center justify-center text-xs font-semibold"
-  style={{
-    width: 44,
-    height: 44,
-    borderRadius: 12,
-    background: "#E8F1FA",
-    color: "#0F7B6C",
-    marginBottom: 12
-  }}
->
-  ✔
-</div>
+                                    className="flex items-center justify-center text-xs font-semibold"
+                                    style={{
+                                        width: 44,
+                                        height: 44,
+                                        borderRadius: 12,
+                                        background: "#E8F1FA",
+                                        color: "#0F7B6C",
+                                        marginBottom: 12
+                                    }}
+                                >
+                                    ✔
+                                </div>
                                 <p style={{ fontWeight: 700, color: "#1A2B3C", fontSize: 15, fontFamily: "'Playfair Display',serif", marginBottom: 3 }}>{a.doctor_name}</p>
                                 <p style={{ fontSize: 12, color: "#0F7B6C", fontWeight: 500, marginBottom: 16 }}> {a.specialization}</p>
                                 <div className="flex gap-2 flex-wrap mb-4">
@@ -889,7 +918,7 @@ export default function PatientDashboard() {
                                         </span>
                                     ))}
                                 </div>
-                               
+
                             </div>
                         </GlassCard>
                     ))}

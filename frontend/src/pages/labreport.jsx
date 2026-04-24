@@ -190,7 +190,7 @@ export default function LabReportsPage() {
             // Immediately fill in the results (doctor reviewing)
             const formData = new FormData();
             formData.append("result", result || `${selectedReport} - ${clinicalNotes || "Results recorded"}`);
-            formData.append("urgency", urgency);
+            // formData.append("urgency", urgency);
             formData.append("test_name", selectedReport);
             if (uploadedFile) {
               formData.append("reportFile", uploadedFile);
@@ -230,11 +230,9 @@ export default function LabReportsPage() {
 
   return (
     <div className="min-h-screen bg-[#F4EFE6] font-['DM_Sans'] pb-16">
-      <div className="max-w-4xl mx-auto px-6 pt-10">
+      <div className="max-w-4xl mx-auto px-6 pt-28">
         {/* TOP BAR */}
-        <span>
-          <p>.</p>
-        </span>
+        
         <span></span>
         <div className="flex items-center justify-between mb-11">
           <div>
@@ -269,6 +267,7 @@ export default function LabReportsPage() {
         )}
 
         {/* PRESCRIPTION SECTION */}
+        
         <SectionLabel>Enter Prescription & Lab Report</SectionLabel>
         <div className="relative bg-white/62 backdrop-blur-sm border border-white/45 rounded-[22px] p-7 mb-10 overflow-hidden">
           <div className="flex items-start justify-between mb-5">

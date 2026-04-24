@@ -220,13 +220,13 @@ const Navbar = () => {
   const navLinks = (() => {
     if (!user) {
       return [
-        { path: '/', label: 'Home', mobileIcon: <FiHome size={15} />, scrollTo: 'top' },
-        { path: '/#services', label: 'Services', mobileIcon: <FiBriefcase size={15} />, scrollTo: 'services' },
-        { path: '/#how-it-works', label: 'How it Works', mobileIcon: <FiInfo size={15} />, scrollTo: 'how-it-works' },
-        { path: '/specialities', label: 'Specialities', mobileIcon: <FiHeart size={15} />, scrollTo: 'specializations' },
-        { path: '/#doctors', label: 'Our Doctors', mobileIcon: <FiUsers size={15} />, scrollTo: 'doctors' },
-        { path: '/#about', label: 'About', mobileIcon: <FiActivity size={15} />, scrollTo: 'about' },
-        { path: '/#reviews', label: 'Reviews', mobileIcon: <FiStar size={15} />, scrollTo: 'reviews' },
+        { path: '/', label: 'Home', icon: <FiHome size={15} />, scrollTo: 'top' },
+        { path: '/#services', label: 'Services', icon: <FiBriefcase size={15} />, scrollTo: 'services' },
+        { path: '/#how-it-works', label: 'How it Works', icon: <FiInfo size={15} />, scrollTo: 'how-it-works' },
+        { path: '/packages', label: 'WellnessPackages', icon: <FiShield  size={15} /> },
+        { path: '/#doctors', label: 'Our Doctors', icon: <FiUsers size={15} />, scrollTo: 'doctors' },
+        { path: '/#about', label: 'About', icon: <FiActivity size={15} />, scrollTo: 'about' },
+        { path: '/#reviews', label: 'Reviews', icon: <FiStar size={15} />, scrollTo: 'reviews' },
       ];
     }
 
