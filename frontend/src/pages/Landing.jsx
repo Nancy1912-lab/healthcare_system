@@ -338,14 +338,14 @@ const SPECS = [
 
 const DOCS = [
   {
-    ini:"PM", name:"Dr. Priya Mehta", sp:"Cardiologist",
+    ini:"PM", name:"Dr. Nidhi Shah", sp:"Cardiologist",
    
     exp:"18 yrs", rat:"4.9", av:"Available Today", avSoon:false,
     img:"https://i.pinimg.com/736x/1b/52/fd/1b52fd81c2282b432b85dc6a8a01f13d.jpg",
     patients:"1.2k+", satisfaction:"98%", awards:"18",
   },
   {
-    ini:"AS", name:"Dr. Arjun Shah", sp:"Neurologist",
+    ini:"AS", name:"Dr. Aakash Joshi", sp:"Neurologist",
    
     exp:"14 yrs", rat:"4.8", av:"Available Tomorrow", avSoon:true,
     img:"https://i.pinimg.com/736x/9d/c7/01/9dc7016b0c700c0b307e00d2af763934.jpg",
@@ -353,7 +353,7 @@ const DOCS = [
     patients:"980+", satisfaction:"96%", awards:"12",
   },
   {
-    ini:"KN", name:"Dr. Kavya Nair", sp:"Pediatrician",
+    ini:"KN", name:"Dr. Rakesh Mehta", sp:"Ophthalmology",
     
     exp:"11 yrs", rat:"4.9", av:"Available Today", avSoon:false,
     img:"https://i.pinimg.com/1200x/ea/1a/73/ea1a73d3a525741093432da7d4391532.jpg",
@@ -943,7 +943,7 @@ function DoctorCard({ d }) {
   const [imgFailed, setImgFailed] = useState(!d.img);
 
   return (
-    <div className={`w-[420px] h-[560px] rounded-[22px] overflow-hidden bg-white border transition-all duration-300 cursor-pointer flex flex-col
+    <div className={`w-[420px] h-[500px] rounded-[22px] overflow-hidden bg-white border transition-all duration-300 cursor-pointer flex flex-col
       hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(47,65,86,0.13)]
       ${d.feat
         ? "-translate-y-3 shadow-[0_28px_64px_rgba(86,124,141,0.22)] border-[#567C8D]/40"
@@ -994,27 +994,27 @@ function DoctorCard({ d }) {
           <span className=" text-[12px] font-medium bg-[#EEF4F7] text-[#3E7A92] px-3 py-3 rounded-full">
             {d.exp} experience
           </span>
-          <span className="text-[12px] font-medium bg-[#FFF8EC] text-[#A86C0A] px-3 py-3 rounded-full">
+          {/* <span className="text-[12px] font-medium bg-[#FFF8EC] text-[#A86C0A] px-3 py-3 rounded-full">
             ★ {d.rat}
-          </span>
+          </span> */}
         </div>
 
         {/* availability */}
-        <div className={`flex items-center justify-center gap-2 text-[11px] font-semibold mb-4
+        {/* <div className={`flex items-center justify-center gap-2 text-[11px] font-semibold mb-4
           ${d.avSoon ? "text-amber-700" : "text-green-700"}`}>
           <span className={`w-2 h-2 rounded-full ${d.avSoon ? "bg-amber-400" : "bg-green-500"}`} />
           {d.av}
-        </div>
+        </div> */}
 
         <div className="w-full h-px bg-[#567C8D]/10 mb-4" />
         {/*
   Book Appointment
 </button> */}
-<button className="btn-white" style={{width:"80%",padding:"8px",fontSize:".83rem",borderRadius:"12px",border: "none",
+{/* <button className="btn-white" style={{width:"80%",padding:"8px",fontSize:".83rem",borderRadius:"12px",border: "none",
     background: "linear-gradient(135deg,#2F4156,#567C8D)",
     color: "#fff"}}>
               Book Appointment
-             </button>
+             </button> */}
 
         {/* stats */}
         <div className="flex w-full mt-6 pt-6 border-t border-[#567C8D]/10">
