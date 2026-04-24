@@ -562,7 +562,7 @@ const patientsToday = appointments.length; // OR unique patients if needed
               <div className="fade-up">
                 <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6">
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"/>
-                  <span className="text-white/80 text-sm font-medium">Saturday, April 19, 2026</span>
+                  <span className="text-white/80 text-sm font-medium">Friday, April 24, 2026</span>
                 </div>
                 <h1 className="font-semibold text-white leading-tight mb-0" style={{ fontFamily: "'Poppins', sans-serif", fontSize: "clamp(2.4rem,5vw,3.8rem)" }}>
                   WELCOME BACK,<br/>

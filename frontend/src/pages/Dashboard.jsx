@@ -59,58 +59,58 @@ const Icon = ({ name, size = 16, className = "", style = {} }) => {
 };
 
 // ─── DATA ──────────────────────────────────────────────────────────────────
-const SYMPTOM_MAP = {
-    "Chest Pain / Heart Issues": {
-        specialty: "Cardiologist", icon: "heart-pulse", doctors: [
-            { name: "Dr. Ananya Sharma", exp: "14 yrs", rating: 4.9, available: "Today, 3:00 PM", av: "AS" },
-            { name: "Dr. Rohan Mehta", exp: "10 yrs", rating: 4.7, available: "Tomorrow, 10:00 AM", av: "RM" },
-            { name: "Dr. Priya Kapoor", exp: "18 yrs", rating: 4.8, available: "Today, 5:30 PM", av: "PK" },
-        ]
-    },
-    "Skin Rash / Acne": {
-        specialty: "Dermatologist", icon: "scan-face", doctors: [
-            { name: "Dr. Sneha Iyer", exp: "9 yrs", rating: 4.6, available: "Today, 4:00 PM", av: "SI" },
-            { name: "Dr. Karan Joshi", exp: "12 yrs", rating: 4.8, available: "Tomorrow, 9:00 AM", av: "KJ" },
-        ]
-    },
-    "Fever / Cold / Flu": {
-        specialty: "General Physician", icon: "thermometer", doctors: [
-            { name: "Dr. Amit Patel", exp: "8 yrs", rating: 4.5, available: "Today, 2:00 PM", av: "AP" },
-            { name: "Dr. Riya Shah", exp: "11 yrs", rating: 4.7, available: "Today, 6:00 PM", av: "RS" },
-            { name: "Dr. Vikram Nair", exp: "15 yrs", rating: 4.9, available: "Tomorrow, 11:00 AM", av: "VN" },
-        ]
-    },
-    "Joint Pain / Arthritis": {
-        specialty: "Orthopedist", icon: "bone", doctors: [
-            { name: "Dr. Deepak Rao", exp: "16 yrs", rating: 4.8, available: "Tomorrow, 1:00 PM", av: "DR" },
-            { name: "Dr. Meena Gupta", exp: "13 yrs", rating: 4.6, available: "Today, 7:00 PM", av: "MG" },
-        ]
-    },
-    "Eye Irritation / Vision": {
-        specialty: "Ophthalmologist", icon: "eye", doctors: [
-            { name: "Dr. Suresh Kumar", exp: "20 yrs", rating: 4.9, available: "Tomorrow, 8:00 AM", av: "SK" },
-            { name: "Dr. Nalini Verma", exp: "7 yrs", rating: 4.5, available: "Today, 3:30 PM", av: "NV" },
-        ]
-    },
-    "Anxiety / Depression": {
-        specialty: "Psychiatrist", icon: "brain", doctors: [
-            { name: "Dr. Kavya Menon", exp: "10 yrs", rating: 4.9, available: "Today, 5:00 PM", av: "KM" },
-            { name: "Dr. Arjun Singh", exp: "14 yrs", rating: 4.7, available: "Tomorrow, 2:00 PM", av: "AR" },
-        ]
-    },
-    "Toothache / Gum Issues": {
-        specialty: "Dentist", icon: "smile", doctors: [
-            { name: "Dr. Pooja Bhat", exp: "8 yrs", rating: 4.6, available: "Today, 1:00 PM", av: "PB" },
-            { name: "Dr. Nikhil Das", exp: "12 yrs", rating: 4.8, available: "Tomorrow, 4:00 PM", av: "ND" },
-        ]
-    },
-};
+// const SYMPTOM_MAP = {
+//     "Chest Pain / Heart Issues": {
+//         specialty: "Cardiologist", icon: "heart-pulse", doctors: [
+//             { name: "Dr. Ananya Sharma", exp: "14 yrs", rating: 4.9, available: "Today, 3:00 PM", av: "AS" },
+//             { name: "Dr. Rohan Mehta", exp: "10 yrs", rating: 4.7, available: "Tomorrow, 10:00 AM", av: "RM" },
+//             { name: "Dr. Priya Kapoor", exp: "18 yrs", rating: 4.8, available: "Today, 5:30 PM", av: "PK" },
+//         ]
+//     },
+//     "Skin Rash / Acne": {
+//         specialty: "Dermatologist", icon: "scan-face", doctors: [
+//             { name: "Dr. Sneha Iyer", exp: "9 yrs", rating: 4.6, available: "Today, 4:00 PM", av: "SI" },
+//             { name: "Dr. Karan Joshi", exp: "12 yrs", rating: 4.8, available: "Tomorrow, 9:00 AM", av: "KJ" },
+//         ]
+//     },
+//     "Fever / Cold / Flu": {
+//         specialty: "General Physician", icon: "thermometer", doctors: [
+//             { name: "Dr. Amit Patel", exp: "8 yrs", rating: 4.5, available: "Today, 2:00 PM", av: "AP" },
+//             { name: "Dr. Riya Shah", exp: "11 yrs", rating: 4.7, available: "Today, 6:00 PM", av: "RS" },
+//             { name: "Dr. Vikram Nair", exp: "15 yrs", rating: 4.9, available: "Tomorrow, 11:00 AM", av: "VN" },
+//         ]
+//     },
+//     "Joint Pain / Arthritis": {
+//         specialty: "Orthopedist", icon: "bone", doctors: [
+//             { name: "Dr. Deepak Rao", exp: "16 yrs", rating: 4.8, available: "Tomorrow, 1:00 PM", av: "DR" },
+//             { name: "Dr. Meena Gupta", exp: "13 yrs", rating: 4.6, available: "Today, 7:00 PM", av: "MG" },
+//         ]
+//     },
+//     "Eye Irritation / Vision": {
+//         specialty: "Ophthalmologist", icon: "eye", doctors: [
+//             { name: "Dr. Suresh Kumar", exp: "20 yrs", rating: 4.9, available: "Tomorrow, 8:00 AM", av: "SK" },
+//             { name: "Dr. Nalini Verma", exp: "7 yrs", rating: 4.5, available: "Today, 3:30 PM", av: "NV" },
+//         ]
+//     },
+//     "Anxiety / Depression": {
+//         specialty: "Psychiatrist", icon: "brain", doctors: [
+//             { name: "Dr. Kavya Menon", exp: "10 yrs", rating: 4.9, available: "Today, 5:00 PM", av: "KM" },
+//             { name: "Dr. Arjun Singh", exp: "14 yrs", rating: 4.7, available: "Tomorrow, 2:00 PM", av: "AR" },
+//         ]
+//     },
+//     "Toothache / Gum Issues": {
+//         specialty: "Dentist", icon: "smile", doctors: [
+//             { name: "Dr. Pooja Bhat", exp: "8 yrs", rating: 4.6, available: "Today, 1:00 PM", av: "PB" },
+//             { name: "Dr. Nikhil Das", exp: "12 yrs", rating: 4.8, available: "Tomorrow, 4:00 PM", av: "ND" },
+//         ]
+//     },
+// };
 
-const APPOINTMENTS = [
-    { doctor: "Dr. Ananya Sharma", specialty: "Cardiologist", date: "Apr 20", time: "3:00 PM", icon: "heart-pulse" },
-    { doctor: "Dr. Sneha Iyer", specialty: "Dermatologist", date: "Apr 23", time: "4:00 PM", icon: "scan-face" },
-    { doctor: "Dr. Vikram Nair", specialty: "Gen. Physician", date: "Apr 27", time: "11:00 AM", icon: "stethoscope" },
-];
+// const APPOINTMENTS = [
+//     { doctor: "Dr. Ananya Sharma", specialty: "Cardiologist", date: "Apr 20", time: "3:00 PM", icon: "heart-pulse" },
+//     { doctor: "Dr. Sneha Iyer", specialty: "Dermatologist", date: "Apr 23", time: "4:00 PM", icon: "scan-face" },
+//     { doctor: "Dr. Vikram Nair", specialty: "Gen. Physician", date: "Apr 27", time: "11:00 AM", icon: "stethoscope" },
+// ];
 
 const TIPS = [
     { tip: "Drink 8 glasses of water daily", icon: "droplets" },
@@ -130,19 +130,19 @@ const TIPS = [
 //   { tip: "Limit screen time before bed",       icon: "monitor-off" },
 // ];
 
-const GOALS = [
-    { label: "Hydration", value: 65, note: "1.6 / 2.5 L", icon: "droplets", color: "#1D5FA8" },
-    { label: "Sleep", value: 80, note: "6.4 / 8 hrs", icon: "moon", color: "#14447C" },
-    { label: "Activity", value: 48, note: "2,880 / 6k steps", icon: "footprints", color: "#1B6B8A" },
-    { label: "Nutrition", value: 70, note: "1,540 / 2,200 cal", icon: "salad", color: "#0F7B6C" },
-];
+// const GOALS = [
+//     { label: "Hydration", value: 65, note: "1.6 / 2.5 L", icon: "droplets", color: "#1D5FA8" },
+//     { label: "Sleep", value: 80, note: "6.4 / 8 hrs", icon: "moon", color: "#14447C" },
+//     { label: "Activity", value: 48, note: "2,880 / 6k steps", icon: "footprints", color: "#1B6B8A" },
+//     { label: "Nutrition", value: 70, note: "1,540 / 2,200 cal", icon: "salad", color: "#0F7B6C" },
+// ];
 
-const WELLNESS_STATS = [
-    { label: "Active Days", value: "18", sub: "this month", icon: "dumbbell", color: "#1D5FA8" },
-    { label: "Avg. Sleep", value: "7.2h", sub: "per night", icon: "moon", color: "#0F7B6C" },
-    //   { label: "Hydration Avg.", value: "1.8L", sub: "per day",    icon: "droplets",  color: "#14447C" },
-    //   { label: "Meals Logged",   value: "52",   sub: "this month", icon: "utensils",  color: "#3B6D11" },
-];
+// const WELLNESS_STATS = [
+//     { label: "Active Days", value: "18", sub: "this month", icon: "dumbbell", color: "#1D5FA8" },
+//     { label: "Avg. Sleep", value: "7.2h", sub: "per night", icon: "moon", color: "#0F7B6C" },
+//     //   { label: "Hydration Avg.", value: "1.8L", sub: "per day",    icon: "droplets",  color: "#14447C" },
+//     //   { label: "Meals Logged",   value: "52",   sub: "this month", icon: "utensils",  color: "#3B6D11" },
+// ];
 
 const EMERGENCIES = [
     { name: "Ambulance", number: "108", icon: "ambulance", from: "#C0392B", to: "#922B21" },
@@ -161,123 +161,123 @@ const C = {
     bg: "#F5F1EC",
 };
 // ─── ANIMATED COUNTER ──────────────────────────────────────────────────────
-function useCounter(target, suffix = "", delay = 400) {
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-        const t = setTimeout(() => {
-            let v = 0;
-            const step = Math.max(1, Math.ceil(target / 55));
-            const timer = setInterval(() => {
-                v += step;
-                if (v >= target) { setCount(target); clearInterval(timer); }
-                else setCount(v);
-            }, 18);
-        }, delay);
-        return () => clearTimeout(t);
-    }, [target, delay]);
-    return count + suffix;
-}
+// function useCounter(target, suffix = "", delay = 400) {
+//     const [count, setCount] = useState(0);
+//     useEffect(() => {
+//         const t = setTimeout(() => {
+//             let v = 0;
+//             const step = Math.max(1, Math.ceil(target / 55));
+//             const timer = setInterval(() => {
+//                 v += step;
+//                 if (v >= target) { setCount(target); clearInterval(timer); }
+//                 else setCount(v);
+//             }, 18);
+//         }, delay);
+//         return () => clearTimeout(t);
+//     }, [target, delay]);
+//     return count + suffix;
+// }
 
 // ─── PROGRESS BAR ──────────────────────────────────────────────────────────
-function ProgressBar({ value, color, delay = 0 }) {
-    const [w, setW] = useState(0);
-    useEffect(() => {
-        const t = setTimeout(() => setW(value), 700 + delay);
-        return () => clearTimeout(t);
-    }, [value, delay]);
-    return (
-        <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: "#EDE8E2" }}>
-            <div className="h-full rounded-full transition-all duration-1000 ease-out"
-                style={{ width: `${w}%`, background: color, transitionDelay: `${delay}ms` }} />
-        </div>
-    );
-}
+// function ProgressBar({ value, color, delay = 0 }) {
+//     const [w, setW] = useState(0);
+//     useEffect(() => {
+//         const t = setTimeout(() => setW(value), 700 + delay);
+//         return () => clearTimeout(t);
+//     }, [value, delay]);
+//     return (
+//         <div className="w-full h-2 rounded-full overflow-hidden" style={{ background: "#EDE8E2" }}>
+//             <div className="h-full rounded-full transition-all duration-1000 ease-out"
+//                 style={{ width: `${w}%`, background: color, transitionDelay: `${delay}ms` }} />
+//         </div>
+//     );
+// }
 
 // ─── DONUT CHART ───────────────────────────────────────────────────────────
-function DonutChart({ value = 87 }) {
-    const [animated, setAnimated] = useState(false);
-    useEffect(() => { const t = setTimeout(() => setAnimated(true), 600); return () => clearTimeout(t); }, []);
-    const r = 50, circ = 2 * Math.PI * r, dash = (value / 100) * circ;
-    return (
-        <svg width="130" height="130" viewBox="0 0 130 130">
-            <circle cx="65" cy="65" r={r} fill="none" stroke="#EDE8E2" strokeWidth="12" />
-            <circle cx="65" cy="65" r={r} fill="none" stroke="#1D5FA8" strokeWidth="12" strokeLinecap="round"
-                strokeDasharray={`${animated ? dash : 0} ${circ}`} transform="rotate(-90 65 65)"
-                style={{ transition: "stroke-dasharray 1.5s cubic-bezier(.4,0,.2,1)" }} />
-            <text x="65" y="61" textAnchor="middle" fill="#14447C" fontSize="22" fontWeight="700" fontFamily="Playfair Display, serif">{value}</text>
-            <text x="65" y="77" textAnchor="middle" fill="#6B7F90" fontSize="10" fontFamily="Inter, sans-serif">/ 100</text>
-            <text x="65" y="92" textAnchor="middle" fill="#0F7B6C" fontSize="9" fontFamily="Inter, sans-serif">Health Score</text>
-        </svg>
-    );
-}
+// function DonutChart({ value = 87 }) {
+//     const [animated, setAnimated] = useState(false);
+//     useEffect(() => { const t = setTimeout(() => setAnimated(true), 600); return () => clearTimeout(t); }, []);
+//     const r = 50, circ = 2 * Math.PI * r, dash = (value / 100) * circ;
+//     return (
+//         <svg width="130" height="130" viewBox="0 0 130 130">
+//             <circle cx="65" cy="65" r={r} fill="none" stroke="#EDE8E2" strokeWidth="12" />
+//             <circle cx="65" cy="65" r={r} fill="none" stroke="#1D5FA8" strokeWidth="12" strokeLinecap="round"
+//                 strokeDasharray={`${animated ? dash : 0} ${circ}`} transform="rotate(-90 65 65)"
+//                 style={{ transition: "stroke-dasharray 1.5s cubic-bezier(.4,0,.2,1)" }} />
+//             <text x="65" y="61" textAnchor="middle" fill="#14447C" fontSize="22" fontWeight="700" fontFamily="Playfair Display, serif">{value}</text>
+//             <text x="65" y="77" textAnchor="middle" fill="#6B7F90" fontSize="10" fontFamily="Inter, sans-serif">/ 100</text>
+//             <text x="65" y="92" textAnchor="middle" fill="#0F7B6C" fontSize="9" fontFamily="Inter, sans-serif">Health Score</text>
+//         </svg>
+//     );
+// }
 
 // ─── MINI BAR CHART ────────────────────────────────────────────────────────
-function MiniBarChart() {
-    const [animated, setAnimated] = useState(false);
-    useEffect(() => { const t = setTimeout(() => setAnimated(true), 500); return () => clearTimeout(t); }, []);
-    const max = Math.max(...BAR_VALS);
-    return (
-        <div className="flex items-end gap-2 h-24 w-full">
-            {BAR_VALS.map((v, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-1 h-24 justify-end">
-                    <div className="w-full rounded-t-md transition-all duration-700 ease-out"
-                        style={{
-                            height: animated ? `${(v / max) * 72}px` : "0px",
-                            background: v === max ? "linear-gradient(180deg,#1D5FA8,#14447C)" : "rgba(29,95,168,.2)",
-                            transitionDelay: `${i * 70}ms`,
-                        }} />
-                    <span className="text-xs" style={{ fontSize: "9px", color: "#6B7F90" }}>{DAYS[i]}</span>
-                </div>
-            ))}
-        </div>
-    );
-}
+// function MiniBarChart() {
+//     const [animated, setAnimated] = useState(false);
+//     useEffect(() => { const t = setTimeout(() => setAnimated(true), 500); return () => clearTimeout(t); }, []);
+//     const max = Math.max(...BAR_VALS);
+//     return (
+//         <div className="flex items-end gap-2 h-24 w-full">
+//             {BAR_VALS.map((v, i) => (
+//                 <div key={i} className="flex-1 flex flex-col items-center gap-1 h-24 justify-end">
+//                     <div className="w-full rounded-t-md transition-all duration-700 ease-out"
+//                         style={{
+//                             height: animated ? `${(v / max) * 72}px` : "0px",
+//                             background: v === max ? "linear-gradient(180deg,#1D5FA8,#14447C)" : "rgba(29,95,168,.2)",
+//                             transitionDelay: `${i * 70}ms`,
+//                         }} />
+//                     <span className="text-xs" style={{ fontSize: "9px", color: "#6B7F90" }}>{DAYS[i]}</span>
+//                 </div>
+//             ))}
+//         </div>
+//     );
+// }
 
 // ─── LINE CHART (BP) ───────────────────────────────────────────────────────
-function BPLineChart() {
-    const bpData = [52, 56, 40, 48, 32, 44, 44, 36]; // y positions
-    const W = 320, H = 80;
-    const pts = bpData.map((y, i) => `${i * (W / (bpData.length - 1))},${y}`).join(" ");
-    const polyFill = `0,${H} ${pts} ${W},${H}`;
-    return (
-        <svg width="100%" viewBox={`0 0 ${W} ${H + 24}`} style={{ overflow: "visible" }}>
-            <defs>
-                <linearGradient id="bpGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#1D5FA8" stopOpacity=".18" />
-                    <stop offset="100%" stopColor="#1D5FA8" stopOpacity="0" />
-                </linearGradient>
-            </defs>
-            <polygon points={polyFill} fill="url(#bpGrad)" />
-            <polyline points={pts} fill="none" stroke="#1D5FA8" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
-            {bpData.map((y, i) => (
-                <g key={i}>
-                    <circle cx={i * (W / (bpData.length - 1))} cy={y} r="4" fill="white" stroke="#1D5FA8" strokeWidth="2" />
-                    <text x={i * (W / (bpData.length - 1))} y={H + 18} textAnchor="middle" fontSize="9" fill="#6B7F90" fontFamily="Inter">
-                        {DAYS[i % 7]}
-                    </text>
-                </g>
-            ))}
-        </svg>
-    );
-}
+// function BPLineChart() {
+//     const bpData = [52, 56, 40, 48, 32, 44, 44, 36]; // y positions
+//     const W = 320, H = 80;
+//     const pts = bpData.map((y, i) => `${i * (W / (bpData.length - 1))},${y}`).join(" ");
+//     const polyFill = `0,${H} ${pts} ${W},${H}`;
+//     return (
+//         <svg width="100%" viewBox={`0 0 ${W} ${H + 24}`} style={{ overflow: "visible" }}>
+//             <defs>
+//                 <linearGradient id="bpGrad" x1="0" y1="0" x2="0" y2="1">
+//                     <stop offset="0%" stopColor="#1D5FA8" stopOpacity=".18" />
+//                     <stop offset="100%" stopColor="#1D5FA8" stopOpacity="0" />
+//                 </linearGradient>
+//             </defs>
+//             <polygon points={polyFill} fill="url(#bpGrad)" />
+//             <polyline points={pts} fill="none" stroke="#1D5FA8" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+//             {bpData.map((y, i) => (
+//                 <g key={i}>
+//                     <circle cx={i * (W / (bpData.length - 1))} cy={y} r="4" fill="white" stroke="#1D5FA8" strokeWidth="2" />
+//                     <text x={i * (W / (bpData.length - 1))} y={H + 18} textAnchor="middle" fontSize="9" fill="#6B7F90" fontFamily="Inter">
+//                         {DAYS[i % 7]}
+//                     </text>
+//                 </g>
+//             ))}
+//         </svg>
+//     );
+// }
 
 // ─── TICKER ────────────────────────────────────────────────────────────────
-function Ticker() {
-    const doubled = [];
-    return (
-        <div className="overflow-hidden flex-1">
-            <div className="flex" style={{ animation: "marquee 32s linear infinite", width: "max-content" }}>
-                {doubled.map((t, i) => (
-                    <span key={i} className="flex items-center gap-2 pr-14 text-xs whitespace-nowrap"
-                        style={{ color: "rgba(196,218,232,.8)" }}>
-                        <Icon name={t.icon} size={13} />
-                        {t.tip}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-}
+// function Ticker() {
+//     const doubled = [];
+//     return (
+//         <div className="overflow-hidden flex-1">
+//             <div className="flex" style={{ animation: "marquee 32s linear infinite", width: "max-content" }}>
+//                 {doubled.map((t, i) => (
+//                     <span key={i} className="flex items-center gap-2 pr-14 text-xs whitespace-nowrap"
+//                         style={{ color: "rgba(196,218,232,.8)" }}>
+//                         <Icon name={t.icon} size={13} />
+//                         {t.tip}
+//                     </span>
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// }
 
 // ─── GLASS CARD ────────────────────────────────────────────────────────────
 function GlassCard({ children, className = "", style = {}, onClick }) {

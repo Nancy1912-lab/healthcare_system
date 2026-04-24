@@ -373,28 +373,28 @@ const TESTS = [
 /* ─────────────────────────────────────────────
    NAVBAR
 ───────────────────────────────────────────── */
-function Navbar() {
-  const [sc, setSc] = useState(false);
-  useEffect(() => {
-    const h = () => setSc(window.scrollY > 48);
-    window.addEventListener("scroll", h);
-    return () => window.removeEventListener("scroll", h);
-  }, []);
+// function Navbar() {
+//   const [sc, setSc] = useState(false);
+//   useEffect(() => {
+//     const h = () => setSc(window.scrollY > 48);
+//     window.addEventListener("scroll", h);
+//     return () => window.removeEventListener("scroll", h);
+//   }, []);
 
-  return (
-    <nav style={{
-      position:"fixed",top:0,left:0,right:0,zIndex:200,
-      height:64,display:"flex",alignItems:"center",justifyContent:"space-between",
-      padding:"0 5vw",
-      background: sc ? "rgba(26,92,133,0.92)" : "rgba(26,92,133,0.3)",
-      backdropFilter: "blur(20px)",
-      borderBottom: sc ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(255,255,255,0.08)",
-      transition:"background .4s,backdrop-filter .4s",
-    }}>
+//   return (
+//     <nav style={{
+//       position:"fixed",top:0,left:0,right:0,zIndex:200,
+//       height:64,display:"flex",alignItems:"center",justifyContent:"space-between",
+//       padding:"0 5vw",
+//       background: sc ? "rgba(26,92,133,0.92)" : "rgba(26,92,133,0.3)",
+//       backdropFilter: "blur(20px)",
+//       borderBottom: sc ? "1px solid rgba(255,255,255,0.12)" : "1px solid rgba(255,255,255,0.08)",
+//       transition:"background .4s,backdrop-filter .4s",
+//     }}>
       
-    </nav>
-  );
-}
+//     </nav>
+//   );
+// }
 
 /* ─────────────────────────────────────────────
    HERO
@@ -588,7 +588,7 @@ function Services() {
           <em style={{color:"var(--teal)"}}>In One Platform</em>
         </h2>
         <p style={{color:"var(--text-mid)",fontSize:".93rem",marginTop:"1rem",maxWidth:510,margin:"1rem auto 0"}}>
-          From booking to diagnosis to digital prescriptions — KD Care covers your entire healthcare journey.
+          From booking to diagnosis to digital prescriptions — Nexora HealthCare covers your entire healthcare journey.
         </p>
       </div>
 
@@ -1091,12 +1091,12 @@ function About() {
     <section id="about" style={{background:"var(--beige)",padding:"7rem 5vw"}}>
       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"5vw",alignItems:"center"}}>
         <div className="rev">
-          <span className="badge">About KD Care</span>
+          <span className="badge">About Nexora HealthCare</span>
           <h2 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:"clamp(2rem,3.5vw,2.9rem)",fontWeight:700,color:"var(--text-dark)",lineHeight:1.15,marginBottom:"1.2rem"}}>
             Multi-Specialty Care with a <em style={{color:"var(--teal)"}}>Human Touch</em>
           </h2>
           <p style={{color:"var(--text-mid)",fontSize:".9rem",lineHeight:1.82,marginBottom:"1.8rem"}}>
-            Founded in 2005, KD Care Hospital has grown into one of Gujarat&apos;s most trusted healthcare institutions, combining cutting-edge technology with compassionate, patient-first care.
+            Founded in 2005, Nexora HealthCare Hospital has grown into one of Gujarat&apos;s most trusted healthcare institutions, combining cutting-edge technology with compassionate, patient-first care.
           </p>
           {["24/7 Emergency Services","NABH Accredited Facility","Advanced Diagnostic Labs"].map(item=>(
             <div key={item} className="chk">

@@ -72,7 +72,7 @@ const styles = `
 .pp-action-btn:hover { background: var(--pp-pale); border-color: var(--pp-mid); }
 
 .pp-action-btn.primary {
-  background: #10b981;
+  background: #213d57;
   color: white;
   border: none;
   border-radius: 10px;
@@ -87,7 +87,7 @@ const styles = `
   min-height: 220px;
   background:
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url("https://i.pinimg.com/1200x/e7/04/92/e70492c4a30340d0431b7fa459343645.jpg");
+    url("https://i.pinimg.com/736x/3a/5e/7e/3a5e7eb6131592301ce27f4dfcd65798.jpg");
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
@@ -123,7 +123,8 @@ const styles = `
   backdrop-filter: blur(8px);
 }
 
-.pp-hero-text { color: #fff; }
+.pp-hero-text { color: #fff;
+ }
 
 .pp-hero-name {
   font-size: 28px;
@@ -315,13 +316,7 @@ const PatientProfile = () => {
                 <span className="pp-current">{patient.name}</span>
               </div>
               <div className="pp-topbar-actions">
-                <button className="pp-action-btn primary" onClick={() => setIsEditing(!isEditing)}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                  </svg>
-                  {isEditing ? "Save Profile" : "Edit Profile"}
-                </button>
+               
               </div>
             </div>
 
@@ -340,6 +335,13 @@ const PatientProfile = () => {
                 ) : (
                   <div className="pp-hero-text">
                     <h1 className="pp-hero-name">{patient.name}</h1>
+                     <button className="pp-action-btn primary" onClick={() => setIsEditing(!isEditing)}>
+                  <svg width="30" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                  </svg>
+                  {isEditing ? "Save Profile" : "Edit Profile"}
+                </button>
                   </div>
                 )}
               </div>
