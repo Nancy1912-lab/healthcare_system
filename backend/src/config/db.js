@@ -1,0 +1,22 @@
+import mysql from "mysql2";
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+
+  password: "Nancy1912", // XAMPP has no password
+  database: "healthcare_db",
+  port: 3306
+
+
+});
+
+db.connect((err) => {
+  if (err) {
+    console.log("❌ DB connection failed:", err);
+  } else {
+    console.log("✅ Connected to MySQL");
+  }
+});
+
+export default db;
